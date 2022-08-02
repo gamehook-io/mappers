@@ -1,6 +1,6 @@
 meta:
   schemaVersion: 1
-  id: b2b7d2d6-5cf0-4db1-9152-1efc7fe36926
+  id: b2b7d2d6-5cf0-4db1-9152-1efc7fe36927
   gameName: "Pokemon Yellow"
   gamePlatform: "GB"
 
@@ -189,14 +189,14 @@ properties:
       move3: { type: "reference", address: 0xCFEE, size: 1, reference: "moves" }
       move4: { type: "reference", address: 0xCFEF, size: 1, reference: "moves" }
     turnInfo:
-      criticalHitOHKO: { type: "int", address: 0xD05D, size: 1 }
-      nextAttackDamage: { type: "int", address: 0xD0D7, size: 1 }
-      yourSubtituteHP: { type: "int", address: 0xCCD6, size: 1 }
-      enemySubstituteHP: { type: "int", address: 0xCCD7, size: 1 }
-      yourMove: { type: "reference", address: 0xCCDB, size: 1, reference: "moves" }
-      enemyMove:  { type: "reference", address: 0xCCDC, size: 1, reference: "moves" }
       battleStart: { type: "int", address: 0xCCF5, size: 1, description: "When 0 battle is starting, when >=1 battle has begun" }
       trainerDefeated: { type: "int", address: 0xCCF6, size: 1, description: "When 1, the opponent has lost" }
+      # criticalHitOHKO: { type: "int", address: 0xD05D, size: 1 }
+      # nextAttackDamage: { type: "int", address: 0xD0D7, size: 1 }
+      # yourSubtituteHP: { type: "int", address: 0xCCD6, size: 1 }
+      # enemySubstituteHP: { type: "int", address: 0xCCD7, size: 1 }
+      # yourMove: { type: "reference", address: 0xCCDB, size: 1, reference: "moves" }
+      # enemyMove:  { type: "reference", address: 0xCCDC, size: 1, reference: "moves" }
   pokemart:
     itemCount: { type: "int", address: 0xCF7B }
     items:
