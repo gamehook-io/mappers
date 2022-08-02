@@ -1,6 +1,6 @@
 meta:
   schemaVersion: 1
-  id: 9f46da7e-5087-439d-bcc8-7fe81e54e988
+  id: 9f46da7e-5087-439d-bcc8-7fe81e54e989
   gameName: "Pokemon Crystal"
   gamePlatform: "GB"
 
@@ -242,6 +242,8 @@ properties:
     moneyMom: { type: "int", address: 0xD851, size: 3 }
     momSaving: { type: "bit", address: 0xD854, position: 0}  # Bits 1 and 2 are unused alternate modes for save half and save all. Bit 7 is whether the feature is unlocked
     coins: { type: "int", address: 0xD855, size: 2 }
+    # repelStepsLeft: { type: "int", address: 0xXXXX, size: 1 } # needs crystal memory address
+    # bikeStatus: { type: "reference", address: 0xXXXX, size: 1, reference: "bikeStatus" } # needs crystal memory address
 
   overworld:
     mapGroup: { type: "reference", address: 0xDCB5, size: 1, reference: "mapGroups" }
@@ -277,6 +279,10 @@ properties:
       slot5: { type: "reference", address: 0xD285, size: 1, reference: "pokemon" }
       slot6: { type: "reference", address: 0xD286, size: 1, reference: "pokemon" }
     yourPokemon:
+      # heldItem: { type: "reference", address: 0xXXXX, size: 1, reference: "items" } # needs crystal memory location
+      # currentHP: { type: "int", address: 0xXXXX, size: 2 } # needs crystal memory location
+      # type1: { type: "reference", address: 0xXXXX, size: 1, reference: "types" } # needs crystal memory location
+      # type2: { type: "reference", address: 0xXXXX, size: 1, reference: "types" } # needs crystal memory location
       modStageAttack: { type: "reference", address: 0xC6CC, size: 1, reference: "stageModifiers" }
       modStageDefense: { type: "reference", address: 0xC6CD, size: 1, reference: "stageModifiers" }
       modStageSpeed: { type: "reference", address: 0xC6CE, size: 1, reference: "stageModifiers" }
@@ -293,6 +299,10 @@ properties:
       move2: { type: "reference", address: 0xC62F, size: 1, reference: "moves" }
       move3: { type: "reference", address: 0xC630, size: 1, reference: "moves" }
       move4: { type: "reference", address: 0xC631, size: 1, reference: "moves" }
+      # move1pp: { type: "int", address: 0xXXXX, size: 1 } # needs crystal memory addresses
+      # move2pp: { type: "int", address: 0xXXXX, size: 1 }
+      # move3pp: { type: "int", address: 0xXXXX, size: 1 }
+      # move4pp: { type: "int", address: 0xXXXX, size: 1 }
     enemyPokemon:
       species: { type: "reference", address: 0xd206, reference: "pokemon" }
       item: { type: "reference", address: 0xd207, size: 1, reference: "items" }
@@ -326,10 +336,11 @@ properties:
     weather:
       weatherType: { type: "reference", address: 0xc70a, size: 1, reference: "weather" }
       weatherTurnsRemaining: { type: int, address: 0xc70b, size: 1 }
-    #battleStart: { type: "int", address: 0xC664, size: 1 }
     lowHealthAlarm: { type: "reference", address: 0xC6FD, size: 1, reference: "lowHealthAlarm" }
 
   options:
+    # clockDay: { type: "string", address: 0xXXXX, size: 5, reference: "defaultCharacterMap" }
+    # clockTime: { type: "string", address: 0xXXXX, size: 5, reference: "defaultCharacterMap" }
     textSpeed2: { type: "bit", address: 0xCFCC, position: 1, description: "False+False = Fast, True+False = Mid, True+True = Slow" }
     textSpeed3: { type: "bit", address: 0xCFCC, position: 2, description: "False+False = Fast, True+False = Mid, True+True = Slow" }
     sound: { type: "bit", address: 0xCFCC, position: 5, description: "Mono = False, Stereo = True" }
@@ -371,9 +382,6 @@ properties:
   screen:
     text:
       prompt: { type: "string", address: 0xC606, size: 1, reference: "textPrompt" }
-
-  saveRamStart: { type: "int", address: 0xA000, size: 1 }
-  saveRamEnd: { type: "int", address: 0xBFF0, size: 1 }
 
 glossary:
   battleModes: # wBattleMode values
