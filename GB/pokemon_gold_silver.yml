@@ -1,111 +1,162 @@
 meta:
   schemaVersion: 1
-  id: 161a9132-9f4d-4679-9cc1-11f794253cf1
-  gameName: "Pokemon Crystal"
+  id: 161a9132-9f4d-4679-9cc1-11f794253cf3
+  gameName: "Pokemon Gold & Silver"
   gamePlatform: "GB"
 
 macros:
-  pokemonInParty: #the following data is ordered sequentially by memory location
-      species: { offset: 0, type: "reference", reference: "pokemon" }
-      heldItem: { offset: 1, type: "reference", reference: "items" }
-      move1: { offset: 2, type: "reference", reference: "moves" }
-      move2: { offset: 3, type: "reference", reference: "moves" }
-      move3: { offset: 4, type: "reference", reference: "moves" }
-      move4: { offset: 5, type: "reference", reference: "moves" }
-      trainerId: { offset: 6, type: "int", size: 2 }
-      experience: { offset: 8, type: "int", size: 3 }
-      statExpHP: { offset: 11, type: "int", size: 2 }
-      statExpAtk: { offset: 13, type: "int", size: 2 }
-      statExpDef: { offset: 15, type: "int", size: 2 }
-      statExpSpd: { offset: 17, type: "int", size: 2 }
-      statExpSpc: { offset: 19, type: "int", size: 2 }
-      dvAtkDef: { offset: 21, type: "binaryCodedDecimal", size: 1 }
-      dvSpdSpc: { offset: 22, type: "binaryCodedDecimal", size: 1 }
-      move1pp: { offset: 23, type: "int", size: 1 } #modulus. 0-63 no pp up, 64-127 1 pp up, etc. Use formula: x % 64
-      move2pp: { offset: 24, type: "int", size: 1 }
-      move3pp: { offset: 25, type: "int", size: 1 }
-      move4pp: { offset: 26, type: "int", size: 1 }
-      friendship: { offset: 27, type: "int", size: 1 }
-      pokerus: { offset: 28, type: "int", size: 1 }
-      level: { offset: 31, type: "int", size: 1 }
-      statusCondition: { offset: 32, type: "reference", reference: "statusConditions" }
-      currentHP: { offset: 34, type: "int", size: 2 }
-      maxHP: { offset: 36, type: "int", size: 2 }
-      summaryAtk: { offset: 38, type: "int", size: 2 }
-      summaryDef: { offset: 40, type: "int", size: 2 }
-      summarySpcA: { offset: 44, type: "int", size: 2 }
-      summarySpcD: { offset: 46, type: "int", size: 2 }
-      summarySpd: { offset: 42, type: "int", size: 2 }
-
-  playerBag:
-    numOfItems: { offset: 0, type: "int", size: 1 }
-    slot1:
-      item: { offset: 1, type: "reference", reference: "items" }
-      quantity: { offset: 2, type: "int", size: 1 }
-    slot2:
-      item: { offset: 3, type: "reference", reference: "items" }
-      quantity: { offset: 4, type: "int", size: 1 }
-    slot3:
-      item: { offset: 5, type: "reference", reference: "items" }
-      quantity: { offset: 6, type: "int", size: 1 }
-    slot4:
-      item: { offset: 7, type: "reference", reference: "items" }
-      quantity: { offset: 8, type: "int", size: 1 }
-    slot5:
-      item: { offset: 9, type: "reference", reference: "items" }
-      quantity: { offset: 10, type: "int", size: 1 }
-    slot6:
-      item: { offset: 11, type: "reference", reference: "items" }
-      quantity: { offset: 12, type: "int", size: 1 }
-    slot7:
-      item: { offset: 13, type: "reference", reference: "items" }
-      quantity: { offset: 14, type: "int", size: 1 }
-    slot8:
-      item: { offset: 15, type: "reference", reference: "items" }
-      quantity: { offset: 16, type: "int", size: 1 }
-    slot9:
-      item: { offset: 17, type: "reference", reference: "items" }
-      quantity: { offset: 18, type: "int", size: 1 }
-    slot10:
-      item: { offset: 19, type: "reference", reference: "items" }
-      quantity: { offset: 20, type: "int", size: 1 }
-    slot11:
-      item: { offset: 21, type: "reference", reference: "items" }
-      quantity: { offset: 22, type: "int", size: 1 }
-    slot12:
-      item: { offset: 23, type: "reference", reference: "items" }
-      quantity: { offset: 24, type: "int", size: 1 }
-    slot13:
-      item: { offset: 25, type: "reference", reference: "items" }
-      quantity: { offset: 26, type: "int", size: 1 }
-    slot14:
-      item: { offset: 27, type: "reference", reference: "items" }
-      quantity: { offset: 28, type: "int", size: 1 }
-    slot15:
-      item: { offset: 29, type: "reference", reference: "items" }
-      quantity: { offset: 30, type: "int", size: 1 }
-    slot16:
-      item: { offset: 31, type: "reference", reference: "items" }
-      quantity: { offset: 32, type: "int", size: 1 }
-    slot17:
-      item: { offset: 33, type: "reference", reference: "items" }
-      quantity: { offset: 34, type: "int", size: 1 }
-    slot18:
-      item: { offset: 35, type: "reference", reference: "items" }
-      quantity: { offset: 36, type: "int", size: 1 }
-    slot19:
-      item: { offset: 37, type: "reference", reference: "items" }
-      quantity: { offset: 38, type: "int", size: 1 }
-    slot20:
-      item: { offset: 39, type: "reference", reference: "items" }
-      quantity: { offset: 40, type: "int", size: 1 }
+  pokemonInParty:
+    species: { offset: 0, type: "reference", reference: "pokemon" }
+    level: { offset: 31, type: "int", size: 1 }
+    expPoints: { offset: 8, type: "int", size: 3 }
+    friendship: { offset: 27, type: "int", size: 1 }
+    statusCondition: { offset: 32, type: "reference", reference: "statusConditions" }
+    heldItem: { offset: 1, type: "reference", reference: "items" }
+    hp: { offset: 34, type: "int", size: 2 }
+    maxHp: { offset: 36, type: "int", size: 2 }
+    Attack: { offset: 38, type: "int", size: 2 }
+    Defense: { offset: 40, type: "int", size: 2 }
+    SpecialAttack: { offset: 44, type: "int", size: 2 }
+    SpecialDefense: { offset: 46, type: "int", size: 2 }
+    Speed: { offset: 42, type: "int", size: 2 }
+    dvAttackDefense: { offset: 21, type: "int" }
+    dvSpeedSpecial: { offset: 22, type: "int" }
+    move1: { offset: 2, type: "reference", reference: "moves" }
+    move2: { offset: 3, type: "reference", reference: "moves" }
+    move3: { offset: 4, type: "reference", reference: "moves" }
+    move4: { offset: 5, type: "reference", reference: "moves" }
+    move1pp: { offset: 23, type: "int", size: 1 }
+    move2pp: { offset: 24, type: "int", size: 1 }
+    move3pp: { offset: 25, type: "int", size: 1 }
+    move4pp: { offset: 26, type: "int", size: 1 }
+    statExpHP: { offset: 11, type: "int", size: 2 }
+    statExpAttack: { offset: 13, type: "int", size: 2 }
+    statExpDefense: { offset: 15, type: "int", size: 2 }
+    statExpSpeed: { offset: 17, type: "int", size: 2 }
+    statExpSpecial: { offset: 19, type: "int", size: 2 }
+    pokerus: { offset: 28, type: "int", size: 1 }
+    trainerId: { offset: 6, type: "int", size: 2 }
+  playerItem:
+    item: { offset: 0, type: "reference", reference: "items" }
+    quantity: { offset: 1, type: "int" }
+  audioChannel:
+    musicId: { offset: 0, type: "int", size: 2 }
+    musicBank: { offset: 2, type: "int", size: 1 }
+    flags1: { offset: 3, type: "int", size: 1 }
+    flags2: { offset: 4, type: "int", size: 1 }
+    flags3: { offset: 5, type: "int", size: 1 }
+    musicAddress: { offset: 6, type: "int", size: 2 }
+    lastMusicAddress: { offset: 8, type: "int", size: 4 }
+    noteFlags: { offset: 12, type: "int", size: 1 }
+    condition: { offset: 13, type: "int", size: 1 }
+    dutyCycle: { offset: 14, type: "int", size: 1 }
+    volumeEnvelope: { offset: 15, type: "int", size: 1 }
+    frequency: { offset: 16, type: "int", size: 2 }
+    pitch: { offset: 18, type: "int", size: 1 }
+    octave: { offset: 19, type: "int", size: 1 }
+    transposition: { offset: 20, type: "int", size: 1 }
+    noteDuration: { offset: 21, type: "int", size: 1 }
+    # Field16: { offset: 22, type: "int", size: 2 }
+    loopCount: { offset: 24, type: "int", size: 1 }
+    tempo: { offset: 25, type: "int", size: 2 }
+    tracks: { offset: 27, type: "int", size: 1 }
+    dutyCyclePattern: { offset: 28, type: "int", size: 1 }
+    vibratoDelayCount: { offset: 29, type: "int", size: 1 }
+    vibratoDelay: { offset: 30, type: "int", size: 1 }
+    vibratoExtent: { offset: 31, type: "int", size: 1 }
+    vibratoRate: { offset: 32, type: "int", size: 1 }
+    pitchSlideTarget: { offset: 33, type: "int", size: 2 }
+    pitchSlideAmount: { offset: 35, type: "int", size: 1 }
+    pitchSlideAmountFraction: { offset: 36, type: "int", size: 1 }
+    # Field25: { offset: 37, type: "int", size: 1 }
+    pitchOffset: { offset: 38, type: "int", size: 2 }
+    # Field29: { offset: 40, type: "int", size: 1 }
+    # Field2a: { offset: 41, type: "int", size: 2 }
+    # Field2c: { offset: 43, type: "int", size: 1 }
+    noteLength: { offset: 44, type: "int", size: 1 }
+    # Field2e: { offset: 45, type: "int", size: 1 }
+    # Field2f: { offset: 46, type: "int", size: 1 }
+    # Field30: { offset: 47, type: "int", size: 1 }
+  roamer:
+    species: { offset: 0, type: "reference", reference: "pokemon" }
+    level: { offset: 1, type: "int", size: 1 }
+    mapGroup: { offset: 2, type: "reference", size: 1, reference: "mapGroups" }
+    mapNumber: { offset: 3, type: "int", size: 1 }
+    hp: { offset: 4, type: "int", size: 1 }
+    # dvAttackDefense: { offset: 5, type: "int" }
+    # dvSpeedSpecial: { offset: 6, type: "int" }
 
 properties:
   player:
-    name: { type: "string", address: 0xD1A3, size: 11 }
     playerID: { type: "int", address: 0xD1A1, size: 2 }
-    bag: { type: "macro", address: 0xD5B7, macro: "playerBag" }
-    tms:
+    name: { type: "string", address: 0xD1A3, size: 11 }
+    # gender: { type: "reference", address: 0xXXXX, reference: "gender" } #needs GS memory address
+    # teamCount: { type: "int", address: 0xDCD7, size: 1 } #needs GS memory address
+    team:
+      - nickname: { type: "string", address: 0xDB8C, size: 11, reference: "defaultCharacterMap" }
+        _: { type: "macro", address: 0xDA2A, macro: "pokemonInParty" }
+      - nickname: { type: "string", address: 0xDB97, size: 11, reference: "defaultCharacterMap" }
+        _: { type: "macro", address: 0xDA5A, macro: "pokemonInParty" }
+      - nickname: { type: "string", address: 0xDBA2, size: 11, reference: "defaultCharacterMap" }
+        _: { type: "macro", address: 0xDA8A, macro: "pokemonInParty" }
+      - nickname: { type: "string", address: 0xDBAD, size: 11, reference: "defaultCharacterMap" }
+        _: { type: "macro", address: 0xDABA, macro: "pokemonInParty" }
+      - nickname: { type: "string", address: 0xDBB8, size: 11, reference: "defaultCharacterMap" }
+        _: { type: "macro", address: 0xDAEA, macro: "pokemonInParty" }
+      - nickname: { type: "string", address: 0xDBC3, size: 11, reference: "defaultCharacterMap" }
+        _: { type: "macro", address: 0xDB1A, macro: "pokemonInParty" }
+    # itemCount: { type: "int", address: 0xD892 } #need GS memory addresses
+    # items: #need GS memory addresses
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    #   - { type: "macro", address: 0xXXXX, macro: "playerItem" }
+    totalKeyItems: { type: "int", address: 0xD5E1 } #correct value
+    # keyItems: #needs GS memory addresses
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    #   - { type: "reference", address: 0xXXXX, reference: "items" }
+    tms: #this should be revised
       tm01-dynamicpunch: { type: "int", address: 0xD57E, size: 1 }
       tm02-headbutt: { type: "int", address: 0xD57F, size: 1 }
       tm03-curse: { type: "int", address: 0xD580, size: 1 }
@@ -164,75 +215,84 @@ properties:
       hm05: { type: "bit", address: 0xD5B4, position: 1 }
       hm06: { type: "bit", address: 0xD5B5, position: 1 }
       hm07: { type: "bit", address: 0xD5B6, position: 1 }
-    totalKeyItems: { type: "int", address: 0xD5E1, size: 1 }
     badges:
-      johto:
-        zephyrbadge: { type: "bit", address: 0xD57C, position: 0 }
-        hivebadge: { type: "bit", address: 0xD57C, position: 1 }
-        plainbadge: { type: "bit", address: 0xD57C, position: 2 }
-        fogbadge: { type: "bit", address: 0xD57C, position: 3 }
-        stormbadge: { type: "bit", address: 0xD57C, position: 5 }
-        mineralbadge: { type: "bit", address: 0xD57C, position: 4 }
-        glacierbadge: { type: "bit", address: 0xD57C, position: 6 }
-        risingbadge: { type: "bit", address: 0xD57C, position: 7 }
-      kanto:
-        boulderbadge: { type: "bit", address: 0xD57D, position: 0 }
-        cascadebadge: { type: "bit", address: 0xD57D, position: 1 }
-        thunderbadge: { type: "bit", address: 0xD57D, position: 2 }
-        rainbowbadge: { type: "bit", address: 0xD57D, position: 3 }
-        soulbadge: { type: "bit", address: 0xD57D, position: 5 }
-        marshbadge: { type: "bit", address: 0xD57D, position: 4 }
-        volcanobadge: { type: "bit", address: 0xD57D, position: 6 }
-        earthbadge: { type: "bit", address: 0xD57D, position: 7 }   
+      zephyrBadge: { type: "bit", address: 0xD57C, position: 0 }
+      hiveBadge: { type: "bit", address: 0xD57C, position: 1 }
+      plainBadge: { type: "bit", address: 0xD57C, position: 3 }
+      fogBadge: { type: "bit", address: 0xD57C, position: 4 }
+      stormBadge: { type: "bit", address: 0xD57C, position: 2 }
+      mineralBadge: { type: "bit", address: 0xD57C, position: 5 }
+      glacierBadge: { type: "bit", address: 0xD57C, position: 6 }
+      risingBadge: { type: "bit", address: 0xD57C, position: 7 }
+      boulderBadge: { type: "bit", address: 0xD57D, position: 0 }
+      cascadeBadge: { type: "bit", address: 0xD57D, position: 1 }
+      thunderBadge: { type: "bit", address: 0xD57D, position: 2 }
+      rainbowBadge: { type: "bit", address: 0xD57D, position: 3 }
+      soulBadge: { type: "bit", address: 0xD57D, position: 4 }
+      marshBadge: { type: "bit", address: 0xD57D, position: 5 }
+      volcanoBadge: { type: "bit", address: 0xD57D, position: 6 }
+      earthBadge: { type: "bit", address: 0xD57D, position: 7 }
+    # pokegear: # needs GS memeory locations
+    #   mapCard: {type: "bit", address: 0xXXXX, position: 0 }
+    #   radioCard: {type: "bit", address: 0xXXXX, position: 1 }
+    #   phoneCard: {type: "bit", address: 0xXXXX, position: 2 }
+    #   expansionCard: {type: "bit", address: 0xXXXX, position: 3 }
+    #   obtained: {type: "bit", address: 0xXXXX, position: 7 }
     money: { type: "int", address: 0xD573, size: 3 }
     moneyMom: { type: "int", address: 0xD576, size: 3 }
+    # momSaving: { type: "bit", address: 0xXXXX, position: 0}  #NEEDS GS ADDRESS # Bits 1 and 2 are unused alternate modes for save half and save all. Bit 7 is whether the feature is unlocked
     coins: { type: "int", address: 0xD57A, size: 2 }
     repelStepsLeft: { type: "int", address: 0xD9EB, size: 1 }
     bikeStatus: { type: "reference", address: 0xD682, size: 1, reference: "bikeStatus" }
 
-  team:
-    # teamCount: { type: "int", address: 0xDCD7, size: 1 } #haven't located for GS
-    teamNicknames:
-      nicknameSlot1: { type: "string", address: 0xDB8C, size: 11, reference: "defaultCharacterMap" }
-      nicknameSlot2: { type: "string", address: 0xDB97, size: 11, reference: "defaultCharacterMap" }
-      nicknameSlot3: { type: "string", address: 0xDBA2, size: 11, reference: "defaultCharacterMap" }
-      nicknameSlot4: { type: "string", address: 0xDBAD, size: 11, reference: "defaultCharacterMap" }
-      nicknameSlot5: { type: "string", address: 0xDBB8, size: 11, reference: "defaultCharacterMap" }
-      nicknameSlot6: { type: "string", address: 0xDBC3, size: 11, reference: "defaultCharacterMap" }
-    slot1: { type: "macro", address: 0xDA2A, macro: "pokemonInParty" }
-    slot2: { type: "macro", address: 0xDA5A, macro: "pokemonInParty" }
-    slot3: { type: "macro", address: 0xDA8A, macro: "pokemonInParty" }
-    slot4: { type: "macro", address: 0xDABA, macro: "pokemonInParty" }
-    slot5: { type: "macro", address: 0xDAEA, macro: "pokemonInParty" }
-    slot6: { type: "macro", address: 0xDB1A, macro: "pokemonInParty" }
-
   overworld:
-    mapBank: { type: "reference", address: 0xDA00, size: 1, reference: "mapBank" }
+    mapGroup: { type: "reference", address: 0xDA00, size: 1, reference: "mapGroups" }
     mapNumber: { type: "int", address: 0xDA01, size: 1 }
-    encounterRate: { type: "int", address: 0xD20B, size: 1 } #this changes based on the tile you are on
+
+  # roamers: # needs GS memory address
+  #   - { type: "macro", address: 0xXXXX, macro: "roamer" }
+  #   - { type: "macro", address: 0xXXXX, macro: "roamer" }
+  #   - { type: "macro", address: 0xXXXX, macro: "roamer" }
+
+  # encounterRate: # needs GS memory address
+  #   morning: { type: "int", address: 0xXXXX, size: 1 }
+  #   day:     { type: "int", address: 0xXXXX, size: 1 }
+  #   night:   { type: "int", address: 0xXXXX, size: 1 }
+  #   water:   { type: "int", address: 0xXXXX, size: 1 }
 
   battle:
-    type: { type: "reference", address: 0xD116, size: 1, reference: "battleTypes" }
+    mode: { type: "reference", address: 0xD116, size: 1, reference: "battleModes" }
+    #type: { type: "reference", address: 0xXXXX, size: 1, reference: "battleTypes" } # needs GS memory address
+    #result: { type: "reference", address: 0xXXXX, size: 1, reference: "battleResults" } # needs GS memory address
     battleStart: { type: "int", address: 0xC664, size: 1 }
-    moneyEarned: { type: "int", address: 0xCB65, size: 2 }
-    experienceEarned: { type: "int", address: 0xCF7E, size: 2 }
+    # trainer: # needs GS memory addresses
+    #   class: { type: "reference", address: 0xXXXX, size: 1, reference: "trainerClasses" }
+    #   id: { type: "int", address: 0xXXXX, size: 1 }
+    #   name: { type: "string", address: 0xXXXX, size: 11, reference: "defaultCharacterMap" }
+    #   totalPokemon: { type: "int", address: 0xXXXX, size: 1 }
+    #   slot1: { type: "reference", address: 0xXXXX, size: 1, reference: "pokemon" }
+    #   slot2: { type: "reference", address: 0xXXXX, size: 1, reference: "pokemon" }
+    #   slot3: { type: "reference", address: 0xXXXX, size: 1, reference: "pokemon" }
+    #   slot4: { type: "reference", address: 0xXXXX, size: 1, reference: "pokemon" }
+    #   slot5: { type: "reference", address: 0xXXXX, size: 1, reference: "pokemon" }
+    #   slot6: { type: "reference", address: 0xXXXX, size: 1, reference: "pokemon" }
     yourPokemon:
       heldItem: { type: "reference", address: 0xCB0D, size: 1, reference: "items" }
       currentHP: { type: "int", address: 0xCB1C, size: 2 }
       type1: { type: "reference", address: 0xCB2A, size: 1, reference: "types" }
       type2: { type: "reference", address: 0xCB2B, size: 1, reference: "types" }
-      modStageAtk: { type: "reference", address: 0xC6CC, size: 1, reference: "stageModifiers" }
-      modStageDef: { type: "reference", address: 0xC6CD, size: 1, reference: "stageModifiers" }
-      modStageSpd: { type: "reference", address: 0xC6CE, size: 1, reference: "stageModifiers" }
-      modStageSpcA: { type: "reference", address: 0xC6CF, size: 1, reference: "stageModifiers" }
-      modStageSpcD: { type: "reference", address: 0xC6D0, size: 1, reference: "stageModifiers" }
-      modStageAcc: { type: "reference", address: 0xC6D1, size: 1, reference: "stageModifiers" }
-      modStageEva: { type: "reference", address: 0xC6D2, size: 1, reference: "stageModifiers" }
-      battleStatAtk: { type: "int", address: 0xCBC1, size: 2, description: "The Player's active Pokemon's Attack stat as calculated in battle (badge boosts and stat modifications included" }
-      battleStatDef: { type: "int", address: 0xCBC3, size: 2, description: "The Player's active Pokemon's Defense stat as calculated in battle (badge boosts and stat modifications included" }
-      battleStatSpd: { type: "int", address: 0xCBC5, size: 2, description: "The Player's active Pokemon's Speed stat as calculated in battle (badge boosts and stat modifications included" }
-      battleStatSpcA: { type: "int", address: 0xCBC7, size: 2, description: "The Player's active Pokemon's Special Attack stat as calculated in battle (badge boosts and stat modifications included" }
-      battleStatSpcD: { type: "int", address: 0xCBC9, size: 2, description: "The Player's active Pokemon's Special Defense stat as calculated in battle (badge boosts and stat modifications included"}
+      modStageAttack: { type: "reference", address: 0xC6CC, size: 1, reference: "stageModifiers" }
+      modStageDefense: { type: "reference", address: 0xC6CD, size: 1, reference: "stageModifiers" }
+      modStageSpeed: { type: "reference", address: 0xC6CE, size: 1, reference: "stageModifiers" }
+      modStageSpecialAttack: { type: "reference", address: 0xC6CF, size: 1, reference: "stageModifiers" }
+      modStageSpecialDefense: { type: "reference", address: 0xC6D0, size: 1, reference: "stageModifiers" }
+      modStageAccuracy: { type: "reference", address: 0xC6D1, size: 1, reference: "stageModifiers" }
+      modStageEvasion: { type: "reference", address: 0xC6D2, size: 1, reference: "stageModifiers" }
+      battleStatAttack: { type: "int", address: 0xCBC1, size: 2, description: "The Player's active Pokemon's Attack stat as calculated in battle (badge boosts and stat modifications included" }
+      battleStatDefense: { type: "int", address: 0xCBC3, size: 2, description: "The Player's active Pokemon's Defense stat as calculated in battle (badge boosts and stat modifications included" }
+      battleStatSpecialAttack: { type: "int", address: 0xCBC7, size: 2, description: "The Player's active Pokemon's Special Attack stat as calculated in battle (badge boosts and stat modifications included" }
+      battleStatSpecialDefense: { type: "int", address: 0xCBC9, size: 2, description: "The Player's active Pokemon's Special Defense stat as calculated in battle (badge boosts and stat modifications included"}
+      battleStatSpeed: { type: "int", address: 0xCBC5, size: 2, description: "The Player's active Pokemon's Speed stat as calculated in battle (badge boosts and stat modifications included" }
       move1: { type: "reference", address: 0xCB0E, size: 1, reference: "moves" }
       move2: { type: "reference", address: 0xCB0F, size: 1, reference: "moves" }
       move3: { type: "reference", address: 0xCB10, size: 1, reference: "moves" }
@@ -241,14 +301,6 @@ properties:
       move2pp: { type: "int", address: 0xCB15, size: 1 }
       move3pp: { type: "int", address: 0xCB16, size: 1 }
       move4pp: { type: "int", address: 0xCB17, size: 1 }
-    wildPokemon:
-      wildSpecies: { type: "reference", address: 0xD0ED, reference: "pokemon" }
-      wildLevel: { type: "int", address: 0xD0FC, size: 1 }
-      moves1: { type: "reference", address: 0xCC13, size: 1, reference: "moves" }
-      moves2: { type: "reference", address: 0xCC14, size: 1, reference: "moves" }
-      moves3: { type: "reference", address: 0xCC15, size: 1, reference: "moves" }
-      moves4: { type: "reference", address: 0xCC16, size: 1, reference: "moves" }
-    # trainerTeamCount: { type: "int", address: 0xDD55, size: 7 }
     enemyPokemon:
       heldItem: { type: "reference", address: 0xD0F0, size: 1, reference: "items" }
       level: { type: "int", address: 0xD0FC, size: 1 }
@@ -269,7 +321,12 @@ properties:
       dvSpdSpc: { type: "int", address: 0xD0F6, size: 1 }
       enemyType1: { type: "reference", address: 0xD127, size: 1, reference: "types" }
       enemyType2: { type: "reference", address: 0xD128, size: 1, reference: "types" }
-
+    # info: # needs GS memory address
+    #   currentDamage: { type: "int", address: 0xXXXX, size: 2 }
+    #   lowHealthAlarm: { type: "reference", address: 0xXXXX, size: 1, reference: "lowHealthAlarm" }
+    # weather: # needs GS memory address
+    #   weatherType: { type: "reference", address: 0xXXXX, size: 1, reference: "weather" }
+    #   weatherTurnsRemaining: { type: int, address: 0xXXXX, size: 1 }
     
   # mart: # not working currently (only slots 1-3 work)
   #   total items: { type: "int", address: 0xD140, size: 1}
@@ -280,10 +337,10 @@ properties:
   #   item5: { type: "reference", address: 0xCFD1, size: 1, reference: "items" }
 
   options:
-      # clockDay: { type: "string", address: 0xD1DC, size: 5, reference: "defaultCharacterMap" }
-      # clockTime: { type: "string", address: 0xD1EB, size: 5, reference: "defaultCharacterMap" }
-      textSpeed1: { type: "bit", address: 0xD199, position: 1, description: "False+False = Fast, True+False = Mid, True+True = Slow" }
-      textSpeed2: { type: "bit", address: 0xD199, position: 2 }
+      # clockDay: { type: "string", address: 0xXXXX, size: 5, reference: "defaultCharacterMap" }
+      # clockTime: { type: "string", address: 0xXXXX, size: 5, reference: "defaultCharacterMap" }
+      textSpeed2: { type: "bit", address: 0xD199, position: 1, description: "False+False = Fast, True+False = Mid, True+True = Slow" }
+      textSpeed3: { type: "bit", address: 0xD199, position: 2 }
       sound: { type: "bit", address: 0xD199, position: 5, description: "Mono = False, Stereo = True" }
       battleStyle: { type: "bit", address: 0xD199, position: 6, description: "Shift = False, Set = True"}
       battleAnimations: { type: "bit", address: 0xD199, position: 7, description: "On = False, Off = True" }
@@ -297,12 +354,135 @@ properties:
     seconds: { type: "int", address: 0xD1EE, size: 1 }
     frames: { type: "int", address: 0xD1EF, size: 1 }
 
+  # audio: # needs GS memory addresses
+  #   mapMusic: { type: "int", address: 0xXXXX, size: 1 }
+  #   currentSound: { type: "int", address: 0xXXXX, size: 1 }
+  #   musicID: { type: "int", address: 0xXXXX, size: 2 }
+  #   # musicID: { type: "int", address: 0xXXXX, size: 1 }
+  #   musicBank: { type: "int", address: 0xXXXX, size: 1 }
+  #   # channel1: { type: "macro", address: 0xXXXX, macro: "audioChannel" }
+  #   # channel2: { type: "macro", address: 0xXXXX, macro: "audioChannel" }
+  #   # channel3: { type: "macro", address: 0xXXXX, macro: "audioChannel" }
+  #   # channel4: { type: "macro", address: 0xXXXX, macro: "audioChannel" }
+  #   # channel5: { type: "macro", address: 0xXXXX, macro: "audioChannel" }
+  #   # channel6: { type: "macro", address: 0xXXXX, macro: "audioChannel" }
+  #   # channel7: { type: "macro", address: 0xXXXX, macro: "audioChannel" }
+  #   # channel8: { type: "macro", address: 0xXXXX, macro: "audioChannel" }
+  #   channel1MusicID: { type: "int", address: 0xXXXX, size: 2 }
+  #   channel2MusicID: { type: "int", address: 0xXXXX, size: 2 }
+  #   channel3MusicID: { type: "int", address: 0xXXXX, size: 2 }
+  #   channel4MusicID: { type: "int", address: 0xXXXX, size: 2 }
+  #   channel5MusicID: { type: "int", address: 0xXXXX, size: 2 }
+  #   channel6MusicID: { type: "int", address: 0xXXXX, size: 2 }
+  #   channel7MusicID: { type: "int", address: 0xXXXX, size: 2 }
+  #   channel8MusicID: { type: "int", address: 0xXXXX, size: 2 }
+
 glossary:
-  battleTypes:
-    0x00: "None"
-    0x01: "Wild"
-    0x02: "Trainer"
-    0xFF: "Lost Battle"
+  battleModes: # wBattleMode values
+    0x00: "NONE"
+    0x01: "WILD"
+    0x02: "TRAINER"
+  battleTypes: # wBattleType values
+    0x00: "NORMAL"
+    0x01: "CANLOSE"   # battles you can lose (first Rival, Battle Tower...)
+    0x02: "DEBUG"
+    0x03: "TUTORIAL"  # catching tutorial
+    0x04: "FISH"      # fishing
+    0x05: "ROAMING"   # vs roaming Entei, Raikou
+    0x06: "CONTEST"   # Bug Contest battles
+    0x07: "SHINY"     # vs Shiny wild mons
+    0x08: "TREE"      # Headbutt battles
+    0x09: "TRAP"      # vs traps in Rocket base (Geodude, Voltorb, Koffing)
+    0x0A: "FORCEITEM" # force mon to hold item 1 (vs Lugia, Ho-oh, Snorlax)
+    0x0B: "CELEBI"    # event Celebi
+    0x0C: "SUICUNE"   # vs Suicune
+  battleResults:
+    0x00: "WIN"
+    0x01: "LOSE"
+    0x02: "DRAW"
+    # bit 6: caught Celebi
+    0x40: "WIN"
+    0x41: "LOSE"
+    0x42: "DRAW"
+    # bit 7: box full
+    0x80: "WIN"
+    0x81: "LOSE"
+    0x82: "DRAW"
+    0xC0: "WIN"
+    0xC1: "LOSE"
+    0xC2: "DRAW"
+  lowHealthAlarm:
+    0x00: "Enabled"
+    0x01: "Disabled"
+  trainerClasses:
+    0x00: "NOBODY"
+    0x01: "FALKNER"
+    0x02: "WHITNEY"
+    0x03: "BUGSY"
+    0x04: "MORTY"
+    0x05: "PRYCE"
+    0x06: "JASMINE"
+    0x07: "CHUCK"
+    0x08: "CLAIR"
+    0x09: "RIVAL1"
+    0x0A: "POKEMON PROF."
+    0x0B: "WILL"
+    0x0C: "CAL"
+    0x0D: "BRUNO"
+    0x0E: "KAREN"
+    0x0F: "KOGA"
+    0x10: "CHAMPION"
+    0x11: "BROCK"
+    0x12: "MISTY"
+    0x13: "LT. SURGE"
+    0x14: "SCIENTIST"
+    0x15: "ERIKA"
+    0x16: "YOUNGSTER"
+    0x17: "SCHOOLBOY"
+    0x18: "BIRD KEEPER"
+    0x19: "LASS"
+    0x1A: "JANINE"
+    0x1B: "COOLTRAINER M"
+    0x1C: "COOLTRAINER F"
+    0x1D: "BEAUTY"
+    0x1E: "POKEMANIAC"
+    0x1F: "GRUNT M"
+    0x20: "GENTLEMAN"
+    0x21: "SKIER"
+    0x22: "TEACHER"
+    0x23: "SABRINA"
+    0x24: "BUG CATCHER"
+    0x25: "FISHER"
+    0x26: "SWIMMER M"
+    0x27: "SWIMMER F"
+    0x28: "SAILOR"
+    0x29: "SUPER NERD"
+    0x2A: "RIVAL2"
+    0x2B: "GUITARIST"
+    0x2C: "HIKER"
+    0x2D: "BIKER"
+    0x2E: "BLAINE"
+    0x2F: "BURGLAR"
+    0x30: "FIREBREATHER"
+    0x31: "JUGGLER"
+    0x32: "BLACKBELT"
+    0x33: "EXECUTIVE M"
+    0x34: "PSYCHIC"
+    0x35: "PICNICKER"
+    0x36: "CAMPER"
+    0x37: "EXECUTIVE F"
+    0x38: "SAGE"
+    0x39: "MEDIUM"
+    0x3A: "BOARDER"
+    0x3B: "POKEFAN M"
+    0x3C: "KIMONO GIRL"
+    0x3D: "TWINS"
+    0x3E: "POKEFAN F"
+    0x3F: "RED"
+    0x40: "BLUE"
+    0x41: "OFFICER"
+    0x42: "GRUNT F"
+    0x43: "MYSTICAL MAN"
   bikeStatus:
     0x00: "Walking"
     0x01: "Biking"
@@ -310,6 +490,11 @@ glossary:
     0x00: null
     0x01: "Male"
     0x02: "Female"
+  weather:
+    0x0: "NONE"
+    0x1: "RAIN"
+    0x2: "SUN"
+    0x3: "SANDSTORM"
   types:
     0x00:	"Normal"
     0x01:	"Fighting"
@@ -1159,7 +1344,7 @@ glossary:
     0xF9: { pokedexNumber: 249, name: "Lugia" }
     0xFA: { pokedexNumber: 250, name: "Ho-oh" }
     0xFB: { pokedexNumber: 251, name: "Celebi" }
-  mapBank:
+  mapGroups:
     0x00: null
     0x01: "Olivine City"
     0x02: "Mahogany Town"
