@@ -1,6 +1,6 @@
 meta:
   schemaVersion: 1
-  id: 53e2cddd-b5db-4a6f-939b-b7dba5f9fd64
+  id: 53e2cddd-b5db-4a6f-939b-b7dba5f9fd65
   gameName: "Pokemon Red and Blue"
   gamePlatform: "GB"
 
@@ -153,6 +153,8 @@ properties:
       modStageSpecial: { type: "reference", address: 0xCD1d, size: 1, reference: "stageModifiers" }
       modStageAccuracy: { type: "reference", address: 0xCD1e, size: 1, reference: "stageModifiers" }
       modStageEvasion: { type: "reference", address: 0xCD1f, size: 1, reference: "stageModifiers" }
+      battleStatHP: { type: "int", address: 0xD015, size: 2 }
+      battleStatMaxHP: { type: "int", address: 0xD023, size: 2 }
       battleStatAttack: { type: "int", address: 0xD025, size: 2, description: "The Player's active Pokemon's Attack stat as calculated in battle (badge boosts and stat modifications included" }
       battleStatDefense: { type: "int", address: 0xD027, size: 2, description: "The Player's active Pokemon's Defense stat as calculated in battle (badge boosts and stat modifications included" }
       battleStatSpeed: { type: "int", address: 0xD029, size: 2, description: "The Player's active Pokemon's Speed stat as calculated in battle (badge boosts and stat modifications included"}
