@@ -1,0 +1,1732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper id="ed4632b2-e220-4504-ad3c-2a79e57e30c0" name="Pokémon Trading Card Game" platform="GBC" version="1.0.7"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://schemas.pokeabyte.io/mapper https://schemas.pokeabyte.io/mapper.xsd"
+    xmlns:var="https://schemas.pokeabyte.io/attributes/var">
+    <macros>
+    </macros>
+
+    <properties>   
+        <testing>
+            <property name="wPlayerNumberOfCardsNotInDeck" type="int" address="0xc2ba" />
+            <property name="wOpponentNumberOfCardsNotInDeck" type="int" address="0xc3ba" />
+            <property name="wDuelInitialPrizes" type="int" address="0xcc08" />
+            <property name="wDuelType" type="int" address="0xcc09" />
+            <property name="sPlayerName" type="string" address="0xa010" length="12" size="2"/>
+            <property name="wStarterDeckChoice" type="int" address="0xd693"/>
+            <property name="sCardCollection" type="int" address="0xa100" /> <!-- Continues till 0xa200 -->
+            <property name="wMedalCount" type="int" address="0xd3cc" />
+            <property name="wOpponentName" type="int" address="0xcc16" length="2"/>
+
+        </testing>
+        <owned_cards>
+            <property name="ABRA" type="int" address="0xa100 + 0x8e" />
+            <property name="AERODACTYL" type="int" address="0xa100 + 0x8d" />
+            <property name="ALAKAZAM" type="int" address="0xa100 + 0x90" />
+            <property name="ARBOK" type="int" address="0xa100 + 0x13" />
+            <property name="ARCANINE_LV34" type="int" address="0xa100 + 0x37" />
+            <property name="ARCANINE_LV45" type="int" address="0xa100 + 0x38" />
+            <property name="ARTICUNO_LV35" type="int" address="0xa100 + 0x5e" />
+            <property name="ARTICUNO_LV37" type="int" address="0xa100 + 0x5f" />
+            <property name="BEEDRILL" type="int" address="0xa100 + 0x11" />
+            <property name="BELLSPROUT" type="int" address="0xa100 + 0x23" />
+            <property name="BILL" type="int" address="0xa100 + 0xc5" />
+            <property name="BLASTOISE" type="int" address="0xa100 + 0x43" />
+            <property name="BULBASAUR" type="int" address="0xa100 + 0x08" />
+            <property name="BUTTERFREE" type="int" address="0xa100 + 0x0e" />
+            <property name="CATERPIE" type="int" address="0xa100 + 0x0c" />
+            <property name="CHANSEY" type="int" address="0xa100 + 0xb8" />
+            <property name="CHARIZARD" type="int" address="0xa100 + 0x32" />
+            <property name="CHARMANDER" type="int" address="0xa100 + 0x30" />
+            <property name="CHARMELEON" type="int" address="0xa100 + 0x31" />
+            <property name="CLEFABLE" type="int" address="0xa100 + 0xac" />
+            <property name="CLEFAIRY" type="int" address="0xa100 + 0xab" />
+            <property name="CLEFAIRY_DOLL" type="int" address="0xa100 + 0xcb" />
+            <property name="CLOYSTER" type="int" address="0xa100 + 0x4e" />
+            <property name="COMPUTER_SEARCH" type="int" address="0xa100 + 0xd6" />
+            <property name="CUBONE" type="int" address="0xa100 + 0x84" />
+            <property name="DEFENDER" type="int" address="0xa100 + 0xd9" />
+            <property name="DEVOLUTION_SPRAY" type="int" address="0xa100 + 0xdc" />
+            <property name="DEWGONG" type="int" address="0xa100 + 0x4c" />
+            <property name="DIGLETT" type="int" address="0xa100 + 0x79" />
+            <property name="DITTO" type="int" address="0xa100 + 0xbb" />
+            <property name="DODRIO" type="int" address="0xa100 + 0xb6" />
+            <property name="DODUO" type="int" address="0xa100 + 0xb5" />
+            <property name="DRAGONAIR" type="int" address="0xa100 + 0xc0" />
+            <property name="DRAGONITE_LV41" type="int" address="0xa100 + 0xc1" />
+            <property name="DRAGONITE_LV45" type="int" address="0xa100 + 0xc2" />
+            <property name="DRATINI" type="int" address="0xa100 + 0xbf" />
+            <property name="DROWZEE" type="int" address="0xa100 + 0x99" />
+            <property name="DUGTRIO" type="int" address="0xa100 + 0x7a" />
+            <property name="EEVEE" type="int" address="0xa100 + 0xbc" />
+            <property name="EKANS" type="int" address="0xa100 + 0x12" />
+            <property name="ELECTABUZZ_LV20" type="int" address="0xa100 + 0x70" />
+            <property name="ELECTABUZZ_LV35" type="int" address="0xa100 + 0x71" />
+            <property name="ELECTRODE_LV35" type="int" address="0xa100 + 0x6e" />
+            <property name="ELECTRODE_LV42" type="int" address="0xa100 + 0x6f" />
+            <property name="ENERGY_REMOVAL" type="int" address="0xa100 + 0xd0" />
+            <property name="ENERGY_RETRIEVAL" type="int" address="0xa100 + 0xcd" />
+            <property name="ENERGY_SEARCH" type="int" address="0xa100 + 0xcf" />
+            <property name="EXEGGCUTE" type="int" address="0xa100 + 0x28" />
+            <property name="EXEGGUTOR" type="int" address="0xa100 + 0x29" />
+            <property name="FARFETCHD" type="int" address="0xa100 + 0xb4" />
+            <property name="FEAROW" type="int" address="0xa100 + 0xaa" />
+            <property name="FLAREON_LV22" type="int" address="0xa100 + 0x3d" />
+            <property name="FLAREON_LV28" type="int" address="0xa100 + 0x3e" />
+            <property name="FLYING_PIKACHU" type="int" address="0xa100 + 0x64" />
+            <property name="FULL_HEAL" type="int" address="0xa100 + 0xdf" />
+            <property name="GAMBLER" type="int" address="0xa100 + 0xe3" />
+            <property name="GASTLY_LV17" type="int" address="0xa100 + 0x95" />
+            <property name="GASTLY_LV8" type="int" address="0xa100 + 0x94" />
+            <property name="GENGAR" type="int" address="0xa100 + 0x98" />
+            <property name="GEODUDE" type="int" address="0xa100 + 0x80" />
+            <property name="GLOOM" type="int" address="0xa100 + 0x1d" />
+            <property name="GOLBAT" type="int" address="0xa100 + 0x1b" />
+            <property name="GOLDEEN" type="int" address="0xa100 + 0x53" />
+            <property name="GOLDUCK" type="int" address="0xa100 + 0x45" />
+            <property name="GOLEM" type="int" address="0xa100 + 0x82" />
+            <property name="GRAVELER" type="int" address="0xa100 + 0x81" />
+            <property name="GRIMER" type="int" address="0xa100 + 0x26" />
+            <property name="GROWLITHE" type="int" address="0xa100 + 0x36" />
+            <property name="GUST_OF_WIND" type="int" address="0xa100 + 0xdb" />
+            <property name="GYARADOS" type="int" address="0xa100 + 0x58" />
+            <property name="HAUNTER_LV17" type="int" address="0xa100 + 0x96" />
+            <property name="HAUNTER_LV22" type="int" address="0xa100 + 0x97" />
+            <property name="HITMONCHAN" type="int" address="0xa100 + 0x88" />
+            <property name="HITMONLEE" type="int" address="0xa100 + 0x87" />
+            <property name="HORSEA" type="int" address="0xa100 + 0x51" />
+            <property name="HYPNO" type="int" address="0xa100 + 0x9a" />
+            <property name="IMAKUNI_CARD" type="int" address="0xa100 + 0xc8" />
+            <property name="IMPOSTER_PROFESSOR_OAK" type="int" address="0xa100 + 0xc4" />
+            <property name="ITEM_FINDER" type="int" address="0xa100 + 0xda" />
+            <property name="IVYSAUR" type="int" address="0xa100 + 0x09" />
+            <property name="JIGGLYPUFF_LV12" type="int" address="0xa100 + 0xad" />
+            <property name="JIGGLYPUFF_LV13" type="int" address="0xa100 + 0xae" />
+            <property name="JIGGLYPUFF_LV14" type="int" address="0xa100 + 0xaf" />
+            <property name="JOLTEON_LV24" type="int" address="0xa100 + 0x72" />
+            <property name="JOLTEON_LV29" type="int" address="0xa100 + 0x73" />
+            <property name="JYNX" type="int" address="0xa100 + 0x9c" />
+            <property name="KABUTO" type="int" address="0xa100 + 0x8b" />
+            <property name="KABUTOPS" type="int" address="0xa100 + 0x8c" />
+            <property name="KADABRA" type="int" address="0xa100 + 0x8f" />
+            <property name="KAKUNA" type="int" address="0xa100 + 0x10" />
+            <property name="KANGASKHAN" type="int" address="0xa100 + 0xb9" />
+            <property name="KINGLER" type="int" address="0xa100 + 0x50" />
+            <property name="KOFFING" type="int" address="0xa100 + 0x2a" />
+            <property name="KRABBY" type="int" address="0xa100 + 0x4f" />
+            <property name="LAPRAS" type="int" address="0xa100 + 0x59" />
+            <property name="LASS" type="int" address="0xa100 + 0xc7" />
+            <property name="LICKITUNG" type="int" address="0xa100 + 0xb7" />
+            <property name="MACHAMP" type="int" address="0xa100 + 0x7f" />
+            <property name="MACHOKE" type="int" address="0xa100 + 0x7e" />
+            <property name="MACHOP" type="int" address="0xa100 + 0x7d" />
+            <property name="MAGIKARP" type="int" address="0xa100 + 0x57" />
+            <property name="MAGMAR_LV24" type="int" address="0xa100 + 0x3b" />
+            <property name="MAGMAR_LV31" type="int" address="0xa100 + 0x3c" />
+            <property name="MAGNEMITE_LV13" type="int" address="0xa100 + 0x69" />
+            <property name="MAGNEMITE_LV15" type="int" address="0xa100 + 0x6a" />
+            <property name="MAGNETON_LV28" type="int" address="0xa100 + 0x6b" />
+            <property name="MAGNETON_LV35" type="int" address="0xa100 + 0x6c" />
+            <property name="MAINTENANCE" type="int" address="0xa100 + 0xe1" />
+            <property name="MANKEY" type="int" address="0xa100 + 0x7b" />
+            <property name="MAROWAK_LV26" type="int" address="0xa100 + 0x85" />
+            <property name="MAROWAK_LV32" type="int" address="0xa100 + 0x86" />
+            <property name="MEOWTH_LV14" type="int" address="0xa100 + 0xb1" />
+            <property name="MEOWTH_LV15" type="int" address="0xa100 + 0xb2" />
+            <property name="METAPOD" type="int" address="0xa100 + 0x0d" />
+            <property name="MEWTWO_ALT_LV60" type="int" address="0xa100 + 0x9f" />
+            <property name="MEWTWO_LV53" type="int" address="0xa100 + 0x9d" />
+            <property name="MEWTWO_LV60" type="int" address="0xa100 + 0x9e" />
+            <property name="MEW_LV15" type="int" address="0xa100 + 0xa1" />
+            <property name="MEW_LV23" type="int" address="0xa100 + 0xa2" />
+            <property name="MEW_LV8" type="int" address="0xa100 + 0xa0" />
+            <property name="MOLTRES_LV35" type="int" address="0xa100 + 0x3f" />
+            <property name="MOLTRES_LV37" type="int" address="0xa100 + 0x40" />
+            <property name="MR_FUJI" type="int" address="0xa100 + 0xc6" />
+            <property name="MR_MIME" type="int" address="0xa100 + 0x9b" />
+            <property name="MUK" type="int" address="0xa100 + 0x27" />
+            <property name="MYSTERIOUS_FOSSIL" type="int" address="0xa100 + 0xcc" />
+            <property name="NIDOKING" type="int" address="0xa100 + 0x19" />
+            <property name="NIDOQUEEN" type="int" address="0xa100 + 0x16" />
+            <property name="NIDORANF" type="int" address="0xa100 + 0x14" />
+            <property name="NIDORANM" type="int" address="0xa100 + 0x17" />
+            <property name="NIDORINA" type="int" address="0xa100 + 0x15" />
+            <property name="NIDORINO" type="int" address="0xa100 + 0x18" />
+            <property name="NINETALES_LV32" type="int" address="0xa100 + 0x34" />
+            <property name="NINETALES_LV35" type="int" address="0xa100 + 0x35" />
+            <property name="ODDISH" type="int" address="0xa100 + 0x1c" />
+            <property name="OMANYTE" type="int" address="0xa100 + 0x5c" />
+            <property name="OMASTAR" type="int" address="0xa100 + 0x5d" />
+            <property name="ONIX" type="int" address="0xa100 + 0x83" />
+            <property name="PARAS" type="int" address="0xa100 + 0x1f" />
+            <property name="PARASECT" type="int" address="0xa100 + 0x20" />
+            <property name="PERSIAN" type="int" address="0xa100 + 0xb3" />
+            <property name="PIDGEOTTO" type="int" address="0xa100 + 0xa4" />
+            <property name="PIDGEOT_LV38" type="int" address="0xa100 + 0xa5" />
+            <property name="PIDGEOT_LV40" type="int" address="0xa100 + 0xa6" />
+            <property name="PIDGEY" type="int" address="0xa100 + 0xa3" />
+            <property name="PIKACHU_ALT_LV16" type="int" address="0xa100 + 0x63" />
+            <property name="PIKACHU_LV12" type="int" address="0xa100 + 0x60" />
+            <property name="PIKACHU_LV14" type="int" address="0xa100 + 0x61" />
+            <property name="PIKACHU_LV16" type="int" address="0xa100 + 0x62" />
+            <property name="PINSIR" type="int" address="0xa100 + 0x2f" />
+            <property name="PLUSPOWER" type="int" address="0xa100 + 0xd8" />
+            <property name="POKEDEX" type="int" address="0xa100 + 0xd7" />
+            <property name="POKEMON_BREEDER" type="int" address="0xa100 + 0xca" />
+            <property name="POKEMON_CENTER" type="int" address="0xa100 + 0xd3" />
+            <property name="POKEMON_FLUTE" type="int" address="0xa100 + 0xe2" />
+            <property name="POKEMON_TRADER" type="int" address="0xa100 + 0xc9" />
+            <property name="POKE_BALL" type="int" address="0xa100 + 0xd4" />
+            <property name="POLIWAG" type="int" address="0xa100 + 0x46" />
+            <property name="POLIWHIRL" type="int" address="0xa100 + 0x47" />
+            <property name="POLIWRATH" type="int" address="0xa100 + 0x48" />
+            <property name="PONYTA" type="int" address="0xa100 + 0x39" />
+            <property name="PORYGON" type="int" address="0xa100 + 0xbd" />
+            <property name="POTION" type="int" address="0xa100 + 0xdd" />
+            <property name="PRIMEAPE" type="int" address="0xa100 + 0x7c" />
+            <property name="PROFESSOR_OAK" type="int" address="0xa100 + 0xc3" />
+            <property name="PSYDUCK" type="int" address="0xa100 + 0x44" />
+            <property name="RAICHU_LV40" type="int" address="0xa100 + 0x67" />
+            <property name="RAICHU_LV45" type="int" address="0xa100 + 0x68" />
+            <property name="RAPIDASH" type="int" address="0xa100 + 0x3a" />
+            <property name="RATICATE" type="int" address="0xa100 + 0xa8" />
+            <property name="RATTATA" type="int" address="0xa100 + 0xa7" />
+            <property name="RECYCLE" type="int" address="0xa100 + 0xe4" />
+            <property name="REVIVE" type="int" address="0xa100 + 0xe0" />
+            <property name="RHYDON" type="int" address="0xa100 + 0x8a" />
+            <property name="RHYHORN" type="int" address="0xa100 + 0x89" />
+            <property name="SANDSHREW" type="int" address="0xa100 + 0x77" />
+            <property name="SANDSLASH" type="int" address="0xa100 + 0x78" />
+            <property name="SCOOP_UP" type="int" address="0xa100 + 0xd5" />
+            <property name="SCYTHER" type="int" address="0xa100 + 0x2e" />
+            <property name="SEADRA" type="int" address="0xa100 + 0x52" />
+            <property name="SEAKING" type="int" address="0xa100 + 0x54" />
+            <property name="SEEL" type="int" address="0xa100 + 0x4b" />
+            <property name="SHELLDER" type="int" address="0xa100 + 0x4d" />
+            <property name="SLOWBRO" type="int" address="0xa100 + 0x93" />
+            <property name="SLOWPOKE_LV18" type="int" address="0xa100 + 0x92" />
+            <property name="SLOWPOKE_LV9" type="int" address="0xa100 + 0x91" />
+            <property name="SNORLAX" type="int" address="0xa100 + 0xbe" />
+            <property name="SPEAROW" type="int" address="0xa100 + 0xa9" />
+            <property name="SQUIRTLE" type="int" address="0xa100 + 0x41" />
+            <property name="STARMIE" type="int" address="0xa100 + 0x56" />
+            <property name="STARYU" type="int" address="0xa100 + 0x55" />
+            <property name="SUPER_ENERGY_REMOVAL" type="int" address="0xa100 + 0xd1" />
+            <property name="SUPER_ENERGY_RETRIEVAL" type="int" address="0xa100 + 0xce" />
+            <property name="SUPER_POTION" type="int" address="0xa100 + 0xde" />
+            <property name="SURFING_PIKACHU_ALT_LV13" type="int" address="0xa100 + 0x66" />
+            <property name="SURFING_PIKACHU_LV13" type="int" address="0xa100 + 0x65" />
+            <property name="SWITCH" type="int" address="0xa100 + 0xd2" />
+            <property name="TANGELA_LV12" type="int" address="0xa100 + 0x2d" />
+            <property name="TANGELA_LV8" type="int" address="0xa100 + 0x2c" />
+            <property name="TAUROS" type="int" address="0xa100 + 0xba" />
+            <property name="TENTACOOL" type="int" address="0xa100 + 0x49" />
+            <property name="TENTACRUEL" type="int" address="0xa100 + 0x4a" />
+            <property name="VAPOREON_LV29" type="int" address="0xa100 + 0x5a" />
+            <property name="VAPOREON_LV42" type="int" address="0xa100 + 0x5b" />
+            <property name="VENOMOTH" type="int" address="0xa100 + 0x22" />
+            <property name="VENONAT" type="int" address="0xa100 + 0x21" />
+            <property name="VENUSAUR_LV64" type="int" address="0xa100 + 0x0a" />
+            <property name="VENUSAUR_LV67" type="int" address="0xa100 + 0x0b" />
+            <property name="VICTREEBEL" type="int" address="0xa100 + 0x25" />
+            <property name="VILEPLUME" type="int" address="0xa100 + 0x1e" />
+            <property name="VOLTORB" type="int" address="0xa100 + 0x6d" />
+            <property name="VULPIX" type="int" address="0xa100 + 0x33" />
+            <property name="WARTORTLE" type="int" address="0xa100 + 0x42" />
+            <property name="WEEDLE" type="int" address="0xa100 + 0x0f" />
+            <property name="WEEPINBELL" type="int" address="0xa100 + 0x24" />
+            <property name="WEEZING" type="int" address="0xa100 + 0x2b" />
+            <property name="WIGGLYTUFF" type="int" address="0xa100 + 0xb0" />
+            <property name="ZAPDOS_LV40" type="int" address="0xa100 + 0x74" />
+            <property name="ZAPDOS_LV64" type="int" address="0xa100 + 0x75" />
+            <property name="ZAPDOS_LV68" type="int" address="0xa100 + 0x76" />
+            <property name="ZUBAT" type="int" address="0xa100 + 0x1a" />
+            <property name="DOUBLE_COLORLESS_ENERGY" type="int" address="0xa100 + 0x07" />
+            <property name="FIGHTING_ENERGY" type="int" address="0xa100 + 0x05" />
+            <property name="FIRE_ENERGY" type="int" address="0xa100 + 0x02" />
+            <property name="GRASS_ENERGY" type="int" address="0xa100 + 0x01" />
+            <property name="LIGHTNING_ENERGY" type="int" address="0xa100 + 0x04" />
+            <property name="PSYCHIC_ENERGY" type="int" address="0xa100 + 0x06" />
+            <property name="WATER_ENERGY" type="int" address="0xa100 + 0x03" />
+        </owned_cards>
+        <player>
+            <property name="NumberOfCardsNotInDeck" type="int" address="0xc2ba" />
+            <property name="wPlayerArenaCard"              type="int" address="0xc2bb" /> <!-- 1 byte -->
+            <property name="wPlayerNumberOfCardsInHand"    type="int" address="0xc2ee" />
+            <property name="wPlayerPrizes"    type="int" address="0xc2ec" />
+            <property name="wPlayerNumberOfPokemonInPlayArea"    type="int" address="0xc2ef" />
+            <property name="wOpponentDeck" type="int" address="0xc480" />
+            <property name="arena_pokemon" type="int" />
+            <property name="arena_status"  type="int" address="0xc2f0" reference="status_conditions" />
+            <arena_status_conditions>
+                <property name="wPlayerArenaCardStatus_0" type="bool" address="0xc2f0" bits="0" />
+                <property name="wPlayerArenaCardStatus_1" type="bool" address="0xc2f0" bits="1" />
+                <property name="wPlayerArenaCardStatus_2" type="bool" address="0xc2f0" bits="2" />
+                <property name="wPlayerArenaCardStatus_3" type="bool" address="0xc2f0" bits="3" />
+                <property name="wPlayerArenaCardStatus_4" type="bool" address="0xc2f0" bits="4" />
+                <property name="wPlayerArenaCardStatus_5" type="bool" address="0xc2f0" bits="5" />
+                <property name="wPlayerArenaCardStatus_6" type="bool" address="0xc2f0" bits="6" />
+                <property name="wPlayerArenaCardStatus_7" type="bool" address="0xc2f0" bits="7" />
+            </arena_status_conditions>
+            <!-- <duel_variables>
+                <property name="wPlayerArenaCardFlags" type="int" address="0xc2c2" length="6" />
+                <property name="wPlayerArenaCardHP" type="int" address="0xc2c8" />
+                <property name="wPlayerBench1CardHP" type="int" address="0xc2c9" />
+                <property name="wPlayerBench2CardHP" type="int" address="0xc2ca" />
+                <property name="wPlayerBench3CardHP" type="int" address="0xc2cb" />
+                <property name="wPlayerBench4CardHP" type="int" address="0xc2cc" />
+                <property name="wPlayerBench5CardHP" type="int" address="0xc2cd" />
+                <property name="wPlayerArenaCardStage" type="int" address="0xc2ce" />
+                <property name="wPlayerBench1CardStage" type="int" address="0xc2cf" />
+                <property name="wPlayerBench2CardStage" type="int" address="0xc2d0" />
+                <property name="wPlayerBench3CardStage" type="int" address="0xc2d1" />
+                <property name="wPlayerBench4CardStage" type="int" address="0xc2d2" />
+                <property name="wPlayerBench5CardStage" type="int" address="0xc2d3" />
+                <property name="wPlayerArenaCardChangedType" type="int" address="0xc2d4" />
+                <property name="wPlayerBench1CardChangedType" type="int" address="0xc2d5" />
+                <property name="wPlayerBench2CardChangedType" type="int" address="0xc2d6" />
+                <property name="wPlayerBench3CardChangedType" type="int" address="0xc2d7" />
+                <property name="wPlayerBench4CardChangedType" type="int" address="0xc2d8" />
+                <property name="wPlayerBench5CardChangedType" type="int" address="0xc2d9" />
+                <property name="wPlayerArenaCardAttachedDefender" type="int" address="0xc2da" />
+                <property name="wPlayerBench1CardAttachedDefender" type="int" address="0xc2db" />
+                <property name="wPlayerBench2CardAttachedDefender" type="int" address="0xc2dc" />
+                <property name="wPlayerBench3CardAttachedDefender" type="int" address="0xc2dd" />
+                <property name="wPlayerBench4CardAttachedDefender" type="int" address="0xc2de" />
+                <property name="wPlayerBench5CardAttachedDefender" type="int" address="0xc2df" />
+                <property name="wPlayerArenaCardAttachedPluspower" type="int" address="0xc2e0" />
+                <property name="wPlayerBench1CardAttachedPluspower" type="int" address="0xc2e1" />
+                <property name="wPlayerBench2CardAttachedPluspower" type="int" address="0xc2e2" />
+                <property name="wPlayerBench3CardAttachedPluspower" type="int" address="0xc2e3" />
+                <property name="wPlayerBench4CardAttachedPluspower" type="int" address="0xc2e4" />
+                <property name="wPlayerBench5CardAttachedPluspower" type="int" address="0xc2e5" />
+                <property name="wPlayerArenaCardSubstatus1" type="int" address="0xc2e7" />
+                <property name="wPlayerArenaCardSubstatus2" type="int" address="0xc2e8" />
+                <property name="wPlayerArenaCardChangedWeakness" type="int" address="0xc2e9" />
+                <property name="wPlayerArenaCardChangedResistance" type="int" address="0xc2ea" />
+                <property name="wPlayerArenaCardSubstatus3" type="int" address="0xc2eb" />
+                <property name="wPlayerPrizes" type="int" address="0xc2ec" />
+                <property name="wPlayerNumberOfCardsInDiscardPile" type="int" address="0xc2ed" />
+                <property name="wPlayerNumberOfCardsInHand" type="int" address="0xc2ee" />
+                <property name="wPlayerNumberOfPokemonInPlayArea" type="int" address="0xc2ef" />
+                <property name="wPlayerArenaCardStatus" type="int" address="0xc2f0" />
+                <property name="wPlayerDuelistType" type="int" address="0xc2f1" />
+                <property name="wPlayerArenaCardDisabledAttackIndex" type="int" address="0xc2f2" />
+                <property name="wPlayerArenaCardLastTurnDamage" type="int" address="0xc2f3" />
+                <property name="wPlayerArenaCardLastTurnStatus" type="int" address="0xc2f5" />
+                <property name="wPlayerArenaCardLastTurnSubstatus2" type="int" address="0xc2f6" />
+                <property name="wPlayerArenaCardLastTurnChangeWeak" type="int" address="0xc2f7" />
+                <property name="wPlayerArenaCardLastTurnEffect" type="int" address="0xc2f8" />
+            </duel_variables> -->
+            <medals>
+                <property name="medal0" type="bool" address="0xd3d2" bits="7" />
+                <property name="medal1" type="bool" address="0xd3d2" bits="6" />
+                <property name="medal2" type="bool" address="0xd3d2" bits="5" />
+                <property name="medal3" type="bool" address="0xd3d2" bits="4" />
+                <property name="medal4" type="bool" address="0xd3d2" bits="3" />
+                <property name="medal5" type="bool" address="0xd3d2" bits="2" />
+                <property name="medal6" type="bool" address="0xd3d2" bits="1" />
+                <property name="medal7" type="bool" address="0xd3d2" bits="0" />
+            </medals>
+            <grandmasters>
+                <property name="EVENT_COURTNEY_STATE"            type="bool" address="0xd3d2 + 0x18" bits="6-7" />
+                <property name="EVENT_STEVE_STATE"               type="bool" address="0xd3d2 + 0x18" bits="4-5" />
+                <property name="EVENT_JACK_STATE"                type="bool" address="0xd3d2 + 0x18" bits="2-3" />
+                <property name="EVENT_ROD_STATE"                 type="bool" address="0xd3d2 + 0x18" bits="0-1" />
+                <property name="EVENT_RONALD_POKEMON_DOME_STATE" type="bool" address="0xd3d2 + 0x19" bits="6-7" />
+            </grandmasters>
+            <legendary_cards>
+                <property name="EVENT_RECEIVED_ZAPDOS"    type="bool" address="0xd3d2 + 0x19" bits="5" />
+                <property name="EVENT_RECEIVED_MOLTRES"   type="bool" address="0xd3d2 + 0x19" bits="4" />
+                <property name="EVENT_RECEIVED_ARTICUNO"  type="bool" address="0xd3d2 + 0x19" bits="3" />
+                <property name="EVENT_RECEIVED_DRAGONITE" type="bool" address="0xd3d2 + 0x19" bits="2" />
+            </legendary_cards>
+            <deck_1>
+                <property name="0"  type="int" address="0xa218 + 0"  reference="cards" length="1"/>
+                <property name="1"  type="int" address="0xa218 + 1"  reference="cards" length="1"/>
+                <property name="2"  type="int" address="0xa218 + 2"  reference="cards" length="1"/>
+                <property name="3"  type="int" address="0xa218 + 3"  reference="cards" length="1"/>
+                <property name="4"  type="int" address="0xa218 + 4"  reference="cards" length="1"/>
+                <property name="5"  type="int" address="0xa218 + 5"  reference="cards" length="1"/>
+                <property name="6"  type="int" address="0xa218 + 6"  reference="cards" length="1"/>
+                <property name="7"  type="int" address="0xa218 + 7"  reference="cards" length="1"/>
+                <property name="8"  type="int" address="0xa218 + 8"  reference="cards" length="1"/>
+                <property name="9"  type="int" address="0xa218 + 9"  reference="cards" length="1"/>
+                <property name="10" type="int" address="0xa218 + 10" reference="cards" length="1" />
+                <property name="11" type="int" address="0xa218 + 11" reference="cards" length="1" />
+                <property name="12" type="int" address="0xa218 + 12" reference="cards" length="1" />
+                <property name="13" type="int" address="0xa218 + 13" reference="cards" length="1" />
+                <property name="14" type="int" address="0xa218 + 14" reference="cards" length="1" />
+                <property name="15" type="int" address="0xa218 + 15" reference="cards" length="1" />
+                <property name="16" type="int" address="0xa218 + 16" reference="cards" length="1" />
+                <property name="17" type="int" address="0xa218 + 17" reference="cards" length="1" />
+                <property name="18" type="int" address="0xa218 + 18" reference="cards" length="1" />
+                <property name="19" type="int" address="0xa218 + 19" reference="cards" length="1" />
+                <property name="20" type="int" address="0xa218 + 20" reference="cards" length="1" />
+                <property name="21" type="int" address="0xa218 + 21" reference="cards" length="1" />
+                <property name="22" type="int" address="0xa218 + 22" reference="cards" length="1" />
+                <property name="23" type="int" address="0xa218 + 23" reference="cards" length="1" />
+                <property name="24" type="int" address="0xa218 + 24" reference="cards" length="1" />
+                <property name="25" type="int" address="0xa218 + 25" reference="cards" length="1" />
+                <property name="26" type="int" address="0xa218 + 26" reference="cards" length="1" />
+                <property name="27" type="int" address="0xa218 + 27" reference="cards" length="1" />
+                <property name="28" type="int" address="0xa218 + 28" reference="cards" length="1" />
+                <property name="29" type="int" address="0xa218 + 29" reference="cards" length="1" />
+                <property name="30" type="int" address="0xa218 + 30" reference="cards" length="1" />
+                <property name="31" type="int" address="0xa218 + 31" reference="cards" length="1" />
+                <property name="32" type="int" address="0xa218 + 32" reference="cards" length="1" />
+                <property name="33" type="int" address="0xa218 + 33" reference="cards" length="1" />
+                <property name="34" type="int" address="0xa218 + 34" reference="cards" length="1" />
+                <property name="35" type="int" address="0xa218 + 35" reference="cards" length="1" />
+                <property name="36" type="int" address="0xa218 + 36" reference="cards" length="1" />
+                <property name="37" type="int" address="0xa218 + 37" reference="cards" length="1" />
+                <property name="38" type="int" address="0xa218 + 38" reference="cards" length="1" />
+                <property name="39" type="int" address="0xa218 + 39" reference="cards" length="1" />
+                <property name="40" type="int" address="0xa218 + 40" reference="cards" length="1" />
+                <property name="41" type="int" address="0xa218 + 41" reference="cards" length="1" />
+                <property name="42" type="int" address="0xa218 + 42" reference="cards" length="1" />
+                <property name="43" type="int" address="0xa218 + 43" reference="cards" length="1" />
+                <property name="44" type="int" address="0xa218 + 44" reference="cards" length="1" />
+                <property name="45" type="int" address="0xa218 + 45" reference="cards" length="1" />
+                <property name="46" type="int" address="0xa218 + 46" reference="cards" length="1" />
+                <property name="47" type="int" address="0xa218 + 47" reference="cards" length="1" />
+                <property name="48" type="int" address="0xa218 + 48" reference="cards" length="1" />
+                <property name="49" type="int" address="0xa218 + 49" reference="cards" length="1" />
+                <property name="50" type="int" address="0xa218 + 50" reference="cards" length="1" />
+                <property name="51" type="int" address="0xa218 + 51" reference="cards" length="1" />
+                <property name="52" type="int" address="0xa218 + 52" reference="cards" length="1" />
+                <property name="53" type="int" address="0xa218 + 53" reference="cards" length="1" />
+                <property name="54" type="int" address="0xa218 + 54" reference="cards" length="1" />
+                <property name="55" type="int" address="0xa218 + 55" reference="cards" length="1" />
+                <property name="56" type="int" address="0xa218 + 56" reference="cards" length="1" />
+                <property name="57" type="int" address="0xa218 + 57" reference="cards" length="1" />
+                <property name="58" type="int" address="0xa218 + 58" reference="cards" length="1" />
+                <property name="59" type="int" address="0xa218 + 59" reference="cards" length="1" />
+            </deck_1>
+            <card_locations>
+                <property name="0"  type="int" address="0xc200 + 0"  reference="card_positions" />
+                <property name="1"  type="int" address="0xc200 + 1"  reference="card_positions" />
+                <property name="2"  type="int" address="0xc200 + 2"  reference="card_positions" />
+                <property name="3"  type="int" address="0xc200 + 3"  reference="card_positions" />
+                <property name="4"  type="int" address="0xc200 + 4"  reference="card_positions" />
+                <property name="5"  type="int" address="0xc200 + 5"  reference="card_positions" />
+                <property name="6"  type="int" address="0xc200 + 6"  reference="card_positions" />
+                <property name="7"  type="int" address="0xc200 + 7"  reference="card_positions" />
+                <property name="8"  type="int" address="0xc200 + 8"  reference="card_positions" />
+                <property name="9"  type="int" address="0xc200 + 9"  reference="card_positions" />
+                <property name="10" type="int" address="0xc200 + 10" reference="card_positions" />
+                <property name="11" type="int" address="0xc200 + 11" reference="card_positions" />
+                <property name="12" type="int" address="0xc200 + 12" reference="card_positions" />
+                <property name="13" type="int" address="0xc200 + 13" reference="card_positions" />
+                <property name="14" type="int" address="0xc200 + 14" reference="card_positions" />
+                <property name="15" type="int" address="0xc200 + 15" reference="card_positions" />
+                <property name="16" type="int" address="0xc200 + 16" reference="card_positions" />
+                <property name="17" type="int" address="0xc200 + 17" reference="card_positions" />
+                <property name="18" type="int" address="0xc200 + 18" reference="card_positions" />
+                <property name="19" type="int" address="0xc200 + 19" reference="card_positions" />
+                <property name="20" type="int" address="0xc200 + 20" reference="card_positions" />
+                <property name="21" type="int" address="0xc200 + 21" reference="card_positions" />
+                <property name="22" type="int" address="0xc200 + 22" reference="card_positions" />
+                <property name="23" type="int" address="0xc200 + 23" reference="card_positions" />
+                <property name="24" type="int" address="0xc200 + 24" reference="card_positions" />
+                <property name="25" type="int" address="0xc200 + 25" reference="card_positions" />
+                <property name="26" type="int" address="0xc200 + 26" reference="card_positions" />
+                <property name="27" type="int" address="0xc200 + 27" reference="card_positions" />
+                <property name="28" type="int" address="0xc200 + 28" reference="card_positions" />
+                <property name="29" type="int" address="0xc200 + 29" reference="card_positions" />
+                <property name="30" type="int" address="0xc200 + 30" reference="card_positions" />
+                <property name="31" type="int" address="0xc200 + 31" reference="card_positions" />
+                <property name="32" type="int" address="0xc200 + 32" reference="card_positions" />
+                <property name="33" type="int" address="0xc200 + 33" reference="card_positions" />
+                <property name="34" type="int" address="0xc200 + 34" reference="card_positions" />
+                <property name="35" type="int" address="0xc200 + 35" reference="card_positions" />
+                <property name="36" type="int" address="0xc200 + 36" reference="card_positions" />
+                <property name="37" type="int" address="0xc200 + 37" reference="card_positions" />
+                <property name="38" type="int" address="0xc200 + 38" reference="card_positions" />
+                <property name="39" type="int" address="0xc200 + 39" reference="card_positions" />
+                <property name="40" type="int" address="0xc200 + 40" reference="card_positions" />
+                <property name="41" type="int" address="0xc200 + 41" reference="card_positions" />
+                <property name="42" type="int" address="0xc200 + 42" reference="card_positions" />
+                <property name="43" type="int" address="0xc200 + 43" reference="card_positions" />
+                <property name="44" type="int" address="0xc200 + 44" reference="card_positions" />
+                <property name="45" type="int" address="0xc200 + 45" reference="card_positions" />
+                <property name="46" type="int" address="0xc200 + 46" reference="card_positions" />
+                <property name="47" type="int" address="0xc200 + 47" reference="card_positions" />
+                <property name="48" type="int" address="0xc200 + 48" reference="card_positions" />
+                <property name="49" type="int" address="0xc200 + 49" reference="card_positions" />
+                <property name="50" type="int" address="0xc200 + 50" reference="card_positions" />
+                <property name="51" type="int" address="0xc200 + 51" reference="card_positions" />
+                <property name="52" type="int" address="0xc200 + 52" reference="card_positions" />
+                <property name="53" type="int" address="0xc200 + 53" reference="card_positions" />
+                <property name="54" type="int" address="0xc200 + 54" reference="card_positions" />
+                <property name="55" type="int" address="0xc200 + 55" reference="card_positions" />
+                <property name="56" type="int" address="0xc200 + 56" reference="card_positions" />
+                <property name="57" type="int" address="0xc200 + 57" reference="card_positions" />
+                <property name="58" type="int" address="0xc200 + 58" reference="card_positions" />
+                <property name="59" type="int" address="0xc200 + 59" reference="card_positions" />
+            </card_locations>
+            <deck> <!-- 60 cards --> <!-- wPlayerDeck -->
+                <property name="0"  type="int" address="0xc400 + 0"  reference="cards" /> 
+                <property name="1"  type="int" address="0xc400 + 1"  reference="cards" />
+                <property name="2"  type="int" address="0xc400 + 2"  reference="cards" />
+                <property name="3"  type="int" address="0xc400 + 3"  reference="cards" />
+                <property name="4"  type="int" address="0xc400 + 4"  reference="cards" />
+                <property name="5"  type="int" address="0xc400 + 5"  reference="cards" />
+                <property name="6"  type="int" address="0xc400 + 6"  reference="cards" />
+                <property name="7"  type="int" address="0xc400 + 7"  reference="cards" />
+                <property name="8"  type="int" address="0xc400 + 8"  reference="cards" />
+                <property name="9"  type="int" address="0xc400 + 9"  reference="cards" />
+                <property name="10" type="int" address="0xc400 + 10" reference="cards" />
+                <property name="11" type="int" address="0xc400 + 11" reference="cards" />
+                <property name="12" type="int" address="0xc400 + 12" reference="cards" />
+                <property name="13" type="int" address="0xc400 + 13" reference="cards" />
+                <property name="14" type="int" address="0xc400 + 14" reference="cards" />
+                <property name="15" type="int" address="0xc400 + 15" reference="cards" />
+                <property name="16" type="int" address="0xc400 + 16" reference="cards" />
+                <property name="17" type="int" address="0xc400 + 17" reference="cards" />
+                <property name="18" type="int" address="0xc400 + 18" reference="cards" />
+                <property name="19" type="int" address="0xc400 + 19" reference="cards" />
+                <property name="20" type="int" address="0xc400 + 20" reference="cards" />
+                <property name="21" type="int" address="0xc400 + 21" reference="cards" />
+                <property name="22" type="int" address="0xc400 + 22" reference="cards" />
+                <property name="23" type="int" address="0xc400 + 23" reference="cards" />
+                <property name="24" type="int" address="0xc400 + 24" reference="cards" />
+                <property name="25" type="int" address="0xc400 + 25" reference="cards" />
+                <property name="26" type="int" address="0xc400 + 26" reference="cards" />
+                <property name="27" type="int" address="0xc400 + 27" reference="cards" />
+                <property name="28" type="int" address="0xc400 + 28" reference="cards" />
+                <property name="29" type="int" address="0xc400 + 29" reference="cards" />
+                <property name="30" type="int" address="0xc400 + 30" reference="cards" />
+                <property name="31" type="int" address="0xc400 + 31" reference="cards" />
+                <property name="32" type="int" address="0xc400 + 32" reference="cards" />
+                <property name="33" type="int" address="0xc400 + 33" reference="cards" />
+                <property name="34" type="int" address="0xc400 + 34" reference="cards" />
+                <property name="35" type="int" address="0xc400 + 35" reference="cards" />
+                <property name="36" type="int" address="0xc400 + 36" reference="cards" />
+                <property name="37" type="int" address="0xc400 + 37" reference="cards" />
+                <property name="38" type="int" address="0xc400 + 38" reference="cards" />
+                <property name="39" type="int" address="0xc400 + 39" reference="cards" />
+                <property name="40" type="int" address="0xc400 + 40" reference="cards" />
+                <property name="41" type="int" address="0xc400 + 41" reference="cards" />
+                <property name="42" type="int" address="0xc400 + 42" reference="cards" />
+                <property name="43" type="int" address="0xc400 + 43" reference="cards" />
+                <property name="44" type="int" address="0xc400 + 44" reference="cards" />
+                <property name="45" type="int" address="0xc400 + 45" reference="cards" />
+                <property name="46" type="int" address="0xc400 + 46" reference="cards" />
+                <property name="47" type="int" address="0xc400 + 47" reference="cards" />
+                <property name="48" type="int" address="0xc400 + 48" reference="cards" />
+                <property name="49" type="int" address="0xc400 + 49" reference="cards" />
+                <property name="50" type="int" address="0xc400 + 50" reference="cards" />
+                <property name="51" type="int" address="0xc400 + 51" reference="cards" />
+                <property name="52" type="int" address="0xc400 + 52" reference="cards" />
+                <property name="53" type="int" address="0xc400 + 53" reference="cards" />
+                <property name="54" type="int" address="0xc400 + 54" reference="cards" />
+                <property name="55" type="int" address="0xc400 + 55" reference="cards" />
+                <property name="56" type="int" address="0xc400 + 56" reference="cards" />
+                <property name="57" type="int" address="0xc400 + 57" reference="cards" />
+                <property name="58" type="int" address="0xc400 + 58" reference="cards" />
+                <property name="59" type="int" address="0xc400 + 59" reference="cards" />
+            </deck>
+            <hand> <!-- 60 cards -->
+                <property name="0"  type="int" /> 
+                <property name="1"  type="int" />
+                <property name="2"  type="int" />
+                <property name="3"  type="int" />
+                <property name="4"  type="int" />
+                <property name="5"  type="int" />
+                <property name="6"  type="int" />
+                <property name="7"  type="int" />
+                <property name="8"  type="int" />
+                <property name="9"  type="int" />
+                <property name="10" type="int" />
+                <property name="11" type="int" />
+                <property name="12" type="int" />
+                <property name="13" type="int" />
+                <property name="14" type="int" />
+                <property name="15" type="int" />
+                <property name="16" type="int" />
+                <property name="17" type="int" />
+                <property name="18" type="int" />
+                <property name="19" type="int" />
+                <property name="20" type="int" />
+                <property name="21" type="int" />
+                <property name="22" type="int" />
+                <property name="23" type="int" />
+                <property name="24" type="int" />
+                <property name="25" type="int" />
+                <property name="26" type="int" />
+                <property name="27" type="int" />
+                <property name="28" type="int" />
+                <property name="29" type="int" />
+                <property name="30" type="int" />
+                <property name="31" type="int" />
+                <property name="32" type="int" />
+                <property name="33" type="int" />
+                <property name="34" type="int" />
+                <property name="35" type="int" />
+                <property name="36" type="int" />
+                <property name="37" type="int" />
+                <property name="38" type="int" />
+                <property name="39" type="int" />
+                <property name="40" type="int" />
+                <property name="41" type="int" />
+                <property name="42" type="int" />
+                <property name="43" type="int" />
+                <property name="44" type="int" />
+                <property name="45" type="int" />
+                <property name="46" type="int" />
+                <property name="47" type="int" />
+                <property name="48" type="int" />
+                <property name="49" type="int" />
+                <property name="50" type="int" />
+                <property name="51" type="int" />
+                <property name="52" type="int" />
+                <property name="53" type="int" />
+                <property name="54" type="int" />
+                <property name="55" type="int" />
+                <property name="56" type="int" />
+                <property name="57" type="int" />
+                <property name="58" type="int" />
+                <property name="59" type="int" />
+            </hand>
+            <bench>
+                <property name="0" type="int" /> 
+                <property name="1" type="int" />
+                <property name="2" type="int" />
+                <property name="3" type="int" />
+                <property name="4" type="int" />
+                <property name="5" type="int" />
+            </bench>
+            <hp>
+                <property name="ArenaCardHP"  type="int" address="0xc2c8" />
+                <property name="Bench1CardHP" type="int" address="0xc2c9" />
+                <property name="Bench2CardHP" type="int" address="0xc2ca" />
+                <property name="Bench3CardHP" type="int" address="0xc2cb" />
+                <property name="Bench4CardHP" type="int" address="0xc2cc" />
+                <property name="Bench5CardHP" type="int" address="0xc2cd" />
+            </hp>
+            <hand_raw>
+                <property name="0"  type="int" address="0xc242 + 0"   /> 
+                <property name="1"  type="int" address="0xc242 + 1"   />
+                <property name="2"  type="int" address="0xc242 + 2"   />
+                <property name="3"  type="int" address="0xc242 + 3"   />
+                <property name="4"  type="int" address="0xc242 + 4"   />
+                <property name="5"  type="int" address="0xc242 + 5"   />
+                <property name="6"  type="int" address="0xc242 + 6"   />
+                <property name="7"  type="int" address="0xc242 + 7"   />
+                <property name="8"  type="int" address="0xc242 + 8"   />
+                <property name="9"  type="int" address="0xc242 + 9"   />
+                <property name="10" type="int" address="0xc242 + 10"  />
+                <property name="11" type="int" address="0xc242 + 11"  />
+                <property name="12" type="int" address="0xc242 + 12"  />
+                <property name="13" type="int" address="0xc242 + 13"  />
+                <property name="14" type="int" address="0xc242 + 14"  />
+                <property name="15" type="int" address="0xc242 + 15"  />
+                <property name="16" type="int" address="0xc242 + 16"  />
+                <property name="17" type="int" address="0xc242 + 17"  />
+                <property name="18" type="int" address="0xc242 + 18"  />
+                <property name="19" type="int" address="0xc242 + 19"  />
+                <property name="20" type="int" address="0xc242 + 20"  />
+                <property name="21" type="int" address="0xc242 + 21"  />
+                <property name="22" type="int" address="0xc242 + 22"  />
+                <property name="23" type="int" address="0xc242 + 23"  />
+                <property name="24" type="int" address="0xc242 + 24"  />
+                <property name="25" type="int" address="0xc242 + 25"  />
+                <property name="26" type="int" address="0xc242 + 26"  />
+                <property name="27" type="int" address="0xc242 + 27"  />
+                <property name="28" type="int" address="0xc242 + 28"  />
+                <property name="29" type="int" address="0xc242 + 29"  />
+                <property name="30" type="int" address="0xc242 + 30"  />
+                <property name="31" type="int" address="0xc242 + 31"  />
+                <property name="32" type="int" address="0xc242 + 32"  />
+                <property name="33" type="int" address="0xc242 + 33"  />
+                <property name="34" type="int" address="0xc242 + 34"  />
+                <property name="35" type="int" address="0xc242 + 35"  />
+                <property name="36" type="int" address="0xc242 + 36"  />
+                <property name="37" type="int" address="0xc242 + 37"  />
+                <property name="38" type="int" address="0xc242 + 38"  />
+                <property name="39" type="int" address="0xc242 + 39"  />
+                <property name="40" type="int" address="0xc242 + 40"  />
+                <property name="41" type="int" address="0xc242 + 41"  />
+                <property name="42" type="int" address="0xc242 + 42"  />
+                <property name="43" type="int" address="0xc242 + 43"  />
+                <property name="44" type="int" address="0xc242 + 44"  />
+                <property name="45" type="int" address="0xc242 + 45"  />
+                <property name="46" type="int" address="0xc242 + 46"  />
+                <property name="47" type="int" address="0xc242 + 47"  />
+                <property name="48" type="int" address="0xc242 + 48"  />
+                <property name="49" type="int" address="0xc242 + 49"  />
+                <property name="50" type="int" address="0xc242 + 50"  />
+                <property name="51" type="int" address="0xc242 + 51"  />
+                <property name="52" type="int" address="0xc242 + 52"  />
+                <property name="53" type="int" address="0xc242 + 53"  />
+                <property name="54" type="int" address="0xc242 + 54"  />
+                <property name="55" type="int" address="0xc242 + 55"  />
+                <property name="56" type="int" address="0xc242 + 56"  />
+                <property name="57" type="int" address="0xc242 + 57"  />
+                <property name="58" type="int" address="0xc242 + 58"  />
+                <property name="59" type="int" address="0xc242 + 59"  />
+            </hand_raw>
+            <bench_raw>
+                <property name="0" type="int" address="0xc2bc + 0" /> 
+                <property name="1" type="int" address="0xc2bc + 1" />
+                <property name="2" type="int" address="0xc2bc + 2" />
+                <property name="3" type="int" address="0xc2bc + 3" />
+                <property name="4" type="int" address="0xc2bc + 4" />
+                <property name="5" type="int" address="0xc2bc + 5" />
+            </bench_raw>
+            <prizes>
+                <!-- <property name="wPlayerPrizeCards" type="int" address="0xc23c" /> -->
+                <!-- <property name="wPlayerPrizeCards" type="int" address="0xc23c" /> -->
+                <!-- <property name="wPlayerPrizeCards" type="int" address="0xc23c" /> -->
+                <!-- <property name="wPlayerPrizeCards" type="int" address="0xc23c" /> -->
+            </prizes>
+
+        </player>
+
+        <opponent>
+            <property name="NumberOfCardsNotInDeck" type="int" address="0xc3ba" />
+            <property name="wOpponentArenaCard"         type="int" address="0xc3bb" /> <!-- 1 byte -->
+            <property name="wOpponentNumberOfCardsInHand" type="int" address="0xc3ee" />
+            <property name="wOpponentPrizes"    type="int" address="0xc3ec" />
+            <property name="wOpponentNumberOfPokemonInPlayArea"    type="int" address="0xc3ef" />
+            <property name="arena_pokemon" type="int" />
+            <property name="arena_status"  type="int" address="0xc3f0" reference="status_conditions" />
+            <arena_status_conditions>
+                <property name="wOpponentArenaCardStatus_0" type="bool" address="0xc3f0" bits="0" />
+                <property name="wOpponentArenaCardStatus_1" type="bool" address="0xc3f0" bits="1" />
+                <property name="wOpponentArenaCardStatus_2" type="bool" address="0xc3f0" bits="2" />
+                <property name="wOpponentArenaCardStatus_3" type="bool" address="0xc3f0" bits="3" />
+                <property name="wOpponentArenaCardStatus_4" type="bool" address="0xc3f0" bits="4" />
+                <property name="wOpponentArenaCardStatus_5" type="bool" address="0xc3f0" bits="5" />
+                <property name="wOpponentArenaCardStatus_6" type="bool" address="0xc3f0" bits="6" />
+                <property name="wOpponentArenaCardStatus_7" type="bool" address="0xc3f0" bits="7" />
+            </arena_status_conditions>
+            <!-- <duel_variables>
+	            <property name="wOpponentArenaCardFlags" type="int" address="0xc3c2" length="6"/>
+	            <property name="wOpponentArenaCardHP" type="int" address="0xc3c8" />
+	            <property name="wOpponentBench1CardHP" type="int" address="0xc3c9" />
+	            <property name="wOpponentBench2CardHP" type="int" address="0xc3ca" />
+	            <property name="wOpponentBench3CardHP" type="int" address="0xc3cb" />
+	            <property name="wOpponentBench4CardHP" type="int" address="0xc3cc" />
+	            <property name="wOpponentBench5CardHP" type="int" address="0xc3cd" />
+	            <property name="wOpponentArenaCardStage" type="int" address="0xc3ce" />
+	            <property name="wOpponentBench1CardStage" type="int" address="0xc3cf" />
+	            <property name="wOpponentBench2CardStage" type="int" address="0xc3d0" />
+	            <property name="wOpponentBench3CardStage" type="int" address="0xc3d1" />
+	            <property name="wOpponentBench4CardStage" type="int" address="0xc3d2" />
+	            <property name="wOpponentBench5CardStage" type="int" address="0xc3d3" />
+	            <property name="wOpponentArenaCardChangedType" type="int" address="0xc3d4" />
+	            <property name="wOpponentBench1CardChangedType" type="int" address="0xc3d5" />
+	            <property name="wOpponentBench2CardChangedType" type="int" address="0xc3d6" />
+	            <property name="wOpponentBench3CardChangedType" type="int" address="0xc3d7" />
+	            <property name="wOpponentBench4CardChangedType" type="int" address="0xc3d8" />
+	            <property name="wOpponentBench5CardChangedType" type="int" address="0xc3d9" />
+	            <property name="wOpponentArenaCardAttachedDefender" type="int" address="0xc3da" />
+	            <property name="wOpponentBench1CardAttachedDefender" type="int" address="0xc3db" />
+	            <property name="wOpponentBench2CardAttachedDefender" type="int" address="0xc3dc" />
+	            <property name="wOpponentBench3CardAttachedDefender" type="int" address="0xc3dd" />
+	            <property name="wOpponentBench4CardAttachedDefender" type="int" address="0xc3de" />
+	            <property name="wOpponentBench5CardAttachedDefender" type="int" address="0xc3df" />
+	            <property name="wOpponentArenaCardAttachedPluspower" type="int" address="0xc3e0" />
+	            <property name="wOpponentBench1CardAttachedPluspower" type="int" address="0xc3e1" />
+	            <property name="wOpponentBench2CardAttachedPluspower" type="int" address="0xc3e2" />
+	            <property name="wOpponentBench3CardAttachedPluspower" type="int" address="0xc3e3" />
+	            <property name="wOpponentBench4CardAttachedPluspower" type="int" address="0xc3e4" />
+	            <property name="wOpponentBench5CardAttachedPluspower" type="int" address="0xc3e5" />
+	            <property name="wOpponentArenaCardSubstatus1" type="int" address="0xc3e7" />
+	            <property name="wOpponentArenaCardSubstatus2" type="int" address="0xc3e8" />
+	            <property name="wOpponentArenaCardChangedWeakness" type="int" address="0xc3e9" />
+	            <property name="wOpponentArenaCardChangedResistance" type="int" address="0xc3ea" />
+	            <property name="wOpponentArenaCardSubstatus3" type="int" address="0xc3eb" />
+	            <property name="wOpponentPrizes" type="int" address="0xc3ec" />
+	            <property name="wOpponentNumberOfCardsInDiscardPile" type="int" address="0xc3ed" />
+	            <property name="wOpponentNumberOfCardsInHand" type="int" address="0xc3ee" />
+	            <property name="wOpponentNumberOfPokemonInPlayArea" type="int" address="0xc3ef" />
+	            <property name="wOpponentArenaCardStatus" type="int" address="0xc3f0" />
+	            <property name="wOpponentDuelistType" type="int" address="0xc3f1" />
+	            <property name="wOpponentArenaCardDisabledAttackIndex" type="int" address="0xc3f2" />
+	            <property name="wOpponentArenaCardLastTurnDamage" type="int" address="0xc3f3" />
+	            <property name="wOpponentArenaCardLastTurnStatus" type="int" address="0xc3f5" />
+	            <property name="wOpponentArenaCardLastTurnSubstatus2" type="int" address="0xc3f6" />
+	            <property name="wOpponentArenaCardLastTurnChangeWeak" type="int" address="0xc3f7" />
+	            <property name="wOpponentArenaCardLastTurnEffect" type="int" address="0xc3f8" />
+            </duel_variables> -->
+            <deck> <!-- 60 cards --> <!-- wOpponentDeck -->
+                <property name="0"  type="int" address="0xc480 + 0"  reference="cards" /> 
+                <property name="1"  type="int" address="0xc480 + 1"  reference="cards" />
+                <property name="2"  type="int" address="0xc480 + 2"  reference="cards" />
+                <property name="3"  type="int" address="0xc480 + 3"  reference="cards" />
+                <property name="4"  type="int" address="0xc480 + 4"  reference="cards" />
+                <property name="5"  type="int" address="0xc480 + 5"  reference="cards" />
+                <property name="6"  type="int" address="0xc480 + 6"  reference="cards" />
+                <property name="7"  type="int" address="0xc480 + 7"  reference="cards" />
+                <property name="8"  type="int" address="0xc480 + 8"  reference="cards" />
+                <property name="9"  type="int" address="0xc480 + 9"  reference="cards" />
+                <property name="10" type="int" address="0xc480 + 10" reference="cards" />
+                <property name="11" type="int" address="0xc480 + 11" reference="cards" />
+                <property name="12" type="int" address="0xc480 + 12" reference="cards" />
+                <property name="13" type="int" address="0xc480 + 13" reference="cards" />
+                <property name="14" type="int" address="0xc480 + 14" reference="cards" />
+                <property name="15" type="int" address="0xc480 + 15" reference="cards" />
+                <property name="16" type="int" address="0xc480 + 16" reference="cards" />
+                <property name="17" type="int" address="0xc480 + 17" reference="cards" />
+                <property name="18" type="int" address="0xc480 + 18" reference="cards" />
+                <property name="19" type="int" address="0xc480 + 19" reference="cards" />
+                <property name="20" type="int" address="0xc480 + 20" reference="cards" />
+                <property name="21" type="int" address="0xc480 + 21" reference="cards" />
+                <property name="22" type="int" address="0xc480 + 22" reference="cards" />
+                <property name="23" type="int" address="0xc480 + 23" reference="cards" />
+                <property name="24" type="int" address="0xc480 + 24" reference="cards" />
+                <property name="25" type="int" address="0xc480 + 25" reference="cards" />
+                <property name="26" type="int" address="0xc480 + 26" reference="cards" />
+                <property name="27" type="int" address="0xc480 + 27" reference="cards" />
+                <property name="28" type="int" address="0xc480 + 28" reference="cards" />
+                <property name="29" type="int" address="0xc480 + 29" reference="cards" />
+                <property name="30" type="int" address="0xc480 + 30" reference="cards" />
+                <property name="31" type="int" address="0xc480 + 31" reference="cards" />
+                <property name="32" type="int" address="0xc480 + 32" reference="cards" />
+                <property name="33" type="int" address="0xc480 + 33" reference="cards" />
+                <property name="34" type="int" address="0xc480 + 34" reference="cards" />
+                <property name="35" type="int" address="0xc480 + 35" reference="cards" />
+                <property name="36" type="int" address="0xc480 + 36" reference="cards" />
+                <property name="37" type="int" address="0xc480 + 37" reference="cards" />
+                <property name="38" type="int" address="0xc480 + 38" reference="cards" />
+                <property name="39" type="int" address="0xc480 + 39" reference="cards" />
+                <property name="40" type="int" address="0xc480 + 40" reference="cards" />
+                <property name="41" type="int" address="0xc480 + 41" reference="cards" />
+                <property name="42" type="int" address="0xc480 + 42" reference="cards" />
+                <property name="43" type="int" address="0xc480 + 43" reference="cards" />
+                <property name="44" type="int" address="0xc480 + 44" reference="cards" />
+                <property name="45" type="int" address="0xc480 + 45" reference="cards" />
+                <property name="46" type="int" address="0xc480 + 46" reference="cards" />
+                <property name="47" type="int" address="0xc480 + 47" reference="cards" />
+                <property name="48" type="int" address="0xc480 + 48" reference="cards" />
+                <property name="49" type="int" address="0xc480 + 49" reference="cards" />
+                <property name="50" type="int" address="0xc480 + 50" reference="cards" />
+                <property name="51" type="int" address="0xc480 + 51" reference="cards" />
+                <property name="52" type="int" address="0xc480 + 52" reference="cards" />
+                <property name="53" type="int" address="0xc480 + 53" reference="cards" />
+                <property name="54" type="int" address="0xc480 + 54" reference="cards" />
+                <property name="55" type="int" address="0xc480 + 55" reference="cards" />
+                <property name="56" type="int" address="0xc480 + 56" reference="cards" />
+                <property name="57" type="int" address="0xc480 + 57" reference="cards" />
+                <property name="58" type="int" address="0xc480 + 58" reference="cards" />
+                <property name="59" type="int" address="0xc480 + 59" reference="cards" />
+            </deck>
+            <hand> <!-- 60 cards -->
+                <property name="0"  type="int" /> 
+                <property name="1"  type="int" />
+                <property name="2"  type="int" />
+                <property name="3"  type="int" />
+                <property name="4"  type="int" />
+                <property name="5"  type="int" />
+                <property name="6"  type="int" />
+                <property name="7"  type="int" />
+                <property name="8"  type="int" />
+                <property name="9"  type="int" />
+                <property name="10" type="int" />
+                <property name="11" type="int" />
+                <property name="12" type="int" />
+                <property name="13" type="int" />
+                <property name="14" type="int" />
+                <property name="15" type="int" />
+                <property name="16" type="int" />
+                <property name="17" type="int" />
+                <property name="18" type="int" />
+                <property name="19" type="int" />
+                <property name="20" type="int" />
+                <property name="21" type="int" />
+                <property name="22" type="int" />
+                <property name="23" type="int" />
+                <property name="24" type="int" />
+                <property name="25" type="int" />
+                <property name="26" type="int" />
+                <property name="27" type="int" />
+                <property name="28" type="int" />
+                <property name="29" type="int" />
+                <property name="30" type="int" />
+                <property name="31" type="int" />
+                <property name="32" type="int" />
+                <property name="33" type="int" />
+                <property name="34" type="int" />
+                <property name="35" type="int" />
+                <property name="36" type="int" />
+                <property name="37" type="int" />
+                <property name="38" type="int" />
+                <property name="39" type="int" />
+                <property name="40" type="int" />
+                <property name="41" type="int" />
+                <property name="42" type="int" />
+                <property name="43" type="int" />
+                <property name="44" type="int" />
+                <property name="45" type="int" />
+                <property name="46" type="int" />
+                <property name="47" type="int" />
+                <property name="48" type="int" />
+                <property name="49" type="int" />
+                <property name="50" type="int" />
+                <property name="51" type="int" />
+                <property name="52" type="int" />
+                <property name="53" type="int" />
+                <property name="54" type="int" />
+                <property name="55" type="int" />
+                <property name="56" type="int" />
+                <property name="57" type="int" />
+                <property name="58" type="int" />
+                <property name="59" type="int" />
+            </hand>
+            <card_locations>
+                <property name="0"  type="int" address="0xc300 + 0"  reference="card_positions" />
+                <property name="1"  type="int" address="0xc300 + 1"  reference="card_positions" />
+                <property name="2"  type="int" address="0xc300 + 2"  reference="card_positions" />
+                <property name="3"  type="int" address="0xc300 + 3"  reference="card_positions" />
+                <property name="4"  type="int" address="0xc300 + 4"  reference="card_positions" />
+                <property name="5"  type="int" address="0xc300 + 5"  reference="card_positions" />
+                <property name="6"  type="int" address="0xc300 + 6"  reference="card_positions" />
+                <property name="7"  type="int" address="0xc300 + 7"  reference="card_positions" />
+                <property name="8"  type="int" address="0xc300 + 8"  reference="card_positions" />
+                <property name="9"  type="int" address="0xc300 + 9"  reference="card_positions" />
+                <property name="10" type="int" address="0xc300 + 10" reference="card_positions" />
+                <property name="11" type="int" address="0xc300 + 11" reference="card_positions" />
+                <property name="12" type="int" address="0xc300 + 12" reference="card_positions" />
+                <property name="13" type="int" address="0xc300 + 13" reference="card_positions" />
+                <property name="14" type="int" address="0xc300 + 14" reference="card_positions" />
+                <property name="15" type="int" address="0xc300 + 15" reference="card_positions" />
+                <property name="16" type="int" address="0xc300 + 16" reference="card_positions" />
+                <property name="17" type="int" address="0xc300 + 17" reference="card_positions" />
+                <property name="18" type="int" address="0xc300 + 18" reference="card_positions" />
+                <property name="19" type="int" address="0xc300 + 19" reference="card_positions" />
+                <property name="20" type="int" address="0xc300 + 20" reference="card_positions" />
+                <property name="21" type="int" address="0xc300 + 21" reference="card_positions" />
+                <property name="22" type="int" address="0xc300 + 22" reference="card_positions" />
+                <property name="23" type="int" address="0xc300 + 23" reference="card_positions" />
+                <property name="24" type="int" address="0xc300 + 24" reference="card_positions" />
+                <property name="25" type="int" address="0xc300 + 25" reference="card_positions" />
+                <property name="26" type="int" address="0xc300 + 26" reference="card_positions" />
+                <property name="27" type="int" address="0xc300 + 27" reference="card_positions" />
+                <property name="28" type="int" address="0xc300 + 28" reference="card_positions" />
+                <property name="29" type="int" address="0xc300 + 29" reference="card_positions" />
+                <property name="30" type="int" address="0xc300 + 30" reference="card_positions" />
+                <property name="31" type="int" address="0xc300 + 31" reference="card_positions" />
+                <property name="32" type="int" address="0xc300 + 32" reference="card_positions" />
+                <property name="33" type="int" address="0xc300 + 33" reference="card_positions" />
+                <property name="34" type="int" address="0xc300 + 34" reference="card_positions" />
+                <property name="35" type="int" address="0xc300 + 35" reference="card_positions" />
+                <property name="36" type="int" address="0xc300 + 36" reference="card_positions" />
+                <property name="37" type="int" address="0xc300 + 37" reference="card_positions" />
+                <property name="38" type="int" address="0xc300 + 38" reference="card_positions" />
+                <property name="39" type="int" address="0xc300 + 39" reference="card_positions" />
+                <property name="40" type="int" address="0xc300 + 40" reference="card_positions" />
+                <property name="41" type="int" address="0xc300 + 41" reference="card_positions" />
+                <property name="42" type="int" address="0xc300 + 42" reference="card_positions" />
+                <property name="43" type="int" address="0xc300 + 43" reference="card_positions" />
+                <property name="44" type="int" address="0xc300 + 44" reference="card_positions" />
+                <property name="45" type="int" address="0xc300 + 45" reference="card_positions" />
+                <property name="46" type="int" address="0xc300 + 46" reference="card_positions" />
+                <property name="47" type="int" address="0xc300 + 47" reference="card_positions" />
+                <property name="48" type="int" address="0xc300 + 48" reference="card_positions" />
+                <property name="49" type="int" address="0xc300 + 49" reference="card_positions" />
+                <property name="50" type="int" address="0xc300 + 50" reference="card_positions" />
+                <property name="51" type="int" address="0xc300 + 51" reference="card_positions" />
+                <property name="52" type="int" address="0xc300 + 52" reference="card_positions" />
+                <property name="53" type="int" address="0xc300 + 53" reference="card_positions" />
+                <property name="54" type="int" address="0xc300 + 54" reference="card_positions" />
+                <property name="55" type="int" address="0xc300 + 55" reference="card_positions" />
+                <property name="56" type="int" address="0xc300 + 56" reference="card_positions" />
+                <property name="57" type="int" address="0xc300 + 57" reference="card_positions" />
+                <property name="58" type="int" address="0xc300 + 58" reference="card_positions" />
+                <property name="59" type="int" address="0xc300 + 59" reference="card_positions" />
+            </card_locations>
+            <bench>
+                <property name="0" type="int" /> 
+                <property name="1" type="int" />
+                <property name="2" type="int" />
+                <property name="3" type="int" />
+                <property name="4" type="int" />
+                <property name="5" type="int" />
+            </bench>
+            <hp>
+                <property name="ArenaCardHP"  type="int" address="0xc3c8" />
+                <property name="Bench1CardHP" type="int" address="0xc3c9" />
+                <property name="Bench2CardHP" type="int" address="0xc3ca" />
+                <property name="Bench3CardHP" type="int" address="0xc3cb" />
+                <property name="Bench4CardHP" type="int" address="0xc3cc" />
+                <property name="Bench5CardHP" type="int" address="0xc3cd" />
+            </hp>
+            <hand_raw>
+                <property name="0"  type="int" address="0xc342 + 0"   /> 
+                <property name="1"  type="int" address="0xc342 + 1"   />
+                <property name="2"  type="int" address="0xc342 + 2"   />
+                <property name="3"  type="int" address="0xc342 + 3"   />
+                <property name="4"  type="int" address="0xc342 + 4"   />
+                <property name="5"  type="int" address="0xc342 + 5"   />
+                <property name="6"  type="int" address="0xc342 + 6"   />
+                <property name="7"  type="int" address="0xc342 + 7"   />
+                <property name="8"  type="int" address="0xc342 + 8"   />
+                <property name="9"  type="int" address="0xc342 + 9"   />
+                <property name="10" type="int" address="0xc342 + 10"  />
+                <property name="11" type="int" address="0xc342 + 11"  />
+                <property name="12" type="int" address="0xc342 + 12"  />
+                <property name="13" type="int" address="0xc342 + 13"  />
+                <property name="14" type="int" address="0xc342 + 14"  />
+                <property name="15" type="int" address="0xc342 + 15"  />
+                <property name="16" type="int" address="0xc342 + 16"  />
+                <property name="17" type="int" address="0xc342 + 17"  />
+                <property name="18" type="int" address="0xc342 + 18"  />
+                <property name="19" type="int" address="0xc342 + 19"  />
+                <property name="20" type="int" address="0xc342 + 20"  />
+                <property name="21" type="int" address="0xc342 + 21"  />
+                <property name="22" type="int" address="0xc342 + 22"  />
+                <property name="23" type="int" address="0xc342 + 23"  />
+                <property name="24" type="int" address="0xc342 + 24"  />
+                <property name="25" type="int" address="0xc342 + 25"  />
+                <property name="26" type="int" address="0xc342 + 26"  />
+                <property name="27" type="int" address="0xc342 + 27"  />
+                <property name="28" type="int" address="0xc342 + 28"  />
+                <property name="29" type="int" address="0xc342 + 29"  />
+                <property name="30" type="int" address="0xc342 + 30"  />
+                <property name="31" type="int" address="0xc342 + 31"  />
+                <property name="32" type="int" address="0xc342 + 32"  />
+                <property name="33" type="int" address="0xc342 + 33"  />
+                <property name="34" type="int" address="0xc342 + 34"  />
+                <property name="35" type="int" address="0xc342 + 35"  />
+                <property name="36" type="int" address="0xc342 + 36"  />
+                <property name="37" type="int" address="0xc342 + 37"  />
+                <property name="38" type="int" address="0xc342 + 38"  />
+                <property name="39" type="int" address="0xc342 + 39"  />
+                <property name="40" type="int" address="0xc342 + 40"  />
+                <property name="41" type="int" address="0xc342 + 41"  />
+                <property name="42" type="int" address="0xc342 + 42"  />
+                <property name="43" type="int" address="0xc342 + 43"  />
+                <property name="44" type="int" address="0xc342 + 44"  />
+                <property name="45" type="int" address="0xc342 + 45"  />
+                <property name="46" type="int" address="0xc342 + 46"  />
+                <property name="47" type="int" address="0xc342 + 47"  />
+                <property name="48" type="int" address="0xc342 + 48"  />
+                <property name="49" type="int" address="0xc342 + 49"  />
+                <property name="50" type="int" address="0xc342 + 50"  />
+                <property name="51" type="int" address="0xc342 + 51"  />
+                <property name="52" type="int" address="0xc342 + 52"  />
+                <property name="53" type="int" address="0xc342 + 53"  />
+                <property name="54" type="int" address="0xc342 + 54"  />
+                <property name="55" type="int" address="0xc342 + 55"  />
+                <property name="56" type="int" address="0xc342 + 56"  />
+                <property name="57" type="int" address="0xc342 + 57"  />
+                <property name="58" type="int" address="0xc342 + 58"  />
+                <property name="59" type="int" address="0xc342 + 59"  />
+            </hand_raw>   
+            <bench_raw>
+                <property name="0"  type="int" address="0xc3bc + 0" /> 
+                <property name="1"  type="int" address="0xc3bc + 1" />
+                <property name="2"  type="int" address="0xc3bc + 2" />
+                <property name="3"  type="int" address="0xc3bc + 3" />
+                <property name="4"  type="int" address="0xc3bc + 4" />
+                <property name="5"  type="int" address="0xc3bc + 5" />
+            </bench_raw>
+        </opponent>
+        <!-- <player_arena>
+            <property name="wPlayerArenaCardFlags" type="int" address="0xc2c2" />
+            <property name="wPlayerArenaCardHP" type="int" address="0xc2c8" />
+            <property name="wPlayerBench1CardHP" type="int" address="0xc2c9" />
+            <property name="wPlayerBench2CardHP" type="int" address="0xc2ca" />
+            <property name="wPlayerBench3CardHP" type="int" address="0xc2cb" />
+            <property name="wPlayerBench4CardHP" type="int" address="0xc2cc" />
+            <property name="wPlayerBench5CardHP" type="int" address="0xc2cd" />
+            <property name="wPlayerArenaCardStage" type="int" address="0xc2ce" />
+            <property name="wPlayerBench1CardStage" type="int" address="0xc2cf" />
+            <property name="wPlayerBench2CardStage" type="int" address="0xc2d0" />
+            <property name="wPlayerBench3CardStage" type="int" address="0xc2d1" />
+            <property name="wPlayerBench4CardStage" type="int" address="0xc2d2" />
+            <property name="wPlayerBench5CardStage" type="int" address="0xc2d3" />
+            <property name="wPlayerArenaCardChangedType" type="int" address="0xc2d4" />
+            <property name="wPlayerBench1CardChangedType" type="int" address="0xc2d5" />
+            <property name="wPlayerBench2CardChangedType" type="int" address="0xc2d6" />
+            <property name="wPlayerBench3CardChangedType" type="int" address="0xc2d7" />
+            <property name="wPlayerBench4CardChangedType" type="int" address="0xc2d8" />
+            <property name="wPlayerBench5CardChangedType" type="int" address="0xc2d9" />
+            <property name="wPlayerArenaCardAttachedDefender" type="int" address="0xc2da" />
+            <property name="wPlayerBench1CardAttachedDefender" type="int" address="0xc2db" />
+            <property name="wPlayerBench2CardAttachedDefender" type="int" address="0xc2dc" />
+            <property name="wPlayerBench3CardAttachedDefender" type="int" address="0xc2dd" />
+            <property name="wPlayerBench4CardAttachedDefender" type="int" address="0xc2de" />
+            <property name="wPlayerBench5CardAttachedDefender" type="int" address="0xc2df" />
+            <property name="wPlayerArenaCardAttachedPluspower" type="int" address="0xc2e0" />
+            <property name="wPlayerBench1CardAttachedPluspower" type="int" address="0xc2e1" />
+            <property name="wPlayerBench2CardAttachedPluspower" type="int" address="0xc2e2" />
+            <property name="wPlayerBench3CardAttachedPluspower" type="int" address="0xc2e3" />
+            <property name="wPlayerBench4CardAttachedPluspower" type="int" address="0xc2e4" />
+            <property name="wPlayerBench5CardAttachedPluspower" type="int" address="0xc2e5" />
+            <property name="wPlayerArenaCardSubstatus1" type="int" address="0xc2e7" />
+            <property name="wPlayerArenaCardSubstatus2" type="int" address="0xc2e8" />
+            <property name="wPlayerArenaCardChangedWeakness" type="int" address="0xc2e9" />
+            <property name="wPlayerArenaCardChangedResistance" type="int" address="0xc2ea" />
+            <property name="wPlayerArenaCardSubstatus3" type="int" address="0xc2eb" />
+            <property name="wPlayerPrizes" type="int" address="0xc2ec" />
+            <property name="wPlayerNumberOfCardsInDiscardPile" type="int" address="0xc2ed" />
+            <property name="wPlayerNumberOfCardsInHand" type="int" address="0xc2ee" />
+            <property name="wPlayerNumberOfPokemonInPlayArea" type="int" address="0xc2ef" />
+            <property name="wPlayerArenaCardStatus" type="int" address="0xc2f0" />
+            <property name="wPlayerDuelistType" type="int" address="0xc2f1" />
+            <property name="wPlayerArenaCardDisabledAttackIndex" type="int" address="0xc2f2" />
+            <property name="wPlayerArenaCardLastTurnDamage" type="int" address="0xc2f3" />
+            <property name="wPlayerArenaCardLastTurnStatus" type="int" address="0xc2f5" />
+            <property name="wPlayerArenaCardLastTurnSubstatus2" type="int" address="0xc2f6" />
+            <property name="wPlayerArenaCardLastTurnChangeWeak" type="int" address="0xc2f7" />
+            <property name="wPlayerArenaCardLastTurnEffectiveness" type="int" address="0xc2f8" />
+        </player_arena> -->
+        <!-- <opponent_arena>
+            <property name="wOpponentArenaCardFlags" type="int" address="0xc3c2" />
+            <property name="wOpponentArenaCardHP" type="int" address="0xc3c8" />
+            <property name="wOpponentBench1CardHP" type="int" address="0xc3c9" />
+            <property name="wOpponentBench2CardHP" type="int" address="0xc3ca" />
+            <property name="wOpponentBench3CardHP" type="int" address="0xc3cb" />
+            <property name="wOpponentBench4CardHP" type="int" address="0xc3cc" />
+            <property name="wOpponentBench5CardHP" type="int" address="0xc3cd" />
+            <property name="wOpponentArenaCardStage" type="int" address="0xc3ce" />
+            <property name="wOpponentBench1CardStage" type="int" address="0xc3cf" />
+            <property name="wOpponentBench2CardStage" type="int" address="0xc3d0" />
+            <property name="wOpponentBench3CardStage" type="int" address="0xc3d1" />
+            <property name="wOpponentBench4CardStage" type="int" address="0xc3d2" />
+            <property name="wOpponentBench5CardStage" type="int" address="0xc3d3" />
+            <property name="wOpponentArenaCardChangedType" type="int" address="0xc3d4" />
+            <property name="wOpponentBench1CardChangedType" type="int" address="0xc3d5" />
+            <property name="wOpponentBench2CardChangedType" type="int" address="0xc3d6" />
+            <property name="wOpponentBench3CardChangedType" type="int" address="0xc3d7" />
+            <property name="wOpponentBench4CardChangedType" type="int" address="0xc3d8" />
+            <property name="wOpponentBench5CardChangedType" type="int" address="0xc3d9" />
+            <property name="wOpponentArenaCardAttachedDefender" type="int" address="0xc3da" />
+            <property name="wOpponentBench1CardAttachedDefender" type="int" address="0xc3db" />
+            <property name="wOpponentBench2CardAttachedDefender" type="int" address="0xc3dc" />
+            <property name="wOpponentBench3CardAttachedDefender" type="int" address="0xc3dd" />
+            <property name="wOpponentBench4CardAttachedDefender" type="int" address="0xc3de" />
+            <property name="wOpponentBench5CardAttachedDefender" type="int" address="0xc3df" />
+            <property name="wOpponentArenaCardAttachedPluspower" type="int" address="0xc3e0" />
+            <property name="wOpponentBench1CardAttachedPluspower" type="int" address="0xc3e1" />
+            <property name="wOpponentBench2CardAttachedPluspower" type="int" address="0xc3e2" />
+            <property name="wOpponentBench3CardAttachedPluspower" type="int" address="0xc3e3" />
+            <property name="wOpponentBench4CardAttachedPluspower" type="int" address="0xc3e4" />
+            <property name="wOpponentBench5CardAttachedPluspower" type="int" address="0xc3e5" />
+            <property name="wOpponentArenaCardSubstatus1" type="int" address="0xc3e7" />
+            <property name="wOpponentArenaCardSubstatus2" type="int" address="0xc3e8" />
+            <property name="wOpponentArenaCardChangedWeakness" type="int" address="0xc3e9" />
+            <property name="wOpponentArenaCardChangedResistance" type="int" address="0xc3ea" />
+            <property name="wOpponentArenaCardSubstatus3" type="int" address="0xc3eb" />
+            <property name="wOpponentPrizes" type="int" address="0xc3ec" />
+            <property name="wOpponentNumberOfCardsInDiscardPile" type="int" address="0xc3ed" />
+            <property name="wOpponentNumberOfCardsInHand" type="int" address="0xc3ee" />
+            <property name="wOpponentNumberOfPokemonInPlayArea" type="int" address="0xc3ef" />
+            <property name="wOpponentArenaCardStatus" type="int" address="0xc3f0" />
+            <property name="wOpponentDuelistType" type="int" address="0xc3f1" />
+            <property name="wOpponentArenaCardDisabledAttackIndex" type="int" address="0xc3f2" />
+            <property name="wOpponentArenaCardLastTurnDamage" type="int" address="0xc3f3" />
+            <property name="wOpponentArenaCardLastTurnStatus" type="int" address="0xc3f5" />
+            <property name="wOpponentArenaCardLastTurnSubstatus2" type="int" address="0xc3f6" />
+            <property name="wOpponentArenaCardLastTurnChangeWeak" type="int" address="0xc3f7" />
+            <property name="wOpponentArenaCardLastTurnEffect" type="int" address="0xc3f8" />
+        </opponent_arena> -->
+        <battle>
+            <property name="wWhoseTurn" type="int" address="0xcc05" reference="whose_turn"/>
+            <property name="wDuelTurns" type="int" address="0xcc06" />
+            <property name="wDuelFinished" type="int" address="0xcc07" />
+        </battle>
+        <overworld>
+            <property name="wOverworldMode" type="int" address="0xd0bf" />
+            <property name="wCurOverworldMap" type="int" address="0xd3cb" reference="maps" />
+            <property name="wCurMap" type="int" address="0xd32f" reference="maps" />
+        </overworld>
+        <events>
+            <!-- No idea why the first 8 flags are on a later byte -->
+            <!-- 
+            <property name="EVENT_TEMP_TRADED_WITH_ISHIHARA" type="int" address="0xb87b + 0x00" />
+            <property name="EVENT_TEMP_GIFTED_TO_MAN1"       type="int" address="0xb87b + 0x01" />
+            <property name="EVENT_TEMP_TALKED_TO_IMAKUNI"    type="int" address="0xb87b + 0x02" />
+            <property name="EVENT_TEMP_DUELED_IMAKUNI"       type="int" address="0xb87b + 0x03" />
+            <property name="EVENT_TEMP_TRADED_WITH_LASS2"    type="int" address="0xb87b + 0x04" />
+            <property name="EVENT_TEMP_05"                   type="int" address="0xb87b + 0x05" />
+            <property name="EVENT_TEMP_06"                   type="int" address="0xb87b + 0x06" />
+            <property name="EVENT_TEMP_07"                   type="int" address="0xb87b + 0x07" /> 
+            -->
+            <property name="EVENT_MEDAL_FLAGS"               type="int"  address="0xd3d2" />
+            <property name="EVENT_BEAT_NIKKI"                type="bool" address="0xd3d2" bits="0" />
+            <property name="EVENT_BEAT_RICK"                 type="bool" address="0xd3d2" bits="1" />
+            <property name="EVENT_BEAT_KEN"                  type="bool" address="0xd3d2" bits="2" />
+            <property name="EVENT_BEAT_AMY"                  type="bool" address="0xd3d2" bits="3" />
+            <property name="EVENT_BEAT_ISAAC"                type="bool" address="0xd3d2" bits="4" />
+            <property name="EVENT_BEAT_MURRAY"               type="bool" address="0xd3d2" bits="5" />
+            <property name="EVENT_BEAT_GENE"                 type="bool" address="0xd3d2" bits="6" />
+            <property name="EVENT_BEAT_MITCH"                type="bool" address="0xd3d2" bits="7" />
+            <!-- These are likely all incorrect -->
+            <property name="EVENT_PUPIL_MICHAEL_STATE"                    type="bool" address="0xd3d2 + 1" bits="0"/>
+            <property name="EVENT_GAL1_TRADE_STATE"                       type="bool" address="0xd3d2 + 1" bits="1"/>
+            <property name="EVENT_IMAKUNI_STATE"                          type="bool" address="0xd3d2 + 1" bits="2"/>
+            <property name="EVENT_LASS1_MENTIONED_IMAKUNI"                type="bool" address="0xd3d2 + 1" bits="3"/>
+            <property name="EVENT_BEAT_SARA"                              type="bool" address="0xd3d2 + 1" bits="4"/>
+            <property name="EVENT_BEAT_AMANDA"                            type="bool" address="0xd3d2 + 1" bits="5"/>
+            <property name="EVENT_PUPIL_CHRIS_STATE"                      type="bool" address="0xd3d2 + 1" bits="6"/>
+            <property name="EVENT_MATTHEW_STATE"                          type="bool" address="0xd3d2 + 1" bits="7"/>
+            <property name="EVENT_CHAP2_TRADE_STATE"                      type="bool" address="0xd3d2 + 2" bits="0"/>
+            <property name="EVENT_DAVID_STATE"                            type="bool" address="0xd3d2 + 2" bits="1"/>
+            <property name="EVENT_BEAT_JOSEPH"                            type="bool" address="0xd3d2 + 2" bits="2"/>
+            <property name="EVENT_ISHIHARA_MENTIONED"                     type="bool" address="0xd3d2 + 2" bits="3"/>
+            <property name="EVENT_ISHIHARA_MET"                           type="bool" address="0xd3d2 + 2" bits="4"/>
+            <property name="EVENT_ISHIHARAS_HOUSE_MENTIONED"              type="bool" address="0xd3d2 + 2" bits="5"/>
+            <property name="EVENT_ISHIHARA_TRADE_STATE"                   type="bool" address="0xd3d2 + 2" bits="6"/>
+            <property name="EVENT_PUPIL_JESSICA_STATE"                    type="bool" address="0xd3d2 + 2" bits="7"/>
+            <property name="EVENT_LAD2_STATE"                             type="bool" address="0xd3d2 + 3" bits="0"/>
+            <property name="EVENT_RECEIVED_LEGENDARY_CARDS"               type="bool" address="0xd3d2 + 3" bits="1"/>
+            <property name="EVENT_KEN_HAD_ENOUGH_CARDS"                   type="bool" address="0xd3d2 + 3" bits="2"/>
+            <property name="EVENT_KEN_TALKED"                             type="bool" address="0xd3d2 + 3" bits="3"/>
+            <property name="EVENT_BEAT_JENNIFER"                          type="bool" address="0xd3d2 + 3" bits="4"/>
+            <property name="EVENT_BEAT_NICHOLAS"                          type="bool" address="0xd3d2 + 3" bits="5"/>
+            <property name="EVENT_BEAT_BRANDON"                           type="bool" address="0xd3d2 + 3" bits="6"/>
+            <property name="EVENT_ISAAC_TALKED"                           type="bool" address="0xd3d2 + 3" bits="7"/>
+            <property name="EVENT_MAN1_TALKED"                            type="bool" address="0xd3d2 + 4" bits="0"/>
+            <property name="EVENT_MAN1_WAITING_FOR_CARD"                  type="bool" address="0xd3d2 + 4" bits="1"/>
+            <property name="EVENT_MAN1_REQUESTED_CARD_ID"                 type="bool" address="0xd3d2 + 4" bits="2"/>
+            <property name="EVENT_MAN1_GIFT_SEQUENCE_STATE"               type="bool" address="0xd3d2 + 4" bits="3"/>
+            <property name="EVENT_MAN1_GIFTED_CARD_FLAGS"                 type="bool" address="0xd3d2 + 4" bits="4"/>
+            <property name="EVENT_MEDAL_COUNT"                            type="bool" address="0xd3d2 + 4" bits="5"/>
+            <property name="EVENT_DANIEL_TALKED"                          type="bool" address="0xd3d2 + 4" bits="6"/>
+            <property name="EVENT_MURRAY_TALKED"                          type="bool" address="0xd3d2 + 4" bits="7"/>
+            <property name="EVENT_PAPPY1_STATE"                           type="bool" address="0xd3d2 + 5" bits="0"/>
+            <property name="EVENT_RONALD_PSYCHIC_CLUB_LOBBY_ENCOUNTER"    type="bool" address="0xd3d2 + 5" bits="1"/>
+            <property name="EVENT_JOSHUA_STATE"                           type="bool" address="0xd3d2 + 5" bits="2"/>
+            <property name="EVENT_IMAKUNI_ROOM"                           type="bool" address="0xd3d2 + 5" bits="3"/>
+            <property name="EVENT_NIKKI_STATE"                            type="bool" address="0xd3d2 + 5" bits="4"/>
+            <property name="EVENT_IMAKUNI_WIN_COUNT"                      type="bool" address="0xd3d2 + 5" bits="5"/>
+            <property name="EVENT_LASS2_TRADE_STATE"                      type="bool" address="0xd3d2 + 5" bits="6"/>
+            <property name="EVENT_ISHIHARA_WANTS_TO_TRADE"                type="bool" address="0xd3d2 + 5" bits="7"/>
+            <property name="EVENT_ISHIHARA_CONGRATULATED_PLAYER"          type="bool" address="0xd3d2 + 6" bits="0"/>
+            <property name="EVENT_BEAT_KRISTIN"                           type="bool" address="0xd3d2 + 6" bits="1"/>
+            <property name="EVENT_BEAT_HEATHER"                           type="bool" address="0xd3d2 + 6" bits="2"/>
+            <property name="EVENT_BEAT_BRITTANY"                          type="bool" address="0xd3d2 + 6" bits="3"/>
+            <property name="EVENT_DRMASON_CONGRATULATED_PLAYER"           type="bool" address="0xd3d2 + 6" bits="4"/>
+            <property name="EVENT_MASON_LAB_STATE"                        type="bool" address="0xd3d2 + 6" bits="5"/>
+            <property name="EVENT_CHALLENGE_CUP_1_STATE"                  type="bool" address="0xd3d2 + 6" bits="6"/>
+            <property name="EVENT_CHALLENGE_CUP_2_STATE"                  type="bool" address="0xd3d2 + 6" bits="7"/>
+            <property name="EVENT_CHALLENGE_CUP_3_STATE"                  type="bool" address="0xd3d2 + 7" bits="0"/>
+            <property name="EVENT_CHALLENGE_CUP_STARTING"                 type="bool" address="0xd3d2 + 7" bits="1"/>
+            <property name="EVENT_CHALLENGE_CUP_STAGE_VISITED"            type="bool" address="0xd3d2 + 7" bits="2"/>
+            <property name="EVENT_CHALLENGE_CUP_NUMBER"                   type="bool" address="0xd3d2 + 7" bits="3"/>
+            <property name="EVENT_CHALLENGE_CUP_OPPONENT_NUMBER"          type="bool" address="0xd3d2 + 7" bits="4"/>
+            <property name="EVENT_CHALLENGE_CUP_OPPONENT_CHOSEN"          type="bool" address="0xd3d2 + 7" bits="5"/>
+            <property name="EVENT_CHALLENGE_CUP_IN_MENU"                  type="bool" address="0xd3d2 + 7" bits="6"/>
+            <property name="EVENT_CHALLENGE_CUP_1_RESULT"                 type="bool" address="0xd3d2 + 7" bits="7"/>
+            <property name="EVENT_CHALLENGE_CUP_2_RESULT"                 type="bool" address="0xd3d2 + 8" bits="0"/>
+            <property name="EVENT_CHALLENGE_CUP_3_RESULT"                 type="bool" address="0xd3d2 + 8" bits="1"/>
+            <property name="EVENT_RONALD_FIRST_CLUB_ENTRANCE_ENCOUNTER"   type="bool" address="0xd3d2 + 8" bits="2"/>
+            <property name="EVENT_RONALD_FIRST_DUEL_STATE"                type="bool" address="0xd3d2 + 8" bits="3"/>
+            <property name="EVENT_RONALD_SECOND_DUEL_STATE"               type="bool" address="0xd3d2 + 8" bits="4"/>
+            <property name="EVENT_RONALD_TALKED"                          type="bool" address="0xd3d2 + 8" bits="5"/>
+            <property name="EVENT_RONALD_POKEMON_DOME_ENTRANCE_ENCOUNTER" type="bool" address="0xd3d2 + 8" bits="6"/>
+            <property name="EVENT_RONALD_CHALLENGE_HALL_LOBBY_CONVO_1"    type="bool" address="0xd3d2 + 8" bits="7"/>
+            <property name="EVENT_RONALD_CHALLENGE_HALL_LOBBY_CONVO_2"    type="bool" address="0xd3d2 + 9" bits="0"/>
+            <property name="EVENT_RONALD_CHALLENGE_HALL_LOBBY_CONVO_3"    type="bool" address="0xd3d2 + 9" bits="1"/>
+            <property name="EVENT_RONALD_CHALLENGE_HALL_LOBBY_CONVO_4"    type="bool" address="0xd3d2 + 9" bits="2"/>
+            <property name="EVENT_RONALD_CHALLENGE_HALL_LOBBY_CONVO_5"    type="bool" address="0xd3d2 + 9" bits="3"/>
+            <property name="EVENT_RONALD_CHALLENGE_HALL_LOBBY_CONVO_6"    type="bool" address="0xd3d2 + 9" bits="4"/>
+            <property name="EVENT_RONALD_CHALLENGE_HALL_LOBBY_CONVO_7"    type="bool" address="0xd3d2 + 9" bits="5"/>
+            <property name="EVENT_RONALD_CHALLENGE_HALL_LOBBY_CONVO_8"    type="bool" address="0xd3d2 + 9" bits="6"/>
+            <property name="EVENT_RONALD_CHALLENGE_HALL_LOBBY_STATE"      type="bool" address="0xd3d2 + 9" bits="7"/>
+            <property name="EVENT_PLAYER_ENTERED_CHALLENGE_CUP"           type="bool" address="0xd3d2 + 10" bits="0"/>
+            <property name="EVENT_FIGHTING_DECK_MACHINE_ACTIVE"           type="bool" address="0xd3d2 + 10" bits="1"/>
+            <property name="EVENT_ROCK_DECK_MACHINE_ACTIVE"               type="bool" address="0xd3d2 + 10" bits="2"/>
+            <property name="EVENT_WATER_DECK_MACHINE_ACTIVE"              type="bool" address="0xd3d2 + 10" bits="3"/>
+            <property name="EVENT_LIGHTNING_DECK_MACHINE_ACTIVE"          type="bool" address="0xd3d2 + 10" bits="4"/>
+            <property name="EVENT_GRASS_DECK_MACHINE_ACTIVE"              type="bool" address="0xd3d2 + 10" bits="5"/>
+            <property name="EVENT_PSYCHIC_DECK_MACHINE_ACTIVE"            type="bool" address="0xd3d2 + 10" bits="6"/>
+            <property name="EVENT_SCIENCE_DECK_MACHINE_ACTIVE"            type="bool" address="0xd3d2 + 10" bits="7"/>
+            <property name="EVENT_FIRE_DECK_MACHINE_ACTIVE"               type="bool" address="0xd3d2 + 11" bits="0"/>
+            <property name="EVENT_ALL_DECK_MACHINE_FLAGS"                 type="bool" address="0xd3d2 + 11" bits="1"/>
+            <property name="EVENT_HALL_OF_HONOR_DOORS_OPEN"               type="bool" address="0xd3d2 + 11" bits="2"/>
+            <property name="EVENT_CHALLENGED_GRAND_MASTERS"               type="bool" address="0xd3d2 + 11" bits="3"/>
+            <property name="EVENT_POKEMON_DOME_STATE"                     type="bool" address="0xd3d2 + 11" bits="4"/>
+            <property name="EVENT_POKEMON_DOME_IN_MENU"                   type="bool" address="0xd3d2 + 11" bits="5"/>
+            <property name="EVENT_CHALLENGED_RONALD"                      type="bool" address="0xd3d2 + 11" bits="6"/>
+            <property name="EVENT_COURTNEY_STATE"                         type="bool" address="0xd3d2 + 11" bits="7"/>
+            <property name="EVENT_STEVE_STATE"                            type="bool" address="0xd3d2 + 12" bits="0"/>
+            <property name="EVENT_JACK_STATE"                             type="bool" address="0xd3d2 + 12" bits="1"/>
+            <property name="EVENT_ROD_STATE"                              type="bool" address="0xd3d2 + 12" bits="2"/>
+            <property name="EVENT_RONALD_POKEMON_DOME_STATE"              type="bool" address="0xd3d2 + 12" bits="3"/>
+            <property name="EVENT_RECEIVED_ZAPDOS"                        type="bool" address="0xd3d2 + 12" bits="4"/>
+            <property name="EVENT_RECEIVED_MOLTRES"                       type="bool" address="0xd3d2 + 12" bits="5"/>
+            <property name="EVENT_RECEIVED_ARTICUNO"                      type="bool" address="0xd3d2 + 12" bits="6"/>
+            <property name="EVENT_RECEIVED_DRAGONITE"                     type="bool" address="0xd3d2 + 12" bits="7"/>
+            <property name="EVENT_LEGENDARY_CARDS_RECEIVED_FLAGS"         type="bool" address="0xd3d2 + 13" bits="0"/>
+            <property name="EVENT_GIFT_CENTER_MENU_CHOICE"                type="bool" address="0xd3d2 + 13" bits="1"/>
+            <property name="EVENT_AARON_BOOSTER_REWARD"                   type="bool" address="0xd3d2 + 13" bits="2"/>
+            <property name="EVENT_CONSOLE"                                type="bool" address="0xd3d2 + 13" bits="3"/>
+            <property name="EVENT_SAM_MENU_CHOICE"                        type="bool" address="0xd3d2 + 13" bits="4"/>
+            <property name="EVENT_AARON_DECK_MENU_CHOICE"                 type="bool" address="0xd3d2 + 13" bits="5"/>
+        </events>
+        <audio>
+            <property name="current_song" type="int" address="0xdd80" bits="0-6" reference="music"/>
+            <property name="wCurSongID"   type="int" address="0xa006" />
+        </audio>
+        <options>
+            <property name="wTextSpeed" type="int" address="0xce47" />
+        </options>
+        <game_time>
+            <property name="hours" type="int" address="0xd3c8 + 1" length="1"/>
+            <property name="minutes" type="int" address="0xd3c8" length="1"/>
+        </game_time>
+        <meta>
+			<property name="game_name" type="string" value="Pokémon Trading Card Game" />
+			<property name="state"     type="string" />
+		</meta>
+    </properties>
+
+    <references>
+        <card_positions>
+            <entry key="0x00" value="Deck"         />
+            <entry key="0x01" value="Hand"         />
+            <entry key="0x02" value="Discard_pile" />
+            <entry key="0x08" value="Prize"        />
+            <entry key="0x10" value="Arena"        />
+            <entry key="0x11" value="Bench_1"      />
+            <entry key="0x12" value="Bench_2"      />
+            <entry key="0x13" value="Bench_3"      />
+            <entry key="0x14" value="Bench_4"      />
+            <entry key="0x15" value="Bench_5"      />
+        </card_positions>
+        <status_conditions>
+            <entry key="0x00" />
+            <entry key="0x01" value="CONFUSED" />
+            <entry key="0x02" value="ASLEEP" />
+            <entry key="0x03" value="PARALYZED" />
+            <entry key="0x80" value="POISONED" />
+            <entry key="0xc0" value="DOUBLE_POISONED" />
+
+            <entry key="6"    value="DOUBLE_POISONED_F" />
+            <entry key="7"    value="POISONED_F" />
+
+            <entry key="0x0f" value="CNF_SLP_PRZ" />
+            <entry key="0xf0" value="PSN_DBLPSN" />
+
+            <entry key="10"   value="PSN_DAMAGE" />
+            <entry key="20"   value="DBLPSN_DAMAGE" />
+        </status_conditions>
+        <defaultCharacterMap>
+            <entry key="0x0330" value="A" />
+            <entry key="0x0331" value="B" />
+            <entry key="0x0332" value="C" />
+            <entry key="0x0333" value="D" />
+            <entry key="0x0334" value="E" />
+            <entry key="0x0335" value="F" />
+            <entry key="0x0336" value="G" />
+            <entry key="0x0337" value="H" />
+            <entry key="0x0338" value="I" />
+            <entry key="0x0339" value="J" />
+            <entry key="0x033a" value="K" />
+            <entry key="0x033b" value="L" />
+            <entry key="0x033c" value="M" />
+            <entry key="0x033d" value="N" />
+            <entry key="0x033e" value="O" />
+            <entry key="0x033f" value="P" />
+            <entry key="0x0340" value="Q" />
+            <entry key="0x0341" value="R" />
+            <entry key="0x0342" value="S" />
+            <entry key="0x0343" value="T" />
+            <entry key="0x0344" value="U" />
+            <entry key="0x0345" value="V" />
+            <entry key="0x0346" value="W" />
+            <entry key="0x0347" value="X" />
+            <entry key="0x0348" value="Y" />
+            <entry key="0x0349" value="Z" />
+            <entry key="0x034a" value="g" />
+            <entry key="0x034b" value="c" />
+            <entry key="0x034c" value="m" />
+            <entry key="0x034d" value="r." />
+            <entry key="0x034e" value="♀" />
+            <entry key="0x034f" value="♂" />
+            <entry key="0x0350" value="【" />
+            <entry key="0x0351" value="】" />
+            <entry key="0x0352" value="●" />
+            <entry key="0x0353" value="◆" />
+            <entry key="0x0354" value="★" />
+            <entry key="0x0355" value="☆" />
+            <entry key="0x0356" value="_" />
+            <entry key="0x0357" value="▪" />
+            <entry key="0x0358" value="℃" />
+            <entry key="0x0359" value="゛" />
+            <entry key="0x035a" value="°" />
+            <entry key="0x035b" value="゜" />
+            <entry key="0x035c" value="ˍ" />
+            <entry key="0x035d" value="&amp;" />
+            <entry key="0x035e" value=":" />
+            <entry key="0x035f" value="○" />
+            <entry key="0x0360" value="※" />
+            <entry key="0x0361" value="о" />
+            <entry key="0x0362" value="^" />
+            <entry key="0x0363" value="♪" />
+            <entry key="0x0364" value="a" />
+            <entry key="0x0365" value="b" />
+            <entry key="0x0366" value="d" />
+            <entry key="0x0367" value="e" />
+            <entry key="0x0368" value="f" />
+            <entry key="0x0369" value="h" />
+            <entry key="0x036a" value="i" />
+            <entry key="0x036b" value="j" />
+            <entry key="0x036c" value="k" />
+            <entry key="0x036d" value="l" />
+            <entry key="0x036e" value="n" />
+            <entry key="0x036f" value="o" />
+            <entry key="0x0370" value="p" />
+            <entry key="0x0371" value="q" />
+            <entry key="0x0372" value="s" />
+            <entry key="0x0373" value="t" />
+            <entry key="0x0374" value="u" />
+            <entry key="0x0375" value="v" />
+            <entry key="0x0376" value="w" />
+            <entry key="0x0377" value="x" />
+            <entry key="0x0378" value="y" />
+            <entry key="0x0379" value="z" />
+            <entry key="0x037a" value="'" />
+            <entry key="0x037b" value="”" />
+            <entry key="0x037c" value="■" />
+            <entry key="0x038e" value="r" />
+            <entry key="0x0397" value="「" />
+            <entry key="0x0398" value="＼" />
+            <entry key="0x0399" value="」" />
+            <entry key="0x039a" value="|" />
+            <entry key="0x039b" value="ˉ" />
+            <entry key="0x039c" value=" " />
+            <entry key="0x039d" value="!" />
+            <entry key="0x039f" value="#" />
+            <entry key="0x03a0" value="$" />
+            <entry key="0x03a1" value="%" />
+            <entry key="0x03a4" value="(" />
+            <entry key="0x03a5" value=")" />
+            <entry key="0x03a6" value="*" />
+            <entry key="0x03a7" value="+" />
+            <entry key="0x03a8" value="、" />
+            <entry key="0x03a9" value="-" />
+            <entry key="0x03ab" value="/" />
+            <entry key="0x03ac" value="0" />
+            <entry key="0x03ad" value="1" />
+            <entry key="0x03ae" value="2" />
+            <entry key="0x03af" value="3" />
+            <entry key="0x03b0" value="4" />
+            <entry key="0x03b1" value="5" />
+            <entry key="0x03b2" value="6" />
+            <entry key="0x03b3" value="7" />
+            <entry key="0x03b4" value="8" />
+            <entry key="0x03b5" value="9" />
+            <entry key="0x03b7" value=";" />
+            <!-- <entry key="0x03b8" value="<" /> -->
+            <entry key="0x03b9" value="=" />
+            <entry key="0x03ba" value=">" />
+            <entry key="0x03bb" value="?" />
+            <entry key="0x03bc" value="@" />
+            <entry key="0x03d7" value="[" />
+            <entry key="0x03d8" value="¥" />
+            <entry key="0x03d9" value="]" />
+        </defaultCharacterMap>
+        <cards>
+        	<entry key="0x00" />
+            <entry key="0x01" value="GRASS_ENERGY" />
+            <entry key="0x02" value="FIRE_ENERGY" />
+            <entry key="0x03" value="WATER_ENERGY" />
+            <entry key="0x04" value="LIGHTNING_ENERGY" />
+            <entry key="0x05" value="FIGHTING_ENERGY" />
+            <entry key="0x06" value="PSYCHIC_ENERGY" />
+            <entry key="0x07" value="DOUBLE_COLORLESS_ENERGY" />
+            <entry key="0x08" value="BULBASAUR" />
+            <entry key="0x09" value="IVYSAUR" />
+            <entry key="0x0A" value="VENUSAUR_LV64" />
+            <entry key="0x0B" value="VENUSAUR_LV67" />
+            <entry key="0x0C" value="CATERPIE" />
+            <entry key="0x0D" value="METAPOD" />
+            <entry key="0x0E" value="BUTTERFREE" />
+            <entry key="0x0F" value="WEEDLE" />
+            <entry key="0x10" value="KAKUNA" />
+            <entry key="0x11" value="BEEDRILL" />
+            <entry key="0x12" value="EKANS" />
+            <entry key="0x13" value="ARBOK" />
+            <entry key="0x14" value="NIDORANF" />
+            <entry key="0x15" value="NIDORINA" />
+            <entry key="0x16" value="NIDOQUEEN" />
+            <entry key="0x17" value="NIDORANM" />
+            <entry key="0x18" value="NIDORINO" />
+            <entry key="0x19" value="NIDOKING" />
+            <entry key="0x1A" value="ZUBAT" />
+            <entry key="0x1B" value="GOLBAT" />
+            <entry key="0x1C" value="ODDISH" />
+            <entry key="0x1D" value="GLOOM" />
+            <entry key="0x1E" value="VILEPLUME" />
+            <entry key="0x1F" value="PARAS" />
+            <entry key="0x20" value="PARASECT" />
+            <entry key="0x21" value="VENONAT" />
+            <entry key="0x22" value="VENOMOTH" />
+            <entry key="0x23" value="BELLSPROUT" />
+            <entry key="0x24" value="WEEPINBELL" />
+            <entry key="0x25" value="VICTREEBEL" />
+            <entry key="0x26" value="GRIMER" />
+            <entry key="0x27" value="MUK" />
+            <entry key="0x28" value="EXEGGCUTE" />
+            <entry key="0x29" value="EXEGGUTOR" />
+            <entry key="0x2A" value="KOFFING" />
+            <entry key="0x2B" value="WEEZING" />
+            <entry key="0x2C" value="TANGELA_LV8" />
+            <entry key="0x2D" value="TANGELA_LV12" />
+            <entry key="0x2E" value="SCYTHER" />
+            <entry key="0x2F" value="PINSIR" />
+            <entry key="0x30" value="CHARMANDER" />
+            <entry key="0x31" value="CHARMELEON" />
+            <entry key="0x32" value="CHARIZARD" />
+            <entry key="0x33" value="VULPIX" />
+            <entry key="0x34" value="NINETALES_LV32" />
+            <entry key="0x35" value="NINETALES_LV35" />
+            <entry key="0x36" value="GROWLITHE" />
+            <entry key="0x37" value="ARCANINE_LV34" />
+            <entry key="0x38" value="ARCANINE_LV45" />
+            <entry key="0x39" value="PONYTA" />
+            <entry key="0x3A" value="RAPIDASH" />
+            <entry key="0x3B" value="MAGMAR_LV24" />
+            <entry key="0x3C" value="MAGMAR_LV31" />
+            <entry key="0x3D" value="FLAREON_LV22" />
+            <entry key="0x3E" value="FLAREON_LV28" />
+            <entry key="0x3F" value="MOLTRES_LV35" />
+            <entry key="0x40" value="MOLTRES_LV37" />
+            <entry key="0x41" value="SQUIRTLE" />
+            <entry key="0x42" value="WARTORTLE" />
+            <entry key="0x43" value="BLASTOISE" />
+            <entry key="0x44" value="PSYDUCK" />
+            <entry key="0x45" value="GOLDUCK" />
+            <entry key="0x46" value="POLIWAG" />
+            <entry key="0x47" value="POLIWHIRL" />
+            <entry key="0x48" value="POLIWRATH" />
+            <entry key="0x49" value="TENTACOOL" />
+            <entry key="0x4A" value="TENTACRUEL" />
+            <entry key="0x4B" value="SEEL" />
+            <entry key="0x4C" value="DEWGONG" />
+            <entry key="0x4D" value="SHELLDER" />
+            <entry key="0x4E" value="CLOYSTER" />
+            <entry key="0x4F" value="KRABBY" />
+            <entry key="0x50" value="KINGLER" />
+            <entry key="0x51" value="HORSEA" />
+            <entry key="0x52" value="SEADRA" />
+            <entry key="0x53" value="GOLDEEN" />
+            <entry key="0x54" value="SEAKING" />
+            <entry key="0x55" value="STARYU" />
+            <entry key="0x56" value="STARMIE" />
+            <entry key="0x57" value="MAGIKARP" />
+            <entry key="0x58" value="GYARADOS" />
+            <entry key="0x59" value="LAPRAS" />
+            <entry key="0x5A" value="VAPOREON_LV29" />
+            <entry key="0x5B" value="VAPOREON_LV42" />
+            <entry key="0x5C" value="OMANYTE" />
+            <entry key="0x5D" value="OMASTAR" />
+            <entry key="0x5E" value="ARTICUNO_LV35" />
+            <entry key="0x5F" value="ARTICUNO_LV37" />
+            <entry key="0x60" value="PIKACHU_LV12" />
+            <entry key="0x61" value="PIKACHU_LV14" />
+            <entry key="0x62" value="PIKACHU_LV16" />
+            <entry key="0x63" value="PIKACHU_ALT_LV16" />
+            <entry key="0x64" value="FLYING_PIKACHU" />
+            <entry key="0x65" value="SURFING_PIKACHU_LV13" />
+            <entry key="0x66" value="SURFING_PIKACHU_ALT_LV13" />
+            <entry key="0x67" value="RAICHU_LV40" />
+            <entry key="0x68" value="RAICHU_LV45" />
+            <entry key="0x69" value="MAGNEMITE_LV13" />
+            <entry key="0x6A" value="MAGNEMITE_LV15" />
+            <entry key="0x6B" value="MAGNETON_LV28" />
+            <entry key="0x6C" value="MAGNETON_LV35" />
+            <entry key="0x6D" value="VOLTORB" />
+            <entry key="0x6E" value="ELECTRODE_LV35" />
+            <entry key="0x6F" value="ELECTRODE_LV42" />
+            <entry key="0x70" value="ELECTABUZZ_LV20" />
+            <entry key="0x71" value="ELECTABUZZ_LV35" />
+            <entry key="0x72" value="JOLTEON_LV24" />
+            <entry key="0x73" value="JOLTEON_LV29" />
+            <entry key="0x74" value="ZAPDOS_LV40" />
+            <entry key="0x75" value="ZAPDOS_LV64" />
+            <entry key="0x76" value="ZAPDOS_LV68" />
+            <entry key="0x77" value="SANDSHREW" />
+            <entry key="0x78" value="SANDSLASH" />
+            <entry key="0x79" value="DIGLETT" />
+            <entry key="0x7A" value="DUGTRIO" />
+            <entry key="0x7B" value="MANKEY" />
+            <entry key="0x7C" value="PRIMEAPE" />
+            <entry key="0x7D" value="MACHOP" />
+            <entry key="0x7E" value="MACHOKE" />
+            <entry key="0x7F" value="MACHAMP" />
+            <entry key="0x80" value="GEODUDE" />
+            <entry key="0x81" value="GRAVELER" />
+            <entry key="0x82" value="GOLEM" />
+            <entry key="0x83" value="ONIX" />
+            <entry key="0x84" value="CUBONE" />
+            <entry key="0x85" value="MAROWAK_LV26" />
+            <entry key="0x86" value="MAROWAK_LV32" />
+            <entry key="0x87" value="HITMONLEE" />
+            <entry key="0x88" value="HITMONCHAN" />
+            <entry key="0x89" value="RHYHORN" />
+            <entry key="0x8A" value="RHYDON" />
+            <entry key="0x8B" value="KABUTO" />
+            <entry key="0x8C" value="KABUTOPS" />
+            <entry key="0x8D" value="AERODACTYL" />
+            <entry key="0x8E" value="ABRA" />
+            <entry key="0x8F" value="KADABRA" />
+            <entry key="0x90" value="ALAKAZAM" />
+            <entry key="0x91" value="SLOWPOKE_LV9" />
+            <entry key="0x92" value="SLOWPOKE_LV18" />
+            <entry key="0x93" value="SLOWBRO" />
+            <entry key="0x94" value="GASTLY_LV8" />
+            <entry key="0x95" value="GASTLY_LV17" />
+            <entry key="0x96" value="HAUNTER_LV17" />
+            <entry key="0x97" value="HAUNTER_LV22" />
+            <entry key="0x98" value="GENGAR" />
+            <entry key="0x99" value="DROWZEE" />
+            <entry key="0x9A" value="HYPNO" />
+            <entry key="0x9B" value="MR_MIME" />
+            <entry key="0x9C" value="JYNX" />
+            <entry key="0x9D" value="MEWTWO_LV53" />
+            <entry key="0x9E" value="MEWTWO_LV60" />
+            <entry key="0x9F" value="MEWTWO_ALT_LV60" />
+            <entry key="0xA0" value="MEW_LV8" />
+            <entry key="0xA1" value="MEW_LV15" />
+            <entry key="0xA2" value="MEW_LV23" />
+            <entry key="0xA3" value="PIDGEY" />
+            <entry key="0xA4" value="PIDGEOTTO" />
+            <entry key="0xA5" value="PIDGEOT_LV38" />
+            <entry key="0xA6" value="PIDGEOT_LV40" />
+            <entry key="0xA7" value="RATTATA" />
+            <entry key="0xA8" value="RATICATE" />
+            <entry key="0xA9" value="SPEAROW" />
+            <entry key="0xAA" value="FEAROW" />
+            <entry key="0xAB" value="CLEFAIRY" />
+            <entry key="0xAC" value="CLEFABLE" />
+            <entry key="0xAD" value="JIGGLYPUFF_LV12" />
+            <entry key="0xAE" value="JIGGLYPUFF_LV13" />
+            <entry key="0xAF" value="JIGGLYPUFF_LV14" />
+            <entry key="0xB0" value="WIGGLYTUFF" />
+            <entry key="0xB1" value="MEOWTH_LV14" />
+            <entry key="0xB2" value="MEOWTH_LV15" />
+            <entry key="0xB3" value="PERSIAN" />
+            <entry key="0xB4" value="FARFETCHD" />
+            <entry key="0xB5" value="DODUO" />
+            <entry key="0xB6" value="DODRIO" />
+            <entry key="0xB7" value="LICKITUNG" />
+            <entry key="0xB8" value="CHANSEY" />
+            <entry key="0xB9" value="KANGASKHAN" />
+            <entry key="0xBA" value="TAUROS" />
+            <entry key="0xBB" value="DITTO" />
+            <entry key="0xBC" value="EEVEE" />
+            <entry key="0xBD" value="PORYGON" />
+            <entry key="0xBE" value="SNORLAX" />
+            <entry key="0xBF" value="DRATINI" />
+            <entry key="0xC0" value="DRAGONAIR" />
+            <entry key="0xC1" value="DRAGONITE_LV41" />
+            <entry key="0xC2" value="DRAGONITE_LV45" />
+            <entry key="0xC3" value="PROFESSOR_OAK" />
+            <entry key="0xC4" value="IMPOSTER_PROFESSOR_OAK" />
+            <entry key="0xC5" value="BILL" />
+            <entry key="0xC6" value="MR_FUJI" />
+            <entry key="0xC7" value="LASS" />
+            <entry key="0xC8" value="IMAKUNI_CARD" />
+            <entry key="0xC9" value="POKEMON_TRADER" />
+            <entry key="0xCA" value="POKEMON_BREEDER" />
+            <entry key="0xCB" value="CLEFAIRY_DOLL" />
+            <entry key="0xCC" value="MYSTERIOUS_FOSSIL" />
+            <entry key="0xCD" value="ENERGY_RETRIEVAL" />
+            <entry key="0xCE" value="SUPER_ENERGY_RETRIEVAL" />
+            <entry key="0xCF" value="ENERGY_SEARCH" />
+            <entry key="0xD0" value="ENERGY_REMOVAL" />
+            <entry key="0xD1" value="SUPER_ENERGY_REMOVAL" />
+            <entry key="0xD2" value="SWITCH" />
+            <entry key="0xD3" value="POKEMON_CENTER" />
+            <entry key="0xD4" value="POKE_BALL" />
+            <entry key="0xD5" value="SCOOP_UP" />
+            <entry key="0xD6" value="COMPUTER_SEARCH" />
+            <entry key="0xD7" value="POKEDEX" />
+            <entry key="0xD8" value="PLUSPOWER" />
+            <entry key="0xD9" value="DEFENDER" />
+            <entry key="0xDA" value="ITEM_FINDER" />
+            <entry key="0xDB" value="GUST_OF_WIND" />
+            <entry key="0xDC" value="DEVOLUTION_SPRAY" />
+            <entry key="0xDD" value="POTION" />
+            <entry key="0xDE" value="SUPER_POTION" />
+            <entry key="0xDF" value="FULL_HEAL" />
+            <entry key="0xE0" value="REVIVE" />
+            <entry key="0xE1" value="MAINTENANCE" />
+            <entry key="0xE2" value="POKEMON_FLUTE" />
+            <entry key="0xE3" value="GAMBLER" />
+            <entry key="0xE4" value="RECYCLE" />
+        </cards>
+        <maps>
+            <entry key="0x00" value="OVERWORLD_MAP" />        
+            <entry key="0x01" value="MASON_LABORATORY" />        
+            <entry key="0x02" value="DECK_MACHINE_ROOM" />       
+            <entry key="0x03" value="ISHIHARAS_HOUSE" />         
+            <entry key="0x04" value="FIGHTING_CLUB_ENTRANCE" />  
+            <entry key="0x05" value="FIGHTING_CLUB_LOBBY" />     
+            <entry key="0x06" value="FIGHTING_CLUB" />           
+            <entry key="0x07" value="ROCK_CLUB_ENTRANCE" />      
+            <entry key="0x08" value="ROCK_CLUB_LOBBY" />         
+            <entry key="0x09" value="ROCK_CLUB" />               
+            <entry key="0x0A" value="WATER_CLUB_ENTRANCE" />     
+            <entry key="0x0B" value="WATER_CLUB_LOBBY" />        
+            <entry key="0x0C" value="WATER_CLUB" />              
+            <entry key="0x0D" value="LIGHTNING_CLUB_ENTRANCE" /> 
+            <entry key="0x0E" value="LIGHTNING_CLUB_LOBBY" />    
+            <entry key="0x0F" value="LIGHTNING_CLUB" />          
+            <entry key="0x10" value="GRASS_CLUB_ENTRANCE" />     
+            <entry key="0x11" value="GRASS_CLUB_LOBBY" />        
+            <entry key="0x12" value="GRASS_CLUB" />              
+            <entry key="0x13" value="PSYCHIC_CLUB_ENTRANCE" />   
+            <entry key="0x14" value="PSYCHIC_CLUB_LOBBY" />      
+            <entry key="0x15" value="PSYCHIC_CLUB" />            
+            <entry key="0x16" value="SCIENCE_CLUB_ENTRANCE" />   
+            <entry key="0x17" value="SCIENCE_CLUB_LOBBY" />      
+            <entry key="0x18" value="SCIENCE_CLUB" />            
+            <entry key="0x19" value="FIRE_CLUB_ENTRANCE" />      
+            <entry key="0x1A" value="FIRE_CLUB_LOBBY" />         
+            <entry key="0x1B" value="FIRE_CLUB" />               
+            <entry key="0x1C" value="CHALLENGE_HALL_ENTRANCE" /> 
+            <entry key="0x1D" value="CHALLENGE_HALL_LOBBY" />    
+            <entry key="0x1E" value="CHALLENGE_HALL" />          
+            <entry key="0x1F" value="POKEMON_DOME_ENTRANCE" />   
+            <entry key="0x20" value="POKEMON_DOME" />            
+            <entry key="0x21" value="HALL_OF_HONOR" />           
+        </maps>
+        <music>
+        	<entry key="0x00" value="MUSIC_STOP" />          
+            <entry key="0x01" value="MUSIC_TITLESCREEN" />   
+            <entry key="0x02" value="MUSIC_DUEL_THEME_1" />  
+            <entry key="0x03" value="MUSIC_DUEL_THEME_2" />  
+            <entry key="0x04" value="MUSIC_DUEL_THEME_3" />  
+            <entry key="0x05" value="MUSIC_PAUSE_MENU" />    
+            <entry key="0x06" value="MUSIC_PC_MAIN_MENU" />  
+            <entry key="0x07" value="MUSIC_DECK_MACHINE" />  
+            <entry key="0x08" value="MUSIC_CARD_POP" />      
+            <entry key="0x09" value="MUSIC_OVERWORLD" />     
+            <entry key="0x0a" value="MUSIC_POKEMON_DOME" />  
+            <entry key="0x0b" value="MUSIC_CHALLENGE_HALL" />
+            <entry key="0x0c" value="MUSIC_CLUB_1" />        
+            <entry key="0x0d" value="MUSIC_CLUB_2" />        
+            <entry key="0x0e" value="MUSIC_CLUB_3" />        
+            <entry key="0x0f" value="MUSIC_RONALD" />        
+            <entry key="0x10" value="MUSIC_IMAKUNI" />       
+            <entry key="0x11" value="MUSIC_HALL_OF_HONOR" /> 
+            <entry key="0x12" value="MUSIC_CREDITS" />       
+            <entry key="0x13" value="MUSIC_UNUSED_13" />     
+            <entry key="0x14" value="MUSIC_UNUSED_14" />     
+            <entry key="0x15" value="MUSIC_MATCH_START_1" /> 
+            <entry key="0x16" value="MUSIC_MATCH_START_2" /> 
+            <entry key="0x17" value="MUSIC_MATCH_START_3" /> 
+            <entry key="0x18" value="MUSIC_MATCH_VICTORY" /> 
+            <entry key="0x19" value="MUSIC_MATCH_LOSS" />    
+            <entry key="0x1a" value="MUSIC_MATCH_DRAW" />    
+            <entry key="0x1b" value="MUSIC_UNUSED_1B" />     
+            <entry key="0x1c" value="MUSIC_BOOSTER_PACK" />  
+            <entry key="0x1d" value="MUSIC_MEDAL" />         
+            <entry key="0x1e" value="MUSIC_UNUSED_1E" />     
+        </music>
+        <whose_turn>
+            <entry key="194" value="Player" />
+            <entry key="195" value="Computer" />
+        </whose_turn>
+    </references>
+</mapper>
