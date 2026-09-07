@@ -38,7 +38,7 @@ function getGameState() {
 }
 function getHand(cards_in_hand, raw_hand, hand_path, deck_path) {
     // Get the number of cards in the player's hand.
-    const numCards = getValue(cards_in_hand);
+    const numCards = Math.max(0, Math.min(60, getValue(cards_in_hand) ?? 0));
     
     // Collect the card values from player.hand.0 to player.hand.(numCards - 1)
     const handCards = [];
@@ -52,6 +52,10 @@ function getHand(cards_in_hand, raw_hand, hand_path, deck_path) {
     // Store the reversed array in the destination path.
     for (let i = 0; i < numCards; i++) {
         setValue(`${hand_path}.${i}`, getValue(`${deck_path}.${reversedHandCards[i]}`));
+    }
+    // Discarded or played cards must not remain visible from the previous hand.
+    for (let i = numCards; i < 60; i++) {
+        setValue(`${hand_path}.${i}`, null);
     }
 }
 function setIndirectReference(set_location, indirect_reference_path, value_path, break_value = 255) {
