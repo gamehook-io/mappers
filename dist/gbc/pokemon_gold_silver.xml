@@ -2,8 +2,12 @@
 
 <mapper id="161a9132-9f4d-4679-9cc1-11f794253cf1" name="Pokemon Gold and Silver" platform="GBC" version="1.1.1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://schemas.pokeabyte.io/mapper https://schemas.pokeabyte.io/mapper.xsd"
-    xmlns:var="https://schemas.pokeabyte.io/attributes/var">
+    xsi:schemaLocation="https://schema.gamehook.io/mapper https://schema.gamehook.io/mapper.xsd"
+    xmlns:var="https://schema.gamehook.io/attributes/var">
+    <memory>
+        <!-- Required only for the preprocessor's battle-transition comparison. -->
+        <read start="0xCB0C" end="0xCB0C" />
+    </memory>
     <macros>
         <pokemon>
             <property name="species"    type="int" address="{address}" reference="species" />
@@ -54,107 +58,6 @@
                 <property name="power" type="int" description="Calculated from the IVs; not actually stored in memory" />
             </hidden_power>
         </party_pokemon>
-        <player_active_pokemon>
-            <property name="species"    type="string" />
-            <property name="dex_number" type="int" />
-            <property name="nickname"   type="string" />
-            <property name="level"      type="int" />
-            <property name="exp"        type="int" />
-            <property name="type_1"     type="string"  />
-            <property name="type_2"     type="string"  />
-            <property name="ot_id"      type="int" />
-            <property name="catch_rate" type="int" />
-            <property name="status_condition" type="string" />
-            <moves>
-                <macro name="0" type="active_pokemon_move" />
-                <macro name="1" type="active_pokemon_move" />
-                <macro name="2" type="active_pokemon_move" />
-                <macro name="3" type="active_pokemon_move" />
-            </moves>
-            <stats>
-                <property name="hp"              type="int" />
-                <property name="hp_max"          type="int" />
-                <property name="attack"          type="int" />
-                <property name="defense"         type="int" />
-                <property name="speed"           type="int" />
-                <property name="special_attack"  type="int" />
-                <property name="special_defense" type="int" />
-            </stats>
-            <ivs>
-                <property name="hp"      type="int" />
-                <property name="attack"  type="int" />
-                <property name="defense" type="int" />
-                <property name="speed"   type="int" />
-                <property name="special" type="int" />
-            </ivs>
-            <evs>
-                <property name="hp"      type="int" />
-                <property name="attack"  type="int" />
-                <property name="defense" type="int" />
-                <property name="speed"   type="int" />
-                <property name="special" type="int" />
-            </evs>
-            <modifiers>
-                <property name="attack"          type="int" /> 
-                <property name="defense"         type="int" /> 
-                <property name="speed"           type="int" /> 
-                <property name="special_attack"  type="int" />
-                <property name="special_defense" type="int" />
-                <property name="accuracy"        type="int" /> 
-                <property name="evasion"         type="int" /> 
-            </modifiers>
-            <volatile_status_conditions>
-                <property name="confused"   type="int" />
-                <property name="toxic"      type="int" />
-                <property name="leech_seed" type="int" />
-                <property name="curse"      type="int" />
-                <property name="in_love"    type="int" />
-                <property name="nightmare"  type="int" />
-            </volatile_status_conditions>
-            <effects>
-                <property name="protect"         type="int" />
-                <property name="identified"      type="int" />
-                <property name="perish"          type="int" />
-                <property name="endure"          type="int" />
-                <property name="rollout"         type="int" />
-                <property name="curled"          type="int" />
-                <property name="bide"            type="int" />
-                <property name="rampage"         type="int" />
-                <property name="in_loop"         type="int" />
-                <property name="flinched"        type="int" />
-                <property name="charged"         type="int" />
-                <property name="underground"     type="int" />
-                <property name="flying"          type="int" />
-                <property name="bypass_accuracy" type="int" />
-                <property name="mist"            type="int" />
-                <property name="focus_energy"    type="int" />
-                <property name="substitute"      type="int" />
-                <property name="recharge"        type="int" />
-                <property name="rage"            type="int" />
-                <property name="transformed"     type="int" />
-                <property name="encored"         type="int" />
-                <property name="lock_on"         type="int" />
-                <property name="destiny_bond"    type="int" />
-                <property name="cant_run"        type="int" />
-            </effects>
-            <counters>
-                <property name="rollout"     type="int" />
-                <property name="confuse"     type="int" />
-                <property name="toxic"       type="int" />
-                <property name="disable"     type="int" />
-                <property name="encore"      type="int" />
-                <property name="perish"      type="int" />
-                <property name="fury_cutter" type="int" />
-                <property name="protect"     type="int" />
-            </counters>
-        </player_active_pokemon>
-
-        <active_pokemon_move>
-            <property name="move"  type="int" />
-            <property name="pp"    type="int" />
-            <property name="pp_up" type="int" />
-        </active_pokemon_move>
-
         <party_move>
             <property name="move"  type="int" address="{moveAddress}" reference="moves" />
             <property name="pp"    type="int" address="{moveAddress} + 21" after-read-value-expression="x % 64" />
@@ -196,7 +99,7 @@
             <property name="hall_of_fame_count" type="int" address="0xD683" />
             <property name="team_count" type="int" address="0xDA22" />
             <property name="party_position" type="int" />
-            <macro name="active_pokemon" type="player_active_pokemon" />
+            <macro name="active_pokemon" type="party_pokemon" var:address="{{active_party_address}}" var:nicknameAddress="{{active_party_nickname_address}}" />
             <team>
                 <macro name="0" type="party_pokemon" var:address="0xDA2A" var:nicknameAddress="0xDB8C" />
                 <macro name="1" type="party_pokemon" var:address="0xDA5A" var:nicknameAddress="0xDB97" />
@@ -1681,12 +1584,7 @@
             <player>
                 <property name="party_position" type="int" address="0xCFC6" />
                 <active_pokemon>
-                    <property name="held_item"      type="int" address="0xcb0d" reference="items" />
-                    <property name="species"        type="int" address="0xCB0C" reference="species"  />
-                    <property name="dex_number"     type="int" address="0xCB0C" reference="dex_numbers"  />
-                    <property name="type_1"         type="int" address="0xCB2A" reference="types"  />
-                    <property name="type_2"         type="int" address="0xCB2B" reference="types"  />
-                    <property name="level"          type="int" address="0xCB19" />
+                    <!-- Persistent party identity is exposed only through player.active_pokemon. -->
                     <stats>
                         <property name="hp"              type="int" address="0xcb1c" length="2" />
                         <property name="hp_max"          type="int" address="0xcb1e" length="2" />

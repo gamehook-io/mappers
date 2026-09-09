@@ -2,8 +2,8 @@
 
 <mapper id="e1396b30-2dc2-11ee-be56-0242ac120002" name="Pokemon Red and Blue" platform="GB" version="1.1.3"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://schemas.pokeabyte.io/mapper https://schemas.pokeabyte.io/mapper.xsd"
-    xmlns:var="https://schemas.pokeabyte.io/attributes/var">
+    xsi:schemaLocation="https://schema.gamehook.io/mapper https://schema.gamehook.io/mapper.xsd"
+    xmlns:var="https://schema.gamehook.io/attributes/var">
     <macros>
         <pokemon>
             <property name="species"    type="int" address="{address}" reference="species" />
@@ -50,50 +50,6 @@
                 <property name="special" type="int" address="{address} + 25" length="2" description="Special EV (stat experience)" />
             </evs>
         </party_pokemon>
-        <player_active_pokemon>
-            <property name="species"    type="string" />
-            <property name="dex_number" type="int" />
-            <property name="nickname"   type="string" />
-            <property name="level"      type="int" />
-            <property name="exp"        type="int" />
-            <property name="type_1"     type="string" />
-            <property name="type_2"     type="string" />
-            <property name="ot_id"      type="int" />
-            <property name="catch_rate" type="int" /> <!-- this gives a bad value. For Squirtle, it says 8, but the offical number is 45 -->
-            <property name="status_condition" type="string" />
-            <moves>
-                <macro name="0" type="active_pokemon_move" />
-                <macro name="1" type="active_pokemon_move" />
-                <macro name="2" type="active_pokemon_move" />
-                <macro name="3" type="active_pokemon_move" />
-            </moves>
-            <stats>
-                <property name="hp"      type="int" />
-                <property name="hp_max"  type="int" />
-                <property name="attack"  type="int" />
-                <property name="defense" type="int" />
-                <property name="speed"   type="int" />
-                <property name="special" type="int" />
-            </stats>
-            <ivs>
-                <property name="hp"      type="int" />
-                <property name="attack"  type="int" />
-                <property name="defense" type="int" />
-                <property name="speed"   type="int" />
-                <property name="special" type="int" />
-            </ivs>
-            <evs>
-                <property name="hp"      type="int" />
-                <property name="attack"  type="int" />
-                <property name="defense" type="int" />
-                <property name="speed"   type="int" />
-                <property name="special" type="int" />
-            </evs>
-            <!-- modifiers/volatile_status_conditions/effects/counters/last_move are declared solely
-                 by the "outside battle, active pokemon has none of these" <if> below, since a party
-                 slot copied here out of battle has no such fields of its own to copy over; in battle
-                 they're overwritten with real values from battle.player.active_pokemon (see pokemon_red_blue.js). -->
-        </player_active_pokemon>
         <pc_pokemon>
             <macro type="pokemon" />
             <property name="nickname" type="string" address="{nicknameAddress}" length="11" />
@@ -128,12 +84,6 @@
             </evs>
         </pc_pokemon>
 
-        <active_pokemon_move>
-            <property name="move"  type="int" />
-            <property name="pp"    type="int" />
-            <property name="pp_up" type="int" />
-        </active_pokemon_move>
-
         <party_move>
             <property name="move"  type="int" address="{moveAddress}" reference="moves" />
             <property name="pp"    type="int" address="{moveAddress} + 21" after-read-value-expression="x % 64" />
@@ -166,8 +116,8 @@
             <property name="name"       type="string" address="0xD158" length="11" />
             <property name="player_id"  type="int"    address="0xD359" length="2" />
             <property name="team_count" type="int"    address="0xD163" />
-            <!-- player.party_position is declared by the <if>/<elif> chain near the other conditions below. -->
-            <macro name="active_pokemon" type="player_active_pokemon" />
+            <!-- The preprocessor selects the canonical party slot for this dynamic view. -->
+            <macro name="active_pokemon" type="party_pokemon" var:address="{{active_party_address}}" var:nicknameAddress="{{active_party_nickname_address}}" />
             <team>
                 <macro name="0" type="party_pokemon" var:address="0xD16B" var:nicknameAddress="0xD2B5" />
                 <macro name="1" type="party_pokemon" var:address="0xD197" var:nicknameAddress="0xD2C0" />
@@ -806,20 +756,8 @@
                 <property name="party_position" type="int" address="0xCC2F" />
                 <property name="team_count" type="int" address="0xD163" />
                 <active_pokemon>
-                    <property name="nickname"   type="string" address="0xD009" length="11" />
-                    <property name="species"    type="int" address="0xD014" reference="species" />
-                    <property name="dex_number" type="int" address="0xD014" reference="dex_numbers" />
-                    <property name="type_1"     type="int" address="0xD019" reference="pokemon_types" />
-                    <property name="type_2"     type="int" address="0xD01A" reference="pokemon_types" />
-                    <property name="level"      type="int" address="0xD022" />
-                    <property name="catch_rate" type="int" address="0xD01B" />
-                    <property name="status_condition" type="int" address="0xD018" reference="status_conditions" />
-                    <moves>
-                        <macro name="0" type="battle_move" var:moveAddress="0xD01C" />
-                        <macro name="1" type="battle_move" var:moveAddress="0xD01D" />
-                        <macro name="2" type="battle_move" var:moveAddress="0xD01E" />
-                        <macro name="3" type="battle_move" var:moveAddress="0xD01F" />
-                    </moves>
+                    <!-- Persistent identity, moves, and party stats are player.active_pokemon.
+                         This branch contains only battle RAM that differs while fighting. -->
                     <stats>
                         <property name="hp"      type="int" address="0xD015" length="2" />
                         <property name="hp_max"  type="int" address="0xD023" length="2" />
@@ -1181,99 +1119,10 @@
 			<property name="game_type"  type="string" value="Originals" />
 			<!-- <property name="state_enemy" type="string" /> -->
 		</meta>
-        <!-- Conditions run in document order after memory decoding, before the JS postprocessor. -->
-        <if expression="player.team.0.level == 0">
-            <property name="meta.state" type="string" value="No Pokemon" />
-        </if>
-        <elif expression="battle.mode == null">
-            <property name="meta.state" type="string" value="Overworld" />
-        </elif>
-        <elif expression="battle.other.battle_start == 0">
-            <property name="meta.state" type="string" value="To Battle" />
-        </elif>
-        <elif expression="battle.other.low_health_alarm == 'Disabled' || battle.other.outcome_flags > 0">
-            <property name="meta.state" type="string" value="From Battle" />
-        </elif>
-        <else>
-            <property name="meta.state" type="string" value="Battle" />
-        </else>
-        <if expression="meta.state == 'From Battle' and battle.other.outcome_flags == 0">
-            <property name="battle.outcome" type="string" value="Win" />
-        </if>
-        <elif expression="meta.state == 'From Battle' and battle.other.outcome_flags == 1">
-            <property name="battle.outcome" type="string" value="Lose" />
-        </elif>
-        <elif expression="meta.state == 'From Battle' and battle.other.outcome_flags == 2">
-            <property name="battle.outcome" type="string" value="Flee" />
-        </elif>
-        <else>
-            <property name="battle.outcome" type="string" />
-        </else>
-
-        <!-- Overworld party slot: first team member with hp > 0, else slot 0. In battle this gets
-             overwritten by the JS postprocessor with battle.player.party_position's real value. -->
-        <if expression="player.team.0.stats.hp > 0">
-            <property name="player.party_position" type="int" value="0" />
-        </if>
-        <elif expression="player.team.1.stats.hp > 0">
-            <property name="player.party_position" type="int" value="1" />
-        </elif>
-        <elif expression="player.team.2.stats.hp > 0">
-            <property name="player.party_position" type="int" value="2" />
-        </elif>
-        <elif expression="player.team.3.stats.hp > 0">
-            <property name="player.party_position" type="int" value="3" />
-        </elif>
-        <elif expression="player.team.4.stats.hp > 0">
-            <property name="player.party_position" type="int" value="4" />
-        </elif>
-        <elif expression="player.team.5.stats.hp > 0">
-            <property name="player.party_position" type="int" value="5" />
-        </elif>
-        <else>
-            <property name="player.party_position" type="int" value="0" />
-        </else>
-
-        <!-- Outside battle, player.active_pokemon is a mirror of a party_pokemon slot, which has no
-             modifiers/volatile_status_conditions/effects/counters/last_move of its own - rest them here
-             instead of the JS postprocessor resetting each one by hand every read. -->
-        <if expression="meta.state != 'Battle'">
-            <property name="player.active_pokemon.modifiers.attack"   type="int" value="0" />
-            <property name="player.active_pokemon.modifiers.defense"  type="int" value="0" />
-            <property name="player.active_pokemon.modifiers.speed"    type="int" value="0" />
-            <property name="player.active_pokemon.modifiers.special"  type="int" value="0" />
-            <property name="player.active_pokemon.modifiers.accuracy" type="int" value="0" />
-            <property name="player.active_pokemon.modifiers.evasion"  type="int" value="0" />
-            <property name="player.active_pokemon.volatile_status_conditions.confusion"  type="bool" value="false" />
-            <property name="player.active_pokemon.volatile_status_conditions.toxic"      type="bool" value="false" />
-            <property name="player.active_pokemon.volatile_status_conditions.leech_seed" type="bool" value="false" />
-            <property name="player.active_pokemon.effects.bide"            type="bool" value="false" />
-            <property name="player.active_pokemon.effects.thrash"          type="bool" value="false" />
-            <property name="player.active_pokemon.effects.multi_hit"       type="bool" value="false" />
-            <property name="player.active_pokemon.effects.flinch"          type="bool" value="false" />
-            <property name="player.active_pokemon.effects.charging"        type="bool" value="false" />
-            <property name="player.active_pokemon.effects.multi_turn"      type="bool" value="false" />
-            <property name="player.active_pokemon.effects.invulnerable"    type="bool" value="false" />
-            <property name="player.active_pokemon.effects.bypass_accuracy" type="bool" value="false" />
-            <property name="player.active_pokemon.effects.mist"            type="bool" value="false" />
-            <property name="player.active_pokemon.effects.focus_energy"    type="bool" value="false" />
-            <property name="player.active_pokemon.effects.substitute"      type="bool" value="false" />
-            <property name="player.active_pokemon.effects.recharge"        type="bool" value="false" />
-            <property name="player.active_pokemon.effects.rage"            type="bool" value="false" />
-            <property name="player.active_pokemon.effects.lightscreen"     type="bool" value="false" />
-            <property name="player.active_pokemon.effects.reflect"         type="bool" value="false" />
-            <property name="player.active_pokemon.effects.transformed"     type="bool" value="false" />
-            <property name="player.active_pokemon.counters.multi_hit" type="bool" value="false" />
-            <property name="player.active_pokemon.counters.confusion" type="bool" value="false" />
-            <property name="player.active_pokemon.counters.toxic"     type="bool" value="false" />
-            <property name="player.active_pokemon.counters.disable"   type="bool" value="false" />
-            <property name="player.active_pokemon.last_move.move"     type="int" />
-            <property name="player.active_pokemon.last_move.effect"   type="int" value="0" />
-            <property name="player.active_pokemon.last_move.power"    type="int" value="0" />
-            <property name="player.active_pokemon.last_move.type"     type="int" />
-            <property name="player.active_pokemon.last_move.accuracy" type="int" value="0" />
-            <property name="player.active_pokemon.last_move.pp_max"   type="int" value="0" />
-        </if>
+        <!-- Derived values and state live in pokemon_red_blue.js. -->
+        <property name="meta.state" type="string" />
+        <property name="battle.outcome" type="string" />
+        <property name="player.party_position" type="int" />
     </properties>
 
     <references>
