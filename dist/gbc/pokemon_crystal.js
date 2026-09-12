@@ -1,6 +1,5 @@
-const variables = __variables;
-const memory = __memory.defaultNamespace;
-const mapper = __mapper;
+// @ts-check
+/// <reference path="../../gamehook.d.ts" />
 
 const PARTY_BASE = 0xDCDF;
 const NICKNAME_BASE = 0xDE41;
@@ -18,22 +17,22 @@ let previousState = 'Overworld';
 function firstLivingPartySlot() {
     for (let slot = 0; slot < PARTY_COUNT; slot++) {
         const hpAddress = PARTY_BASE + slot * PARTY_SLOT_SIZE + 34;
-        if (memory.get_byte(hpAddress) !== 0 || memory.get_byte(hpAddress + 1) !== 0) return slot;
+        if (memory.wram.get_byte(hpAddress) !== 0 || memory.wram.get_byte(hpAddress + 1) !== 0) return slot;
     }
     return 0;
 }
 
 function stateFromRam() {
-    if (memory.get_byte(PARTY_BASE + 31) === 0) return 'No Pokemon';
-    if (memory.get_byte(0xD22D) === 0) return 'Overworld';
-    if (memory.get_byte(0xC6FD) === 1 || memory.get_byte(0xD0EE) > 0) return 'From Battle';
-    if (memory.get_byte(PARTY_BASE) === memory.get_byte(0xC62C)) return 'Battle';
+    if (memory.wram.get_byte(PARTY_BASE + 31) === 0) return 'No Pokemon';
+    if (memory.wram.get_byte(0xD22D) === 0) return 'Overworld';
+    if (memory.wram.get_byte(0xC6FD) === 1 || memory.wram.get_byte(0xD0EE) > 0) return 'From Battle';
+    if (memory.wram.get_byte(PARTY_BASE) === memory.wram.get_byte(0xC62C)) return 'Battle';
     return previousState === 'Overworld' || previousState === 'To Battle' ? 'To Battle' : 'Battle';
 }
 
 function preprocessor() {
     const state = stateFromRam();
-    const battleSlot = memory.get_byte(0xD0D4);
+    const battleSlot = memory.wram.get_byte(0xD0D4);
     const useBattleSlot = (state === 'Battle' || state === 'From Battle') && battleSlot < PARTY_COUNT;
     const slot = useBattleSlot ? battleSlot : firstLivingPartySlot();
     variables.active_party_slot = slot;
@@ -69,7 +68,7 @@ function derivePokemonValues() {
         paths.push(`${pokemonPath}.ivs.speed`);
         paths.push(`${pokemonPath}.ivs.special`);
     }
-    const values = mapper.get_values(paths);
+    const values = properties.getValues(paths);
     const updates = {};
     let valueIndex = 0;
     for (const pokemonPath of PARTY_PATHS) {
@@ -82,18 +81,18 @@ function derivePokemonValues() {
         updates[`${pokemonPath}.hidden_power.type`] = HIDDEN_POWER_TYPES[((attack & 3) << 2) | (defense & 3)];
         updates[`${pokemonPath}.hidden_power.power`] = ((5 * makeIvNumber(attack, defense, speed, special, 3) + (special & 3)) >> 1) + 31;
     }
-    mapper.set_values(updates);
+    properties.setValues(updates);
 }
 
 function postprocessor() {
-    const [timeOfDay, morning, day, night, water, movementState, outcome] = mapper.get_values([
+    const [timeOfDay, morning, day, night, water, movementState, outcome] = properties.getValues([
         'time.current.time_of_day', 'overworld.encounter_rates.morning', 'overworld.encounter_rates.day',
         'overworld.encounter_rates.night', 'overworld.encounter_rates.water', 'overworld.movement_state',
         'battle.other.outcome_flags',
     ]);
     const state = stateFromRam();
     previousState = state;
-    mapper.set_values({
+    properties.setValues({
         'meta.state': state,
         'overworld.encounter_rate': encounterRate(timeOfDay, morning, day, night, water, movementState),
         'battle.outcome': battleOutcome(state, outcome),

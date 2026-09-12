@@ -1,5 +1,15 @@
 # Mappers
 
+## JavaScript mapper help
+
+Open this folder in VS Code. `jsconfig.json` enables JavaScript checking and `gamehook.d.ts`
+provides autocomplete and hover documentation for mapper bridge globals: `memory.wram`,
+`properties`, `variables`, and `state`. Mapper scripts remain plain `.js` files.
+
+Use `properties.getValue(path)` / `setValue(path, value)` for one value, `getValues(paths)` /
+`setValues(values)` for batches, `set(path, changes)` for property metadata, and `copy(source, target)`
+for a property subtree. Use native processors for decryption and virtual memory regions.
+
 A mapper describes game memory in XML. Add a same-named JavaScript file only when values need
 derived calculations or an address must be selected at runtime.
 
@@ -73,17 +83,13 @@ results. Native C# performs mapper reads, property writes, and editing.
 
 | Global | Purpose |
 | --- | --- |
-| `__variables` | Runtime address inputs for XML. |
-| `__memory.defaultNamespace` | Raw RAM requested by `<memory>`. |
-| `__mapper` | Decoded property API. Assign it once: `const mapper = __mapper`. |
+| `variables` | Runtime address inputs for XML. |
+| `memory` | Memory-region host object. Names match regions shown in the UI memory dropdown; availability depends on system (for example, `memory.wram`). |
+| `mapper` | Decoded property API. |
 
 ```js
-const variables = __variables;
-const memory = __memory.defaultNamespace;
-const mapper = __mapper;
-
 function preprocessor() {
-  const slot = memory.get_byte(0xCC2F);
+  const slot = memory.wram.get_byte(0xCC2F);
   variables.active_party_address = 0xD16B + slot * 44;
 }
 

@@ -1,4 +1,6 @@
-const mapper = __mapper;
+// @ts-check
+/// <reference path="../../gamehook.d.ts" />
+
 const DECK_SIZE = 60;
 const BENCH_SIZE = 6;
 
@@ -6,6 +8,7 @@ function gameState(song, cardsNotInDeck) {
     if (song === 'MUSIC_MATCH_START_1' || song === 'MUSIC_MATCH_START_2' || song === 'MUSIC_MATCH_START_3') return 'To Battle';
     if (song === 'MUSIC_DUEL_THEME_1' || song === 'MUSIC_DUEL_THEME_2' || song === 'MUSIC_DUEL_THEME_3') return cardsNotInDeck >= 7 ? 'Battle' : 'To Battle';
     if (song === 'MUSIC_MATCH_VICTORY' || song === 'MUSIC_MATCH_LOSS' || song === 'MUSIC_MATCH_DRAW') return 'From Battle';
+
     return 'Overworld';
 }
 
@@ -36,12 +39,13 @@ function copyBench(updates, benchCards, deck, benchPath) {
 }
 
 function postprocessor() {
-    const values = mapper.get_values([
+    const values = properties.getValues([
         'audio.current_song', 'player.NumberOfCardsNotInDeck',
         'player.wPlayerArenaCard', 'opponent.wOpponentArenaCard',
         'player.wPlayerNumberOfCardsInHand', 'opponent.wOpponentNumberOfCardsInHand',
         ...playerDeckPaths, ...opponentDeckPaths, ...playerHandPaths, ...opponentHandPaths, ...playerBenchPaths, ...opponentBenchPaths,
     ]);
+
     let offset = 0;
     const song = values[offset++];
     const cardsNotInDeck = values[offset++];
@@ -64,7 +68,8 @@ function postprocessor() {
     copyHand(updates, opponentHandCount, opponentHandRaw, opponentDeckValues, 'opponent.hand');
     copyBench(updates, playerBenchRaw, playerDeckValues, 'player.bench');
     copyBench(updates, opponentBenchRaw, opponentDeckValues, 'opponent.bench');
-    mapper.set_values(updates);
+    
+    properties.setValues(updates);
 }
 
 export { postprocessor };

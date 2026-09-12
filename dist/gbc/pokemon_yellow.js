@@ -1,6 +1,5 @@
-const variables = __variables;
-const memory = __memory.defaultNamespace;
-const mapper = __mapper;
+// @ts-check
+/// <reference path="../../gamehook.d.ts" />
 
 const PARTY_BASE = 0xD16A;
 const NICKNAME_BASE = 0xD2B4;
@@ -11,15 +10,15 @@ const PARTY_COUNT = 6;
 function firstLivingPartySlot() {
     for (let slot = 0; slot < PARTY_COUNT; slot++) {
         const hpAddress = PARTY_BASE + slot * PARTY_SLOT_SIZE + 1;
-        if (memory.get_byte(hpAddress) !== 0 || memory.get_byte(hpAddress + 1) !== 0) return slot;
+        if (memory.wram.get_byte(hpAddress) !== 0 || memory.wram.get_byte(hpAddress + 1) !== 0) return slot;
     }
     return 0;
 }
 
 function preprocessor() {
-    const battleHasStarted = memory.get_byte(0xD056) !== 0 && memory.get_byte(0xCCF5) !== 0;
-    const battleIsEnding = memory.get_byte(0xCCF6) === 1 || memory.get_byte(0xCF0B) > 0;
-    const battleSlot = memory.get_byte(0xCC2F);
+    const battleHasStarted = memory.wram.get_byte(0xD056) !== 0 && memory.wram.get_byte(0xCCF5) !== 0;
+    const battleIsEnding = memory.wram.get_byte(0xCCF6) === 1 || memory.wram.get_byte(0xCF0B) > 0;
+    const battleSlot = memory.wram.get_byte(0xCC2F);
     const slot = battleHasStarted && !battleIsEnding && battleSlot < PARTY_COUNT
         ? battleSlot : firstLivingPartySlot();
 
@@ -45,12 +44,12 @@ function battleOutcome(state, outcomeFlags) {
 }
 
 function postprocessor() {
-    const [teamLevel, battleMode, battleStart, lowHealthAlarm, outcomeFlags] = mapper.get_values([
+    const [teamLevel, battleMode, battleStart, lowHealthAlarm, outcomeFlags] = properties.getValues([
         'player.team.0.level', 'battle.mode', 'battle.other.battle_start',
         'battle.other.low_health_alarm', 'battle.other.outcome_flags',
     ]);
     const state = stateFromValues(teamLevel, battleMode, battleStart, lowHealthAlarm, outcomeFlags);
-    mapper.set_values({
+    properties.setValues({
         'meta.state': state,
         'battle.outcome': battleOutcome(state, outcomeFlags),
         'player.party_position': variables.active_party_slot,

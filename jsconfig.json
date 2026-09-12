@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noImplicitAny": false,
+    "noEmit": true,
+    "target": "ES2022"
+  },
+  "include": ["dist/**/*.js", "gamehook.d.ts"]
+}
