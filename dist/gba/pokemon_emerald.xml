@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mapper id="005fdd01-8921-468c-aca3-d4fa864d5911" name="Pokemon Emerald" platform="GBA" nativeProcessor="b42f3152" version="1.2.1" syntax="4"
+<mapper id="005fdd01-8921-468c-aca3-d4fa864d5911" name="Pokemon Emerald" platform="GBA" nativeProcessor="b42f3152" version="1.2.1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://schemas.pokeabyte.io/mapper https://schemas.pokeabyte.io/mapper.xsd"
-    xmlns:var="https://schemas.pokeabyte.io/attributes/var">
+    xsi:schemaLocation="https://schema.gamehook.io/mapper https://schema.gamehook.io/mapper.xsd"
+    xmlns:var="https://schema.gamehook.io/attributes/var">
 	<memory>
 		<!-- EWRAM Block 01     <read start="0x00000000" end="0x00003FFF" /> -->
 		<!-- EWRAM Block 02     <read start="0x02020000" end="0x02020FFF" /> -->
@@ -22,7 +22,7 @@
 		<!-- IWRAM Block 3     <read start="0x03006000" end="0x03006FFF" /> -->
 		<!-- IWRAM Block 4 --> <read start="0x03007000" end="0x03007FFF" />
 	</memory>
-    <classes>
+    <macros>
         <party_pokemon>
             <property name="species"    type="int"    address="32"       memoryContainer="{memoryContainer}" length="2" reference="species" />
             <property name="dex_number" type="int"    address="32"       memoryContainer="{memoryContainer}" length="2" reference="dex_numbers" />
@@ -37,10 +37,10 @@
             <property name="pokerus"    type="int"    address="85"       memoryContainer="{memoryContainer}" />
             <property name="status_condition" type="int" address="80"    memoryContainer="{memoryContainer}" reference="status_conditions" />
             <moves>
-				<class name="0" type="pokemon_moves" var:moveNumberOffset="32 + 12" var:ppOffset="32 + 20" var:ppUpOffset="32 + 59" memoryContainer="{memoryContainer}" />
-				<class name="1" type="pokemon_moves" var:moveNumberOffset="32 + 14" var:ppOffset="32 + 21" var:ppUpOffset="32 + 59" memoryContainer="{memoryContainer}" />
-				<class name="2" type="pokemon_moves" var:moveNumberOffset="32 + 16" var:ppOffset="32 + 22" var:ppUpOffset="32 + 59" memoryContainer="{memoryContainer}" />
-				<class name="3" type="pokemon_moves" var:moveNumberOffset="32 + 18" var:ppOffset="32 + 23" var:ppUpOffset="32 + 59" memoryContainer="{memoryContainer}" />
+				<macro name="0" type="pokemon_moves" var:moveNumberOffset="32 + 12" var:ppOffset="32 + 20" var:ppUpOffset="32 + 59" var:memoryContainer="{memoryContainer}" />
+				<macro name="1" type="pokemon_moves" var:moveNumberOffset="32 + 14" var:ppOffset="32 + 21" var:ppUpOffset="32 + 59" var:memoryContainer="{memoryContainer}" />
+				<macro name="2" type="pokemon_moves" var:moveNumberOffset="32 + 16" var:ppOffset="32 + 22" var:ppUpOffset="32 + 59" var:memoryContainer="{memoryContainer}" />
+				<macro name="3" type="pokemon_moves" var:moveNumberOffset="32 + 18" var:ppOffset="32 + 23" var:ppUpOffset="32 + 59" var:memoryContainer="{memoryContainer}" />
 			</moves>
             <stats>
                 <property name="hp"              type="int" address="86" memoryContainer="{memoryContainer}" length="2" />
@@ -85,7 +85,7 @@
                 <property name="pokerus_status"    type="int"     address="36" memoryContainer="{memoryContainer}" />
                 <property name="met_location"      type="int"     address="37" memoryContainer="{memoryContainer}" />
                 <property name="origins_info"      type="int"     address="38" memoryContainer="{memoryContainer}" length="2" />
-                <property name="robbins_obedience" type="int"     address="44" memoryContainer="{memoryContainer}" length="4" />
+                <property name="robbins_obedience" type="uint"    address="44" memoryContainer="{memoryContainer}" length="4" />
             </misc> 
         </party_pokemon>
         <player_active_pokemon>
@@ -107,10 +107,10 @@
             <property name="status_2"   type="int" />
             <property name="status_condition" type="int" />
             <moves>
-				<class name="0" type="active_pokemon_move" />
-				<class name="1" type="active_pokemon_move" />
-				<class name="2" type="active_pokemon_move" />
-				<class name="3" type="active_pokemon_move" />
+				<macro name="0" type="active_pokemon_move" />
+				<macro name="1" type="active_pokemon_move" />
+				<macro name="2" type="active_pokemon_move" />
+				<macro name="3" type="active_pokemon_move" />
 			</moves>
             <stats>
                 <property name="hp"              type="int" />
@@ -147,7 +147,7 @@
                 <property name="special_defense" type="int" />
             </evs>
 			<internals>
-                <property name="personality_value" type="int"/>
+				<property name="personality_value" type="uint"/>
                 <property name="checksum" type="int" />
             </internals>
             <misc> 
@@ -164,7 +164,7 @@
                 <property name="pokerus_status"    type="int" />
                 <property name="met_location"      type="int" />
                 <property name="origins_info"      type="int" />
-                <property name="robbins_obedience" type="int" />
+                <property name="robbins_obedience" type="uint" />
             </misc> 
         </player_active_pokemon>
         <battle_structure>
@@ -184,10 +184,10 @@
             <property name="status_2"          type="int"    address="{address} + 76" reference="status_conditions" />
             <property name="ot_name"           type="string" address="{address} + 60" length="8" characterMap="defaultCharacterMap" />
             <moves>
-				<class name="0" address="{address}" type="battle_moves" var:moveNumberOffset="12" var:ppOffset="36" />
-				<class name="1" address="{address}" type="battle_moves" var:moveNumberOffset="14" var:ppOffset="37" />
-				<class name="2" address="{address}" type="battle_moves" var:moveNumberOffset="16" var:ppOffset="38" />
-				<class name="3" address="{address}" type="battle_moves" var:moveNumberOffset="18" var:ppOffset="39" />
+				<macro name="0" var:address="{{address}}" type="battle_moves" var:moveNumberOffset="12" var:ppOffset="36" />
+				<macro name="1" var:address="{{address}}" type="battle_moves" var:moveNumberOffset="14" var:ppOffset="37" />
+				<macro name="2" var:address="{{address}}" type="battle_moves" var:moveNumberOffset="16" var:ppOffset="38" />
+				<macro name="3" var:address="{{address}}" type="battle_moves" var:moveNumberOffset="18" var:ppOffset="39" />
 			</moves>
             <stats>
                 <property name="hp"              type="int" address="{address} + 40" length="2" />
@@ -239,7 +239,7 @@
             <property name="item"     type="int" length="2" address="{offset}" memoryContainer="ram.save_block_1" reference="items" />
             <property name="quantity" type="int" length="2" address="{offset} + 2" memoryContainer="ram.save_block_1" />
         </player_item>
-    </classes>
+    </macros>
 
     <properties>
         <player>
@@ -248,14 +248,14 @@
             <property name="player_id" type="int"    address="10" memoryContainer="ram.save_block_2" length="2" />
             <!-- <property name="team_count" type="int"    address="0x03004350" /> --> <!-- TODO: find address for emerald-->
             <property name="party_position" type="int" />
-            <class name="active_pokemon" type="player_active_pokemon" />
+            <macro name="active_pokemon" type="player_active_pokemon" />
             <team>
-                <class name="0" type="party_pokemon" var:memoryContainer="player_party_structure_0" />
-                <class name="1" type="party_pokemon" var:memoryContainer="player_party_structure_1" />
-                <class name="2" type="party_pokemon" var:memoryContainer="player_party_structure_2" />
-                <class name="3" type="party_pokemon" var:memoryContainer="player_party_structure_3" />
-                <class name="4" type="party_pokemon" var:memoryContainer="player_party_structure_4" />
-                <class name="5" type="party_pokemon" var:memoryContainer="player_party_structure_5" />
+                <macro name="0" type="party_pokemon" var:memoryContainer="player_party_structure_0" />
+                <macro name="1" type="party_pokemon" var:memoryContainer="player_party_structure_1" />
+                <macro name="2" type="party_pokemon" var:memoryContainer="player_party_structure_2" />
+                <macro name="3" type="party_pokemon" var:memoryContainer="player_party_structure_3" />
+                <macro name="4" type="party_pokemon" var:memoryContainer="player_party_structure_4" />
+                <macro name="5" type="party_pokemon" var:memoryContainer="player_party_structure_5" />
             </team>
             <badges>
                 <property name="0" type="bool" bits="0" address="8890" memoryContainer="ram.save_block_2" description="stonebadge" />
@@ -274,201 +274,201 @@
             <property name="money" type="uint" length="4" address="1168" memoryContainer="ram.save_block_1" />
             <property name="coins" type="int" length="2" address="1172" memoryContainer="ram.save_block_1" />
             <items>
-                <class name="0"  type="player_item" var:offset="1376" />
-                <class name="1"  type="player_item" var:offset="1380" />
-                <class name="2"  type="player_item" var:offset="1384" />
-                <class name="3"  type="player_item" var:offset="1388" />
-                <class name="4"  type="player_item" var:offset="1392" />
-                <class name="5"  type="player_item" var:offset="1396" />
-                <class name="6"  type="player_item" var:offset="1400" />
-                <class name="7"  type="player_item" var:offset="1404" />
-                <class name="8"  type="player_item" var:offset="1408" />
-                <class name="9"  type="player_item" var:offset="1412" />
-                <class name="10" type="player_item" var:offset="1416" />
-                <class name="11" type="player_item" var:offset="1420" />
-                <class name="12" type="player_item" var:offset="1424" />
-                <class name="13" type="player_item" var:offset="1428" />
-                <class name="14" type="player_item" var:offset="1432" />
-                <class name="15" type="player_item" var:offset="1436" />
-                <class name="16" type="player_item" var:offset="1440" />
-                <class name="17" type="player_item" var:offset="1444" />
-                <class name="18" type="player_item" var:offset="1448" />
-                <class name="19" type="player_item" var:offset="1452" />
-                <class name="20" type="player_item" var:offset="1456" />
-                <class name="21" type="player_item" var:offset="1460" />
-                <class name="22" type="player_item" var:offset="1464" />
-                <class name="23" type="player_item" var:offset="1468" />
-                <class name="24" type="player_item" var:offset="1472" />
-                <class name="25" type="player_item" var:offset="1476" />
-                <class name="26" type="player_item" var:offset="1480" />
-                <class name="27" type="player_item" var:offset="1484" />
-                <class name="28" type="player_item" var:offset="1488" />
-                <class name="29" type="player_item" var:offset="1492" />
+                <macro name="0"  type="player_item" var:offset="1376" />
+                <macro name="1"  type="player_item" var:offset="1380" />
+                <macro name="2"  type="player_item" var:offset="1384" />
+                <macro name="3"  type="player_item" var:offset="1388" />
+                <macro name="4"  type="player_item" var:offset="1392" />
+                <macro name="5"  type="player_item" var:offset="1396" />
+                <macro name="6"  type="player_item" var:offset="1400" />
+                <macro name="7"  type="player_item" var:offset="1404" />
+                <macro name="8"  type="player_item" var:offset="1408" />
+                <macro name="9"  type="player_item" var:offset="1412" />
+                <macro name="10" type="player_item" var:offset="1416" />
+                <macro name="11" type="player_item" var:offset="1420" />
+                <macro name="12" type="player_item" var:offset="1424" />
+                <macro name="13" type="player_item" var:offset="1428" />
+                <macro name="14" type="player_item" var:offset="1432" />
+                <macro name="15" type="player_item" var:offset="1436" />
+                <macro name="16" type="player_item" var:offset="1440" />
+                <macro name="17" type="player_item" var:offset="1444" />
+                <macro name="18" type="player_item" var:offset="1448" />
+                <macro name="19" type="player_item" var:offset="1452" />
+                <macro name="20" type="player_item" var:offset="1456" />
+                <macro name="21" type="player_item" var:offset="1460" />
+                <macro name="22" type="player_item" var:offset="1464" />
+                <macro name="23" type="player_item" var:offset="1468" />
+                <macro name="24" type="player_item" var:offset="1472" />
+                <macro name="25" type="player_item" var:offset="1476" />
+                <macro name="26" type="player_item" var:offset="1480" />
+                <macro name="27" type="player_item" var:offset="1484" />
+                <macro name="28" type="player_item" var:offset="1488" />
+                <macro name="29" type="player_item" var:offset="1492" />
             </items>
             <key_items>
-                <class name="0"  type="player_item" var:offset="1496" />
-                <class name="1"  type="player_item" var:offset="1500" />
-                <class name="2"  type="player_item" var:offset="1504" />
-                <class name="3"  type="player_item" var:offset="1508" />
-                <class name="4"  type="player_item" var:offset="1512" />
-                <class name="5"  type="player_item" var:offset="1516" />
-                <class name="6"  type="player_item" var:offset="1520" />
-                <class name="7"  type="player_item" var:offset="1524" />
-                <class name="8"  type="player_item" var:offset="1528" />
-                <class name="9"  type="player_item" var:offset="1532" />
-                <class name="10" type="player_item" var:offset="1536" />
-                <class name="11" type="player_item" var:offset="1540" />
-                <class name="12" type="player_item" var:offset="1544" />
-                <class name="13" type="player_item" var:offset="1548" />
-                <class name="14" type="player_item" var:offset="1552" />
-                <class name="15" type="player_item" var:offset="1556" />
-                <class name="16" type="player_item" var:offset="1560" />
-                <class name="17" type="player_item" var:offset="1564" />
-                <class name="18" type="player_item" var:offset="1568" />
-                <class name="19" type="player_item" var:offset="1572" />
-                <class name="20" type="player_item" var:offset="1576" />
-                <class name="21" type="player_item" var:offset="1580" />
-                <class name="22" type="player_item" var:offset="1584" />
-                <class name="23" type="player_item" var:offset="1588" />
-                <class name="24" type="player_item" var:offset="1592" />
-                <class name="25" type="player_item" var:offset="1596" />
-                <class name="26" type="player_item" var:offset="1600" />
-                <class name="27" type="player_item" var:offset="1604" />
-                <class name="28" type="player_item" var:offset="1608" />
-                <class name="29" type="player_item" var:offset="1612" />
+                <macro name="0"  type="player_item" var:offset="1496" />
+                <macro name="1"  type="player_item" var:offset="1500" />
+                <macro name="2"  type="player_item" var:offset="1504" />
+                <macro name="3"  type="player_item" var:offset="1508" />
+                <macro name="4"  type="player_item" var:offset="1512" />
+                <macro name="5"  type="player_item" var:offset="1516" />
+                <macro name="6"  type="player_item" var:offset="1520" />
+                <macro name="7"  type="player_item" var:offset="1524" />
+                <macro name="8"  type="player_item" var:offset="1528" />
+                <macro name="9"  type="player_item" var:offset="1532" />
+                <macro name="10" type="player_item" var:offset="1536" />
+                <macro name="11" type="player_item" var:offset="1540" />
+                <macro name="12" type="player_item" var:offset="1544" />
+                <macro name="13" type="player_item" var:offset="1548" />
+                <macro name="14" type="player_item" var:offset="1552" />
+                <macro name="15" type="player_item" var:offset="1556" />
+                <macro name="16" type="player_item" var:offset="1560" />
+                <macro name="17" type="player_item" var:offset="1564" />
+                <macro name="18" type="player_item" var:offset="1568" />
+                <macro name="19" type="player_item" var:offset="1572" />
+                <macro name="20" type="player_item" var:offset="1576" />
+                <macro name="21" type="player_item" var:offset="1580" />
+                <macro name="22" type="player_item" var:offset="1584" />
+                <macro name="23" type="player_item" var:offset="1588" />
+                <macro name="24" type="player_item" var:offset="1592" />
+                <macro name="25" type="player_item" var:offset="1596" />
+                <macro name="26" type="player_item" var:offset="1600" />
+                <macro name="27" type="player_item" var:offset="1604" />
+                <macro name="28" type="player_item" var:offset="1608" />
+                <macro name="29" type="player_item" var:offset="1612" />
             </key_items>
             <balls>
-                <class name="0"  type="player_item" var:offset="1616" />
-                <class name="1"  type="player_item" var:offset="1620" />
-                <class name="2"  type="player_item" var:offset="1624" />
-                <class name="3"  type="player_item" var:offset="1628" />
-                <class name="4"  type="player_item" var:offset="1632" />
-                <class name="5"  type="player_item" var:offset="1636" />
-                <class name="6"  type="player_item" var:offset="1640" />
-                <class name="7"  type="player_item" var:offset="1644" />
-                <class name="8"  type="player_item" var:offset="1648" />
-                <class name="9"  type="player_item" var:offset="1652" />
-                <class name="10" type="player_item" var:offset="1656" />
-                <class name="11" type="player_item" var:offset="1660" />
-                <class name="12" type="player_item" var:offset="1664" />
-                <class name="13" type="player_item" var:offset="1668" />
-                <class name="14" type="player_item" var:offset="1672" />
-                <class name="15" type="player_item" var:offset="1676" />
+                <macro name="0"  type="player_item" var:offset="1616" />
+                <macro name="1"  type="player_item" var:offset="1620" />
+                <macro name="2"  type="player_item" var:offset="1624" />
+                <macro name="3"  type="player_item" var:offset="1628" />
+                <macro name="4"  type="player_item" var:offset="1632" />
+                <macro name="5"  type="player_item" var:offset="1636" />
+                <macro name="6"  type="player_item" var:offset="1640" />
+                <macro name="7"  type="player_item" var:offset="1644" />
+                <macro name="8"  type="player_item" var:offset="1648" />
+                <macro name="9"  type="player_item" var:offset="1652" />
+                <macro name="10" type="player_item" var:offset="1656" />
+                <macro name="11" type="player_item" var:offset="1660" />
+                <macro name="12" type="player_item" var:offset="1664" />
+                <macro name="13" type="player_item" var:offset="1668" />
+                <macro name="14" type="player_item" var:offset="1672" />
+                <macro name="15" type="player_item" var:offset="1676" />
             </balls>
             <tmhm>
-                <class name="0"  type="player_item" var:offset="1680" />
-                <class name="1"  type="player_item" var:offset="1684" />
-                <class name="2"  type="player_item" var:offset="1688" />
-                <class name="3"  type="player_item" var:offset="1692" />
-                <class name="4"  type="player_item" var:offset="1696" />
-                <class name="5"  type="player_item" var:offset="1700" />
-                <class name="6"  type="player_item" var:offset="1704" />
-                <class name="7"  type="player_item" var:offset="1708" />
-                <class name="8"  type="player_item" var:offset="1712" />
-                <class name="9"  type="player_item" var:offset="1716" />
-                <class name="10" type="player_item" var:offset="1720" />
-                <class name="11" type="player_item" var:offset="1724" />
-                <class name="12" type="player_item" var:offset="1728" />
-                <class name="13" type="player_item" var:offset="1732" />
-                <class name="14" type="player_item" var:offset="1736" />
-                <class name="15" type="player_item" var:offset="1740" />
-                <class name="16" type="player_item" var:offset="1744" />
-                <class name="17" type="player_item" var:offset="1748" />
-                <class name="18" type="player_item" var:offset="1752" />
-                <class name="19" type="player_item" var:offset="1756" />
-                <class name="20" type="player_item" var:offset="1760" />
-                <class name="21" type="player_item" var:offset="1764" />
-                <class name="22" type="player_item" var:offset="1768" />
-                <class name="23" type="player_item" var:offset="1772" />
-                <class name="24" type="player_item" var:offset="1776" />
-                <class name="25" type="player_item" var:offset="1780" />
-                <class name="26" type="player_item" var:offset="1784" />
-                <class name="27" type="player_item" var:offset="1788" />
-                <class name="28" type="player_item" var:offset="1792" />
-                <class name="29" type="player_item" var:offset="1796" />
-                <class name="30" type="player_item" var:offset="1800" />
-                <class name="31" type="player_item" var:offset="1804" />
-                <class name="32" type="player_item" var:offset="1808" />
-                <class name="33" type="player_item" var:offset="1812" />
-                <class name="34" type="player_item" var:offset="1816" />
-                <class name="35" type="player_item" var:offset="1820" />
-                <class name="36" type="player_item" var:offset="1824" />
-                <class name="37" type="player_item" var:offset="1828" />
-                <class name="38" type="player_item" var:offset="1832" />
-                <class name="39" type="player_item" var:offset="1836" />
-                <class name="40" type="player_item" var:offset="1840" />
-                <class name="41" type="player_item" var:offset="1844" />
-                <class name="42" type="player_item" var:offset="1848" />
-                <class name="43" type="player_item" var:offset="1852" />
-                <class name="44" type="player_item" var:offset="1856" />
-                <class name="45" type="player_item" var:offset="1860" />
-                <class name="46" type="player_item" var:offset="1864" />
-                <class name="47" type="player_item" var:offset="1868" />
-                <class name="48" type="player_item" var:offset="1872" />
-                <class name="49" type="player_item" var:offset="1876" />
-                <class name="50" type="player_item" var:offset="1880" />
-                <class name="51" type="player_item" var:offset="1884" />
-                <class name="52" type="player_item" var:offset="1888" />
-                <class name="53" type="player_item" var:offset="1892" />
-                <class name="54" type="player_item" var:offset="1896" />
-                <class name="55" type="player_item" var:offset="1900" />
-                <class name="56" type="player_item" var:offset="1904" />
-                <class name="57" type="player_item" var:offset="1908" />
-                <class name="58" type="player_item" var:offset="1912" />
-                <class name="59" type="player_item" var:offset="1916" />
-                <class name="60" type="player_item" var:offset="1920" />
-                <class name="61" type="player_item" var:offset="1924" />
-                <class name="62" type="player_item" var:offset="1928" />
-                <class name="63" type="player_item" var:offset="1932" />
+                <macro name="0"  type="player_item" var:offset="1680" />
+                <macro name="1"  type="player_item" var:offset="1684" />
+                <macro name="2"  type="player_item" var:offset="1688" />
+                <macro name="3"  type="player_item" var:offset="1692" />
+                <macro name="4"  type="player_item" var:offset="1696" />
+                <macro name="5"  type="player_item" var:offset="1700" />
+                <macro name="6"  type="player_item" var:offset="1704" />
+                <macro name="7"  type="player_item" var:offset="1708" />
+                <macro name="8"  type="player_item" var:offset="1712" />
+                <macro name="9"  type="player_item" var:offset="1716" />
+                <macro name="10" type="player_item" var:offset="1720" />
+                <macro name="11" type="player_item" var:offset="1724" />
+                <macro name="12" type="player_item" var:offset="1728" />
+                <macro name="13" type="player_item" var:offset="1732" />
+                <macro name="14" type="player_item" var:offset="1736" />
+                <macro name="15" type="player_item" var:offset="1740" />
+                <macro name="16" type="player_item" var:offset="1744" />
+                <macro name="17" type="player_item" var:offset="1748" />
+                <macro name="18" type="player_item" var:offset="1752" />
+                <macro name="19" type="player_item" var:offset="1756" />
+                <macro name="20" type="player_item" var:offset="1760" />
+                <macro name="21" type="player_item" var:offset="1764" />
+                <macro name="22" type="player_item" var:offset="1768" />
+                <macro name="23" type="player_item" var:offset="1772" />
+                <macro name="24" type="player_item" var:offset="1776" />
+                <macro name="25" type="player_item" var:offset="1780" />
+                <macro name="26" type="player_item" var:offset="1784" />
+                <macro name="27" type="player_item" var:offset="1788" />
+                <macro name="28" type="player_item" var:offset="1792" />
+                <macro name="29" type="player_item" var:offset="1796" />
+                <macro name="30" type="player_item" var:offset="1800" />
+                <macro name="31" type="player_item" var:offset="1804" />
+                <macro name="32" type="player_item" var:offset="1808" />
+                <macro name="33" type="player_item" var:offset="1812" />
+                <macro name="34" type="player_item" var:offset="1816" />
+                <macro name="35" type="player_item" var:offset="1820" />
+                <macro name="36" type="player_item" var:offset="1824" />
+                <macro name="37" type="player_item" var:offset="1828" />
+                <macro name="38" type="player_item" var:offset="1832" />
+                <macro name="39" type="player_item" var:offset="1836" />
+                <macro name="40" type="player_item" var:offset="1840" />
+                <macro name="41" type="player_item" var:offset="1844" />
+                <macro name="42" type="player_item" var:offset="1848" />
+                <macro name="43" type="player_item" var:offset="1852" />
+                <macro name="44" type="player_item" var:offset="1856" />
+                <macro name="45" type="player_item" var:offset="1860" />
+                <macro name="46" type="player_item" var:offset="1864" />
+                <macro name="47" type="player_item" var:offset="1868" />
+                <macro name="48" type="player_item" var:offset="1872" />
+                <macro name="49" type="player_item" var:offset="1876" />
+                <macro name="50" type="player_item" var:offset="1880" />
+                <macro name="51" type="player_item" var:offset="1884" />
+                <macro name="52" type="player_item" var:offset="1888" />
+                <macro name="53" type="player_item" var:offset="1892" />
+                <macro name="54" type="player_item" var:offset="1896" />
+                <macro name="55" type="player_item" var:offset="1900" />
+                <macro name="56" type="player_item" var:offset="1904" />
+                <macro name="57" type="player_item" var:offset="1908" />
+                <macro name="58" type="player_item" var:offset="1912" />
+                <macro name="59" type="player_item" var:offset="1916" />
+                <macro name="60" type="player_item" var:offset="1920" />
+                <macro name="61" type="player_item" var:offset="1924" />
+                <macro name="62" type="player_item" var:offset="1928" />
+                <macro name="63" type="player_item" var:offset="1932" />
             </tmhm>
             <berries>
-                <class name="0"  type="player_item" var:offset="1936" />
-                <class name="1"  type="player_item" var:offset="1940" />
-                <class name="2"  type="player_item" var:offset="1944" />
-                <class name="3"  type="player_item" var:offset="1948" />
-                <class name="4"  type="player_item" var:offset="1952" />
-                <class name="5"  type="player_item" var:offset="1956" />
-                <class name="6"  type="player_item" var:offset="1960" />
-                <class name="7"  type="player_item" var:offset="1964" />
-                <class name="8"  type="player_item" var:offset="1968" />
-                <class name="9"  type="player_item" var:offset="1972" />
-                <class name="10" type="player_item" var:offset="1976" />
-                <class name="11" type="player_item" var:offset="1980" />
-                <class name="12" type="player_item" var:offset="1984" />
-                <class name="13" type="player_item" var:offset="1988" />
-                <class name="14" type="player_item" var:offset="1992" />
-                <class name="15" type="player_item" var:offset="1996" />
-                <class name="16" type="player_item" var:offset="2000" />
-                <class name="17" type="player_item" var:offset="2004" />
-                <class name="18" type="player_item" var:offset="2008" />
-                <class name="19" type="player_item" var:offset="2012" />
-                <class name="20" type="player_item" var:offset="2016" />
-                <class name="21" type="player_item" var:offset="2020" />
-                <class name="22" type="player_item" var:offset="2024" />
-                <class name="23" type="player_item" var:offset="2028" />
-                <class name="24" type="player_item" var:offset="2032" />
-                <class name="25" type="player_item" var:offset="2036" />
-                <class name="26" type="player_item" var:offset="2040" />
-                <class name="27" type="player_item" var:offset="2044" />
-                <class name="28" type="player_item" var:offset="2048" />
-                <class name="29" type="player_item" var:offset="2052" />
-                <class name="30" type="player_item" var:offset="2056" />
-                <class name="31" type="player_item" var:offset="2060" />
-                <class name="32" type="player_item" var:offset="2064" />
-                <class name="33" type="player_item" var:offset="2068" />
-                <class name="34" type="player_item" var:offset="2072" />
-                <class name="35" type="player_item" var:offset="2076" />
-                <class name="36" type="player_item" var:offset="2080" />
-                <class name="37" type="player_item" var:offset="2084" />
-                <class name="38" type="player_item" var:offset="2088" />
-                <class name="39" type="player_item" var:offset="2092" />
-                <class name="40" type="player_item" var:offset="2096" />
-                <class name="41" type="player_item" var:offset="2100" />
-                <class name="42" type="player_item" var:offset="2104" />
-                <class name="43" type="player_item" var:offset="2108" />
-                <class name="44" type="player_item" var:offset="2112" />
-                <class name="45" type="player_item" var:offset="2116" />
-                <class name="46" type="player_item" var:offset="2120" />
+                <macro name="0"  type="player_item" var:offset="1936" />
+                <macro name="1"  type="player_item" var:offset="1940" />
+                <macro name="2"  type="player_item" var:offset="1944" />
+                <macro name="3"  type="player_item" var:offset="1948" />
+                <macro name="4"  type="player_item" var:offset="1952" />
+                <macro name="5"  type="player_item" var:offset="1956" />
+                <macro name="6"  type="player_item" var:offset="1960" />
+                <macro name="7"  type="player_item" var:offset="1964" />
+                <macro name="8"  type="player_item" var:offset="1968" />
+                <macro name="9"  type="player_item" var:offset="1972" />
+                <macro name="10" type="player_item" var:offset="1976" />
+                <macro name="11" type="player_item" var:offset="1980" />
+                <macro name="12" type="player_item" var:offset="1984" />
+                <macro name="13" type="player_item" var:offset="1988" />
+                <macro name="14" type="player_item" var:offset="1992" />
+                <macro name="15" type="player_item" var:offset="1996" />
+                <macro name="16" type="player_item" var:offset="2000" />
+                <macro name="17" type="player_item" var:offset="2004" />
+                <macro name="18" type="player_item" var:offset="2008" />
+                <macro name="19" type="player_item" var:offset="2012" />
+                <macro name="20" type="player_item" var:offset="2016" />
+                <macro name="21" type="player_item" var:offset="2020" />
+                <macro name="22" type="player_item" var:offset="2024" />
+                <macro name="23" type="player_item" var:offset="2028" />
+                <macro name="24" type="player_item" var:offset="2032" />
+                <macro name="25" type="player_item" var:offset="2036" />
+                <macro name="26" type="player_item" var:offset="2040" />
+                <macro name="27" type="player_item" var:offset="2044" />
+                <macro name="28" type="player_item" var:offset="2048" />
+                <macro name="29" type="player_item" var:offset="2052" />
+                <macro name="30" type="player_item" var:offset="2056" />
+                <macro name="31" type="player_item" var:offset="2060" />
+                <macro name="32" type="player_item" var:offset="2064" />
+                <macro name="33" type="player_item" var:offset="2068" />
+                <macro name="34" type="player_item" var:offset="2072" />
+                <macro name="35" type="player_item" var:offset="2076" />
+                <macro name="36" type="player_item" var:offset="2080" />
+                <macro name="37" type="player_item" var:offset="2084" />
+                <macro name="38" type="player_item" var:offset="2088" />
+                <macro name="39" type="player_item" var:offset="2092" />
+                <macro name="40" type="player_item" var:offset="2096" />
+                <macro name="41" type="player_item" var:offset="2100" />
+                <macro name="42" type="player_item" var:offset="2104" />
+                <macro name="43" type="player_item" var:offset="2108" />
+                <macro name="44" type="player_item" var:offset="2112" />
+                <macro name="45" type="player_item" var:offset="2116" />
+                <macro name="46" type="player_item" var:offset="2120" />
             </berries>
         </bag>
 
@@ -485,26 +485,26 @@
                 <property name="team_count"   type="int" address="0x20244EC - 3" />
                 <property name="party_position" type="int" address="0x202406e" />
                 <property name="party_position_2" type="int" address="0x202406f" /> <!-- TODO: check that this is the right address -->
-                <class name="active_pokemon"  type="battle_structure" var:address="0x2024084" var:party_bits="0x202406E" length="2" />
-                <class name="active_pokemon_2" type="battle_structure" var:address="0x2024134" var:party_bits="0x2024072" length="2" />
+                <macro name="active_pokemon"  type="battle_structure" var:address="0x2024084" var:party_bits="0x202406E" length="2" />
+                <macro name="active_pokemon_2" type="battle_structure" var:address="0x2024134" var:party_bits="0x2024072" length="2" />
                 <team>
-                    <class name="0" type="party_pokemon" var:memoryContainer="player_party_structure_0" />
-                    <class name="1" type="party_pokemon" var:memoryContainer="player_party_structure_1" />
-                    <class name="2" type="party_pokemon" var:memoryContainer="player_party_structure_2" />
-                    <class name="3" type="party_pokemon" var:memoryContainer="player_party_structure_3" />
-                    <class name="4" type="party_pokemon" var:memoryContainer="player_party_structure_4" />
-                    <class name="5" type="party_pokemon" var:memoryContainer="player_party_structure_5" />
+                    <macro name="0" type="party_pokemon" var:memoryContainer="player_party_structure_0" />
+                    <macro name="1" type="party_pokemon" var:memoryContainer="player_party_structure_1" />
+                    <macro name="2" type="party_pokemon" var:memoryContainer="player_party_structure_2" />
+                    <macro name="3" type="party_pokemon" var:memoryContainer="player_party_structure_3" />
+                    <macro name="4" type="party_pokemon" var:memoryContainer="player_party_structure_4" />
+                    <macro name="5" type="party_pokemon" var:memoryContainer="player_party_structure_5" />
                 </team>
             </player>
             <ally>
                 <property name="trainer" type="int" address="0x2038BCE" length="2" reference="trainer_classes" />
                 <property name="id"      type="int" address="0x2038BCE" length="2" />
                 <property name="party_position" type="int" address="0x202406f" /> <!-- TODO: check that this is the right address -->
-                <class name="active_pokemon" type="battle_structure" var:address="0x2024134" var:party_bits="0x2024072" length="2" />
+                <macro name="active_pokemon" type="battle_structure" var:address="0x2024134" var:party_bits="0x2024072" length="2" />
                 <team>
-                    <class name="0" type="party_pokemon" var:memoryContainer="player_party_structure_3" />
-                    <class name="1" type="party_pokemon" var:memoryContainer="player_party_structure_4" />
-                    <class name="2" type="party_pokemon" var:memoryContainer="player_party_structure_5" />
+                    <macro name="0" type="party_pokemon" var:memoryContainer="player_party_structure_3" />
+                    <macro name="1" type="party_pokemon" var:memoryContainer="player_party_structure_4" />
+                    <macro name="2" type="party_pokemon" var:memoryContainer="player_party_structure_5" />
                 </team>
             </ally>
             <opponent>
@@ -514,15 +514,15 @@
                 <property name="team_count" type="int" length="2" address="0x20244EA" />
                 <property name="party_position" type="int" address="0x2024070" />
                 <property name="party_position_2" type="int" address="0x2024071" /> <!-- TODO: check that this is the right address, it might be 0x202406f -->
-                <class name="active_pokemon" type="battle_structure" var:address="0x20240DC" var:party_bits="0x2024070" length="2" />
-                <class name="active_pokemon_2" type="battle_structure" var:address="0x202418C" var:party_bits="0x2024074" length="2" />
+                <macro name="active_pokemon" type="battle_structure" var:address="0x20240DC" var:party_bits="0x2024070" length="2" />
+                <macro name="active_pokemon_2" type="battle_structure" var:address="0x202418C" var:party_bits="0x2024074" length="2" />
                 <team>
-                    <class name="0" type="party_pokemon" var:memoryContainer="opponent_party_structure_0" />
-                    <class name="1" type="party_pokemon" var:memoryContainer="opponent_party_structure_1" />
-                    <class name="2" type="party_pokemon" var:memoryContainer="opponent_party_structure_2" />
-                    <class name="3" type="party_pokemon" var:memoryContainer="opponent_party_structure_3" />
-                    <class name="4" type="party_pokemon" var:memoryContainer="opponent_party_structure_4" />
-                    <class name="5" type="party_pokemon" var:memoryContainer="opponent_party_structure_5" />
+                    <macro name="0" type="party_pokemon" var:memoryContainer="opponent_party_structure_0" />
+                    <macro name="1" type="party_pokemon" var:memoryContainer="opponent_party_structure_1" />
+                    <macro name="2" type="party_pokemon" var:memoryContainer="opponent_party_structure_2" />
+                    <macro name="3" type="party_pokemon" var:memoryContainer="opponent_party_structure_3" />
+                    <macro name="4" type="party_pokemon" var:memoryContainer="opponent_party_structure_4" />
+                    <macro name="5" type="party_pokemon" var:memoryContainer="opponent_party_structure_5" />
                 </team>
             </opponent>
             <opponent_2>
@@ -530,11 +530,11 @@
                 <property name="trainer" type="int" length="2" address="0x2038BCC" reference="trainer_classes" /> 
                 <property name="id"      type="int" length="2" address="0x2038BCC"/> 
                 <property name="party_position_2" type="int" address="0x2024071" /> <!-- TODO: check that this is the right address -->
-                <class name="active_pokemon" type="battle_structure" var:address="0x202418C" var:party_bits="0x2024074" length="2" />
+                <macro name="active_pokemon" type="battle_structure" var:address="0x202418C" var:party_bits="0x2024074" length="2" />
                 <team>
-                    <class name="0" type="party_pokemon" var:memoryContainer="opponent_party_structure_3" />
-                    <class name="1" type="party_pokemon" var:memoryContainer="opponent_party_structure_4" />
-                    <class name="2" type="party_pokemon" var:memoryContainer="opponent_party_structure_5" />
+                    <macro name="0" type="party_pokemon" var:memoryContainer="opponent_party_structure_3" />
+                    <macro name="1" type="party_pokemon" var:memoryContainer="opponent_party_structure_4" />
+                    <macro name="2" type="party_pokemon" var:memoryContainer="opponent_party_structure_5" />
                 </team>
             </opponent_2>
             <flags>
