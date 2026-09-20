@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mapper id="539abc0e-70ca-4e97-bb3f-081d7cb6cba1" name="Pokemon Crystal Legacy" platform="GBC" version="1.1.0"
+<mapper id="539abc0e-70ca-4e97-bb3f-081d7cb6cba1" name="Pokemon Crystal Legacy" platform="GBC"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://schema.gamehook.io/mapper https://schema.gamehook.io/mapper.xsd"
     xmlns:var="https://schema.gamehook.io/attributes/var">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mapper id="005fdd01-8921-468c-aca3-d4fa864d5911" name="Pokemon Emerald" platform="GBA" nativeProcessor="b42f3152" version="1.2.1"
+<mapper id="005fdd01-8921-468c-aca3-d4fa864d5911" name="Pokemon Emerald" platform="GBA" nativeProcessor="b42f3152"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://schema.gamehook.io/mapper https://schema.gamehook.io/mapper.xsd"
     xmlns:var="https://schema.gamehook.io/attributes/var">

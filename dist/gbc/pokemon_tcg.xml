@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mapper id="ed4632b2-e220-4504-ad3c-2a79e57e30c0" name="Pokémon Trading Card Game" platform="GBC" version="1.0.7"
+<mapper id="ed4632b2-e220-4504-ad3c-2a79e57e30c0" name="Pokémon Trading Card Game" platform="GBC"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://schema.gamehook.io/mapper https://schema.gamehook.io/mapper.xsd"
     xmlns:var="https://schema.gamehook.io/attributes/var">

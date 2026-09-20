@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper id="e181c5ea-ef93-48bc-bbd9-ab08653063a5" name="Resident Evil 3: Nemesis" platform="PSX"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://schema.gamehook.io/mapper https://schema.gamehook.io/mapper.xsd"
+    xmlns:var="https://schema.gamehook.io/attributes/var">
+    
+    <properties>
+        <player>
+            <items>
+                <property name="0" type="int" address="0x80165F5E" reference="items" />
+            </items>
+        </player>
+    </properties>
+
+    <references>
+        <items>
+            <entry key="0x00" value="Bare Hands" />
+            <entry key="0x01" value="Combat Knife" />
+            <entry key="0x02" value="Sigpro Handgun" />
+            <entry key="0x03" value="Handgun M92F" />
+            <entry key="0x04" value="Shotgun B. M3S" />
+            <entry key="0x05" value="S&amp;W Magnum" />
+            <entry key="0x06" value="G. Launcher" />
+            <entry key="0x07" value="G. Launcher" />
+            <entry key="0x08" value="G. Launcher" />
+            <entry key="0x09" value="G. Launcher" />
+            <entry key="0x0A" value="R. Launcher" />
+            <entry key="0x0B" value="Gatling Gun" />
+            <entry key="0x0C" value="Mine Thrower" />
+            <entry key="0x0D" value="STI Eagle 6.0" />
+            <entry key="0x0E" value="Assault rifle (Auto)" />
+            <entry key="0x0F" value="A. rifle (Manual)" />
+          </items>
+    </references>
+</mapper>

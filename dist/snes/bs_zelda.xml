@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper id="ef21a75a-6954-4f2e-8541-1c8d53e6fee4" name="BS Zelda no Densetsu" platform="SNES"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://schema.gamehook.io/mapper https://schema.gamehook.io/mapper.xsd"
+    xmlns:var="https://schema.gamehook.io/attributes/var">
+    
+    <properties>
+        <player>
+            <property name="health" type="int" address="0x7E6DDC" />
+            <property name="rupees" type="int" address="0x7E7436" length="2" />
+            <property name="keys" type="int" address="0x7E7438" />
+            <property name="sword" type="int" address="0x7E743A" reference="swords" />
+            <items>
+                <property name="bow" type="bool" address="0x7E743C" />
+                <property name="boomerang" type="int" address="0x7E7421" reference="boomerangs" />
+                <property name="bombs" type="int" address="0x7E7422" />
+                <property name="arrow" type="int" address="0x7E7421" reference="arrows" />
+                <property name="candle" type="int" address="0x7E7421" reference="candles" />
+                <property name="whistle" type="bool" address="0x7E7425" />
+                <property name="food" type="bool" address="0x7E7426" />
+                <property name="medicine" type="int" address="0x7E7427" reference="medicines" />
+                <property name="magic_rod" type="bool" address="0x7E7428" />
+                <property name="raft" type="bool" address="0x7E7429" />
+                <property name="book_of_magic" type="bool" address="0x7E742A" />
+                <property name="ring" type="int" address="0x7E742B" reference="rings" />
+                <property name="ladder" type="bool" address="0x7E742C" />
+                <property name="power_bracelet" type="bool" address="0x7E742E" />
+                <property name="old_lady_letter" type="bool" address="0x7E742F" />
+            </items>
+            <dungeons>
+                <level_1>
+                    <property name="compass" type="bool" address="0x7E7430" bits="7" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="7" />
+                </level_1>
+                <level_2>
+                    <property name="compass" type="bool" address="0x7E7430" bits="6" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="6" />
+                </level_2>
+                <level_3>
+                    <property name="compass" type="bool" address="0x7E7430" bits="5" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="5" />
+                </level_3>
+                <level_4>
+                    <property name="compass" type="bool" address="0x7E7430" bits="4" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="4" />
+                </level_4>
+                <level_5>
+                    <property name="compass" type="bool" address="0x7E7430" bits="3" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="3" />
+                </level_5>
+                <level_6>
+                    <property name="compass" type="bool" address="0x7E7430" bits="2" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="2" />
+                </level_6>
+                <level_7>
+                    <property name="compass" type="bool" address="0x7E7430" bits="1" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="1" />
+                </level_7>
+                <level_8>
+                    <property name="compass" type="bool" address="0x7E7430" bits="0" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="0" />
+                </level_8>
+            </dungeons>
+            <triforce_pieces>
+                <property name="0" type="bool" address="0x7E7439" bits="7" />
+                <property name="1" type="bool" address="0x7E7439" bits="6" />
+                <property name="2" type="bool" address="0x7E7439" bits="5" />
+                <property name="3" type="bool" address="0x7E7439" bits="4" />
+                <property name="4" type="bool" address="0x7E7439" bits="3" />
+                <property name="5" type="bool" address="0x7E7439" bits="2" />
+                <property name="6" type="bool" address="0x7E7439" bits="1" />
+                <property name="7" type="bool" address="0x7E7439" bits="0" />
+            </triforce_pieces>
+        </player>
+    </properties>
+
+    <references>
+        <boomerangs>
+            <entry key="0x00" />
+            <entry key="0x01" value="Normal" />
+            <entry key="0x02" value="Blue" />
+            <entry key="0xFF" value="Red" />
+        </boomerangs>
+        <arrows>
+            <entry key="0x00" />
+            <entry key="0x01" value="Wooden" />
+            <entry key="0x02" value="Silver" />
+        </arrows>
+        <candles>
+            <entry key="0x00" />
+            <entry key="0x01" value="Blue" />
+            <entry key="0x02" value="Red" />
+        </candles>
+        <medicines>
+            <entry key="0x00" />
+            <entry key="0x01" value="Blue" />
+            <entry key="0x02" value="Red" />
+        </medicines>
+        <rings>
+            <entry key="0x00" />
+            <entry key="0x01" value="Blue" />
+            <entry key="0x02" value="Red" />
+        </rings>
+        <swords>
+            <entry key="0x00" />
+            <entry key="0x01" value="Wooden" />
+            <entry key="0x02" value="White" />
+            <entry key="0x03" value="Magic" />
+        </swords>
+    </references>
+</mapper>

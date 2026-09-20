@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper id="13e970bd-263f-4a0d-886f-190222dc2040" name="Dragon Warrior" platform="NES"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://schema.gamehook.io/mapper https://schema.gamehook.io/mapper.xsd"
+    xmlns:var="https://schema.gamehook.io/attributes/var">
+    <properties>
+        <map>
+            <property name="name" type="string" address="0x45" reference="maps" />
+            <property name="horizontal_offset" type="int" address="0x11" />
+            <property name="tileset" type="string" address="0x12" reference="tileset" />
+            <property name="exterior_tile" type="string" address="0x45" reference="tiles" />
+        </map>
+        <player>
+            <position>
+                <property name="x" type="int" address="0x3A" />
+                <property name="y" type="int" address="0x3B" />
+                <property name="standing_on" type="string" address="0xE0" reference="tiles" />
+                <property name="inactivity_timer" type="int" address="0x4F" />
+                <property name="light_radius" type="string" address="0xD0" reference="light_radius" />
+            </position>
+            <stats>
+                <property name="level" type="int" address="0xC7" />
+                <property name="current_hp" type="int" address="0xC5" />
+                <property name="maximum_hp" type="int" address="0xCA" />
+                <property name="current_mp" type="int" address="0xC6" />
+                <property name="maximum_mp" type="int" address="0xCB" />
+                <property name="attack_power" type="int" address="0xCC" />
+                <property name="defense_power" type="int" address="0xCD" />
+                <property name="gold" type="int" address="0xBC" length="2" />
+                <property name="experience" type="int" address="0xBA" length="2" />
+            </stats>
+            <inventory>
+                <property name="magic_keys_quantity" type="int" address="0xBF" />
+                <property name="herbs_quantity" type="int" address="0xC0" />
+                <items>
+                    <property name="0" type="int" address="0xC1" bits="0-3" reference="items" />
+                    <property name="1" type="int" address="0xC1" bits="4-7" reference="items" />
+                    <property name="2" type="int" address="0xC2" bits="0-3" reference="items" />
+                    <property name="3" type="int" address="0xC2" bits="4-7" reference="items" />
+                    <property name="4" type="int" address="0xC3" bits="0-3" reference="items" />
+                    <property name="5" type="int" address="0xC3" bits="4-7" reference="items" />
+                    <property name="6" type="int" address="0xC4" bits="0-3" reference="items" />
+                    <property name="7" type="int" address="0xC4" bits="4-7" reference="items" />
+                </items>
+            </inventory>
+            <spells>
+                <property name="heal" type="bool" address="0xCE" bits="0" />
+                <property name="hurt" type="bool" address="0xCE" bits="1" />
+                <property name="sleep" type="bool" address="0xCE" bits="2" />
+                <property name="radiant" type="bool" address="0xCE" bits="3" />
+                <property name="stopspell" type="bool" address="0xCE" bits="4" />
+                <property name="outside" type="bool" address="0xCE" bits="5" />
+                <property name="return" type="bool" address="0xCE" bits="6" />
+                <property name="repel" type="bool" address="0xCE" bits="7" />
+                <property name="healmore" type="bool" address="0xCF" bits="0" />
+                <property name="hurtmore" type="bool" address="0xCF" bits="1" />
+            </spells>
+        </player>
+        <battle>
+            <enemy>
+                <property name="enemy_name" type="string" address="0xE0" reference="enemies" />
+                <property name="current_hp" type="int" address="0xE2" />
+                <property name="maximum_hp" type="int" address="0x102" />
+                <property name="strength" type="int" address="0x100" />
+                <property name="agility" type="int" address="0x101" />
+                <property name="abilities" type="string" address="0x103" reference="abilities" />
+                <property name="sleep_resist" type="int" address="0x104" bits="4-7" />
+                <property name="stopspell_resist" type="int" address="0x104" bits="0-3" />
+                <property name="hurt_resist" type="int" address="0x105" bits="4-7" />
+                <property name="dodge_chance" type="int" address="0x105" bits="0-3" />
+                <property name="xp_reward" type="int" address="0x106" />
+                <property name="gold_reward" type="int" address="0x107" />
+            </enemy>
+        </battle>
+    </properties>
+    <references>
+        <maps>
+            <entry key="0x00" />
+            <entry key="0x01" value="Overworld" />
+            <entry key="0x02" value="Charlock Castle 1F" />
+            <entry key="0x03" value="Hauksness" />
+            <entry key="0x04" value="Tantegel Castle" />
+            <entry key="0x05" value="Throne Room" />
+            <entry key="0x06" value="Charlock Castle B7" />
+            <entry key="0x07" value="Kol" />
+            <entry key="0x08" value="Breconnary" />
+            <entry key="0x09" value="Garinham" />
+            <entry key="0x0A" value="Cantlin" />
+            <entry key="0x0B" value="Rimuldar" />
+            <entry key="0x0C" value="Stones Cave" />
+            <entry key="0x0D" value="Staff Cave" />
+            <entry key="0x0E" value="Rainbow Drop Cave" />
+            <entry key="0x0F" value="Charlock Castle B1" />
+            <entry key="0x10" value="Charlock Castle B2" />
+            <entry key="0x11" value="Charlock Castle B3" />
+            <entry key="0x12" value="Charlock Castle B4" />
+            <entry key="0x13" value="Charlock Castle B5" />
+            <entry key="0x14" value="Charlock Castle B6" />
+            <entry key="0x15" value="Swamp Cave" />
+            <entry key="0x16" value="Mountain Cave B1" />
+            <entry key="0x17" value="Mountain Cave B2" />
+            <entry key="0x18" value="Garin's Grave B1" />
+            <entry key="0x19" value="Garin's Grave B2" />
+            <entry key="0x1A" value="Garin's Grave B3" />
+            <entry key="0x1B" value="Garin's Grave B4" />
+            <entry key="0x1C" value="Tablet Cave B1" />
+            <entry key="0x1D" value="Tablet Cave B2" />
+        </maps>
+        <tileset>
+            <entry key="0x00" />
+        </tileset>
+        <tiles>
+            <entry key="0x00" value="Plains" />
+            <entry key="0x01" value="Desert" />
+            <entry key="0x02" value="Hill" />
+            <entry key="0x03" value="Stairs" />
+            <entry key="0x04" value="Brick" />
+            <entry key="0x05" value="Stairs" />
+            <entry key="0x06" value="Swamp" />
+            <entry key="0x07" value="Town" />
+            <entry key="0x08" value="Cave" />
+            <entry key="0x09" value="Castle" />
+            <entry key="0x0A" value="Bridge" />
+            <entry key="0x0B" value="Forest" />
+            <entry key="0x0C" value="Chest" />
+            <entry key="0x0D" value="Barrier" />
+        </tiles>
+        <enemies>
+            <entry key="0x00" value="Slime" />
+            <entry key="0x01" value="Red Slime" />
+            <entry key="0x02" value="Drakee" />
+            <entry key="0x03" value="Ghost" />
+            <entry key="0x04" value="Magician" />
+            <entry key="0x05" value="Magidrakee" />
+            <entry key="0x06" value="Scorpion" />
+            <entry key="0x07" value="Druin" />
+            <entry key="0x08" value="Poltergeist" />
+            <entry key="0x09" value="Droll" />
+            <entry key="0x0A" value="Drakeema" />
+            <entry key="0x0B" value="Skeleton" />
+            <entry key="0x0C" value="Warlock" />
+            <entry key="0x0D" value="Metal Scorpion" />
+            <entry key="0x0E" value="Wolf" />
+            <entry key="0x0F" value="Wraith" />
+            <entry key="0x10" value="Metal Slime" />
+            <entry key="0x11" value="Specter" />
+            <entry key="0x12" value="Wolflord" />
+            <entry key="0x13" value="Druinlord" />
+            <entry key="0x14" value="Drollmagi" />
+            <entry key="0x15" value="Wyvern" />
+            <entry key="0x16" value="Rogue Scorpion" />
+            <entry key="0x17" value="Wraith Knight" />
+            <entry key="0x18" value="Golem" />
+            <entry key="0x19" value="Goldman" />
+            <entry key="0x1A" value="Knight" />
+            <entry key="0x1B" value="Magiwyvern" />
+            <entry key="0x1C" value="Demon Knight" />
+            <entry key="0x1D" value="Werewolf" />
+            <entry key="0x1E" value="Green Dragon" />
+            <entry key="0x1F" value="Starwyvern" />
+            <entry key="0x20" value="Wizard" />
+            <entry key="0x21" value="Axe Knight" />
+            <entry key="0x22" value="Blue Dragon" />
+            <entry key="0x23" value="Stoneman" />
+            <entry key="0x24" value="Armored Knight" />
+            <entry key="0x25" value="Red Dragon" />
+            <entry key="0x26" value="Dragonlord 1" />
+            <entry key="0x27" value="Dragonlord 2" />
+        </enemies>
+        <abilities>
+            <entry key="0x00" value="Attack | Attack" />
+            <entry key="0x01" value="Attack | 25% Hurt" />
+            <entry key="0x02" value="Attack | 50% Hurt" />
+            <entry key="0x03" value="Attack | 75% Hurt" />
+            <entry key="0x04" value="Attack | Attack" />
+            <entry key="0x05" value="Attack | 25% Hurtmore" />
+            <entry key="0x06" value="Attack | 50% Hurtmore" />
+            <entry key="0x07" value="Attack | 75% Hurtmore" />
+            <entry key="0x08" value="Attack | Attack" />
+            <entry key="0x09" value="Attack | 25% Fire Breath" />
+            <entry key="0x0A" value="Attack | 50% Fire Breath" />
+            <entry key="0x0B" value="Attack | 75% Fire Breath" />
+            <entry key="0x0C" value="Attack | Attack" />
+            <entry key="0x0D" value="Attack | 25% DL2 Breath" />
+            <entry key="0x0E" value="Attack | 50% DL2 Breath" />
+            <entry key="0x0F" value="Attack | 75% DL2 Breath" />
+            <entry key="0x10" value="25% Sleep | Attack" />
+            <entry key="0x11" value="25% Sleep | 25% Hurt" />
+            <entry key="0x12" value="25% Sleep | 50% Hurt" />
+            <entry key="0x13" value="25% Sleep | 75% Hurt" />
+            <entry key="0x14" value="25% Sleep | Attack" />
+            <entry key="0x15" value="25% Sleep | 25% Hurtmore" />
+            <entry key="0x16" value="25% Sleep | 50% Hurtmore" />
+            <entry key="0x17" value="25% Sleep | 75% Hurtmore" />
+            <entry key="0x18" value="25% Sleep | Attack" />
+            <entry key="0x19" value="25% Sleep | 25% Fire Breath" />
+            <entry key="0x1A" value="25% Sleep | 50% Fire Breath" />
+            <entry key="0x1B" value="25% Sleep | 75% Fire Breath" />
+            <entry key="0x1C" value="25% Sleep | Attack" />
+            <entry key="0x1D" value="25% Sleep | 25% DL2 Breath" />
+            <entry key="0x1E" value="25% Sleep | 50% DL2 Breath" />
+            <entry key="0x1F" value="25% Sleep | 75% DL2 Breath" />
+            <entry key="0x20" value="50% Sleep | Attack" />
+            <entry key="0x21" value="50% Sleep | 25% Hurt" />
+            <entry key="0x22" value="50% Sleep | 50% Hurt" />
+            <entry key="0x23" value="50% Sleep | 75% Hurt" />
+            <entry key="0x24" value="50% Sleep | Attack" />
+            <entry key="0x25" value="50% Sleep | 25% Hurtmore" />
+            <entry key="0x26" value="50% Sleep | 50% Hurtmore" />
+            <entry key="0x27" value="50% Sleep | 75% Hurtmore" />
+            <entry key="0x28" value="50% Sleep | Attack" />
+            <entry key="0x29" value="50% Sleep | 25% Fire Breath" />
+            <entry key="0x2A" value="50% Sleep | 50% Fire Breath" />
+            <entry key="0x2B" value="50% Sleep | 75% Fire Breath" />
+            <entry key="0x2C" value="50% Sleep | Attack" />
+            <entry key="0x2D" value="50% Sleep | 25% DL2 Breath" />
+            <entry key="0x2E" value="50% Sleep | 50% DL2 Breath" />
+            <entry key="0x2F" value="50% Sleep | 75% DL2 Breath" />
+            <entry key="0x30" value="75% Sleep | Attack" />
+            <entry key="0x31" value="75% Sleep | 25% Hurt" />
+            <entry key="0x32" value="75% Sleep | 50% Hurt" />
+            <entry key="0x33" value="75% Sleep | 75% Hurt" />
+            <entry key="0x34" value="75% Sleep | Attack" />
+            <entry key="0x35" value="75% Sleep | 25% Hurtmore" />
+            <entry key="0x36" value="75% Sleep | 50% Hurtmore" />
+            <entry key="0x37" value="75% Sleep | 75% Hurtmore" />
+            <entry key="0x38" value="75% Sleep | Attack" />
+            <entry key="0x39" value="75% Sleep | 25% Fire Breath" />
+            <entry key="0x3A" value="75% Sleep | 50% Fire Breath" />
+            <entry key="0x3B" value="75% Sleep | 75% Fire Breath" />
+            <entry key="0x3C" value="75% Sleep | Attack" />
+            <entry key="0x3D" value="75% Sleep | 25% DL2 Breath" />
+            <entry key="0x3E" value="75% Sleep | 50% DL2 Breath" />
+            <entry key="0x3F" value="75% Sleep | 75% DL2 Breath" />
+            <entry key="0x40" value="Attack | Attack" />
+            <entry key="0x41" value="Attack | 25% Hurt" />
+            <entry key="0x42" value="Attack | 50% Hurt" />
+            <entry key="0x43" value="Attack | 75% Hurt" />
+            <entry key="0x44" value="Attack | Attack" />
+            <entry key="0x45" value="Attack | 25% Hurtmore" />
+            <entry key="0x46" value="Attack | 50% Hurtmore" />
+            <entry key="0x47" value="Attack | 75% Hurtmore" />
+            <entry key="0x48" value="Attack | Attack" />
+            <entry key="0x49" value="Attack | 25% Fire Breath" />
+            <entry key="0x4A" value="Attack | 50% Fire Breath" />
+            <entry key="0x4B" value="Attack | 75% Fire Breath" />
+            <entry key="0x4C" value="Attack | Attack" />
+            <entry key="0x4D" value="Attack | 25% DL2 Breath" />
+            <entry key="0x4E" value="Attack | 50% DL2 Breath" />
+            <entry key="0x4F" value="Attack | 75% DL2 Breath" />
+            <entry key="0x50" value="25% Stopspell | Attack" />
+            <entry key="0x51" value="25% Stopspell | 25% Hurt" />
+            <entry key="0x52" value="25% Stopspell | 50% Hurt" />
+            <entry key="0x53" value="25% Stopspell | 75% Hurt" />
+            <entry key="0x54" value="25% Stopspell | Attack" />
+            <entry key="0x55" value="25% Stopspell | 25% Hurtmore" />
+            <entry key="0x56" value="25% Stopspell | 50% Hurtmore" />
+            <entry key="0x57" value="25% Stopspell | 75% Hurtmore" />
+            <entry key="0x58" value="25% Stopspell | Attack" />
+            <entry key="0x59" value="25% Stopspell | 25% Fire Breath" />
+            <entry key="0x5A" value="25% Stopspell | 50% Fire Breath" />
+            <entry key="0x5B" value="25% Stopspell | 75% Fire Breath" />
+            <entry key="0x5C" value="25% Stopspell | Attack" />
+            <entry key="0x5D" value="25% Stopspell | 25% DL2 Breath" />
+            <entry key="0x5E" value="25% Stopspell | 50% DL2 Breath" />
+            <entry key="0x5F" value="25% Stopspell | 75% DL2 Breath" />
+            <entry key="0x60" value="50% Stopspell | Attack" />
+            <entry key="0x61" value="50% Stopspell | 25% Hurt" />
+            <entry key="0x62" value="50% Stopspell | 50% Hurt" />
+            <entry key="0x63" value="50% Stopspell | 75% Hurt" />
+            <entry key="0x64" value="50% Stopspell | Attack" />
+            <entry key="0x65" value="50% Stopspell | 25% Hurtmore" />
+            <entry key="0x66" value="50% Stopspell | 50% Hurtmore" />
+            <entry key="0x67" value="50% Stopspell | 75% Hurtmore" />
+            <entry key="0x68" value="50% Stopspell | Attack" />
+            <entry key="0x69" value="50% Stopspell | 25% Fire Breath" />
+            <entry key="0x6A" value="50% Stopspell | 50% Fire Breath" />
+            <entry key="0x6B" value="50% Stopspell | 75% Fire Breath" />
+            <entry key="0x6C" value="50% Stopspell | Attack" />
+            <entry key="0x6D" value="50% Stopspell | 25% DL2 Breath" />
+            <entry key="0x6E" value="50% Stopspell | 50% DL2 Breath" />
+            <entry key="0x6F" value="50% Stopspell | 75% DL2 Breath" />
+            <entry key="0x70" value="75% Stopspell | Attack" />
+            <entry key="0x71" value="75% Stopspell | 25% Hurt" />
+            <entry key="0x72" value="75% Stopspell | 50% Hurt" />
+            <entry key="0x73" value="75% Stopspell | 75% Hurt" />
+            <entry key="0x74" value="75% Stopspell | Attack" />
+            <entry key="0x75" value="75% Stopspell | 25% Hurtmore" />
+            <entry key="0x76" value="75% Stopspell | 50% Hurtmore" />
+            <entry key="0x77" value="75% Stopspell | 75% Hurtmore" />
+            <entry key="0x78" value="75% Stopspell | Attack" />
+            <entry key="0x79" value="75% Stopspell | 25% Fire Breath" />
+            <entry key="0x7A" value="75% Stopspell | 50% Fire Breath" />
+            <entry key="0x7B" value="75% Stopspell | 75% Fire Breath" />
+            <entry key="0x7C" value="75% Stopspell | Attack" />
+            <entry key="0x7D" value="75% Stopspell | 25% DL2 Breath" />
+            <entry key="0x7E" value="75% Stopspell | 50% DL2 Breath" />
+            <entry key="0x7F" value="75% Stopspell | 75% DL2 Breath" />
+            <entry key="0x80" value="Attack | Attack" />
+            <entry key="0x81" value="Attack | 25% Hurt" />
+            <entry key="0x82" value="Attack | 50% Hurt" />
+            <entry key="0x83" value="Attack | 75% Hurt" />
+            <entry key="0x84" value="Attack | Attack" />
+            <entry key="0x85" value="Attack | 25% Hurtmore" />
+            <entry key="0x86" value="Attack | 50% Hurtmore" />
+            <entry key="0x87" value="Attack | 75% Hurtmore" />
+            <entry key="0x88" value="Attack | Attack" />
+            <entry key="0x89" value="Attack | 25% Fire Breath" />
+            <entry key="0x8A" value="Attack | 50% Fire Breath" />
+            <entry key="0x8B" value="Attack | 75% Fire Breath" />
+            <entry key="0x8C" value="Attack | Attack" />
+            <entry key="0x8D" value="Attack | 25% DL2 Breath" />
+            <entry key="0x8E" value="Attack | 50% DL2 Breath" />
+            <entry key="0x8F" value="Attack | 75% DL2 Breath" />
+            <entry key="0x90" value="25% Heal | Attack" />
+            <entry key="0x91" value="25% Heal | 25% Hurt" />
+            <entry key="0x92" value="25% Heal | 50% Hurt" />
+            <entry key="0x93" value="25% Heal | 75% Hurt" />
+            <entry key="0x94" value="25% Heal | Attack" />
+            <entry key="0x95" value="25% Heal | 25% Hurtmore" />
+            <entry key="0x96" value="25% Heal | 50% Hurtmore" />
+            <entry key="0x97" value="25% Heal | 75% Hurtmore" />
+            <entry key="0x98" value="25% Heal | Attack" />
+            <entry key="0x99" value="25% Heal | 25% Fire Breath" />
+            <entry key="0x9A" value="25% Heal | 50% Fire Breath" />
+            <entry key="0x9B" value="25% Heal | 75% Fire Breath" />
+            <entry key="0x9C" value="25% Heal | Attack" />
+            <entry key="0x9D" value="25% Heal | 25% DL2 Breath" />
+            <entry key="0x9E" value="25% Heal | 50% DL2 Breath" />
+            <entry key="0x9F" value="25% Heal | 75% DL2 Breath" />
+            <entry key="0xA0" value="50% Heal | Attack" />
+            <entry key="0xA1" value="50% Heal | 25% Hurt" />
+            <entry key="0xA2" value="50% Heal | 50% Hurt" />
+            <entry key="0xA3" value="50% Heal | 75% Hurt" />
+            <entry key="0xA4" value="50% Heal | Attack" />
+            <entry key="0xA5" value="50% Heal | 25% Hurtmore" />
+            <entry key="0xA6" value="50% Heal | 50% Hurtmore" />
+            <entry key="0xA7" value="50% Heal | 75% Hurtmore" />
+            <entry key="0xA8" value="50% Heal | Attack" />
+            <entry key="0xA9" value="50% Heal | 25% Fire Breath" />
+            <entry key="0xAA" value="50% Heal | 50% Fire Breath" />
+            <entry key="0xAB" value="50% Heal | 75% Fire Breath" />
+            <entry key="0xAC" value="50% Heal | Attack" />
+            <entry key="0xAD" value="50% Heal | 25% DL2 Breath" />
+            <entry key="0xAE" value="50% Heal | 50% DL2 Breath" />
+            <entry key="0xAF" value="50% Heal | 75% DL2 Breath" />
+            <entry key="0xB0" value="75% Heal | Attack" />
+            <entry key="0xB1" value="75% Heal | 25% Hurt" />
+            <entry key="0xB2" value="75% Heal | 50% Hurt" />
+            <entry key="0xB3" value="75% Heal | 75% Hurt" />
+            <entry key="0xB4" value="75% Heal | Attack" />
+            <entry key="0xB5" value="75% Heal | 25% Hurtmore" />
+            <entry key="0xB6" value="75% Heal | 50% Hurtmore" />
+            <entry key="0xB7" value="75% Heal | 75% Hurtmore" />
+            <entry key="0xB8" value="75% Heal | Attack" />
+            <entry key="0xB9" value="75% Heal | 25% Fire Breath" />
+            <entry key="0xBA" value="75% Heal | 50% Fire Breath" />
+            <entry key="0xBB" value="75% Heal | 75% Fire Breath" />
+            <entry key="0xBC" value="75% Heal | Attack" />
+            <entry key="0xBD" value="75% Heal | 25% DL2 Breath" />
+            <entry key="0xBE" value="75% Heal | 50% DL2 Breath" />
+            <entry key="0xBF" value="75% Heal | 75% DL2 Breath" />
+            <entry key="0xC0" value="Attack | Attack" />
+            <entry key="0xC1" value="Attack | 25% Hurt" />
+            <entry key="0xC2" value="Attack | 50% Hurt" />
+            <entry key="0xC3" value="Attack | 75% Hurt" />
+            <entry key="0xC4" value="Attack | Attack" />
+            <entry key="0xC5" value="Attack | 25% Hurtmore" />
+            <entry key="0xC6" value="Attack | 50% Hurtmore" />
+            <entry key="0xC7" value="Attack | 75% Hurtmore" />
+            <entry key="0xC8" value="Attack | Attack" />
+            <entry key="0xC9" value="Attack | 25% Fire Breath" />
+            <entry key="0xCA" value="Attack | 50% Fire Breath" />
+            <entry key="0xCB" value="Attack | 75% Fire Breath" />
+            <entry key="0xCC" value="Attack | Attack" />
+            <entry key="0xCD" value="Attack | 25% DL2 Breath" />
+            <entry key="0xCE" value="Attack | 50% DL2 Breath" />
+            <entry key="0xCF" value="Attack | 75% DL2 Breath" />
+            <entry key="0xD0" value="25% Healmore | Attack" />
+            <entry key="0xD1" value="25% Healmore | 25% Hurt" />
+            <entry key="0xD2" value="25% Healmore | 50% Hurt" />
+            <entry key="0xD3" value="25% Healmore | 75% Hurt" />
+            <entry key="0xD4" value="25% Healmore | Attack" />
+            <entry key="0xD5" value="25% Healmore | 25% Hurtmore" />
+            <entry key="0xD6" value="25% Healmore | 50% Hurtmore" />
+            <entry key="0xD7" value="25% Healmore | 75% Hurtmore" />
+            <entry key="0xD8" value="25% Healmore | Attack" />
+            <entry key="0xD9" value="25% Healmore | 25% Fire Breath" />
+            <entry key="0xDA" value="25% Healmore | 50% Fire Breath" />
+            <entry key="0xDB" value="25% Healmore | 75% Fire Breath" />
+            <entry key="0xDC" value="25% Healmore | Attack" />
+            <entry key="0xDD" value="25% Healmore | 25% DL2 Breath" />
+            <entry key="0xDE" value="25% Healmore | 50% DL2 Breath" />
+            <entry key="0xDF" value="25% Healmore | 75% DL2 Breath" />
+            <entry key="0xE0" value="50% Healmore | Attack" />
+            <entry key="0xE1" value="50% Healmore | 25% Hurt" />
+            <entry key="0xE2" value="50% Healmore | 50% Hurt" />
+            <entry key="0xE3" value="50% Healmore | 75% Hurt" />
+            <entry key="0xE4" value="50% Healmore | Attack" />
+            <entry key="0xE5" value="50% Healmore | 25% Hurtmore" />
+            <entry key="0xE6" value="50% Healmore | 50% Hurtmore" />
+            <entry key="0xE7" value="50% Healmore | 75% Hurtmore" />
+            <entry key="0xE8" value="50% Healmore | Attack" />
+            <entry key="0xE9" value="50% Healmore | 25% Fire Breath" />
+            <entry key="0xEA" value="50% Healmore | 50% Fire Breath" />
+            <entry key="0xEB" value="50% Healmore | 75% Fire Breath" />
+            <entry key="0xEC" value="50% Healmore | Attack" />
+            <entry key="0xED" value="50% Healmore | 25% DL2 Breath" />
+            <entry key="0xEE" value="50% Healmore | 50% DL2 Breath" />
+            <entry key="0xEF" value="50% Healmore | 75% DL2 Breath" />
+            <entry key="0xF0" value="75% Healmore | Attack" />
+            <entry key="0xF1" value="75% Healmore | 25% Hurt" />
+            <entry key="0xF2" value="75% Healmore | 50% Hurt" />
+            <entry key="0xF3" value="75% Healmore | 75% Hurt" />
+            <entry key="0xF4" value="75% Healmore | Attack" />
+            <entry key="0xF5" value="75% Healmore | 25% Hurtmore" />
+            <entry key="0xF6" value="75% Healmore | 50% Hurtmore" />
+            <entry key="0xF7" value="75% Healmore | 75% Hurtmore" />
+            <entry key="0xF8" value="75% Healmore | Attack" />
+            <entry key="0xF9" value="75% Healmore | 25% Fire Breath" />
+            <entry key="0xFA" value="75% Healmore | 50% Fire Breath" />
+            <entry key="0xFB" value="75% Healmore | 75% Fire Breath" />
+            <entry key="0xFC" value="75% Healmore | Attack" />
+            <entry key="0xFD" value="75% Healmore | 25% DL2 Breath" />
+            <entry key="0xFE" value="75% Healmore | 50% DL2 Breath" />
+            <entry key="0xFF" value="75% Healmore | 75% DL2 Breath" />
+        </abilities>
+        <items>
+            <entry key="0x00" />
+            <entry key="0x01" value="Torch" />
+            <entry key="0x02" value="Fairy Water" />
+            <entry key="0x03" value="Wings" />
+            <entry key="0x04" value="Dragon's Scale" />
+            <entry key="0x05" value="Fairy Flute" />
+            <entry key="0x06" value="Fighter's Ring" />
+            <entry key="0x07" value="Erdrick's Token" />
+            <entry key="0x08" value="Gwaelin's Love" />
+            <entry key="0x09" value="Cursed Belt" />
+            <entry key="0x0A" value="Silver Harp" />
+            <entry key="0x0B" value="Death Necklace" />
+            <entry key="0x0C" value="Stones of Sunlight" />
+            <entry key="0x0D" value="Staff of Rain" />
+            <entry key="0x0E" value="Rainbow Drop" />
+            <entry key="0x0F" value="Herb" />
+        </items>
+        <weapons>
+            <entry key="0x20" value="Bamboo Pole" />
+            <entry key="0x40" value="Club" />
+            <entry key="0x60" value="Copper Sword" />
+            <entry key="0x80" value="Hand Axe" />
+            <entry key="0xA0" value="Broad Sword" />
+            <entry key="0xC0" value="Flame Sword" />
+            <entry key="0xE0" value="Erdrick's Sword" />
+        </weapons>
+        <armor>
+            <entry key="0x04" value="Clothes" />
+            <entry key="0x08" value="Leather Armor" />
+            <entry key="0x0C" value="Chain Mail" />
+            <entry key="0x10" value="Half Plate" />
+            <entry key="0x14" value="Full Plate" />
+            <entry key="0x18" value="Magic Armor" />
+            <entry key="0x1C" value="Erdrick's Armor" />
+        </armor>
+        <shields>
+            <entry key="0x01" value="Small Shield" />
+            <entry key="0x02" value="Large Shield" />
+            <entry key="0x03" value="Silver Shield" />
+        </shields>
+        <light_radius>
+            <entry key="0x01" value="Radius = 1" />
+            <entry key="0x03" value="Radius = 3" />
+            <entry key="0x05" value="Radius = 5" />
+            <entry key="0x07" value="Radius = 7" />
+            <entry key="0x16" value="Fully Lit" />
+        </light_radius>
+    </references>
+</mapper>

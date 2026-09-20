@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mapper id="53e2cddd-b5db-4a6f-939b-b7dba5f9fd64" name="Pokemon Yellow" platform="GB" version="1.1.1"
+<mapper id="53e2cddd-b5db-4a6f-939b-b7dba5f9fd64" name="Pokemon Yellow" platform="GB"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://schema.gamehook.io/mapper https://schema.gamehook.io/mapper.xsd"
     xmlns:var="https://schema.gamehook.io/attributes/var">

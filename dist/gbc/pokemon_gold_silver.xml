@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mapper id="161a9132-9f4d-4679-9cc1-11f794253cf1" name="Pokemon Gold and Silver" platform="GBC" version="1.1.1"
+<mapper id="161a9132-9f4d-4679-9cc1-11f794253cf1" name="Pokemon Gold and Silver" platform="GBC"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://schema.gamehook.io/mapper https://schema.gamehook.io/mapper.xsd"
     xmlns:var="https://schema.gamehook.io/attributes/var">

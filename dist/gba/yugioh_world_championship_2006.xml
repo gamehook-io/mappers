@@ -1,0 +1,2324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper id="52a30f73-103e-4500-9c95-f38dd09a2bb6"
+	name="Yu-Gi-Oh! Ultimate Masters: World Championship Tournament 2006" platform="GBA"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://schema.gamehook.io/mapper https://schema.gamehook.io/mapper.xsd"
+	xmlns:var="https://schema.gamehook.io/attributes/var">
+
+	<memory>
+		<read start="0x02006000" end="0x02006FFF" />
+		<read start="0x02001000" end="0x02002000" />
+		<read start="0x0202B000" end="0x0202C000" />
+		<read start="0x0201C000" end="0x0201F000" />
+	</memory>
+
+	<macros>
+		<opponent>
+			<property name="unlocked" type="bool" address="{unlock_address}" bits="{unlock_bit}" />
+
+			<property name="wins" type="int" address="{win_loss_address}" length="4" bits="0-11" />
+			<property name="losses" type="int" address="{win_loss_address}" length="4" bits="12-23" />
+		</opponent>
+
+		<deck>
+			<property name="deck_name" address="{address}" type="string" length="28" />
+			<property name="deck_size" address="{address}+24" type="int" length="1" />
+
+			<cards>
+				<property name="0" type="int" address = "{address} + 28" length="2" reference="card_index" />
+				<property name="1" type="int" address = "{address} + 30" length="2" reference="card_index" />
+				<property name="2" type="int" address = "{address} + 32" length="2" reference="card_index" />
+				<property name="3" type="int" address = "{address} + 34" length="2" reference="card_index" />
+				<property name="4" type="int" address = "{address} + 36" length="2" reference="card_index" />
+				<property name="5" type="int" address = "{address} + 38" length="2" reference="card_index" />
+				<property name="6" type="int" address = "{address} + 40" length="2" reference="card_index" />
+				<property name="7" type="int" address = "{address} + 42" length="2" reference="card_index" />
+				<property name="8" type="int" address = "{address} + 44" length="2" reference="card_index" />
+				<property name="9" type="int" address = "{address} + 46" length="2" reference="card_index" />
+				<property name="10" type="int" address = "{address} + 48" length="2" reference="card_index" />
+				<property name="11" type="int" address = "{address} + 50" length="2" reference="card_index" />
+				<property name="12" type="int" address = "{address} + 52" length="2" reference="card_index" />
+				<property name="13" type="int" address = "{address} + 54" length="2" reference="card_index" />
+				<property name="14" type="int" address = "{address} + 56" length="2" reference="card_index" />
+				<property name="15" type="int" address = "{address} + 58" length="2" reference="card_index" />
+				<property name="16" type="int" address = "{address} + 60" length="2" reference="card_index" />
+				<property name="17" type="int" address = "{address} + 62" length="2" reference="card_index" />
+				<property name="18" type="int" address = "{address} + 64" length="2" reference="card_index" />
+				<property name="19" type="int" address = "{address} + 66" length="2" reference="card_index" />
+				<property name="20" type="int" address = "{address} + 68" length="2" reference="card_index" />
+				<property name="21" type="int" address = "{address} + 70" length="2" reference="card_index" />
+				<property name="22" type="int" address = "{address} + 72" length="2" reference="card_index" />
+				<property name="23" type="int" address = "{address} + 74" length="2" reference="card_index" />
+				<property name="24" type="int" address = "{address} + 76" length="2" reference="card_index" />
+				<property name="25" type="int" address = "{address} + 78" length="2" reference="card_index" />
+				<property name="26" type="int" address = "{address} + 80" length="2" reference="card_index" />
+				<property name="27" type="int" address = "{address} + 82" length="2" reference="card_index" />
+				<property name="28" type="int" address = "{address} + 84" length="2" reference="card_index" />
+				<property name="29" type="int" address = "{address} + 86" length="2" reference="card_index" />
+				<property name="30" type="int" address = "{address} + 88" length="2" reference="card_index" />
+				<property name="31" type="int" address = "{address} + 90" length="2" reference="card_index" />
+				<property name="32" type="int" address = "{address} + 92" length="2" reference="card_index" />
+				<property name="33" type="int" address = "{address} + 94" length="2" reference="card_index" />
+				<property name="34" type="int" address = "{address} + 96" length="2" reference="card_index" />
+				<property name="35" type="int" address = "{address} + 98" length="2" reference="card_index" />
+				<property name="36" type="int" address = "{address} + 100" length="2" reference="card_index" />
+				<property name="37" type="int" address = "{address} + 102" length="2" reference="card_index" />
+				<property name="38" type="int" address = "{address} + 104" length="2" reference="card_index" />
+				<property name="39" type="int" address = "{address} + 106" length="2" reference="card_index" />
+				<property name="40" type="int" address = "{address} + 108" length="2" reference="card_index" />
+				<property name="41" type="int" address = "{address} + 110" length="2" reference="card_index" />
+				<property name="42" type="int" address = "{address} + 112" length="2" reference="card_index" />
+				<property name="43" type="int" address = "{address} + 114" length="2" reference="card_index" />
+				<property name="44" type="int" address = "{address} + 116" length="2" reference="card_index" />
+				<property name="45" type="int" address = "{address} + 118" length="2" reference="card_index" />
+				<property name="46" type="int" address = "{address} + 120" length="2" reference="card_index" />
+				<property name="47" type="int" address = "{address} + 122" length="2" reference="card_index" />
+				<property name="48" type="int" address = "{address} + 124" length="2" reference="card_index" />
+				<property name="49" type="int" address = "{address} + 126" length="2" reference="card_index" />
+				<property name="50" type="int" address = "{address} + 128" length="2" reference="card_index" />
+				<property name="51" type="int" address = "{address} + 130" length="2" reference="card_index" />
+				<property name="52" type="int" address = "{address} + 132" length="2" reference="card_index" />
+				<property name="53" type="int" address = "{address} + 134" length="2" reference="card_index" />
+				<property name="54" type="int" address = "{address} + 136" length="2" reference="card_index" />
+				<property name="55" type="int" address = "{address} + 138" length="2" reference="card_index" />
+				<property name="56" type="int" address = "{address} + 140" length="2" reference="card_index" />
+				<property name="57" type="int" address = "{address} + 142" length="2" reference="card_index" />
+				<property name="58" type="int" address = "{address} + 144" length="2" reference="card_index" />
+				<property name="59" type="int" address = "{address} + 146" length="2" reference="card_index" />
+			</cards>
+		</deck>
+	</macros>
+
+	<properties>
+		<player>
+			<property name="player_name" type="string" address="0x02006E48" length="16" />
+			<property name="dp" type="int" address="0x02006C38" length="4" />
+
+			<macro name="active_deck" type="deck" var:address="0x02001138" />
+		</player>
+
+		<opponents>
+			<macro name="kuriboh" type="opponent" var:win_loss_address="0x2006e60" var:unlock_address="0x2006e5c" var:unlock_bit="0" />
+			<macro name="scapegoat" type="opponent" var:win_loss_address="0x2006e64" var:unlock_address="0x2006e5c" var:unlock_bit="1" />
+			<macro name="skull_servant" type="opponent" var:win_loss_address="0x2006e68" var:unlock_address="0x2006e5c" var:unlock_bit="2" />
+			<macro name="watapon" type="opponent" var:win_loss_address="0x2006e6c" var:unlock_address="0x2006e5c" var:unlock_bit="3" />
+			<macro name="white_magician_pikeru" type="opponent" var:win_loss_address="0x2006e70" var:unlock_address="0x2006e5c" var:unlock_bit="4" />
+			<macro name="batteryman_c" type="opponent" var:win_loss_address="0x2006e74" var:unlock_address="0x2006e5c" var:unlock_bit="5" />
+			<macro name="ojama_yellow" type="opponent" var:win_loss_address="0x2006e78" var:unlock_address="0x2006e5c" var:unlock_bit="6" />
+			<macro name="goblin_king" type="opponent" var:win_loss_address="0x2006e7c" var:unlock_address="0x2006e5c" var:unlock_bit="7" />
+			<macro name="des_frog" type="opponent" var:win_loss_address="0x2006e80" var:unlock_address="0x2006e5d" var:unlock_bit="0" />
+			<macro name="water_dragon" type="opponent" var:win_loss_address="0x2006e84" var:unlock_address="0x2006e5d" var:unlock_bit="1" />
+			<macro name="red_eyes_darkness" type="opponent" var:win_loss_address="0x2006e88" var:unlock_address="0x2006e5d" var:unlock_bit="2" />
+			<macro name="vampire_genesis" type="opponent" var:win_loss_address="0x2006e8c" var:unlock_address="0x2006e5d" var:unlock_bit="3" />
+			<macro name="infernal_flame_emperor" type="opponent" var:win_loss_address="0x2006e90" var:unlock_address="0x2006e5d" var:unlock_bit="4" />
+			<macro name="ocean_dragon_lord_neo_daedalus" type="opponent" var:win_loss_address="0x2006e94" var:unlock_address="0x2006e5d" var:unlock_bit="5" />
+			<macro name="helios_duo_megiste" type="opponent" var:win_loss_address="0x2006e98" var:unlock_address="0x2006e5d" var:unlock_bit="6" />
+			<macro name="gilford_the_legend" type="opponent" var:win_loss_address="0x2006e9c" var:unlock_address="0x2006e5d" var:unlock_bit="7" />
+			<macro name="dark_eradicator_warlock" type="opponent" var:win_loss_address="0x2006ea0" var:unlock_address="0x2006e5e" var:unlock_bit="0" />
+			<macro name="guardian_exode" type="opponent" var:win_loss_address="0x2006ea4" var:unlock_address="0x2006e5e" var:unlock_bit="1" />
+			<macro name="goldd_wu_lord_of_dark_world" type="opponent" var:win_loss_address="0x2006ea8" var:unlock_address="0x2006e5e" var:unlock_bit="2" />
+			<macro name="elemental_hero" type="opponent" var:win_loss_address="0x2006eac" var:unlock_address="0x2006e5e" var:unlock_bit="3" />
+			<macro name="raviel_lord_of_phantasms" type="opponent" var:win_loss_address="0x2006eb0" var:unlock_address="0x2006e5e" var:unlock_bit="4" />
+			<macro name="horus_the_black_flame_dragon_lv8" type="opponent" var:win_loss_address="0x2006eb4" var:unlock_address="0x2006e5e" var:unlock_bit="5" />
+			<macro name="stronghold" type="opponent" var:win_loss_address="0x2006eb8" var:unlock_address="0x2006e5e" var:unlock_bit="6" />
+			<macro name="sacred_phoenix_of_nephtys" type="opponent" var:win_loss_address="0x2006ebc" var:unlock_address="0x2006e5e" var:unlock_bit="7" />
+			<macro name="cyber_end_dragon" type="opponent" var:win_loss_address="0x2006ec0" var:unlock_address="0x2006e5f" var:unlock_bit="0" />
+			<macro name="player" type="opponent" var:win_loss_address="0x2006ec4" var:unlock_address="0x2006e5f" var:unlock_bit="1" />
+			<macro name="copycat" type="opponent" var:win_loss_address="0x2006ec8" var:unlock_address="0x2006e5f" var:unlock_bit="2" />
+		</opponents>
+
+		<duel>
+			<property name="current_turn" address="0x0201E1CC" type="int" length="1" />
+
+			<player>
+				<property name="lp" type="int" address="0x0201C4E0" length="4" />
+				<property name="handsize" type="int" address="0x0201C4E0 + 12" />
+				<property name="decksize" type="int" address="0x0201C4E0 + 16" />
+			</player>
+
+			<opponent>
+				<property name="lp" type="int" address="0x0201CD48" length="4" />
+				<property name="handsize" type="int" address="0x0201CD48 + 12" />
+				<property name="decksize" type="int" address="0x0201CD48 + 16" />
+			</opponent>
+		</duel>
+	</properties>
+
+	<references>
+		<card_index>
+			<entry key="0x01" value="Blue-Eyes White Dragon" />
+			<entry key="0x02" value="Blue-Eyes White Dragon" />
+			<entry key="0x03" value="Blue-Eyes White Dragon" />
+			<entry key="0x04" value="Blue-Eyes White Dragon" />
+			<entry key="0x05" value="Mystical Elf" />
+			<entry key="0x06" value="Hitotsu-Me Giant" />
+			<entry key="0x07" value="Baby Dragon" />
+			<entry key="0x08" value="Ryu-Kishin" />
+			<entry key="0x09" value="Feral Imp" />
+			<entry key="0x0a" value="Winged Dragon, Guardian of the Fortress 1" />
+			<entry key="0x0b" value="Mushroom Man" />
+			<entry key="0x0c" value="Blackland Fire Dragon" />
+			<entry key="0x0d" value="Tyhone" />
+			<entry key="0x0e" value="Flame Swordsman" />
+			<entry key="0x0f" value="Flame Swordsman" />
+			<entry key="0x10" value="Time Wizard" />
+			<entry key="0x11" value="Right Leg of the Forbidden One" />
+			<entry key="0x12" value="Left Leg of the Forbidden One" />
+			<entry key="0x13" value="Right Arm of the Forbidden One" />
+			<entry key="0x14" value="Left Arm of the Forbidden One" />
+			<entry key="0x15" value="Exodia the Forbidden One" />
+			<entry key="0x16" value="Summoned Skull" />
+			<entry key="0x17" value="Summoned Skull" />
+			<entry key="0x18" value="Summoned Skull" />
+			<entry key="0x19" value="The Wicked Worm Beast" />
+			<entry key="0x1a" value="Skull Servant" />
+			<entry key="0x1b" value="Horn Imp" />
+			<entry key="0x1c" value="Battle Ox" />
+			<entry key="0x1d" value="Beaver Warrior" />
+			<entry key="0x1e" value="Rock Ogre Grotto 1" />
+			<entry key="0x1f" value="Mountain Warrior" />
+			<entry key="0x20" value="Zombie Warrior" />
+			<entry key="0x21" value="Koumori Dragon" />
+			<entry key="0x22" value="Two-Headed King Rex" />
+			<entry key="0x23" value="Judge Man" />
+			<entry key="0x24" value="Saggi the Dark Clown" />
+			<entry key="0x25" value="Dark Magician" />
+			<entry key="0x26" value="Dark Magician" />
+			<entry key="0x27" value="Dark Magician" />
+			<entry key="0x28" value="The Snake Hair" />
+			<entry key="0x29" value="Gaia the Dragon Champion" />
+			<entry key="0x2a" value="Gaia The Fierce Knight" />
+			<entry key="0x2b" value="Gaia The Fierce Knight" />
+			<entry key="0x2c" value="Curse of Dragon" />
+			<entry key="0x2d" value="Celtic Guardian" />
+			<entry key="0x2e" value="Celtic Guardian" />
+			<entry key="0x2f" value="Illusionist Faceless Mage" />
+			<entry key="0x30" value="Karbonala Warrior" />
+			<entry key="0x31" value="Rogue Doll" />
+			<entry key="0x32" value="Oscillo Hero 2" />
+			<entry key="0x33" value="Griffore" />
+			<entry key="0x34" value="Torike" />
+			<entry key="0x35" value="Sangan" />
+			<entry key="0x36" value="Big Insect" />
+			<entry key="0x37" value="Basic Insect" />
+			<entry key="0x38" value="Armored Lizard" />
+			<entry key="0x39" value="Killer Needle" />
+			<entry key="0x3a" value="Gokibore" />
+			<entry key="0x3b" value="Giant Flea" />
+			<entry key="0x3c" value="Larvae Moth" />
+			<entry key="0x3d" value="Great Moth" />
+			<entry key="0x3e" value="Kuriboh" />
+			<entry key="0x3f" value="Kuriboh" />
+			<entry key="0x40" value="Kuriboh" />
+			<entry key="0x41" value="Mammoth Graveyard" />
+			<entry key="0x42" value="Great White" />
+			<entry key="0x43" value="Wolf" />
+			<entry key="0x44" value="Harpie Lady" />
+			<entry key="0x45" value="Harpie Lady Sisters" />
+			<entry key="0x46" value="Tiger Axe" />
+			<entry key="0x47" value="Tiger Axe" />
+			<entry key="0x48" value="Silver Fang" />
+			<entry key="0x49" value="Kojikocy" />
+			<entry key="0x4a" value="Perfectly Ultimate Great Moth" />
+			<entry key="0x4b" value="Thousand Dragon" />
+			<entry key="0x4c" value="Thousand Dragon" />
+			<entry key="0x4d" value="Fiend Kraken" />
+			<entry key="0x4e" value="Jellyfish" />
+			<entry key="0x4f" value="Cocoon of Evolution" />
+			<entry key="0x50" value="Giant Soldier of Stone" />
+			<entry key="0x51" value="Man-Eating Plant" />
+			<entry key="0x52" value="Krokodilus" />
+			<entry key="0x53" value="Grappler" />
+			<entry key="0x54" value="Axe Raider" />
+			<entry key="0x55" value="Megazowler" />
+			<entry key="0x56" value="Uraby" />
+			<entry key="0x57" value="Crawling Dragon 2" />
+			<entry key="0x58" value="Red-Eyes B. Dragon" />
+			<entry key="0x59" value="Red-Eyes B. Dragon" />
+			<entry key="0x5a" value="Red-Eyes B. Dragon" />
+			<entry key="0x5b" value="Red-Eyes B. Dragon" />
+			<entry key="0x5c" value="Castle of Dark Illusions" />
+			<entry key="0x5d" value="Reaper of the Cards" />
+			<entry key="0x5e" value="King of Yamimakai" />
+			<entry key="0x5f" value="Barox" />
+			<entry key="0x60" value="Metal Guardian" />
+			<entry key="0x61" value="Catapult Turtle" />
+			<entry key="0x62" value="Gyakutenno Megami" />
+			<entry key="0x63" value="Mystic Horseman" />
+			<entry key="0x64" value="Rabid Horseman" />
+			<entry key="0x65" value="Crass Clown" />
+			<entry key="0x66" value="Armored Zombie" />
+			<entry key="0x67" value="Dragon Zombie" />
+			<entry key="0x68" value="Clown Zombie" />
+			<entry key="0x69" value="Pumpking the King of Ghosts" />
+			<entry key="0x6a" value="Battle Warrior" />
+			<entry key="0x6b" value="Wings of Wicked Flame" />
+			<entry key="0x6c" value="Mask of Darkness" />
+			<entry key="0x6d" value="Job-Change Mirror" />
+			<entry key="0x6e" value="Curtain of the Dark Ones" />
+			<entry key="0x6f" value="Kageningen" />
+			<entry key="0x70" value="Graveyard and the Hand of Invitation" />
+			<entry key="0x71" value="Goddess with the Third Eye" />
+			<entry key="0x72" value="Hero of the East" />
+			<entry key="0x73" value="That Which Feeds on Life" />
+			<entry key="0x74" value="Dark Gray" />
+			<entry key="0x75" value="White Magical Hat" />
+			<entry key="0x76" value="Kamionwizard" />
+			<entry key="0x77" value="Nightmare Scorpion" />
+			<entry key="0x78" value="Spirit of the Books" />
+			<entry key="0x79" value="Supporter in the Shadows" />
+			<entry key="0x7a" value="Trial of Nightmare" />
+			<entry key="0x7b" value="Dream Clown" />
+			<entry key="0x7c" value="Sleeping Lion" />
+			<entry key="0x7d" value="Yamatano Dragon Scroll" />
+			<entry key="0x7e" value="Faith Bird" />
+			<entry key="0x7f" value="Nemuriko" />
+			<entry key="0x80" value="Weather Control" />
+			<entry key="0x81" value="The 13th Grave" />
+			<entry key="0x82" value="Charubin the Fire Knight" />
+			<entry key="0x83" value="Mystical Capture Chain" />
+			<entry key="0x84" value="Fiend's Hand" />
+			<entry key="0x85" value="Witty Phantom" />
+			<entry key="0x86" value="Dragon Statue" />
+			<entry key="0x87" value="Blue-Eyed Silver Zombie" />
+			<entry key="0x88" value="Toad Master" />
+			<entry key="0x89" value="Spiked Snail" />
+			<entry key="0x8a" value="Flame Manipulator" />
+			<entry key="0x8b" value="Necrolancer the Timelord" />
+			<entry key="0x8c" value="Djinn the Watcher of the Wind" />
+			<entry key="0x8d" value="The Bewitching Phantom Thief" />
+			<entry key="0x8e" value="Temple of Skulls" />
+			<entry key="0x8f" value="Monster Egg" />
+			<entry key="0x90" value="The Shadow Who Controls the Dark" />
+			<entry key="0x91" value="Lord of the Lamp" />
+			<entry key="0x92" value="Rhaimundos of the Red Sword" />
+			<entry key="0x93" value="The Melting Red Shadow" />
+			<entry key="0x94" value="Dokuroizo the Grim Reaper" />
+			<entry key="0x95" value="Fire Reaper" />
+			<entry key="0x96" value="Larvas" />
+			<entry key="0x97" value="Hard Armor" />
+			<entry key="0x98" value="Firegrass" />
+			<entry key="0x99" value="Man Eater" />
+			<entry key="0x9a" value="Dig Beak" />
+			<entry key="0x9b" value="M-Warrior 1" />
+			<entry key="0x9c" value="M-Warrior 2" />
+			<entry key="0x9d" value="Lisark" />
+			<entry key="0x9e" value="Lord of Zemia" />
+			<entry key="0x9f" value="The Judgement Hand" />
+			<entry key="0xa0" value="Mysterious Puppeteer" />
+			<entry key="0xa1" value="Darkfire Dragon" />
+			<entry key="0xa2" value="Dark King of the Abyss" />
+			<entry key="0xa3" value="Spirit of the Harp" />
+			<entry key="0xa4" value="Armaill" />
+			<entry key="0xa5" value="Dark Prisoner" />
+			<entry key="0xa6" value="Hurricail" />
+			<entry key="0xa7" value="Fire Eye" />
+			<entry key="0xa8" value="Monsturtle" />
+			<entry key="0xa9" value="Claw Reacher" />
+			<entry key="0xaa" value="Phantom Dewan" />
+			<entry key="0xab" value="Arlownay" />
+			<entry key="0xac" value="Dark Shade" />
+			<entry key="0xad" value="Masked Clown" />
+			<entry key="0xae" value="Lucky Trinket" />
+			<entry key="0xaf" value="Genin" />
+			<entry key="0xb0" value="Eyearmor" />
+			<entry key="0xb1" value="Fiend Reflection 2" />
+			<entry key="0xb2" value="Gate Deeg" />
+			<entry key="0xb3" value="Synchar" />
+			<entry key="0xb4" value="Fusionist" />
+			<entry key="0xb5" value="Akakieisu" />
+			<entry key="0xb6" value="LaLa Li-oon" />
+			<entry key="0xb7" value="Turtle Tiger" />
+			<entry key="0xb8" value="Terra the Terrible" />
+			<entry key="0xb9" value="Doron" />
+			<entry key="0xba" value="Arma Knight" />
+			<entry key="0xbb" value="Happy Lover" />
+			<entry key="0xbc" value="Penguin Knight" />
+			<entry key="0xbd" value="Petit Dragon" />
+			<entry key="0xbe" value="Frenzied Panda" />
+			<entry key="0xbf" value="Archfiend Marmot of Nefariousness" />
+			<entry key="0xc0" value="Phantom Ghost" />
+			<entry key="0xc1" value="Dorover" />
+			<entry key="0xc2" value="Twin Long Rods 1" />
+			<entry key="0xc3" value="Droll Bird" />
+			<entry key="0xc4" value="Petit Angel" />
+			<entry key="0xc5" value="Winged Cleaver" />
+			<entry key="0xc6" value="Hinotama Soul" />
+			<entry key="0xc7" value="Kaminarikozou" />
+			<entry key="0xc8" value="Meotoko" />
+			<entry key="0xc9" value="Aqua Madoor" />
+			<entry key="0xca" value="Kagemusha of the Blue Flame" />
+			<entry key="0xcb" value="Flame Ghost" />
+			<entry key="0xcc" value="Dryad" />
+			<entry key="0xcd" value="B. Skull Dragon" />
+			<entry key="0xce" value="Two-Mouth Darkruler" />
+			<entry key="0xcf" value="Solitude" />
+			<entry key="0xd0" value="Masked Sorcerer" />
+			<entry key="0xd1" value="Kumootoko" />
+			<entry key="0xd2" value="Midnight Fiend" />
+			<entry key="0xd3" value="Trap Master" />
+			<entry key="0xd4" value="Fiend Sword" />
+			<entry key="0xd5" value="Skull Stalker" />
+			<entry key="0xd6" value="Hitodenchak" />
+			<entry key="0xd7" value="Wood Remains" />
+			<entry key="0xd8" value="Hourglass of Life" />
+			<entry key="0xd9" value="Rare Fish" />
+			<entry key="0xda" value="Wood Clown" />
+			<entry key="0xdb" value="Madjinn Gunn" />
+			<entry key="0xdc" value="Dark Titan of Terror" />
+			<entry key="0xdd" value="Beautiful Headhuntress" />
+			<entry key="0xde" value="Guardian of the Labyrinth" />
+			<entry key="0xdf" value="Yashinoki" />
+			<entry key="0xe0" value="Vishwar Randi" />
+			<entry key="0xe1" value="The Drdek" />
+			<entry key="0xe2" value="Dark Assailant" />
+			<entry key="0xe3" value="Candle of Fate" />
+			<entry key="0xe4" value="Water Element" />
+			<entry key="0xe5" value="Dissolverock" />
+			<entry key="0xe6" value="Meda Bat" />
+			<entry key="0xe7" value="One Who Hunts Souls" />
+			<entry key="0xe8" value="Root Water" />
+			<entry key="0xe9" value="Master and Expert" />
+			<entry key="0xea" value="Water Omotics" />
+			<entry key="0xeb" value="Hyo" />
+			<entry key="0xec" value="Enchanting Mermaid" />
+			<entry key="0xed" value="Nekogal 1" />
+			<entry key="0xee" value="Fairywitch" />
+			<entry key="0xef" value="Embryonic Beast" />
+			<entry key="0xf0" value="Prevent Rat" />
+			<entry key="0xf1" value="Dimensional Warrior" />
+			<entry key="0xf2" value="Stone Armadiller" />
+			<entry key="0xf3" value="Beastking of the Swamps" />
+			<entry key="0xf4" value="Ancient Sorcerer" />
+			<entry key="0xf5" value="Lunar Queen Elzaim" />
+			<entry key="0xf6" value="Wicked Mirror" />
+			<entry key="0xf7" value="The Little Swordsman of Aile" />
+			<entry key="0xf8" value="Rock Ogre Grotto 2" />
+			<entry key="0xf9" value="Wing Egg Elf" />
+			<entry key="0xfa" value="The Furious Sea King" />
+			<entry key="0xfb" value="Princess of Tsurugi" />
+			<entry key="0xfc" value="Unknown Warrior of Fiend" />
+			<entry key="0xfd" value="Sectarian of Secrets" />
+			<entry key="0xfe" value="Versago the Destroyer" />
+			<entry key="0xff" value="Wetha" />
+			<entry key="0x100" value="Megirus Light" />
+			<entry key="0x101" value="Mavelus" />
+			<entry key="0x102" value="Ancient Tree of Enlightenment" />
+			<entry key="0x103" value="Green Phantom King" />
+			<entry key="0x104" value="Ground Attacker Bugroth" />
+			<entry key="0x105" value="Ray and Temperature" />
+			<entry key="0x106" value="Gorgon Egg" />
+			<entry key="0x107" value="Petit Moth" />
+			<entry key="0x108" value="King Fog" />
+			<entry key="0x109" value="Protector of the Throne" />
+			<entry key="0x10a" value="Mystic Clown" />
+			<entry key="0x10b" value="Mystical Sheep 2" />
+			<entry key="0x10c" value="Holograh" />
+			<entry key="0x10d" value="Tao the Chanter" />
+			<entry key="0x10e" value="Serpent Marauder" />
+			<entry key="0x10f" value="Ogre of the Black Shadow" />
+			<entry key="0x110" value="Moon Envoy" />
+			<entry key="0x111" value="Fireyarou" />
+			<entry key="0x112" value="Psychic Kappa" />
+			<entry key="0x113" value="Masaki the Legendary Swordsman" />
+			<entry key="0x114" value="Dragoness the Wicked Knight" />
+			<entry key="0x115" value="Bio Plant" />
+			<entry key="0x116" value="One-Eyed Shield Dragon" />
+			<entry key="0x117" value="Cyber Soldier of Darkworld" />
+			<entry key="0x118" value="Wicked Dragon with the Ersatz Head" />
+			<entry key="0x119" value="Sonic Maid" />
+			<entry key="0x11a" value="Kurama" />
+			<entry key="0x11b" value="Axe of Despair" />
+			<entry key="0x11c" value="Insect Armor with Laser Cannon" />
+			<entry key="0x11d" value="Black Pendant" />
+			<entry key="0x11e" value="Horn of Light" />
+			<entry key="0x11f" value="Horn of the Unicorn" />
+			<entry key="0x120" value="Elegant Egotist" />
+			<entry key="0x121" value="Stop Defense" />
+			<entry key="0x122" value="Malevolent Nuzzler" />
+			<entry key="0x123" value="Dragon Capture Jar" />
+			<entry key="0x124" value="Forest" />
+			<entry key="0x125" value="Wasteland" />
+			<entry key="0x126" value="Mountain" />
+			<entry key="0x127" value="Sogen" />
+			<entry key="0x128" value="Umi" />
+			<entry key="0x129" value="Yami" />
+			<entry key="0x12a" value="Dark Hole" />
+			<entry key="0x12b" value="Raigeki" />
+			<entry key="0x12c" value="Mooyan Curry" />
+			<entry key="0x12d" value="Red Medicine" />
+			<entry key="0x12e" value="Goblin's Secret Remedy" />
+			<entry key="0x12f" value="Soul of the Pure" />
+			<entry key="0x130" value="Dian Keto the Cure Master" />
+			<entry key="0x131" value="Sparks" />
+			<entry key="0x132" value="Ookazi" />
+			<entry key="0x133" value="Tremendous Fire" />
+			<entry key="0x134" value="Swords of Revealing Light" />
+			<entry key="0x135" value="Spellbinding Circle" />
+			<entry key="0x136" value="Dark-Piercing Light" />
+			<entry key="0x137" value="Yaranzo" />
+			<entry key="0x138" value="Kanan the Swordmistress" />
+			<entry key="0x139" value="Takriminos" />
+			<entry key="0x13a" value="Stuffed Animal" />
+			<entry key="0x13b" value="Super War-Lion" />
+			<entry key="0x13c" value="Three-Legged Zombies" />
+			<entry key="0x13d" value="Zera The Mant" />
+			<entry key="0x13e" value="Flying Penguin" />
+			<entry key="0x13f" value="Millennium Shield" />
+			<entry key="0x140" value="Millennium Shield" />
+			<entry key="0x141" value="Fairy's Gift" />
+			<entry key="0x142" value="Black Luster Soldier" />
+			<entry key="0x143" value="Fiend's Mirror" />
+			<entry key="0x144" value="Labyrinth Wall" />
+			<entry key="0x145" value="Jirai Gumo" />
+			<entry key="0x146" value="Shadow Ghoul" />
+			<entry key="0x147" value="Wall Shadow" />
+			<entry key="0x148" value="Labyrinth Tank" />
+			<entry key="0x149" value="Sanga of the Thunder" />
+			<entry key="0x14a" value="Kazejin" />
+			<entry key="0x14b" value="Suijin" />
+			<entry key="0x14c" value="Gate Guardian" />
+			<entry key="0x14d" value="Ryu-Kishin Powered" />
+			<entry key="0x14e" value="Swordstalker" />
+			<entry key="0x14f" value="La Jinn the Mystical Genie of the Lamp" />
+			<entry key="0x150" value="La Jinn the Mystical Genie of the Lamp" />
+			<entry key="0x151" value="Blue-Eyes Ultimate Dragon" />
+			<entry key="0x152" value="Blue-Eyes Ultimate Dragon" />
+			<entry key="0x153" value="Toon Alligator" />
+			<entry key="0x154" value="Parrot Dragon" />
+			<entry key="0x155" value="Dark Rabbit" />
+			<entry key="0x156" value="Bickuribox" />
+			<entry key="0x157" value="Harpie's Pet Dragon" />
+			<entry key="0x158" value="Pendulum Machine" />
+			<entry key="0x159" value="Pendulum Machine" />
+			<entry key="0x15a" value="Giltia the D. Knight" />
+			<entry key="0x15b" value="Launcher Spider" />
+			<entry key="0x15c" value="Launcher Spider" />
+			<entry key="0x15d" value="Zoa" />
+			<entry key="0x15e" value="Metalzoa" />
+			<entry key="0x15f" value="Ocubeam" />
+			<entry key="0x160" value="Monster Eye" />
+			<entry key="0x161" value="Yaiba Robo" />
+			<entry key="0x162" value="Machine King" />
+			<entry key="0x163" value="Metal Dragon" />
+			<entry key="0x164" value="Giga-Tech Wolf" />
+			<entry key="0x165" value="Shovel Crusher" />
+			<entry key="0x166" value="Mechanicalchaser" />
+			<entry key="0x167" value="Blocker" />
+			<entry key="0x168" value="Golgoil" />
+			<entry key="0x169" value="Cyber-Stein" />
+			<entry key="0x16a" value="Cyber Commander" />
+			<entry key="0x16b" value="Jinzo 7" />
+			<entry key="0x16c" value="Thunder Dragon" />
+			<entry key="0x16d" value="Kaiser Dragon" />
+			<entry key="0x16e" value="Magician of Faith" />
+			<entry key="0x16f" value="Goddess of Whim" />
+			<entry key="0x170" value="Water Magician" />
+			<entry key="0x171" value="Ice Water" />
+			<entry key="0x172" value="Waterdragon Fairy" />
+			<entry key="0x173" value="Ancient Elf" />
+			<entry key="0x174" value="Water Girl" />
+			<entry key="0x175" value="Deepsea Shark" />
+			<entry key="0x176" value="Bottom Dweller" />
+			<entry key="0x177" value="7 Colored Fish" />
+			<entry key="0x178" value="Guardian of the Sea" />
+			<entry key="0x179" value="Aqua Snake" />
+			<entry key="0x17a" value="Giant Red Seasnake" />
+			<entry key="0x17b" value="Kappa Avenger" />
+			<entry key="0x17c" value="Kanikabuto" />
+			<entry key="0x17d" value="Zarigun" />
+			<entry key="0x17e" value="Millennium Golem" />
+			<entry key="0x17f" value="Destroyer Golem" />
+			<entry key="0x180" value="Barrel Rock" />
+			<entry key="0x181" value="Minomushi Warrior" />
+			<entry key="0x182" value="Stone Ghost" />
+			<entry key="0x183" value="Kaminari Attack" />
+			<entry key="0x184" value="Tripwire Beast" />
+			<entry key="0x185" value="Bolt Penguin" />
+			<entry key="0x186" value="The Immortal of Thunder" />
+			<entry key="0x187" value="Electric Snake" />
+			<entry key="0x188" value="Punished Eagle" />
+			<entry key="0x189" value="Skull Red Bird" />
+			<entry key="0x18a" value="Crimson Sunbird" />
+			<entry key="0x18b" value="Armed Ninja" />
+			<entry key="0x18c" value="Magical Ghost" />
+			<entry key="0x18d" value="Soul Hunter" />
+			<entry key="0x18e" value="Vermillion Sparrow" />
+			<entry key="0x18f" value="Sea Kamen" />
+			<entry key="0x190" value="Sinister Serpent" />
+			<entry key="0x191" value="Ganigumo" />
+			<entry key="0x192" value="Alinsection" />
+			<entry key="0x193" value="Insect Soldiers of the Sky" />
+			<entry key="0x194" value="Cockroach Knight" />
+			<entry key="0x195" value="Burglar" />
+			<entry key="0x196" value="Pragtical" />
+			<entry key="0x197" value="Ameba" />
+			<entry key="0x198" value="Korogashi" />
+			<entry key="0x199" value="Boo Koo" />
+			<entry key="0x19a" value="Flower Wolf" />
+			<entry key="0x19b" value="Rainbow Flower" />
+			<entry key="0x19c" value="Barrel Lily" />
+			<entry key="0x19d" value="Hoshiningen" />
+			<entry key="0x19e" value="Maha Vailo" />
+			<entry key="0x19f" value="Musician King" />
+			<entry key="0x1a0" value="Wilmee" />
+			<entry key="0x1a1" value="Dragon Seeker" />
+			<entry key="0x1a2" value="Man-Eater Bug" />
+			<entry key="0x1a3" value="D. Human" />
+			<entry key="0x1a4" value="Turtle Raccoon" />
+			<entry key="0x1a5" value="Prisman" />
+			<entry key="0x1a6" value="Crazy Fish" />
+			<entry key="0x1a7" value="Bracchio-raidus" />
+			<entry key="0x1a8" value="Laughing Flower" />
+			<entry key="0x1a9" value="Bean Soldier" />
+			<entry key="0x1aa" value="Cannon Soldier" />
+			<entry key="0x1ab" value="Guardian of the Throne Room" />
+			<entry key="0x1ac" value="Brave Scizzar" />
+			<entry key="0x1ad" value="The Statue of Easter Island" />
+			<entry key="0x1ae" value="Muka Muka" />
+			<entry key="0x1af" value="Boulder Tortoise" />
+			<entry key="0x1b0" value="Fire Kraken" />
+			<entry key="0x1b1" value="Turtle Bird" />
+			<entry key="0x1b2" value="Skullbird" />
+			<entry key="0x1b3" value="Monstrous Bird" />
+			<entry key="0x1b4" value="The Bistro Butcher" />
+			<entry key="0x1b5" value="Star Boy" />
+			<entry key="0x1b6" value="Milus Radiant" />
+			<entry key="0x1b7" value="Flame Cerebrus" />
+			<entry key="0x1b8" value="Eldeen" />
+			<entry key="0x1b9" value="Mystical Sand" />
+			<entry key="0x1ba" value="Gemini Elf" />
+			<entry key="0x1bb" value="Gemini Elf" />
+			<entry key="0x1bc" value="Minar" />
+			<entry key="0x1bd" value="Kamakiriman" />
+			<entry key="0x1be" value="Mechaleon" />
+			<entry key="0x1bf" value="Mega Thunderball" />
+			<entry key="0x1c0" value="Niwatori" />
+			<entry key="0x1c1" value="Corroding Shark" />
+			<entry key="0x1c2" value="Skelengel" />
+			<entry key="0x1c3" value="Hane-Hane" />
+			<entry key="0x1c4" value="Tongyo" />
+			<entry key="0x1c5" value="Dharma Cannon" />
+			<entry key="0x1c6" value="Skelgon" />
+			<entry key="0x1c7" value="Wow Warrior" />
+			<entry key="0x1c8" value="Griggle" />
+			<entry key="0x1c9" value="Frog the Jam" />
+			<entry key="0x1ca" value="Behegon" />
+			<entry key="0x1cb" value="Dark Elf" />
+			<entry key="0x1cc" value="Winged Dragon, Guardian of the Fortress 2" />
+			<entry key="0x1cd" value="The Wandering Doomed" />
+			<entry key="0x1ce" value="Steel Ogre Grotto 1" />
+			<entry key="0x1cf" value="Oscillo Hero" />
+			<entry key="0x1d0" value="Invader from Another Dimension" />
+			<entry key="0x1d1" value="Lesser Dragon" />
+			<entry key="0x1d2" value="Needle Worm" />
+			<entry key="0x1d3" value="Wretched Ghost of the Attic" />
+			<entry key="0x1d4" value="Great Mammoth of Goldfine" />
+			<entry key="0x1d5" value="Man-eating Black Shark" />
+			<entry key="0x1d6" value="Yormungarde" />
+			<entry key="0x1d7" value="Darkworld Thorns" />
+			<entry key="0x1d8" value="Anthrosaurus" />
+			<entry key="0x1d9" value="Drooling Lizard" />
+			<entry key="0x1da" value="Trakadon" />
+			<entry key="0x1db" value="B. Dragon Jungle King" />
+			<entry key="0x1dc" value="Little D" />
+			<entry key="0x1dd" value="Witch of the Black Forest" />
+			<entry key="0x1de" value="Giant Scorpion of the Tundra" />
+			<entry key="0x1df" value="Abyss Flower" />
+			<entry key="0x1e0" value="Takuhee" />
+			<entry key="0x1e1" value="Binding Chain" />
+			<entry key="0x1e2" value="Mechanical Snail" />
+			<entry key="0x1e3" value="Greenkappa" />
+			<entry key="0x1e4" value="Mon Larvas" />
+			<entry key="0x1e5" value="Living Vase" />
+			<entry key="0x1e6" value="Tentacle Plant" />
+			<entry key="0x1e7" value="Beaked Snake" />
+			<entry key="0x1e8" value="Morphing Jar" />
+			<entry key="0x1e9" value="Muse-A" />
+			<entry key="0x1ea" value="Rose Spectre of Dunn" />
+			<entry key="0x1eb" value="Fiend Reflection 1" />
+			<entry key="0x1ec" value="Ghoul with an Appetite" />
+			<entry key="0x1ed" value="Pale Beast" />
+			<entry key="0x1ee" value="Little Chimera" />
+			<entry key="0x1ef" value="Violent Rain" />
+			<entry key="0x1f0" value="Key Mace 2" />
+			<entry key="0x1f1" value="Tenderness" />
+			<entry key="0x1f2" value="Penguin Soldier" />
+			<entry key="0x1f3" value="Fairy Dragon" />
+			<entry key="0x1f4" value="Obese Marmot of Nefariousness" />
+			<entry key="0x1f5" value="Liquid Beast" />
+			<entry key="0x1f6" value="Twin Long Rods 2" />
+			<entry key="0x1f7" value="Great Bill" />
+			<entry key="0x1f8" value="Shining Friendship" />
+			<entry key="0x1f9" value="Bladefly" />
+			<entry key="0x1fa" value="Hiro's Shadow Scout" />
+			<entry key="0x1fb" value="Lady of Faith" />
+			<entry key="0x1fc" value="Twin-Headed Thunder Dragon" />
+			<entry key="0x1fd" value="Armored Starfish" />
+			<entry key="0x1fe" value="Marine Beast" />
+			<entry key="0x1ff" value="Warrior of Tradition" />
+			<entry key="0x200" value="Snakeyashi" />
+			<entry key="0x201" value="The Thing That Hides in the Mud" />
+			<entry key="0x202" value="High Tide Gyojin" />
+			<entry key="0x203" value="Fairy of the Fountain" />
+			<entry key="0x204" value="Amazon of the Seas" />
+			<entry key="0x205" value="Nekogal 2" />
+			<entry key="0x206" value="Witch's Apprentice" />
+			<entry key="0x207" value="Armored Rat" />
+			<entry key="0x208" value="Ancient Lizard Warrior" />
+			<entry key="0x209" value="Maiden of the Moonlight" />
+			<entry key="0x20a" value="Night Lizard" />
+			<entry key="0x20b" value="Blue-Winged Crown" />
+			<entry key="0x20c" value="Amphibious Bugroth" />
+			<entry key="0x20d" value="Acid Crawler" />
+			<entry key="0x20e" value="Invader of the Throne" />
+			<entry key="0x20f" value="Mystical Sheep 1" />
+			<entry key="0x210" value="Disk Magician" />
+			<entry key="0x211" value="Flame Viper" />
+			<entry key="0x212" value="Royal Guard" />
+			<entry key="0x213" value="Gruesome Goo" />
+			<entry key="0x214" value="Whiptail Crow" />
+			<entry key="0x215" value="Kunai with Chain" />
+			<entry key="0x216" value="Kunai with Chain" />
+			<entry key="0x217" value="Magical Labyrinth" />
+			<entry key="0x218" value="Salamandra" />
+			<entry key="0x219" value="Eternal Rest" />
+			<entry key="0x21a" value="Megamorph" />
+			<entry key="0x21b" value="Metalmorph" />
+			<entry key="0x21c" value="Metalmorph" />
+			<entry key="0x21d" value="Crush Card" />
+			<entry key="0x21e" value="Crush Card" />
+			<entry key="0x21f" value="Bright Castle" />
+			<entry key="0x220" value="Shadow Spell" />
+			<entry key="0x221" value="Black Luster Ritual" />
+			<entry key="0x222" value="Zera Ritual" />
+			<entry key="0x223" value="Harpie's Feather Duster" />
+			<entry key="0x224" value="Harpie's Feather Duster" />
+			<entry key="0x225" value="War-Lion Ritual" />
+			<entry key="0x226" value="Beastly Mirror Ritual" />
+			<entry key="0x227" value="Commencement Dance" />
+			<entry key="0x228" value="Hamburger Recipe" />
+			<entry key="0x229" value="Novox's Prayer" />
+			<entry key="0x22a" value="House of Adhesive Tape" />
+			<entry key="0x22b" value="Acid Trap Hole" />
+			<entry key="0x22c" value="Acid Trap Hole" />
+			<entry key="0x22d" value="Widespread Ruin" />
+			<entry key="0x22e" value="Widespread Ruin" />
+			<entry key="0x22f" value="Bad Reaction to Simochi" />
+			<entry key="0x230" value="Reverse Trap" />
+			<entry key="0x231" value="Turtle Oath" />
+			<entry key="0x232" value="Resurrection of Chakra" />
+			<entry key="0x233" value="Javelin Beetle Pact" />
+			<entry key="0x234" value="Garma Sword Oath" />
+			<entry key="0x235" value="Revival of Dokurorider" />
+			<entry key="0x236" value="Fortress Whale's Oath" />
+			<entry key="0x237" value="Performance of Sword" />
+			<entry key="0x238" value="Hungry Burger" />
+			<entry key="0x239" value="Sengenjin" />
+			<entry key="0x23a" value="Skull Guardian" />
+			<entry key="0x23b" value="Tri-Horned Dragon" />
+			<entry key="0x23c" value="Serpent Night Dragon" />
+			<entry key="0x23d" value="Cosmo Queen" />
+			<entry key="0x23e" value="Chakra" />
+			<entry key="0x23f" value="Crab Turtle" />
+			<entry key="0x240" value="Mikazukinoyaiba" />
+			<entry key="0x241" value="Meteor Dragon" />
+			<entry key="0x242" value="Meteor B. Dragon" />
+			<entry key="0x243" value="Firewing Pegasus" />
+			<entry key="0x244" value="Garma Sword" />
+			<entry key="0x245" value="Javelin Beetle" />
+			<entry key="0x246" value="Fortress Whale" />
+			<entry key="0x247" value="Dokurorider" />
+			<entry key="0x248" value="Dark Magic Ritual" />
+			<entry key="0x249" value="Magician of Black Chaos" />
+			<entry key="0x24a" value="Slot Machine" />
+			<entry key="0x24b" value="Red Archery Girl" />
+			<entry key="0x24c" value="Ryu-Ran" />
+			<entry key="0x24d" value="Manga Ryu-Ran" />
+			<entry key="0x24e" value="Toon Mermaid" />
+			<entry key="0x24f" value="Toon Summoned Skull" />
+			<entry key="0x250" value="Relinquished" />
+			<entry key="0x251" value="Thousand-Eyes Idol" />
+			<entry key="0x252" value="Thousand-Eyes Restrict" />
+			<entry key="0x253" value="Steel Ogre Grotto 2" />
+			<entry key="0x254" value="Blast Sphere" />
+			<entry key="0x255" value="Hyozanryu" />
+			<entry key="0x256" value="Alpha The Magnet Warrior" />
+			<entry key="0x257" value="Lord of D." />
+			<entry key="0x258" value="Red-Eyes Black Metal Dragon" />
+			<entry key="0x259" value="Red-Eyes Black Metal Dragon" />
+			<entry key="0x25a" value="Barrel Dragon" />
+			<entry key="0x25b" value="Hannibal Necromancer" />
+			<entry key="0x25c" value="Panther Warrior" />
+			<entry key="0x25d" value="Panther Warrior" />
+			<entry key="0x25e" value="Three-Headed Geedo" />
+			<entry key="0x25f" value="Gazelle the King of Mythical Beasts" />
+			<entry key="0x260" value="Stone Statue of the Aztecs" />
+			<entry key="0x261" value="Berfomet" />
+			<entry key="0x262" value="Chimera the Flying Mythical Beast" />
+			<entry key="0x263" value="Gear Golem the Moving Fortress" />
+			<entry key="0x264" value="Jinzo" />
+			<entry key="0x265" value="Swordsman of Landstar" />
+			<entry key="0x266" value="Cyber Raider" />
+			<entry key="0x267" value="The Fiend Megacyber" />
+			<entry key="0x268" value="Reflect Bounder" />
+			<entry key="0x269" value="Beta The Magnet Warrior" />
+			<entry key="0x26a" value="Big Shield Gardna" />
+			<entry key="0x26b" value="Big Shield Gardna" />
+			<entry key="0x26c" value="Dark Magician Girl" />
+			<entry key="0x26d" value="Dark Magician Girl" />
+			<entry key="0x26e" value="Dark Magician Girl" />
+			<entry key="0x26f" value="Alligator's Sword" />
+			<entry key="0x270" value="Insect Queen" />
+			<entry key="0x271" value="Parasite Paracide" />
+			<entry key="0x272" value="Skull-Mark Ladybug" />
+			<entry key="0x273" value="Little-Winguard" />
+			<entry key="0x274" value="Pinch Hopper" />
+			<entry key="0x275" value="Blue-Eyes Toon Dragon" />
+			<entry key="0x276" value="Sword Hunter" />
+			<entry key="0x277" value="Drill Bug" />
+			<entry key="0x278" value="Deepsea Warrior" />
+			<entry key="0x279" value="Satellite Cannon" />
+			<entry key="0x27a" value="The Last Warrior from Another Planet" />
+			<entry key="0x27b" value="Dunames Dark Witch" />
+			<entry key="0x27c" value="Garnecia Elefantis" />
+			<entry key="0x27d" value="Total Defense Shogun" />
+			<entry key="0x27e" value="Beast of Talwar" />
+			<entry key="0x27f" value="Cyber-Tech Alligator" />
+			<entry key="0x280" value="Gamma The Magnet Warrior" />
+			<entry key="0x281" value="Time Machine" />
+			<entry key="0x282" value="Copycat" />
+			<entry key="0x283" value="Toon World" />
+			<entry key="0x284" value="Toon World" />
+			<entry key="0x285" value="Gorgon's Eye" />
+			<entry key="0x286" value="Black Illusion Ritual" />
+			<entry key="0x287" value="Brain Control" />
+			<entry key="0x288" value="Negate Attack" />
+			<entry key="0x289" value="Multiply" />
+			<entry key="0x28a" value="Lightforce Sword" />
+			<entry key="0x28b" value="The Flute of Summoning Dragon" />
+			<entry key="0x28c" value="Shield and Sword" />
+			<entry key="0x28d" value="Graceful Charity" />
+			<entry key="0x28e" value="Chain Destruction" />
+			<entry key="0x28f" value="Mesmeric Control" />
+			<entry key="0x290" value="Graceful Dice" />
+			<entry key="0x291" value="Skull Dice" />
+			<entry key="0x292" value="Mind Control" />
+			<entry key="0x293" value="Scapegoat" />
+			<entry key="0x294" value="Amplifier" />
+			<entry key="0x295" value="Card Destruction" />
+			<entry key="0x296" value="Tragedy" />
+			<entry key="0x297" value="Ectoplasmer" />
+			<entry key="0x298" value="Dark Magic Curtain" />
+			<entry key="0x299" value="Insect Barrier" />
+			<entry key="0x29a" value="Magic-Arm Shield" />
+			<entry key="0x29b" value="Fissure" />
+			<entry key="0x29c" value="Trap Hole" />
+			<entry key="0x29d" value="Polymerization" />
+			<entry key="0x29e" value="Remove Trap" />
+			<entry key="0x29f" value="Two-Pronged Attack" />
+			<entry key="0x2a0" value="Monster Reborn" />
+			<entry key="0x2a1" value="De-Spell" />
+			<entry key="0x2a2" value="Pot of Greed" />
+			<entry key="0x2a3" value="Gravedigger Ghoul" />
+			<entry key="0x2a4" value="Reinforcements" />
+			<entry key="0x2a5" value="Castle Walls" />
+			<entry key="0x2a6" value="Ultimate Offering" />
+			<entry key="0x2a7" value="Tribute to The Doomed" />
+			<entry key="0x2a8" value="Soul Release" />
+			<entry key="0x2a9" value="The Cheerful Coffin" />
+			<entry key="0x2aa" value="Change of Heart" />
+			<entry key="0x2ab" value="Solemn Judgment" />
+			<entry key="0x2ac" value="Magic Jammer" />
+			<entry key="0x2ad" value="Seven Tools of the Bandit" />
+			<entry key="0x2ae" value="Horn of Heaven" />
+			<entry key="0x2af" value="Just Desserts" />
+			<entry key="0x2b0" value="Royal Decree" />
+			<entry key="0x2b1" value="Polymerization" />
+			<entry key="0x2b2" value="Magical Thorn" />
+			<entry key="0x2b3" value="Restructer Revolution" />
+			<entry key="0x2b4" value="Fusion Sage" />
+			<entry key="0x2b5" value="Sword of Deep-Seated" />
+			<entry key="0x2b6" value="Block Attack" />
+			<entry key="0x2b7" value="The Unhappy Maiden" />
+			<entry key="0x2b8" value="Robbin' Goblin" />
+			<entry key="0x2b9" value="Germ Infection" />
+			<entry key="0x2ba" value="Wall of Illusion" />
+			<entry key="0x2bb" value="Neo the Magic Swordsman" />
+			<entry key="0x2bc" value="Baron of the Fiend Sword" />
+			<entry key="0x2bd" value="Man-Eating Treasure Chest" />
+			<entry key="0x2be" value="Sorcerer of the Doomed" />
+			<entry key="0x2bf" value="Last Will" />
+			<entry key="0x2c0" value="Waboku" />
+			<entry key="0x2c1" value="Mirror Force" />
+			<entry key="0x2c2" value="Ring of Magnetism" />
+			<entry key="0x2c3" value="Share the Pain" />
+			<entry key="0x2c4" value="Stim-Pack" />
+			<entry key="0x2c5" value="Heavy Storm" />
+			<entry key="0x2c6" value="Gravekeeper's Servant" />
+			<entry key="0x2c7" value="Upstart Goblin" />
+			<entry key="0x2c8" value="Toll" />
+			<entry key="0x2c9" value="Final Destiny" />
+			<entry key="0x2ca" value="Snatch Steal" />
+			<entry key="0x2cb" value="Chorus of Sanctuary" />
+			<entry key="0x2cc" value="Confiscation" />
+			<entry key="0x2cd" value="Delinquent Duo" />
+			<entry key="0x2ce" value="Fairy's Hand Mirror" />
+			<entry key="0x2cf" value="Tailor of the Fickle" />
+			<entry key="0x2d0" value="Rush Recklessly" />
+			<entry key="0x2d1" value="The Reliable Guardian" />
+			<entry key="0x2d2" value="The Forceful Sentry" />
+			<entry key="0x2d3" value="Chain Energy" />
+			<entry key="0x2d4" value="Mystical Space Typhoon" />
+			<entry key="0x2d5" value="Giant Trunade" />
+			<entry key="0x2d6" value="Painful Choice" />
+			<entry key="0x2d7" value="Snake Fang" />
+			<entry key="0x2d8" value="Cyber Jar" />
+			<entry key="0x2d9" value="Banisher of the Light" />
+			<entry key="0x2da" value="Giant Rat" />
+			<entry key="0x2db" value="Senju of the Thousand Hands" />
+			<entry key="0x2dc" value="UFO Turtle" />
+			<entry key="0x2dd" value="Flash Assailant" />
+			<entry key="0x2de" value="Karate Man" />
+			<entry key="0x2df" value="Giant Germ" />
+			<entry key="0x2e0" value="Nimble Momonga" />
+			<entry key="0x2e1" value="Spear Cretin" />
+			<entry key="0x2e2" value="Shining Angel" />
+			<entry key="0x2e3" value="Mother Grizzly" />
+			<entry key="0x2e4" value="Flying Kamakiri 1" />
+			<entry key="0x2e5" value="Ceremonial Bell" />
+			<entry key="0x2e6" value="Sonic Bird" />
+			<entry key="0x2e7" value="Mystic Tomato" />
+			<entry key="0x2e8" value="Kotodama" />
+			<entry key="0x2e9" value="Gaia Power" />
+			<entry key="0x2ea" value="Umiiruka" />
+			<entry key="0x2eb" value="Molten Destruction" />
+			<entry key="0x2ec" value="Rising Air Current" />
+			<entry key="0x2ed" value="Luminous Spark" />
+			<entry key="0x2ee" value="Mystic Plasma Zone" />
+			<entry key="0x2ef" value="Messenger of Peace" />
+			<entry key="0x2f0" value="Michizure" />
+			<entry key="0x2f1" value="Gust" />
+			<entry key="0x2f2" value="Driving Snow" />
+			<entry key="0x2f3" value="Numinous Healer" />
+			<entry key="0x2f4" value="Appropriate" />
+			<entry key="0x2f5" value="Forced Requisition" />
+			<entry key="0x2f6" value="Minor Goblin Official" />
+			<entry key="0x2f7" value="Gamble" />
+			<entry key="0x2f8" value="DNA Surgery" />
+			<entry key="0x2f9" value="The Regulation of Tribe" />
+			<entry key="0x2fa" value="Backup Soldier" />
+			<entry key="0x2fb" value="Attack and Receive" />
+			<entry key="0x2fc" value="Ceasefire" />
+			<entry key="0x2fd" value="Light of Intervention" />
+			<entry key="0x2fe" value="Respect Play" />
+			<entry key="0x2ff" value="Imperial Order" />
+			<entry key="0x300" value="Skull Invitation" />
+			<entry key="0x301" value="Magical Hats" />
+			<entry key="0x302" value="Nobleman of Crossout" />
+			<entry key="0x303" value="Nobleman of Extermination" />
+			<entry key="0x304" value="The Shallow Grave" />
+			<entry key="0x305" value="Premature Burial" />
+			<entry key="0x306" value="Morphing Jar 2" />
+			<entry key="0x307" value="Bubonic Vermin" />
+			<entry key="0x308" value="Twin-Headed Fire Dragon" />
+			<entry key="0x309" value="Darkfire Soldier 1" />
+			<entry key="0x30a" value="Mr. Volcano" />
+			<entry key="0x30b" value="Darkfire Soldier 2" />
+			<entry key="0x30c" value="Kiseitai" />
+			<entry key="0x30d" value="Cyber Falcon" />
+			<entry key="0x30e" value="Dark Bat" />
+			<entry key="0x30f" value="Flying Kamakiri 2" />
+			<entry key="0x310" value="Harpie's Brother" />
+			<entry key="0x311" value="Oni Tank T-34" />
+			<entry key="0x312" value="Overdrive" />
+			<entry key="0x313" value="Buster Blader" />
+			<entry key="0x314" value="Time Seal" />
+			<entry key="0x315" value="Graverobber" />
+			<entry key="0x316" value="Gift of The Mystical Elf" />
+			<entry key="0x317" value="The Eye of Truth" />
+			<entry key="0x318" value="Dust Tornado" />
+			<entry key="0x319" value="Call of the Haunted" />
+			<entry key="0x31a" value="Solomon's Lawbook" />
+			<entry key="0x31b" value="Enchanted Javelin" />
+			<entry key="0x31c" value="Mirror Wall" />
+			<entry key="0x31d" value="Windstorm of Etaqua" />
+			<entry key="0x31e" value="Valkyrion the Magna Warrior" />
+			<entry key="0x31f" value="Alligator's Sword Dragon" />
+			<entry key="0x320" value="Vorse Raider" />
+			<entry key="0x321" value="Vorse Raider" />
+			<entry key="0x322" value="Ring of Destruction" />
+			<entry key="0x323" value="Aqua Chorus" />
+			<entry key="0x324" value="Sebek's Blessing" />
+			<entry key="0x325" value="Anti-Spell Fragrance" />
+			<entry key="0x326" value="Riryoku" />
+			<entry key="0x327" value="Sword of Dragon's Soul" />
+			<entry key="0x328" value="Luminous Soldier" />
+			<entry key="0x329" value="King Tiger Wanghu" />
+			<entry key="0x32a" value="Command Knight" />
+			<entry key="0x32b" value="Wolf Axwielder" />
+			<entry key="0x32c" value="The Illusory Gentleman" />
+			<entry key="0x32d" value="Patrician of Darkness" />
+			<entry key="0x32e" value="Birdface" />
+			<entry key="0x32f" value="Kryuel" />
+			<entry key="0x330" value="Airknight Parshath" />
+			<entry key="0x331" value="Fairy King Truesdale" />
+			<entry key="0x332" value="Serpentine Princess" />
+			<entry key="0x333" value="Maiden of the Aqua" />
+			<entry key="0x334" value="Robotic Knight" />
+			<entry key="0x335" value="Thunder Nyan Nyan" />
+			<entry key="0x336" value="Molten Behemoth" />
+			<entry key="0x337" value="Twin-Headed Behemoth" />
+			<entry key="0x338" value="Injection Fairy Lily" />
+			<entry key="0x339" value="Woodland Sprite" />
+			<entry key="0x33a" value="Arsenal Bug" />
+			<entry key="0x33b" value="Kinetic Soldier" />
+			<entry key="0x33c" value="Jowls of Dark Demise" />
+			<entry key="0x33d" value="Souleater" />
+			<entry key="0x33e" value="Slate Warrior" />
+			<entry key="0x33f" value="Timeater" />
+			<entry key="0x340" value="Mucus Yolk" />
+			<entry key="0x341" value="Servant of Catabolism" />
+			<entry key="0x342" value="Rigras Leever" />
+			<entry key="0x343" value="Moisture Creature" />
+			<entry key="0x344" value="Boneheimer" />
+			<entry key="0x345" value="Flame Dancer" />
+			<entry key="0x346" value="Sonic Jammer" />
+			<entry key="0x347" value="Gearfried the Iron Knight" />
+			<entry key="0x348" value="Humanoid Slime" />
+			<entry key="0x349" value="Worm Drake" />
+			<entry key="0x34a" value="Humanoid Worm Drake" />
+			<entry key="0x34b" value="Revival Jam" />
+			<entry key="0x34c" value="Flying Fish" />
+			<entry key="0x34d" value="Amphibian Beast" />
+			<entry key="0x34e" value="Rocket Warrior" />
+			<entry key="0x34f" value="The Legendary Fisherman" />
+			<entry key="0x350" value="Robolady" />
+			<entry key="0x351" value="Roboyarou" />
+			<entry key="0x352" value="Lightning Conger" />
+			<entry key="0x353" value="Spherous Lady" />
+			<entry key="0x354" value="Shining Abyss" />
+			<entry key="0x355" value="Archfiend of Gilfer" />
+			<entry key="0x356" value="Gadget Soldier" />
+			<entry key="0x357" value="Grand Tiki Elder" />
+			<entry key="0x358" value="The Masked Beast" />
+			<entry key="0x359" value="Melchid the Four-Face Beast" />
+			<entry key="0x35a" value="Nuvia the Wicked" />
+			<entry key="0x35b" value="Soul Exchange" />
+			<entry key="0x35c" value="Mask of Weakness" />
+			<entry key="0x35d" value="Curse of the Masked Beast" />
+			<entry key="0x35e" value="Mask of Dispel" />
+			<entry key="0x35f" value="Mask of Restrict" />
+			<entry key="0x360" value="Mask of the Accursed" />
+			<entry key="0x361" value="Mask of Brutality" />
+			<entry key="0x362" value="Return of the Doomed" />
+			<entry key="0x363" value="Lightning Blade" />
+			<entry key="0x364" value="Tornado Wall" />
+			<entry key="0x365" value="Infinite Dismissal" />
+			<entry key="0x366" value="Fairy Box" />
+			<entry key="0x367" value="Torrential Tribute" />
+			<entry key="0x368" value="Multiplication of Ants" />
+			<entry key="0x369" value="De-Fusion" />
+			<entry key="0x36a" value="Jam Breeding Machine" />
+			<entry key="0x36b" value="Nightmare's Steelcage" />
+			<entry key="0x36c" value="Infinite Cards" />
+			<entry key="0x36d" value="Jam Defender" />
+			<entry key="0x36e" value="Card of Safe Return" />
+			<entry key="0x36f" value="Magic Cylinder" />
+			<entry key="0x370" value="Solemn Wishes" />
+			<entry key="0x371" value="Burning Land" />
+			<entry key="0x372" value="Cold Wave" />
+			<entry key="0x373" value="Fairy Meteor Crush" />
+			<entry key="0x374" value="Limiter Removal" />
+			<entry key="0x375" value="Shift" />
+			<entry key="0x376" value="Insect Imitation" />
+			<entry key="0x377" value="Dimensionhole" />
+			<entry key="0x378" value="Magic Drain" />
+			<entry key="0x379" value="Gravity Bind" />
+			<entry key="0x37a" value="Shadow of Eyes" />
+			<entry key="0x37b" value="Girochin Kuwagata" />
+			<entry key="0x37c" value="Hayabusa Knight" />
+			<entry key="0x37d" value="Bombardment Beetle" />
+			<entry key="0x37e" value="4-Starred Ladybug of Doom" />
+			<entry key="0x37f" value="Gradius" />
+			<entry key="0x380" value="Red-Moon Baby" />
+			<entry key="0x381" value="Mad Sword Beast" />
+			<entry key="0x382" value="Skull Mariner" />
+			<entry key="0x383" value="The All-Seeing White Tiger" />
+			<entry key="0x384" value="Goblin Attack Force" />
+			<entry key="0x385" value="Island Turtle" />
+			<entry key="0x386" value="Wingweaver" />
+			<entry key="0x387" value="Science Soldier" />
+			<entry key="0x388" value="Souls of the Forgotten" />
+			<entry key="0x389" value="Dokuroyaiba" />
+			<entry key="0x38a" value="Rain of Mercy" />
+			<entry key="0x38b" value="Monster Recovery" />
+			<entry key="0x38c" value="Type Zero Magic Crusher" />
+			<entry key="0x38d" value="Yellow Luster Shield" />
+			<entry key="0x38e" value="Creature Swap" />
+			<entry key="0x38f" value="Dark Magician" />
+			<entry key="0x390" value="Thousand Knives" />
+			<entry key="0x391" value="Mystic Box" />
+			<entry key="0x392" value="Ground Collapse" />
+			<entry key="0x393" value="Amazon Archer" />
+			<entry key="0x394" value="Fire Princess" />
+			<entry key="0x395" value="Spirit of the Breeze" />
+			<entry key="0x396" value="Dancing Fairy" />
+			<entry key="0x397" value="Empress Mantis" />
+			<entry key="0x398" value="Cure Mermaid" />
+			<entry key="0x399" value="Hysteric Fairy" />
+			<entry key="0x39a" value="Bio-Mage" />
+			<entry key="0x39b" value="The Forgiving Maiden" />
+			<entry key="0x39c" value="St. Joan" />
+			<entry key="0x39d" value="Marie the Fallen One" />
+			<entry key="0x39e" value="Jar of Greed" />
+			<entry key="0x39f" value="Scroll of Bewitchment" />
+			<entry key="0x3a0" value="United We Stand" />
+			<entry key="0x3a1" value="Mage Power" />
+			<entry key="0x3a2" value="Offerings to the Doomed" />
+			<entry key="0x3a3" value="Meteor of Destruction" />
+			<entry key="0x3a4" value="Lightning Vortex" />
+			<entry key="0x3a5" value="Exchange" />
+			<entry key="0x3a6" value="The Portrait's Secret" />
+			<entry key="0x3a7" value="The Gross Ghost of Fled Dreams" />
+			<entry key="0x3a8" value="Headless Knight" />
+			<entry key="0x3a9" value="Dark Necrofear" />
+			<entry key="0x3aa" value="Dark Magician's Tome of Black Magic" />
+			<entry key="0x3ab" value="Destiny Board" />
+			<entry key="0x3ac" value="The Dark Door" />
+			<entry key="0x3ad" value="Earthbound Spirit" />
+			<entry key="0x3ae" value="Dark Spirit of the Silent" />
+			<entry key="0x3af" value="The Earl of Demise" />
+			<entry key="0x3b0" value="Dark Sage" />
+			<entry key="0x3b1" value="Cathedral of Nobles" />
+			<entry key="0x3b2" value="Judgment of Anubis" />
+			<entry key="0x3b3" value="Embodiment of Apophis" />
+			<entry key="0x3b4" value="Foolish Burial" />
+			<entry key="0x3b5" value="Makiu" />
+			<entry key="0x3b6" value="Ancient Lamp" />
+			<entry key="0x3b7" value="Cyber Harpie Lady" />
+			<entry key="0x3b8" value="Mystical Beast Serket" />
+			<entry key="0x3b9" value="Swift Gaia the Fierce Knight" />
+			<entry key="0x3ba" value="Obnoxious Celtic Guard" />
+			<entry key="0x3bb" value="Zombyra the Dark" />
+			<entry key="0x3bc" value="Spiritualism" />
+			<entry key="0x3bd" value="Jowgen the Spiritualist" />
+			<entry key="0x3be" value="Kycoo the Ghost Destroyer" />
+			<entry key="0x3bf" value="Summoner of Illusions" />
+			<entry key="0x3c0" value="Bazoo the Soul-Eater" />
+			<entry key="0x3c1" value="Soul of Purity and Light" />
+			<entry key="0x3c2" value="Spirit of Flames" />
+			<entry key="0x3c3" value="Aqua Spirit" />
+			<entry key="0x3c4" value="The Rock Spirit" />
+			<entry key="0x3c5" value="Garuda the Wind Spirit" />
+			<entry key="0x3c6" value="Gilasaurus" />
+			<entry key="0x3c7" value="Tornado Bird" />
+			<entry key="0x3c8" value="Dreamsprite" />
+			<entry key="0x3c9" value="Supply" />
+			<entry key="0x3ca" value="Maryokutai" />
+			<entry key="0x3cb" value="Collected Power" />
+			<entry key="0x3cc" value="Royal Command" />
+			<entry key="0x3cd" value="Riryoku Field" />
+			<entry key="0x3ce" value="Skull Lair" />
+			<entry key="0x3cf" value="Graverobber's Retribution" />
+			<entry key="0x3d0" value="Deal of Phantom" />
+			<entry key="0x3d1" value="Destruction Punch" />
+			<entry key="0x3d2" value="Blind Destruction" />
+			<entry key="0x3d3" value="The Emperor's Holiday" />
+			<entry key="0x3d4" value="Cyclon Laser" />
+			<entry key="0x3d5" value="Spirit Message I" />
+			<entry key="0x3d6" value="Spirit Message N" />
+			<entry key="0x3d7" value="Spirit Message A" />
+			<entry key="0x3d8" value="Spirit Message L" />
+			<entry key="0x3d9" value="Bait Doll" />
+			<entry key="0x3da" value="Fusion Gate" />
+			<entry key="0x3db" value="Ekibyo Drakmord" />
+			<entry key="0x3dc" value="Miracle Dig" />
+			<entry key="0x3dd" value="Vengeful Bog Spirit" />
+			<entry key="0x3de" value="Amazoness Swords Woman" />
+			<entry key="0x3df" value="Makyura the Destructor" />
+			<entry key="0x3e0" value="Amazoness Archers" />
+			<entry key="0x3e1" value="Rope of Life" />
+			<entry key="0x3e2" value="Enchanted Arrow" />
+			<entry key="0x3e3" value="Amazoness Chain Master" />
+			<entry key="0x3e4" value="Viser Des" />
+			<entry key="0x3e5" value="Viser Des" />
+			<entry key="0x3e6" value="Amazoness Fighter" />
+			<entry key="0x3e7" value="Nightmare Wheel" />
+			<entry key="0x3e8" value="Byser Shock" />
+			<entry key="0x3e9" value="Dark Ruler Ha Des" />
+			<entry key="0x3ea" value="Dark Balter the Terrible" />
+			<entry key="0x3eb" value="Lesser Fiend" />
+			<entry key="0x3ec" value="Possessed Dark Soul" />
+			<entry key="0x3ed" value="Winged Minion" />
+			<entry key="0x3ee" value="Ryu-Kishin Clown" />
+			<entry key="0x3ef" value="Twin-Headed Wolf" />
+			<entry key="0x3f0" value="Opticlops" />
+			<entry key="0x3f1" value="Bark of Dark Ruler" />
+			<entry key="0x3f2" value="Fatal Abacus" />
+			<entry key="0x3f3" value="Life Absorbing Machine" />
+			<entry key="0x3f4" value="Double Snare" />
+			<entry key="0x3f5" value="Freed the Matchless General" />
+			<entry key="0x3f6" value="Throwstone Unit" />
+			<entry key="0x3f7" value="Marauding Captain" />
+			<entry key="0x3f8" value="Ryu Senshi" />
+			<entry key="0x3f9" value="Warrior Dai Grepher" />
+			<entry key="0x3fa" value="Frontier Wiseman" />
+			<entry key="0x3fb" value="Exiled Force" />
+			<entry key="0x3fc" value="The Hunter with 7 Weapons" />
+			<entry key="0x3fd" value="Shadow Tamer" />
+			<entry key="0x3fe" value="Dragon Manipulator" />
+			<entry key="0x3ff" value="The A. Forces" />
+			<entry key="0x400" value="Reinforcement of the Army" />
+			<entry key="0x401" value="Array of Revealing Light" />
+			<entry key="0x402" value="The Warrior Returning Alive" />
+			<entry key="0x403" value="Ready for Intercepting" />
+			<entry key="0x404" value="A Feint Plan" />
+			<entry key="0x405" value="Tyrant Dragon" />
+			<entry key="0x406" value="Spear Dragon" />
+			<entry key="0x407" value="Spirit Ryu" />
+			<entry key="0x408" value="The Dragon dwelling in the Cave" />
+			<entry key="0x409" value="Lizard Soldier" />
+			<entry key="0x40a" value="Fiend Skull Dragon" />
+			<entry key="0x40b" value="Cave Dragon" />
+			<entry key="0x40c" value="Gray Wing" />
+			<entry key="0x40d" value="Troop Dragon" />
+			<entry key="0x40e" value="The Dragon's Bead" />
+			<entry key="0x40f" value="A Wingbeat of Giant Dragon" />
+			<entry key="0x410" value="Dragon's Gunfire" />
+			<entry key="0x411" value="Stamping Destruction" />
+			<entry key="0x412" value="Super Rejuvenation" />
+			<entry key="0x413" value="Dragon's Rage" />
+			<entry key="0x414" value="Burst Breath" />
+			<entry key="0x415" value="Luster Dragon 2" />
+			<entry key="0x416" value="Emergency Provisions" />
+			<entry key="0x417" value="Keldo" />
+			<entry key="0x418" value="Dragged Down into the Grave" />
+			<entry key="0x419" value="Kaiser Glider" />
+			<entry key="0x41a" value="Spell Reproduction" />
+			<entry key="0x41b" value="Collapse" />
+			<entry key="0x41c" value="Mudora" />
+			<entry key="0x41d" value="Cestus of Dagla" />
+			<entry key="0x41e" value="De-Spell Germ Weapon" />
+			<entry key="0x41f" value="Des Feral Imp" />
+			<entry key="0x420" value="Reversal of Graves" />
+			<entry key="0x421" value="Kelbek" />
+			<entry key="0x422" value="Zolga" />
+			<entry key="0x423" value="Blast Held by a Tribute" />
+			<entry key="0x424" value="Agido" />
+			<entry key="0x425" value="Silent Fiend" />
+			<entry key="0x426" value="Fiber Jar" />
+			<entry key="0x427" value="Gradius' Option" />
+			<entry key="0x428" value="Maharaghi" />
+			<entry key="0x429" value="Inaba White Rabbit" />
+			<entry key="0x42a" value="Yata-Garasu" />
+			<entry key="0x42b" value="Susa Soldier" />
+			<entry key="0x42c" value="Yamata Dragon" />
+			<entry key="0x42d" value="Great Long Nose" />
+			<entry key="0x42e" value="Otohime" />
+			<entry key="0x42f" value="Hino-Kagu-Tsuchi" />
+			<entry key="0x430" value="Asura Priest" />
+			<entry key="0x431" value="Fushi No Tori" />
+			<entry key="0x432" value="Super Robolady" />
+			<entry key="0x433" value="Super Roboyarou" />
+			<entry key="0x434" value="Fengsheng Mirror" />
+			<entry key="0x435" value="Heart of Clear Water" />
+			<entry key="0x436" value="A Legendary Ocean" />
+			<entry key="0x437" value="Fusion Sword Murasame Blade" />
+			<entry key="0x438" value="Smoke Grenade of the Thief" />
+			<entry key="0x439" value="Spiritual Energy Settle Machine" />
+			<entry key="0x43a" value="Second Coin Toss" />
+			<entry key="0x43b" value="Convulsion of Nature" />
+			<entry key="0x43c" value="The Secret of the Bandit" />
+			<entry key="0x43d" value="After the Struggle" />
+			<entry key="0x43e" value="Blast with Chain" />
+			<entry key="0x43f" value="Disappear" />
+			<entry key="0x440" value="Bottomless Trap Hole" />
+			<entry key="0x441" value="Ominous Fortunetelling" />
+			<entry key="0x442" value="Nutrient Z" />
+			<entry key="0x443" value="Drop Off" />
+			<entry key="0x444" value="Fiend Comedian" />
+			<entry key="0x445" value="Last Turn" />
+			<entry key="0x446" value="Des Volstgalph" />
+			<entry key="0x447" value="Kaiser Sea Horse" />
+			<entry key="0x448" value="Vampire Lord" />
+			<entry key="0x449" value="Gora Turtle" />
+			<entry key="0x44a" value="Sasuke Samurai" />
+			<entry key="0x44b" value="Poison Mummy" />
+			<entry key="0x44c" value="Dark Dust Spirit" />
+			<entry key="0x44d" value="Royal Keeper" />
+			<entry key="0x44e" value="Wandering Mummy" />
+			<entry key="0x44f" value="Great Dezard" />
+			<entry key="0x450" value="Swarm of Scarabs" />
+			<entry key="0x451" value="Swarm of Locusts" />
+			<entry key="0x452" value="Giant Axe Mummy" />
+			<entry key="0x453" value="Guardian Sphinx" />
+			<entry key="0x454" value="Pyramid Turtle" />
+			<entry key="0x455" value="Dice Jar" />
+			<entry key="0x456" value="Dark Scorpion Burglars" />
+			<entry key="0x457" value="Don Zaloog" />
+			<entry key="0x458" value="Des Lacooda" />
+			<entry key="0x459" value="Fushioh Richie" />
+			<entry key="0x45a" value="Cobraman Sakuzy" />
+			<entry key="0x45b" value="Book of Life" />
+			<entry key="0x45c" value="Book of Taiyou" />
+			<entry key="0x45d" value="Book of Moon" />
+			<entry key="0x45e" value="Mirage of Nightmare" />
+			<entry key="0x45f" value="Call of the Mummy" />
+			<entry key="0x460" value="Timidity" />
+			<entry key="0x461" value="Pyramid Energy" />
+			<entry key="0x462" value="Tutan Mask" />
+			<entry key="0x463" value="Ordeal of a Traveler" />
+			<entry key="0x464" value="Bottomless Shifting Sand" />
+			<entry key="0x465" value="Curse of Royal" />
+			<entry key="0x466" value="Needle Ceiling" />
+			<entry key="0x467" value="Statue of the Wicked" />
+			<entry key="0x468" value="Dark Coffin" />
+			<entry key="0x469" value="Needle Wall" />
+			<entry key="0x46a" value="Trap Dustshoot" />
+			<entry key="0x46b" value="Reckless Greed" />
+			<entry key="0x46c" value="Toon Dark Magician Girl" />
+			<entry key="0x46d" value="Gilford the Lightning" />
+			<entry key="0x46e" value="Gilford the Lightning" />
+			<entry key="0x46f" value="Exarion Universe" />
+			<entry key="0x470" value="Legendary Fiend" />
+			<entry key="0x471" value="Toon Defense" />
+			<entry key="0x472" value="Toon Table of Contents" />
+			<entry key="0x473" value="Toon Masked Sorcerer" />
+			<entry key="0x474" value="Toon Gemini Elf" />
+			<entry key="0x475" value="Toon Cannon Soldier" />
+			<entry key="0x476" value="Toon Goblin Attack Force" />
+			<entry key="0x477" value="Card of Sanctity" />
+			<entry key="0x478" value="Puppet Master" />
+			<entry key="0x479" value="Newdoria" />
+			<entry key="0x47a" value="Lord Poison" />
+			<entry key="0x47b" value="Blade Knight" />
+			<entry key="0x47c" value="Helpoemer" />
+			<entry key="0x47d" value="Hidden Soldier" />
+			<entry key="0x47e" value="Gil Garth" />
+			<entry key="0x47f" value="Calamity of the Wicked" />
+			<entry key="0x480" value="Lava Golem" />
+			<entry key="0x481" value="Monster Relief" />
+			<entry key="0x482" value="Machine Duplication" />
+			<entry key="0x483" value="Dark Jeroid" />
+			<entry key="0x484" value="Master of Dragon Soldier" />
+			<entry key="0x485" value="F.G.D." />
+			<entry key="0x486" value="Queen's Knight" />
+			<entry key="0x487" value="X-Head Cannon" />
+			<entry key="0x488" value="Enemy Controller" />
+			<entry key="0x489" value="Master Kyonshee" />
+			<entry key="0x48a" value="Kabazauls" />
+			<entry key="0x48b" value="Inpachi" />
+			<entry key="0x48c" value="Gravekeeper's Spy" />
+			<entry key="0x48d" value="Gravekeeper's Curse" />
+			<entry key="0x48e" value="Gravekeeper's Guard" />
+			<entry key="0x48f" value="Gravekeeper's Spear Soldier" />
+			<entry key="0x490" value="Gravekeeper's Cannonholder" />
+			<entry key="0x491" value="Gravekeeper's Assailant" />
+			<entry key="0x492" value="A Man with Wdjat" />
+			<entry key="0x493" value="Mystical Knight of Jackal" />
+			<entry key="0x494" value="A Cat of Ill Omen" />
+			<entry key="0x495" value="Yomi Ship" />
+			<entry key="0x496" value="Winged Sage Falcos" />
+			<entry key="0x497" value="An Owl of Luck" />
+			<entry key="0x498" value="Charm of Shabti" />
+			<entry key="0x499" value="Cobra Jar" />
+			<entry key="0x49a" value="Spirit Reaper" />
+			<entry key="0x49b" value="Nightmare Horse" />
+			<entry key="0x49c" value="Reaper on the Nightmare" />
+			<entry key="0x49d" value="Card Shuffle" />
+			<entry key="0x49e" value="Reasoning" />
+			<entry key="0x49f" value="Dark Room of Nightmare" />
+			<entry key="0x4a0" value="Different Dimension Capsule" />
+			<entry key="0x4a1" value="Necrovalley" />
+			<entry key="0x4a2" value="Buster Rancher" />
+			<entry key="0x4a3" value="Hieroglyph Lithograph" />
+			<entry key="0x4a4" value="Dark Snake Syndrome" />
+			<entry key="0x4a5" value="Terraforming" />
+			<entry key="0x4a6" value="Banner of Courage" />
+			<entry key="0x4a7" value="Metamorphosis" />
+			<entry key="0x4a8" value="Royal Tribute" />
+			<entry key="0x4a9" value="Reversal Quiz" />
+			<entry key="0x4aa" value="Curse of Aging" />
+			<entry key="0x4ab" value="Raigeki Break" />
+			<entry key="0x4ac" value="Disturbance Strategy" />
+			<entry key="0x4ad" value="Rite of Spirit" />
+			<entry key="0x4ae" value="Non Aggression Area" />
+			<entry key="0x4af" value="D. Tribe" />
+			<entry key="0x4b0" value="Y-Dragon Head" />
+			<entry key="0x4b1" value="XY-Dragon Cannon" />
+			<entry key="0x4b2" value="Z-Metal Tank" />
+			<entry key="0x4b3" value="XYZ-Dragon Cannon" />
+			<entry key="0x4b4" value="XYZ-Dragon Cannon" />
+			<entry key="0x4b5" value="XYZ-Dragon Cannon" />
+			<entry key="0x4b6" value="Rope of Spirit" />
+			<entry key="0x4b7" value="King's Knight" />
+			<entry key="0x4b8" value="Jack's Knight" />
+			<entry key="0x4b9" value="Interdimensional Matter Transporter" />
+			<entry key="0x4ba" value="Goblin Zombie" />
+			<entry key="0x4bb" value="Drillago" />
+			<entry key="0x4bc" value="Lekunga" />
+			<entry key="0x4bd" value="Cost Down" />
+			<entry key="0x4be" value="People Running About" />
+			<entry key="0x4bf" value="Oppressed People" />
+			<entry key="0x4c0" value="United Resistance" />
+			<entry key="0x4c1" value="Dark Blade" />
+			<entry key="0x4c2" value="Pitch-Dark Dragon" />
+			<entry key="0x4c3" value="Kiryu" />
+			<entry key="0x4c4" value="Decayed Commander" />
+			<entry key="0x4c5" value="Zombie Tiger" />
+			<entry key="0x4c6" value="Giant Orc" />
+			<entry key="0x4c7" value="Second Goblin" />
+			<entry key="0x4c8" value="Vampire Orchis" />
+			<entry key="0x4c9" value="Des Dendle" />
+			<entry key="0x4ca" value="Burning Beast" />
+			<entry key="0x4cb" value="Freezing Beast" />
+			<entry key="0x4cc" value="D.D. Crazy Beast" />
+			<entry key="0x4cd" value="Spell Canceller" />
+			<entry key="0x4ce" value="Helping Robo For Combat" />
+			<entry key="0x4cf" value="Dimension Jar" />
+			<entry key="0x4d0" value="Roulette Barrel" />
+			<entry key="0x4d1" value="Paladin of White Dragon" />
+			<entry key="0x4d2" value="White Dragon Ritual" />
+			<entry key="0x4d3" value="Frontline Base" />
+			<entry key="0x4d4" value="Demotion" />
+			<entry key="0x4d5" value="Combination Attack" />
+			<entry key="0x4d6" value="Autonomous Action Unit" />
+			<entry key="0x4d7" value="Poison of the Old Man" />
+			<entry key="0x4d8" value="Dark Core" />
+			<entry key="0x4d9" value="Raregold Armor" />
+			<entry key="0x4da" value="Kishido Spirit" />
+			<entry key="0x4db" value="Tribute Doll" />
+			<entry key="0x4dc" value="Wave-Motion Cannon" />
+			<entry key="0x4dd" value="Huge Revolution" />
+			<entry key="0x4de" value="Thunder of Ruler" />
+			<entry key="0x4df" value="Spell Shield Type-8" />
+			<entry key="0x4e0" value="Meteorain" />
+			<entry key="0x4e1" value="Pineapple Blast" />
+			<entry key="0x4e2" value="Secret Barrel" />
+			<entry key="0x4e3" value="Formation Union" />
+			<entry key="0x4e4" value="Adhesion Trap Hole" />
+			<entry key="0x4e5" value="XZ-Tank Cannon" />
+			<entry key="0x4e6" value="YZ-Tank Dragon" />
+			<entry key="0x4e7" value="Final Attack Orders" />
+			<entry key="0x4e8" value="Dark Paladin" />
+			<entry key="0x4e9" value="Dark Paladin" />
+			<entry key="0x4ea" value="Dark Paladin" />
+			<entry key="0x4eb" value="Spell Absorption" />
+			<entry key="0x4ec" value="Diffusion Wave-Motion" />
+			<entry key="0x4ed" value="Fiend's Sanctuary" />
+			<entry key="0x4ee" value="Great Angus" />
+			<entry key="0x4ef" value="Aitsu" />
+			<entry key="0x4f0" value="Sonic Duck" />
+			<entry key="0x4f1" value="Luster Dragon" />
+			<entry key="0x4f2" value="Amazoness Paladin" />
+			<entry key="0x4f3" value="Amazoness Blowpiper" />
+			<entry key="0x4f4" value="Amazoness Tiger" />
+			<entry key="0x4f5" value="Skilled White Magician" />
+			<entry key="0x4f6" value="Skilled Dark Magician" />
+			<entry key="0x4f7" value="Apprentice Magician" />
+			<entry key="0x4f8" value="Old Vindictive Magician" />
+			<entry key="0x4f9" value="Chaos Command Magician" />
+			<entry key="0x4fa" value="Magical Marionette" />
+			<entry key="0x4fb" value="Breaker the Magical Warrior" />
+			<entry key="0x4fc" value="Magical Plant Mandragola" />
+			<entry key="0x4fd" value="Magical Scientist" />
+			<entry key="0x4fe" value="Royal Magical Library" />
+			<entry key="0x4ff" value="Armor Exe" />
+			<entry key="0x500" value="Tribe-Infecting Virus" />
+			<entry key="0x501" value="Des Koala" />
+			<entry key="0x502" value="Cliff the Trap Remover" />
+			<entry key="0x503" value="Magical Merchant" />
+			<entry key="0x504" value="Koitsu" />
+			<entry key="0x505" value="Cat's Ear Tribe" />
+			<entry key="0x506" value="Ultimate Obedient Fiend" />
+			<entry key="0x507" value="Pitch-Black Power Stone" />
+			<entry key="0x508" value="Big Bang Shot" />
+			<entry key="0x509" value="Gather Your Mind" />
+			<entry key="0x50a" value="Mass Driver" />
+			<entry key="0x50b" value="Senri Eye" />
+			<entry key="0x50c" value="Emblem of Dragon Destroyer" />
+			<entry key="0x50d" value="Jar Robber" />
+			<entry key="0x50e" value="Mega Ton Magical Cannon" />
+			<entry key="0x50f" value="Continuous Destruction Punch" />
+			<entry key="0x510" value="Exhausting Spell" />
+			<entry key="0x511" value="Hidden Book of Spell" />
+			<entry key="0x512" value="Miracle Restoring" />
+			<entry key="0x513" value="Disarmament" />
+			<entry key="0x514" value="Anti-Spell" />
+			<entry key="0x515" value="The Spell Absorbing Life" />
+			<entry key="0x516" value="Metal Reflect Slime" />
+			<entry key="0x517" value="Bowganian" />
+			<entry key="0x518" value="Excavation of Mage Stones" />
+			<entry key="0x519" value="Granadora" />
+			<entry key="0x51a" value="Shinato, King of a Higher Plane" />
+			<entry key="0x51b" value="Dark Flare Knight" />
+			<entry key="0x51c" value="Mirage Knight" />
+			<entry key="0x51d" value="Berserk Dragon" />
+			<entry key="0x51e" value="Exodia Necross" />
+			<entry key="0x51f" value="Battle Footballer" />
+			<entry key="0x520" value="Arsenal Summoner" />
+			<entry key="0x521" value="Nin-Ken Dog" />
+			<entry key="0x522" value="Acrobat Monkey" />
+			<entry key="0x523" value="Guardian Elma" />
+			<entry key="0x524" value="Guardian Ceal" />
+			<entry key="0x525" value="Guardian Grarl" />
+			<entry key="0x526" value="Guardian Baou" />
+			<entry key="0x527" value="Guardian Kay'est" />
+			<entry key="0x528" value="Guardian Tryce" />
+			<entry key="0x529" value="Gyaku-Gire Panda" />
+			<entry key="0x52a" value="Blindly Loyal Goblin" />
+			<entry key="0x52b" value="Despair from the Dark" />
+			<entry key="0x52c" value="Maju Garzett" />
+			<entry key="0x52d" value="Fear from the Dark" />
+			<entry key="0x52e" value="Dark Scorpion - Chick the Yellow" />
+			<entry key="0x52f" value="D.D. Warrior Lady" />
+			<entry key="0x530" value="Thousand Needles" />
+			<entry key="0x531" value="Shinato's Ark" />
+			<entry key="0x532" value="A Deal with Dark Ruler" />
+			<entry key="0x533" value="Contract with Exodia" />
+			<entry key="0x534" value="Butterfly Dagger - Elma" />
+			<entry key="0x535" value="Shooting Star Bow - Ceal" />
+			<entry key="0x536" value="Gravity Axe - Grarl" />
+			<entry key="0x537" value="Wicked-Breaking Flamberge - Baou" />
+			<entry key="0x538" value="Rod of Silence - Kay'est" />
+			<entry key="0x539" value="Twin Swords of Flashing Light - Tryce" />
+			<entry key="0x53a" value="Precious Cards from Beyond" />
+			<entry key="0x53b" value="Rod of the Mind's Eye" />
+			<entry key="0x53c" value="Fairy of the Spring" />
+			<entry key="0x53d" value="Token Thanksgiving" />
+			<entry key="0x53e" value="Non-Spellcasting Area" />
+			<entry key="0x53f" value="Staunch Defender" />
+			<entry key="0x540" value="Ojama Trio" />
+			<entry key="0x541" value="Arsenal Robber" />
+			<entry key="0x542" value="Skill Drain" />
+			<entry key="0x543" value="Really Eternal Rest" />
+			<entry key="0x544" value="Soul Taker" />
+			<entry key="0x545" value="Magical Dimension" />
+			<entry key="0x546" value="Judgement of Pharaoh" />
+			<entry key="0x547" value="Friendship" />
+			<entry key="0x548" value="Unity" />
+			<entry key="0x549" value="Dark Magician Knight" />
+			<entry key="0x54a" value="Knight's Title" />
+			<entry key="0x54b" value="Sage's Stone" />
+			<entry key="0x54c" value="Gagagigo" />
+			<entry key="0x54d" value="D. D. Trainer" />
+			<entry key="0x54e" value="Ojama Green" />
+			<entry key="0x54f" value="Archfiend Soldier" />
+			<entry key="0x550" value="Pandemonium Watchbear" />
+			<entry key="0x551" value="Sasuke Samurai 2" />
+			<entry key="0x552" value="Dark Scorpion - Gorg the Strong" />
+			<entry key="0x553" value="Dark Scorpion - Meanae the Thorn" />
+			<entry key="0x554" value="Outstanding Dog Marron" />
+			<entry key="0x555" value="Great Maju Garzett" />
+			<entry key="0x556" value="Iron Blacksmith Kotetsu" />
+			<entry key="0x557" value="Mefist the Infernal General" />
+			<entry key="0x558" value="Vilepawn Archfiend" />
+			<entry key="0x559" value="Shadowknight Archfiend" />
+			<entry key="0x55a" value="Darkbishop Archfiend" />
+			<entry key="0x55b" value="Desrook Archfiend" />
+			<entry key="0x55c" value="Infernalqueen Archfiend" />
+			<entry key="0x55d" value="Terrorking Archfiend" />
+			<entry key="0x55e" value="Skull Archfiend of Lightning" />
+			<entry key="0x55f" value="Metallizing Parasite - Lunatite" />
+			<entry key="0x560" value="Tsukuyomi" />
+			<entry key="0x561" value="Legendary Flame Lord" />
+			<entry key="0x562" value="Dark Master - Zorc" />
+			<entry key="0x563" value="Incandescent Ordeal" />
+			<entry key="0x564" value="Contract with the Abyss" />
+			<entry key="0x565" value="Contract with the Dark Master" />
+			<entry key="0x566" value="Falling Down" />
+			<entry key="0x567" value="Checkmate" />
+			<entry key="0x568" value="Final Countdown" />
+			<entry key="0x569" value="Mustering of the Dark Scorpions" />
+			<entry key="0x56a" value="Pandemonium" />
+			<entry key="0x56b" value="Altar for Tribute" />
+			<entry key="0x56c" value="Frozen Soul" />
+			<entry key="0x56d" value="Battle-Scarred" />
+			<entry key="0x56e" value="Dark Scorpion Combination" />
+			<entry key="0x56f" value="Archfiend's Roar" />
+			<entry key="0x570" value="Dice Re-Roll" />
+			<entry key="0x571" value="Spell Vanishing" />
+			<entry key="0x572" value="Sakuretsu Armor" />
+			<entry key="0x573" value="Ray of Hope" />
+			<entry key="0x574" value="Nightmare Penguin" />
+			<entry key="0x575" value="Perfect Machine King" />
+			<entry key="0x576" value="Chiron the Mage" />
+			<entry key="0x577" value="Ojama Yellow" />
+			<entry key="0x578" value="Ojama Black" />
+			<entry key="0x579" value="Soul Tiger" />
+			<entry key="0x57a" value="Big Koala" />
+			<entry key="0x57b" value="Des Kangaroo" />
+			<entry key="0x57c" value="Crimson Ninja" />
+			<entry key="0x57d" value="Strike Ninja" />
+			<entry key="0x57e" value="Gale Lizard" />
+			<entry key="0x57f" value="Chopman the Desperate Outlaw" />
+			<entry key="0x580" value="Sasuke Samurai 3" />
+			<entry key="0x581" value="D. D. Scout Plane" />
+			<entry key="0x582" value="Berserk Gorilla" />
+			<entry key="0x583" value="Freed the Brave Wanderer" />
+			<entry key="0x584" value="Witch Doctor of Chaos" />
+			<entry key="0x585" value="Chaos Necromancer" />
+			<entry key="0x586" value="Chaosrider Gustaph" />
+			<entry key="0x587" value="Inferno" />
+			<entry key="0x588" value="Fenrir" />
+			<entry key="0x589" value="Gigantes" />
+			<entry key="0x58a" value="Silpheed" />
+			<entry key="0x58b" value="Chaos Sorcerer" />
+			<entry key="0x58c" value="Gren Maju Da Eiza" />
+			<entry key="0x58d" value="Black Luster Soldier - Envoy of the Beginning" />
+			<entry key="0x58e" value="Fuhma Shuriken" />
+			<entry key="0x58f" value="Heart of the Underdog" />
+			<entry key="0x590" value="Wild Nature's Release" />
+			<entry key="0x591" value="Ojama Delta Hurricane!!" />
+			<entry key="0x592" value="Stumbling" />
+			<entry key="0x593" value="Chaos End" />
+			<entry key="0x594" value="Chaos Greed" />
+			<entry key="0x595" value="D. D. Borderline" />
+			<entry key="0x596" value="Recycle" />
+			<entry key="0x597" value="Primal Seed" />
+			<entry key="0x598" value="Thunder Crash" />
+			<entry key="0x599" value="Dimension Distortion" />
+			<entry key="0x59a" value="Reload" />
+			<entry key="0x59b" value="Soul Absorption" />
+			<entry key="0x59c" value="Big Burn" />
+			<entry key="0x59d" value="Blasting the Ruins" />
+			<entry key="0x59e" value="Cursed Seal of the Forbidden Spell" />
+			<entry key="0x59f" value="Tower of Babel" />
+			<entry key="0x5a0" value="Spatial Collapse" />
+			<entry key="0x5a1" value="Chain Disappearance" />
+			<entry key="0x5a2" value="Zero Gravity" />
+			<entry key="0x5a3" value="Dark Mirror Force" />
+			<entry key="0x5a4" value="Energy Drain" />
+			<entry key="0x5a5" value="Chaos Emperor Dragon - Envoy of the End" />
+			<entry key="0x5a6" value="Victory D." />
+			<entry key="0x5a7" value="Magician's Valkyrie" />
+			<entry key="0x5a8" value="Giga Gagagigo" />
+			<entry key="0x5a9" value="Mad Dog of Darkness" />
+			<entry key="0x5aa" value="Neo Bug" />
+			<entry key="0x5ab" value="Sea Serpent Warrior of Darkness" />
+			<entry key="0x5ac" value="Terrorking Salmon" />
+			<entry key="0x5ad" value="Blazing Inpachi" />
+			<entry key="0x5ae" value="Burning Algae" />
+			<entry key="0x5af" value="The Thing in the Crater" />
+			<entry key="0x5b0" value="Molten Zombie" />
+			<entry key="0x5b1" value="Dark Magician of Chaos" />
+			<entry key="0x5b2" value="Manticore of Darkness" />
+			<entry key="0x5b3" value="Stealth Bird" />
+			<entry key="0x5b4" value="Sacred Crane" />
+			<entry key="0x5b5" value="Enraged Battle Ox" />
+			<entry key="0x5b6" value="Don Turtle" />
+			<entry key="0x5b7" value="Dark Driceratops" />
+			<entry key="0x5b8" value="Hyper Hammerhead" />
+			<entry key="0x5b9" value="Black Tyranno" />
+			<entry key="0x5ba" value="Anti-Aircraft Flower" />
+			<entry key="0x5bb" value="Prickle Fairy" />
+			<entry key="0x5bc" value="Insect Princess" />
+			<entry key="0x5bd" value="Amphibious Bugroth MK-3" />
+			<entry key="0x5be" value="Torpedo Fish" />
+			<entry key="0x5bf" value="Levia-Dragon - Daedalus" />
+			<entry key="0x5c0" value="Orca Mega-Fortress of Darkness" />
+			<entry key="0x5c1" value="Cannonball Spear Shellfish" />
+			<entry key="0x5c2" value="Mataza the Zapper" />
+			<entry key="0x5c3" value="Guardian Angel Joan" />
+			<entry key="0x5c4" value="Manju of the Ten Thousand Hands" />
+			<entry key="0x5c5" value="Getsu Fuhma" />
+			<entry key="0x5c6" value="Ryu Kokki" />
+			<entry key="0x5c7" value="Gryphon's Feather Duster" />
+			<entry key="0x5c8" value="Stray Lambs" />
+			<entry key="0x5c9" value="Smashing Ground" />
+			<entry key="0x5ca" value="Dimension Fusion" />
+			<entry key="0x5cb" value="Dedication through Light and Darkness" />
+			<entry key="0x5cc" value="Salvage" />
+			<entry key="0x5cd" value="Ultra Evolution Pill" />
+			<entry key="0x5ce" value="Earth Chant" />
+			<entry key="0x5cf" value="Jade Insect Whistle" />
+			<entry key="0x5d0" value="Destruction Ring" />
+			<entry key="0x5d1" value="Fiend's Hand Mirror" />
+			<entry key="0x5d2" value="Compulsory Evacuation Device" />
+			<entry key="0x5d3" value="A Hero Emerges" />
+			<entry key="0x5d4" value="Self-Destruct Button" />
+			<entry key="0x5d5" value="Curse of Darkness" />
+			<entry key="0x5d6" value="Begone, Knave!" />
+			<entry key="0x5d7" value="DNA Transplant" />
+			<entry key="0x5d8" value="Robbin' Zombie" />
+			<entry key="0x5d9" value="Trap Jammer" />
+			<entry key="0x5da" value="Invader of Darkness" />
+			<entry key="0x5db" value="Twinheaded Beast" />
+			<entry key="0x5dc" value="Abyss Soldier" />
+			<entry key="0x5dd" value="Inferno Hammer" />
+			<entry key="0x5de" value="Emes the Infinity" />
+			<entry key="0x5df" value="D. D. Assailant" />
+			<entry key="0x5e0" value="Teva" />
+			<entry key="0x5e1" value="Skull Zoma" />
+			<entry key="0x5e2" value="Maximum Six" />
+			<entry key="0x5e3" value="Dangerous Machine TYPE-6" />
+			<entry key="0x5e4" value="Sixth Sense" />
+			<entry key="0x5e5" value="Gogiga Gagagigo" />
+			<entry key="0x5e6" value="Warrior of Zera" />
+			<entry key="0x5e7" value="Sealmaster Meisei" />
+			<entry key="0x5e8" value="Mystical Shine Ball" />
+			<entry key="0x5e9" value="Metal Armored Bug" />
+			<entry key="0x5ea" value="The Agent of Judgment - Saturn" />
+			<entry key="0x5eb" value="The Agent of Wisdom - Mercury" />
+			<entry key="0x5ec" value="The Agent of Creation - Venus" />
+			<entry key="0x5ed" value="The Agent of Force - Mars" />
+			<entry key="0x5ee" value="The Unhappy Girl" />
+			<entry key="0x5ef" value="Soul-Absorbing Bone Tower" />
+			<entry key="0x5f0" value="The Kick Man" />
+			<entry key="0x5f1" value="Vampire Lady" />
+			<entry key="0x5f2" value="Rocket Jumper" />
+			<entry key="0x5f3" value="Avatar of The Pot" />
+			<entry key="0x5f4" value="Legendary Jujitsu Master" />
+			<entry key="0x5f5" value="KA-2 Des Scissors" />
+			<entry key="0x5f6" value="Needle Burrower" />
+			<entry key="0x5f7" value="Blowback Dragon" />
+			<entry key="0x5f8" value="Zaborg the Thunder Monarch" />
+			<entry key="0x5f9" value="Atomic Firefly" />
+			<entry key="0x5fa" value="Mermaid Knight" />
+			<entry key="0x5fb" value="Piranha Army" />
+			<entry key="0x5fc" value="Two Thousand Needles" />
+			<entry key="0x5fd" value="Disc Fighter" />
+			<entry key="0x5fe" value="Arcane Archer of the Forest" />
+			<entry key="0x5ff" value="Lady Ninja Yae" />
+			<entry key="0x600" value="Goblin King" />
+			<entry key="0x601" value="Solar Flare Dragon" />
+			<entry key="0x602" value="White Magician Pikeru" />
+			<entry key="0x603" value="Archlord Zerato" />
+			<entry key="0x604" value="Opti-Camouflage Armor" />
+			<entry key="0x605" value="Mystik Wok" />
+			<entry key="0x606" value="Burst Stream of Destruction" />
+			<entry key="0x607" value="Monster Gate" />
+			<entry key="0x608" value="The Sanctuary in the Sky" />
+			<entry key="0x609" value="Earthquake" />
+			<entry key="0x60a" value="Goblin Thief" />
+			<entry key="0x60b" value="Backfire" />
+			<entry key="0x60c" value="Micro Ray" />
+			<entry key="0x60d" value="Light of Judgment" />
+			<entry key="0x60e" value="Wall of Revealing Light" />
+			<entry key="0x60f" value="Solar Ray" />
+			<entry key="0x610" value="Ninjitsu Art of Transformation" />
+			<entry key="0x611" value="Beckoning Light" />
+			<entry key="0x612" value="Draining Shield" />
+			<entry key="0x613" value="Armor Break" />
+			<entry key="0x614" value="Mazera DeVille" />
+			<entry key="0x615" value="Marshmallon" />
+			<entry key="0x616" value="Skull Descovery Knight" />
+			<entry key="0x617" value="Shield Crash" />
+			<entry key="0x618" value="Return Zombie" />
+			<entry key="0x619" value="Corpse of Yata-Garasu" />
+			<entry key="0x61a" value="Marshmallon glasses" />
+			<entry key="0x61b" value="Earthbound Spirit's Invitation" />
+			<entry key="0x61c" value="Mokey Mokey" />
+			<entry key="0x61d" value="Gigobyte" />
+			<entry key="0x61e" value="Kozaky" />
+			<entry key="0x61f" value="Fiend Scorpion" />
+			<entry key="0x620" value="Pharaoh's Servant" />
+			<entry key="0x621" value="Pharaonic Protector" />
+			<entry key="0x622" value="Spirit of the Pharaoh" />
+			<entry key="0x623" value="Theban Nightmare" />
+			<entry key="0x624" value="Aswan Apparition" />
+			<entry key="0x625" value="Protector of the Sanctuary" />
+			<entry key="0x626" value="Nubian Guard" />
+			<entry key="0x627" value="Desertapir" />
+			<entry key="0x628" value="Sand Gambler" />
+			<entry key="0x629" value="Ghost Knight of Jackal" />
+			<entry key="0x62a" value="Absorbing Kid from the Sky" />
+			<entry key="0x62b" value="Elephant Statue of Blessing" />
+			<entry key="0x62c" value="Elephant Statue of Disaster" />
+			<entry key="0x62d" value="Spirit Caller" />
+			<entry key="0x62e" value="Emissary of the Afterlife" />
+			<entry key="0x62f" value="Double Coston" />
+			<entry key="0x630" value="Regenerating Mummy" />
+			<entry key="0x631" value="Night Assailant" />
+			<entry key="0x632" value="Man-Thro' Tro'" />
+			<entry key="0x633" value="King of the Swamp" />
+			<entry key="0x634" value="Emissary of the Oasis" />
+			<entry key="0x635" value="Special Hurricane" />
+			<entry key="0x636" value="Order to Charge" />
+			<entry key="0x637" value="Sword of the Soul-Eater" />
+			<entry key="0x638" value="Dust Barrier" />
+			<entry key="0x639" value="Soul Reversal" />
+			<entry key="0x63a" value="Spell Economics" />
+			<entry key="0x63b" value="7" />
+			<entry key="0x63c" value="Level Limit - Area B" />
+			<entry key="0x63d" value="Enchanting Fitting Room" />
+			<entry key="0x63e" value="The Law of the Normal" />
+			<entry key="0x63f" value="Dark Magic Attack" />
+			<entry key="0x640" value="Delta Attacker" />
+			<entry key="0x641" value="Thousand Energy" />
+			<entry key="0x642" value="Triangle Power" />
+			<entry key="0x643" value="The Third Sarcophagus" />
+			<entry key="0x644" value="The Second Sarcophagus" />
+			<entry key="0x645" value="The First Sarcophagus" />
+			<entry key="0x646" value="Human-Wave Tactics" />
+			<entry key="0x647" value="Curse of Anubis" />
+			<entry key="0x648" value="Desert Sunlight" />
+			<entry key="0x649" value="Des Counterblow" />
+			<entry key="0x64a" value="Labyrinth of Nightmare" />
+			<entry key="0x64b" value="Soul Resurrection" />
+			<entry key="0x64c" value="Order to Smash" />
+			<entry key="0x64d" value="The End of Anubis" />
+			<entry key="0x64e" value="Crush D. Gandra" />
+			<entry key="0x64f" value="Return from the Different Dimension" />
+			<entry key="0x650" value="Pyramid of Light" />
+			<entry key="0x651" value="Blue-Eyes Shining Dragon" />
+			<entry key="0x652" value="Familiar Knight" />
+			<entry key="0x653" value="Rare Metal Dragon" />
+			<entry key="0x654" value="Peten the Dark Clown" />
+			<entry key="0x655" value="Sorcerer of Dark Magic" />
+			<entry key="0x656" value="Andro Sphinx" />
+			<entry key="0x657" value="Sphinx Teleia" />
+			<entry key="0x658" value="Theinen the Great Sphinx" />
+			<entry key="0x659" value="Inferno Tempest" />
+			<entry key="0x65a" value="Watapon" />
+			<entry key="0x65b" value="Charcoal Inpachi" />
+			<entry key="0x65c" value="Neo Aqua Madoor" />
+			<entry key="0x65d" value="Skull Dog Marron" />
+			<entry key="0x65e" value="Goblin Calligrapher" />
+			<entry key="0x65f" value="Ultimate Insect LV1" />
+			<entry key="0x660" value="Horus the Black Flame Dragon LV4" />
+			<entry key="0x661" value="Horus the Black Flame Dragon LV6" />
+			<entry key="0x662" value="Horus the Black Flame Dragon LV8" />
+			<entry key="0x663" value="Dark Mimic LV1" />
+			<entry key="0x664" value="Dark Mimic LV3" />
+			<entry key="0x665" value="Mystic Swordsman LV2" />
+			<entry key="0x666" value="Mystic Swordsman LV4" />
+			<entry key="0x667" value="Armed Dragon LV3" />
+			<entry key="0x668" value="Armed Dragon LV5" />
+			<entry key="0x669" value="Armed Dragon LV7" />
+			<entry key="0x66a" value="Horus' Servant" />
+			<entry key="0x66b" value="Red-Eyes B. Chick" />
+			<entry key="0x66c" value="Ninja Grandmaster Sasuke" />
+			<entry key="0x66d" value="Rafflesia Seduction" />
+			<entry key="0x66e" value="Ultimate Baseball Kid" />
+			<entry key="0x66f" value="Mobius the Frost Monarch" />
+			<entry key="0x670" value="Element Dragon" />
+			<entry key="0x671" value="Element Soldier" />
+			<entry key="0x672" value="Howling Insect" />
+			<entry key="0x673" value="Masked Dragon" />
+			<entry key="0x674" value="Mind on Air" />
+			<entry key="0x675" value="Unshaven Angler" />
+			<entry key="0x676" value="The Trojan Horse" />
+			<entry key="0x677" value="Nobleman-Eater Bug" />
+			<entry key="0x678" value="Enraged Muka Muka" />
+			<entry key="0x679" value="Hade-Hane" />
+			<entry key="0x67a" value="Penumbral Soldier Lady" />
+			<entry key="0x67b" value="Ojama King" />
+			<entry key="0x67c" value="Master of Oz" />
+			<entry key="0x67d" value="Sanwitch" />
+			<entry key="0x67e" value="Dark Factory of Mass Production" />
+			<entry key="0x67f" value="Hammer Shot" />
+			<entry key="0x680" value="Mind Wipe" />
+			<entry key="0x681" value="Abyssal Designator" />
+			<entry key="0x682" value="Level Up!" />
+			<entry key="0x683" value="Inferno Fire Blast" />
+			<entry key="0x684" value="The Graveyard in the Fourth Dimension" />
+			<entry key="0x685" value="Two-Man Cell Battle" />
+			<entry key="0x686" value="Big Wave Small Wave" />
+			<entry key="0x687" value="Fusion Weapon" />
+			<entry key="0x688" value="Ritual Weapon" />
+			<entry key="0x689" value="Taunt" />
+			<entry key="0x68a" value="Absolute End" />
+			<entry key="0x68b" value="Spirit Barrier" />
+			<entry key="0x68c" value="Ninjitsu Art of Decoy" />
+			<entry key="0x68d" value="Enervating Mist" />
+			<entry key="0x68e" value="Heavy Slump" />
+			<entry key="0x68f" value="Greed" />
+			<entry key="0x690" value="Cemetary Bomb" />
+			<entry key="0x691" value="Hallowed Life Barrier" />
+			<entry key="0x692" value="The Tricky" />
+			<entry key="0x693" value="Green Gadget" />
+			<entry key="0x694" value="Stronghold" />
+			<entry key="0x695" value="Stronghold" />
+			<entry key="0x696" value="Red Gadget" />
+			<entry key="0x697" value="Yellow Gadget" />
+			<entry key="0x698" value="Tricky's Magic 4" />
+			<entry key="0x699" value="The Blockman" />
+			<entry key="0x69a" value="Silent Swordsman LV3" />
+			<entry key="0x69b" value="Silent Swordsman LV5" />
+			<entry key="0x69c" value="Silent Swordsman LV7" />
+			<entry key="0x69d" value="Silent Magician LV4" />
+			<entry key="0x69e" value="Magician's Circle" />
+			<entry key="0x69f" value="Magician's Unite" />
+			<entry key="0x6a0" value="Silent Magician LV8" />
+			<entry key="0x6a1" value="Woodborg Inpachi" />
+			<entry key="0x6a2" value="Mighty Guard" />
+			<entry key="0x6a3" value="Bokoichi the Freightening Car" />
+			<entry key="0x6a4" value="Harpie Girl" />
+			<entry key="0x6a5" value="The Creator" />
+			<entry key="0x6a6" value="The Creator Incarnate" />
+			<entry key="0x6a7" value="Ultimate Insect LV3" />
+			<entry key="0x6a8" value="Mystic Swordsman LV6" />
+			<entry key="0x6a9" value="Heavy Mech Support Platform" />
+			<entry key="0x6aa" value="Element Magician" />
+			<entry key="0x6ab" value="Element Saurus" />
+			<entry key="0x6ac" value="Roc from the Valley of Haze" />
+			<entry key="0x6ad" value="Sasuke Samurai 4" />
+			<entry key="0x6ae" value="Harpie Lady 1" />
+			<entry key="0x6af" value="Harpie Lady 2" />
+			<entry key="0x6b0" value="Harpie Lady 3" />
+			<entry key="0x6b1" value="Raging Flame Sprite" />
+			<entry key="0x6b2" value="Thestalos the Firestorm Monarch" />
+			<entry key="0x6b3" value="Eagle Eye" />
+			<entry key="0x6b4" value="Tactical Espionage Expert" />
+			<entry key="0x6b5" value="Invasion of Flames" />
+			<entry key="0x6b6" value="Creeping Doom Manta" />
+			<entry key="0x6b7" value="Pitch-Black Warwolf" />
+			<entry key="0x6b8" value="Mirage Dragon" />
+			<entry key="0x6b9" value="Gaia Soul the Combustible Collective" />
+			<entry key="0x6ba" value="Fox Fire" />
+			<entry key="0x6bb" value="Big Core" />
+			<entry key="0x6bc" value="Fusilier Dragon, the Dual-Mode Beast" />
+			<entry key="0x6bd" value="Dekoichi the Battlechanted Locomotive" />
+			<entry key="0x6be" value="A-Team: Trap Disposal Unit" />
+			<entry key="0x6bf" value="Homunculus the Alchemic Being" />
+			<entry key="0x6c0" value="Dark Blade the Dragon Knight" />
+			<entry key="0x6c1" value="Mokey Mokey King" />
+			<entry key="0x6c2" value="Serial Spell" />
+			<entry key="0x6c3" value="Harpies' Hunting Ground" />
+			<entry key="0x6c4" value="Triangle Ecstasy Spark" />
+			<entry key="0x6c5" value="Necklace of Command" />
+			<entry key="0x6c6" value="Flint" />
+			<entry key="0x6c7" value="Mokey Mokey Smackdown" />
+			<entry key="0x6c8" value="Back to Square One" />
+			<entry key="0x6c9" value="Monster Reincarnation" />
+			<entry key="0x6ca" value="Ballista of Rampart Smashing" />
+			<entry key="0x6cb" value="Lighten the Load" />
+			<entry key="0x6cc" value="Malice Dispersion" />
+			<entry key="0x6cd" value="Divine Wrath" />
+			<entry key="0x6ce" value="Xing Zhen Hu" />
+			<entry key="0x6cf" value="Rare Metalmorph" />
+			<entry key="0x6d0" value="Mind Haxorz" />
+			<entry key="0x6d1" value="Fuh-Rin-Ka-Zan" />
+			<entry key="0x6d2" value="Chain Burst" />
+			<entry key="0x6d3" value="Pikeru's Circle of Enchantment" />
+			<entry key="0x6d4" value="Spell Purification" />
+			<entry key="0x6d5" value="Astral Barrier" />
+			<entry key="0x6d6" value="Covering Fire" />
+			<entry key="0x6d7" value="Castle Gate" />
+			<entry key="0x6d8" value="Owner's Seal" />
+			<entry key="0x6d9" value="Space Mambo" />
+			<entry key="0x6da" value="Divine Dragon Ragnarok" />
+			<entry key="0x6db" value="Chu-Ske the Mouse Fighter" />
+			<entry key="0x6dc" value="Insect Knight" />
+			<entry key="0x6dd" value="Sacred Phoenix of Nephthys" />
+			<entry key="0x6de" value="Hand of Nephthys" />
+			<entry key="0x6df" value="Ultimate Insect LV5" />
+			<entry key="0x6e0" value="Granmarg the Rock Monarch" />
+			<entry key="0x6e1" value="Element Valkyrie" />
+			<entry key="0x6e2" value="Element Doom" />
+			<entry key="0x6e3" value="Maji-Gire Panda" />
+			<entry key="0x6e4" value="Catnipped Kitty" />
+			<entry key="0x6e5" value="Behemoth the King of All Animals" />
+			<entry key="0x6e6" value="Big-Tusked Mammoth" />
+			<entry key="0x6e7" value="Kangaroo Champ" />
+			<entry key="0x6e8" value="Hyena" />
+			<entry key="0x6e9" value="Blade Rabbit" />
+			<entry key="0x6ea" value="Mecha-Dog Marron" />
+			<entry key="0x6eb" value="Blast Magician" />
+			<entry key="0x6ec" value="Gearfried the Swordmaster" />
+			<entry key="0x6ed" value="Armed Samurai - Ben Kei" />
+			<entry key="0x6ee" value="Shadowslayer" />
+			<entry key="0x6ef" value="Golem Sentry" />
+			<entry key="0x6f0" value="Abare Ushioni" />
+			<entry key="0x6f1" value="The Light - Hex-Sealed Fusion" />
+			<entry key="0x6f2" value="The Dark - Hex-Sealed Fusion" />
+			<entry key="0x6f3" value="The Earth - Hex-Sealed Fusion" />
+			<entry key="0x6f4" value="Whirlwind Prodigy" />
+			<entry key="0x6f5" value="Flame Ruler" />
+			<entry key="0x6f6" value="Firebird" />
+			<entry key="0x6f7" value="Rescue Cat" />
+			<entry key="0x6f8" value="Brain Jacker" />
+			<entry key="0x6f9" value="Gatling Dragon" />
+			<entry key="0x6fa" value="King Dragun" />
+			<entry key="0x6fb" value="A Feather of the Phoenix" />
+			<entry key="0x6fc" value="Poison Fangs" />
+			<entry key="0x6fd" value="Swords of Concealing Light" />
+			<entry key="0x6fe" value="Spiral Spear Strike" />
+			<entry key="0x6ff" value="Release Restraint" />
+			<entry key="0x700" value="Centrifugal Field" />
+			<entry key="0x701" value="Fulfillment of the Contract" />
+			<entry key="0x702" value="Re-Fusion" />
+			<entry key="0x703" value="The Big March of Animals" />
+			<entry key="0x704" value="Cross Counter" />
+			<entry key="0x705" value="Threatening Roar" />
+			<entry key="0x706" value="Phoenix Wing Wind Blast" />
+			<entry key="0x707" value="Good Goblin Housekeeping" />
+			<entry key="0x708" value="Beast Soul Swap" />
+			<entry key="0x709" value="Assault on GHQ" />
+			<entry key="0x70a" value="D.D. Dynamite" />
+			<entry key="0x70b" value="Deck Devastation Virus" />
+			<entry key="0x70c" value="Elemental Burst" />
+			<entry key="0x70d" value="Forced Ceasefire" />
+			<entry key="0x70e" value="Curse of Vampire" />
+			<entry key="0x70f" value="Union Attack" />
+			<entry key="0x710" value="Blood Sucker" />
+			<entry key="0x711" value="Overpowering Eye" />
+			<entry key="0x712" value="Red-Eyes Darkness Dragon" />
+			<entry key="0x713" value="Vampire Genesis" />
+			<entry key="0x714" value="Kaibaman" />
+			<entry key="0x715" value="Elemental Hero Avian" />
+			<entry key="0x716" value="Elemental Hero Burstinatrix" />
+			<entry key="0x717" value="Elemental Hero Clayman" />
+			<entry key="0x718" value="Elemental Hero Sparkman" />
+			<entry key="0x719" value="Winged Kuriboh" />
+			<entry key="0x71a" value="Winged Kuriboh" />
+			<entry key="0x71b" value="Ancient Gear Golem" />
+			<entry key="0x71c" value="Ancient Gear Beast" />
+			<entry key="0x71d" value="Ancient Gear Soldier" />
+			<entry key="0x71e" value="Millennium Scorpion" />
+			<entry key="0x71f" value="Ultimate Insect LV7" />
+			<entry key="0x720" value="Lost Guardian" />
+			<entry key="0x721" value="Hieracosphinx" />
+			<entry key="0x722" value="Criosphinx" />
+			<entry key="0x723" value="Moai Interceptor Cannons" />
+			<entry key="0x724" value="Megarock Dragon" />
+			<entry key="0x725" value="Dummy Golem" />
+			<entry key="0x726" value="Grave Ohja" />
+			<entry key="0x727" value="Mine Golem" />
+			<entry key="0x728" value="Monk Fighter" />
+			<entry key="0x729" value="Master Monk" />
+			<entry key="0x72a" value="Guardian Statue" />
+			<entry key="0x72b" value="Medusa Worm" />
+			<entry key="0x72c" value="D.D. Survivor" />
+			<entry key="0x72d" value="Mid Shield Gardna" />
+			<entry key="0x72e" value="White Ninja" />
+			<entry key="0x72f" value="Aussa the Earth Charmer" />
+			<entry key="0x730" value="Eria the Water Charmer" />
+			<entry key="0x731" value="Hiita the Fire Charmer" />
+			<entry key="0x732" value="Wynn the Wind Charmer" />
+			<entry key="0x733" value="Batteryman AA" />
+			<entry key="0x734" value="Des Wombat" />
+			<entry key="0x735" value="King of the Skull Servants" />
+			<entry key="0x736" value="Reshef the Dark Being" />
+			<entry key="0x737" value="Elemental Mistress Doriado" />
+			<entry key="0x738" value="Elemental Hero Flame Wingman" />
+			<entry key="0x739" value="Elemental Hero Thunder Giant" />
+			<entry key="0x73a" value="Gift of the Martyr" />
+			<entry key="0x73b" value="Double Attack" />
+			<entry key="0x73c" value="Battery Charger" />
+			<entry key="0x73d" value="Kaminote Blow" />
+			<entry key="0x73e" value="Doriado's Blessing" />
+			<entry key="0x73f" value="Final Ritual of the Ancients" />
+			<entry key="0x740" value="Legendary Black Belt" />
+			<entry key="0x741" value="Nitro Unit" />
+			<entry key="0x742" value="Shifting Shadows" />
+			<entry key="0x743" value="Impenetrable Formation" />
+			<entry key="0x744" value="Hero Signal" />
+			<entry key="0x745" value="Pikeru's Second Sight" />
+			<entry key="0x746" value="Minefield Eruption" />
+			<entry key="0x747" value="Kozaky's Self-Destruct Button" />
+			<entry key="0x748" value="Mispolymerization" />
+			<entry key="0x749" value="Level Conversion Lab" />
+			<entry key="0x74a" value="Rock Bombardment" />
+			<entry key="0x74b" value="Token Feastevil" />
+			<entry key="0x74c" value="Spell-Stopping Statute" />
+			<entry key="0x74d" value="Royal Surrender" />
+			<entry key="0x74e" value="Infernal Flame Emperor" />
+			<entry key="0x74f" value="Holy Knight Ishzark" />
+			<entry key="0x750" value="Ocean Dragon Lord - Neo-Daedalus" />
+			<entry key="0x751" value="Cycroid" />
+			<entry key="0x752" value="Patroid" />
+			<entry key="0x753" value="Gyroid" />
+			<entry key="0x754" value="Steamroid" />
+			<entry key="0x755" value="Drillroid" />
+			<entry key="0x756" value="UFOroid" />
+			<entry key="0x757" value="Jetroid" />
+			<entry key="0x758" value="Cyber Dragon" />
+			<entry key="0x759" value="Wroughtweiler" />
+			<entry key="0x75a" value="Elemental Hero Bubbleman" />
+			<entry key="0x75b" value="Steam Gyroid" />
+			<entry key="0x75c" value="UFOroid Fighter" />
+			<entry key="0x75d" value="Cyber Twin Dragon" />
+			<entry key="0x75e" value="Cyber End Dragon" />
+			<entry key="0x75f" value="Power Bond" />
+			<entry key="0x760" value="Skyscraper" />
+			<entry key="0x761" value="Summon Priest" />
+			<entry key="0x762" value="Dark Dreadroute" />
+			<entry key="0x763" value="Winged Kuriboh LV10" />
+			<entry key="0x764" value="Transcendent Wings" />
+			<entry key="0x765" value="Bubble Shuffle" />
+			<entry key="0x766" value="Spark Blaster" />
+			<entry key="0x767" value="Dark Ruler Vandalgyon" />
+			<entry key="0x768" value="Soitsu" />
+			<entry key="0x769" value="Mad Lobster" />
+			<entry key="0x76a" value="Jerry Beans Man" />
+			<entry key="0x76b" value="Cybernetic Magician" />
+			<entry key="0x76c" value="Cybernetic Cyclopean" />
+			<entry key="0x76d" value="Mechanical Hound" />
+			<entry key="0x76e" value="Cyber Archfiend" />
+			<entry key="0x76f" value="Goblin Elite Attack Force" />
+			<entry key="0x770" value="B.E.S. Crystal Core" />
+			<entry key="0x771" value="Giant Kozaky" />
+			<entry key="0x772" value="Indomitable Fighter Lei Lei" />
+			<entry key="0x773" value="Protective Soul Ailin" />
+			<entry key="0x774" value="Doitsu" />
+			<entry key="0x775" value="Des Frog" />
+			<entry key="0x776" value="T.A.D.P.O.L.E." />
+			<entry key="0x777" value="Poison Draw Frog" />
+			<entry key="0x778" value="Tyranno Infinity" />
+			<entry key="0x779" value="Batteryman C" />
+			<entry key="0x77a" value="Ebon Magician Curran" />
+			<entry key="0x77b" value="D.D.M. - Different Dimension Master" />
+			<entry key="0x77c" value="Fusion Recovery" />
+			<entry key="0x77d" value="Miracle Fusion" />
+			<entry key="0x77e" value="Dragon's Mirror" />
+			<entry key="0x77f" value="System Down" />
+			<entry key="0x780" value="Des Croaking" />
+			<entry key="0x781" value="Pot of Generosity" />
+			<entry key="0x782" value="Shien's Spy" />
+			<entry key="0x783" value="Fire Darts" />
+			<entry key="0x784" value="Spiritual Earth Art - Kurogane" />
+			<entry key="0x785" value="Spiritual Water Art - Aoi" />
+			<entry key="0x786" value="Spiritual Fire Art - Kurenai" />
+			<entry key="0x787" value="Spiritual Wind Art - Miyabi" />
+			<entry key="0x788" value="A Rival Appears!" />
+			<entry key="0x789" value="Magical Explosion" />
+			<entry key="0x78a" value="Rising Energy" />
+			<entry key="0x78b" value="D.D. Trap Hole" />
+			<entry key="0x78c" value="Conscription" />
+			<entry key="0x78d" value="Dimension Wall" />
+			<entry key="0x78e" value="Prepare to Strike Back" />
+			<entry key="0x78f" value="Triage" />
+			<entry key="0x790" value="Alkana Knight Joker" />
+			<entry key="0x791" value="Gilford the Legend" />
+			<entry key="0x792" value="Warrior Lady of the Wasteland" />
+			<entry key="0x793" value="Divine Sword - Phoenix Blade" />
+			<entry key="0x794" value="Elemental Hero Shining Flare Wingman" />
+			<entry key="0x795" value="Level Modulation" />
+			<entry key="0x796" value="Ojamuscle" />
+			<entry key="0x797" value="Ojamagic" />
+			<entry key="0x798" value="V-Tiger Jet" />
+			<entry key="0x799" value="Blade Skater" />
+			<entry key="0x79a" value="Reborn Zombie" />
+			<entry key="0x79b" value="W-Wing Catapult" />
+			<entry key="0x79c" value="Elemental Hero Bladedge" />
+			<entry key="0x79d" value="Elemental Hero Wildheart" />
+			<entry key="0x79e" value="Hydrogeddon" />
+			<entry key="0x79f" value="Oxygeddon" />
+			<entry key="0x7a0" value="Water Dragon" />
+			<entry key="0x7a1" value="Etoile Cyber" />
+			<entry key="0x7a2" value="VW-Tiger Catapult" />
+			<entry key="0x7a3" value="VWXYZ-Dragon Catapult Cannon" />
+			<entry key="0x7a4" value="Cyber Blader" />
+			<entry key="0x7a5" value="Elemental Hero Rampart Blaster" />
+			<entry key="0x7a6" value="Elemental Hero Tempest" />
+			<entry key="0x7a7" value="Elemental Hero Wildedge" />
+			<entry key="0x7a8" value="Chthonian Alliance" />
+			<entry key="0x7a9" value="Feather Shot" />
+			<entry key="0x7aa" value="Bonding - H2O" />
+			<entry key="0x7ab" value="Chthonian Polymer" />
+			<entry key="0x7ac" value="Chthonian Blast" />
+			<entry key="0x7ad" value="Hero Barrier" />
+			<entry key="0x7ae" value="Feather Wind" />
+			<entry key="0x7af" value="Zure, Knight of Dark World" />
+			<entry key="0x7b0" value="B.E.S. Tetran" />
+			<entry key="0x7b1" value="Nanobreaker" />
+			<entry key="0x7b2" value="Rapid-Fire Magician" />
+			<entry key="0x7b3" value="Beiige, Vanguard of Dark World" />
+			<entry key="0x7b4" value="Broww, Huntsman of Dark World" />
+			<entry key="0x7b5" value="Brron, Mad King of Dark World" />
+			<entry key="0x7b6" value="Sillva, Warlord of Dark World" />
+			<entry key="0x7b7" value="Goldd, Wu-Lord of Dark World" />
+			<entry key="0x7b8" value="Scarr, Scout of Dark World" />
+			<entry key="0x7b9" value="Familiar-Possessed - Aussa" />
+			<entry key="0x7ba" value="Familiar-Possessed - Eria" />
+			<entry key="0x7bb" value="Familiar-Possessed - Hiita" />
+			<entry key="0x7bc" value="Familiar-Possessed - Wynn" />
+			<entry key="0x7bd" value="Pot of Avarice" />
+			<entry key="0x7be" value="Dark World Lightning" />
+			<entry key="0x7bf" value="Boss Rush" />
+			<entry key="0x7c0" value="Gateway to Dark World" />
+			<entry key="0x7c1" value="The Forces of Darkness" />
+			<entry key="0x7c2" value="Dark Deal" />
+			<entry key="0x7c3" value="Simultaneous Loss" />
+			<entry key="0x7c4" value="Weed Out" />
+			<entry key="0x7c5" value="The League of Uniform Nomenclature" />
+			<entry key="0x7c6" value="Roll Out!" />
+			<entry key="0x7c7" value="Non-Fusion Area" />
+			<entry key="0x7c8" value="Level Limit - Area A" />
+			<entry key="0x7c9" value="Armed Changer" />
+			<entry key="0x7ca" value="Elemental Hero Necroshade" />
+			<entry key="0x7cb" value="Hero Heyro" />
+			<entry key="0x7cc" value="Elemental Hero Madballman" />
+			<entry key="0x7cd" value="Dark Eradicator Warlock" />
+			<entry key="0x7ce" value="Mythical Beast Cerberus" />
+			<entry key="0x7cf" value="Magical Blast" />
+			<entry key="0x7d0" value="Elemental Hero Steam Healer" />
+			<entry key="0x7d1" value="Burst Return" />
+			<entry key="0x7d2" value="Bubble Blaster" />
+			<entry key="0x7d3" value="Bubble Illusion" />
+			<entry key="0x7d4" value="Clay Charge" />
+			<entry key="0x7d5" value="Armed Dragon LV10" />
+			<entry key="0x7d6" value="Magical Mallet" />
+			<entry key="0x7d7" value="Inferno Reckless Summon" />
+			<entry key="0x7d8" value="Rancer Dragonute" />
+			<entry key="0x7d9" value="Mistobody" />
+			<entry key="0x7da" value="Axe Dragonute" />
+			<entry key="0x7db" value="White Horns D." />
+			<entry key="0x7dc" value="Uria, Lord of Searing Flames" />
+			<entry key="0x7dd" value="Hamon, Lord of Striking Thunder" />
+			<entry key="0x7de" value="Raviel, Lord of Phantasms" />
+			<entry key="0x7df" value="Elemental Hero Neo Bubbleman" />
+			<entry key="0x7e0" value="Hero Kid" />
+			<entry key="0x7e1" value="Cyber Barrier Dragon" />
+			<entry key="0x7e2" value="Cyber Laser Dragon" />
+			<entry key="0x7e3" value="Ancient Gear" />
+			<entry key="0x7e4" value="Hero Heart" />
+			<entry key="0x7e5" value="Magnet Circle LV2" />
+			<entry key="0x7e6" value="Ancient Gear Drill" />
+			<entry key="0x7e7" value="Phantasmal Martyrs" />
+			<entry key="0x7e8" value="Cyclone Boomerang" />
+			<entry key="0x7e9" value="Photon Generator Unit" />
+			<entry key="0x7ea" value="Ancient Gear Castle" />
+			<entry key="0x7eb" value="Miracle Kids" />
+			<entry key="0x7ec" value="Attack Reflector Unit" />
+			<entry key="0x7ed" value="Damage Condenser" />
+			<entry key="0x7ee" value="Ancient Gear Cannon" />
+			<entry key="0x7ef" value="Proto-Cyber Dragon" />
+			<entry key="0x7f0" value="Adhesive Explosive" />
+			<entry key="0x7f1" value="Machine King Prototype" />
+			<entry key="0x7f2" value="B.E.S. Covered Core" />
+			<entry key="0x7f3" value="D.D. Guide" />
+			<entry key="0x7f4" value="Chain Thrasher" />
+			<entry key="0x7f5" value="Disciple of the Forbidden Spell" />
+			<entry key="0x7f6" value="Tenkabito Shien" />
+			<entry key="0x7f7" value="Parasitic Ticky" />
+			<entry key="0x7f8" value="Gokipon" />
+			<entry key="0x7f9" value="Silent Insect" />
+			<entry key="0x7fa" value="Chainsaw Insect" />
+			<entry key="0x7fb" value="Anteatereatingant" />
+			<entry key="0x7fc" value="Saber Beetle" />
+			<entry key="0x7fd" value="Doom Dozer" />
+			<entry key="0x7fe" value="Treeborn Frog" />
+			<entry key="0x7ff" value="Beelze Frog" />
+			<entry key="0x800" value="Princess Pikeru" />
+			<entry key="0x801" value="Princess Curran" />
+			<entry key="0x802" value="Memory Crusher" />
+			<entry key="0x803" value="Malice Ascendant" />
+			<entry key="0x804" value="Grass Phantom" />
+			<entry key="0x805" value="Sand Moth" />
+			<entry key="0x806" value="Divine Dragon - Excelion" />
+			<entry key="0x807" value="Ruin, Queen of Oblivion" />
+			<entry key="0x808" value="Demise, King of Armageddon" />
+			<entry key="0x809" value="D.3.S. Frog" />
+			<entry key="0x80a" value="Symbol of Heritage" />
+			<entry key="0x80b" value="Trial of the Princesses" />
+			<entry key="0x80c" value="End of the World" />
+			<entry key="0x80d" value="Samsara" />
+			<entry key="0x80e" value="Karma Cut" />
+			<entry key="0x80f" value="Next to be Lost" />
+			<entry key="0x810" value="Generation Shift" />
+			<entry key="0x811" value="Full Salvo" />
+			<entry key="0x812" value="Success Probability 0%" />
+			<entry key="0x813" value="Option Hunter" />
+			<entry key="0x814" value="Goblin Out of the Frying Pan" />
+			<entry key="0x815" value="Malfunction" />
+			<entry key="0x816" value="The Flute of Summoning Kuriboh" />
+			<entry key="0x817" value="Elemental Hero Erikshieler" />
+			<entry key="0x818" value="Guardian Exode" />
+			<entry key="0x819" value="Great Spirit" />
+			<entry key="0x81a" value="Fault Zone" />
+			<entry key="0x81b" value="Homunculus Gold" />
+			<entry key="0x81c" value="The Ancient Sun Helios" />
+			<entry key="0x81d" value="Helios Duo Megiste" />
+			<entry key="0x81e" value="Helios Tris Megiste" />
+			<entry key="0x81f" value="Elemental Hero Neos" />
+			<entry key="0x820" value="Dandylion" />
+		</card_index>
+		<defaultCharacterMap>
+			<entry key="0x20" value=" " />
+			<entry key="0x21" value="!" />
+			<entry key="0x22" value="'" />
+			<entry key="0x23" value="#" />
+			<entry key="0x24" value="$" />
+			<entry key="0x25" value="%" />
+			<entry key="0x26" value="&amp;" />
+			<entry key="0x27" value="'" />
+			<entry key="0x28" value="(" />
+			<entry key="0x29" value=")" />
+			<entry key="0x2a" value="*" />
+			<entry key="0x2b" value="+" />
+			<entry key="0x2c" value="," />
+			<entry key="0x2d" value="-" />
+			<entry key="0x2e" value="." />
+			<entry key="0x2f" value="/" />
+			<entry key="0x30" value="0" />
+			<entry key="0x31" value="1" />
+			<entry key="0x32" value="2" />
+			<entry key="0x33" value="3" />
+			<entry key="0x34" value="4" />
+			<entry key="0x35" value="5" />
+			<entry key="0x36" value="6" />
+			<entry key="0x37" value="7" />
+			<entry key="0x38" value="8" />
+			<entry key="0x39" value="9" />
+			<entry key="0x3a" value=":" />
+			<entry key="0x3b" value=";" />
+			<entry key="0x3d" value="=" />
+			<entry key="0x3e" value=">" />
+			<entry key="0x3f" value="?" />
+			<entry key="0x40" value="@" />
+			<entry key="0x41" value="A" />
+			<entry key="0x42" value="B" />
+			<entry key="0x43" value="C" />
+			<entry key="0x44" value="D" />
+			<entry key="0x45" value="E" />
+			<entry key="0x46" value="F" />
+			<entry key="0x47" value="G" />
+			<entry key="0x48" value="H" />
+			<entry key="0x49" value="I" />
+			<entry key="0x4a" value="J" />
+			<entry key="0x4b" value="K" />
+			<entry key="0x4c" value="L" />
+			<entry key="0x4d" value="M" />
+			<entry key="0x4e" value="N" />
+			<entry key="0x4f" value="O" />
+			<entry key="0x50" value="P" />
+			<entry key="0x51" value="Q" />
+			<entry key="0x52" value="R" />
+			<entry key="0x53" value="S" />
+			<entry key="0x54" value="T" />
+			<entry key="0x55" value="U" />
+			<entry key="0x56" value="V" />
+			<entry key="0x57" value="W" />
+			<entry key="0x58" value="X" />
+			<entry key="0x59" value="Y" />
+			<entry key="0x5a" value="Z" />
+			<entry key="0x5b" value="[" />
+			<entry key="0x5c" value="\" />
+			<entry key="0x5d" value="]" />
+			<entry key="0x5e" value="^" />
+			<entry key="0x5f" value="_" />
+			<entry key="0x60" value="`" />
+			<entry key="0x61" value="a" />
+			<entry key="0x62" value="b" />
+			<entry key="0x63" value="c" />
+			<entry key="0x64" value="d" />
+			<entry key="0x65" value="e" />
+			<entry key="0x66" value="f" />
+			<entry key="0x67" value="g" />
+			<entry key="0x68" value="h" />
+			<entry key="0x69" value="i" />
+			<entry key="0x6a" value="j" />
+			<entry key="0x6b" value="k" />
+			<entry key="0x6c" value="l" />
+			<entry key="0x6d" value="m" />
+			<entry key="0x6e" value="n" />
+			<entry key="0x6f" value="o" />
+			<entry key="0x70" value="p" />
+			<entry key="0x71" value="q" />
+			<entry key="0x72" value="r" />
+			<entry key="0x73" value="s" />
+			<entry key="0x74" value="t" />
+			<entry key="0x75" value="u" />
+			<entry key="0x76" value="v" />
+			<entry key="0x77" value="w" />
+			<entry key="0x78" value="x" />
+			<entry key="0x79" value="y" />
+			<entry key="0x7a" value="z" />
+		</defaultCharacterMap>
+	</references>
+</mapper>

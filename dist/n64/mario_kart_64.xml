@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper id="edbb3239-d056-4bc9-98f8-f4ed3ec8a0e4" name="Mario Kart 64" platform="N64"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://schema.gamehook.io/mapper https://schema.gamehook.io/mapper.xsd"
+    xmlns:var="https://schema.gamehook.io/attributes/var">
+    <properties>
+        <race>
+            <player>
+                <property name="item" type="int" address="0x80165F5E" reference="items" />
+            </player>
+        </race>
+    </properties>
+
+    <references>
+        <items>
+            <entry key="0x00" />
+            <entry key="0x01" value="Bananna" />
+            <entry key="0x02" value="Bananna x3" />
+            <entry key="0x03" value="Green Shell" />
+            <entry key="0x04" value="Green Shell x3" />
+            <entry key="0x05" value="Red Shell" />
+            <entry key="0x06" value="Red Shell x3" />
+            <entry key="0x07" value="Blue Shell" />
+            <entry key="0x08" value="Lightning Bolt" />
+            <entry key="0x09" value="Fake Item Box" />
+            <entry key="0x0A" value="Star" />
+            <entry key="0x0B" value="Ghost" />
+            <entry key="0x0C" value="Mushroom" />
+            <entry key="0x0D" value="Mushroom x2" />
+            <entry key="0x0E" value="Mushroom x3" />
+            <entry key="0x0F" value="Super Mushroom" />
+        </items>
+    </references>
+</mapper>
