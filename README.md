@@ -25,7 +25,7 @@ XML does not support `<if>`, `<elif>`, or `<else>`.
 
 | Element | Purpose | Key attributes |
 | --- | --- | --- |
-| `<mapper>` | Mapper root. | `id`, `name`, `platform`, `version` |
+| `<mapper>` | Mapper root. | `id`, `name`, `platform` |
 | `<macros>` | Holds reusable property layouts. | — |
 | `<macro>` | Uses a layout declared in `<macros>`. | `name`, `type`, `var:*` |
 | `<properties>` | Holds the public property tree. | — |
@@ -63,7 +63,7 @@ XML does not support `<if>`, `<elif>`, or `<else>`.
 | `bits` | A bit number or range, such as `3` or `0-3`. Always use plural `bits`. |
 | `reference` | Name of a table in `<references>`. |
 | `value` | Static value; no RAM read occurs. |
-| `characterMap` | Character map for a string. |
+| `characterMap` | Character map for a string. A map with any key above `0xFF` reads two bytes per character. |
 | `description` | User-facing explanation. |
 
 | Address syntax | Meaning |
