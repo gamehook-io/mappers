@@ -25,7 +25,7 @@
 			<property name="dex_number" type="int"    address="8"   memoryContainer="{memoryContainer}" length="2" />
 			<property name="nickname"   type="string" address="72"  memoryContainer="{memoryContainer}" length="22" />
 			<property name="level"      type="int"    address="140" memoryContainer="{memoryContainer}"  />
-			<property name="exp"        type="int"    address="16"  memoryContainer="{memoryContainer}" length="4" />
+			<property name="exp"        type="uint"    address="16"  memoryContainer="{memoryContainer}" length="4" />
 			<property name="ot_name"    type="string" address="104" memoryContainer="{memoryContainer}" length="16" />
 			<property name="ot_id"      type="int"    address="12"  memoryContainer="{memoryContainer}" length="2" />
 			<property name="ability"    type="int"    address="21"  memoryContainer="{memoryContainer}" reference="abilities" />
@@ -125,7 +125,7 @@
 			<property name="dex_number" type="int" />
 			<property name="nickname"   type="string" />
 			<property name="level"      type="int" />
-			<property name="exp"        type="int" />
+			<property name="exp"        type="uint" />
 			<property name="ot_name"    type="string" />
 			<property name="ot_id"      type="int" />
 			<property name="ability"    type="int" />
@@ -252,12 +252,12 @@
 		</battle_move>
 
 		<battle_structure>
-			<property name="pointer_address_1"  address="{address} + 16 + 0"  type="int" length="4" />
-			<property name="pointer_address_2"  address="{address} + 16 + 4"  type="int" length="4" />
-			<property name="illusion_pointer"   address="{address} + 56"      type="int" length="4" />
+			<property name="pointer_address_1"  address="{address} + 16 + 0"  type="uint" length="4" />
+			<property name="pointer_address_2"  address="{address} + 16 + 4"  type="uint" length="4" />
+			<property name="illusion_pointer"   address="{address} + 56"      type="uint" length="4" />
 			
 			<property name="species"          address="{address} + 64"  type="int" length="2"  reference="species" />
-			<property name="exp"              address="{address} + 60"  type="int" length="4"/>
+			<property name="exp"              address="{address} + 60"  type="uint" length="4"/>
             <property name="held_item"        address="{address} + 70"  type="int" length="2" reference="items" />
 			<property name="ability"          address="{address} + 74"  type="int" reference="abilities" />
 			<property name="ability_temp"     address="{address} + 368" type="int" reference="abilities" />
@@ -355,9 +355,9 @@
 				<property name="evasion"         address="{address} + 310" type="int" reference="stage_modifiers" />
 			</modifiers>
 			<pointers>
-				<property name="pointer_address_1" address="{address} + 16 + 0" type="int" length="4" />
-				<property name="pointer_address_2" address="{address} + 16 + 4" type="int" length="4" />
-				<property name="illusion_pointer"  address="{address} + 56"     type="int" length="4" />
+				<property name="pointer_address_1" address="{address} + 16 + 0" type="uint" length="4" />
+				<property name="pointer_address_2" address="{address} + 16 + 4" type="uint" length="4" />
+				<property name="illusion_pointer"  address="{address} + 56"     type="uint" length="4" />
 			</pointers>
 			<flags>
 				<property name="identified"         address="{address} + 152" type="bool" />
@@ -692,11 +692,11 @@
 			</free_space> -->
 		</bag>
 		<overworld>
-			<property name="map_name"  type="int" address="0x224F90C + 0x00" length="4" reference="maps" />
+			<property name="map_name"  type="uint" address="0x224F90C + 0x00" length="4" reference="maps" />
 			<property name="map_index" type="int" address="0x224F90C + 0x00" length="4"/>
-			<property name="x" type="int" length="4" address="0x224F910 + 0x00" /> 
-            <property name="y" type="int" length="4" address="0x224F918 + 0x00" /> 
-            <property name="z" type="int" length="4" address="0x224F914 + 0x00" /> 
+			<property name="x" type="uint" length="4" address="0x224F910 + 0x00" /> 
+            <property name="y" type="uint" length="4" address="0x224F918 + 0x00" /> 
+            <property name="z" type="uint" length="4" address="0x224F914 + 0x00" /> 
 			<!-- REQUIRE ADDITIONAL PROPERTIES AND A FUNCTION TO CALCULATE THE CURRENT RATE 
 				Need to know the state of the player (Walking, surfing, fishing, etc.) and then
 				dynamically assign the encounter rate based on this
@@ -826,18 +826,18 @@
             <!-- <property name="outcome" type="string" /> -->
 			<TESTING>
 				<property name="enemy_state" type="int" address="0x2140524" length="2" />
-				<property name="player_indirect_1"   type="int" address="0x2269838 + 0x00 + (0 * 4)" length="4" after-read-value-expression="(x - (36099748 + 0x00)) / 548" />
-				<property name="player_indirect_2"   type="int" address="0x2269838 + 0x00 + (1 * 4)" length="4" after-read-value-expression="(x - (36099748 + 0x00)) / 548" />
-				<property name="player_indirect_3"   type="int" address="0x2269838 + 0x00 + (2 * 4)" length="4" after-read-value-expression="(x - (36099748 + 0x00)) / 548" />
-				<property name="player_indirect_4"   type="int" address="0x2269838 + 0x00 + (3 * 4)" length="4" after-read-value-expression="(x - (36099748 + 0x00)) / 548" />
-				<property name="player_indirect_5"   type="int" address="0x2269838 + 0x00 + (4 * 4)" length="4" after-read-value-expression="(x - (36099748 + 0x00)) / 548" />
-				<property name="player_indirect_6"   type="int" address="0x2269838 + 0x00 + (5 * 4)" length="4" after-read-value-expression="(x - (36099748 + 0x00)) / 548" />
-				<property name="opponent_indirect_1" type="int" address="0x2269854 + 0x00 + (0 * 4)" length="4" />
-				<property name="opponent_indirect_2" type="int" address="0x2269854 + 0x00 + (1 * 4)" length="4" after-read-value-expression="(x - (36101392 + 0x00)) / 548" />
-				<property name="opponent_indirect_3" type="int" address="0x2269854 + 0x00 + (2 * 4)" length="4" after-read-value-expression="(x - (36101392 + 0x00)) / 548" />
-				<property name="opponent_indirect_4" type="int" address="0x2269854 + 0x00 + (3 * 4)" length="4" after-read-value-expression="(x - (36101392 + 0x00)) / 548" />
-				<property name="opponent_indirect_5" type="int" address="0x2269854 + 0x00 + (4 * 4)" length="4" after-read-value-expression="(x - (36101392 + 0x00)) / 548" />
-				<property name="opponent_indirect_6" type="int" address="0x2269854 + 0x00 + (5 * 4)" length="4" after-read-value-expression="(x - (36101392 + 0x00)) / 548" />
+				<property name="player_indirect_1"   type="uint" address="0x2269838 + 0x00 + (0 * 4)" length="4" />
+				<property name="player_indirect_2"   type="uint" address="0x2269838 + 0x00 + (1 * 4)" length="4" />
+				<property name="player_indirect_3"   type="uint" address="0x2269838 + 0x00 + (2 * 4)" length="4" />
+				<property name="player_indirect_4"   type="uint" address="0x2269838 + 0x00 + (3 * 4)" length="4" />
+				<property name="player_indirect_5"   type="uint" address="0x2269838 + 0x00 + (4 * 4)" length="4" />
+				<property name="player_indirect_6"   type="uint" address="0x2269838 + 0x00 + (5 * 4)" length="4" />
+				<property name="opponent_indirect_1" type="uint" address="0x2269854 + 0x00 + (0 * 4)" length="4" />
+				<property name="opponent_indirect_2" type="uint" address="0x2269854 + 0x00 + (1 * 4)" length="4" />
+				<property name="opponent_indirect_3" type="uint" address="0x2269854 + 0x00 + (2 * 4)" length="4" />
+				<property name="opponent_indirect_4" type="uint" address="0x2269854 + 0x00 + (3 * 4)" length="4" />
+				<property name="opponent_indirect_5" type="uint" address="0x2269854 + 0x00 + (4 * 4)" length="4" />
+				<property name="opponent_indirect_6" type="uint" address="0x2269854 + 0x00 + (5 * 4)" length="4" />
 				<property name="player_party_position_1" type="int" />
 				<property name="player_party_position_2" type="int" />
 				<property name="player_party_position_3" type="int" />
@@ -936,15 +936,15 @@
             	<property name="battle_header_generic_2" type="int" address="0x226D274 + 0x00" length="4" /> <!-- This is encrypted party data that can be used to check if this ram location is populated, which is only the case in battle -->
             	<property name="battle_header_generic_3" type="int" address="0x226D278 + 0x00" length="4" /> <!-- This is encrypted party data that can be used to check if this ram location is populated, which is only the case in battle -->
             	<property name="battle_header_generic_4" type="int" address="0x226D27C + 0x00" length="4" /> <!-- This is encrypted party data that can be used to check if this ram location is populated, which is only the case in battle -->
-            	<property name="outcome_flags_offset"    type="int" address="{{outcome_flags_offset}}" length="4" />
+            	<property name="outcome_flags_offset"    type="uint" address="{{outcome_flags_offset}}" length="4" />
             	<property name="outcome_flags"           type="int" address="{{outcome_flags_offset}} + 0xDE" length="1" />
             	<property name="battle_end"              type="int" address="0x226D25C + 0x00" length="4" />
             	<property name="player_lock"             type="int" address="0x224F77D + 0x00" length="1" />
             	<property name="to_battle_pointer"       type="int" address="0x224F764 + 0x00" length="4" />
             	<property name="to_battle_pointer_1"     type="int" address="0x224F760 + 0x00" length="4" />
             	<property name="to_battle_pointer_2"     type="int" address="0x224F764 + 0x00" length="4" />
-            	<property name="battle_state_ready"      type="int" address="{{outcome_flags_offset}} + 0x38" length="4" />
-            	<property name="battle_state_ready_wild" type="int" address="0x226E7C8 + 0x00" length="4" />
+            	<property name="battle_state_ready"      type="uint" address="{{outcome_flags_offset}} + 0x38" length="4" />
+            	<property name="battle_state_ready_wild" type="uint" address="0x226E7C8 + 0x00" length="4" />
             	<property name="battle"                  type="int" address="0x226D260 + 0x00" length="4" />
 			</other>
 		</battle>

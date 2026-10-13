@@ -99,6 +99,10 @@
             <property name="hall_of_fame_count" type="int" address="0xD683" />
             <property name="team_count" type="int" address="0xDA22" />
             <property name="party_position" type="int" />
+            <!-- wPokedexCaught follows six 11-byte nicknames at 0xDB8C,
+                 then 22 reserved bytes: 0xDB8C + 6 * 11 + 22 = 0xDBE4.
+                 pret/pokegold ram/wram.asm, Party section. National dex order. -->
+            <property name="pokedex_caught" type="bitArray" address="0xDBE4" length="32" />
             <macro name="active_pokemon" type="party_pokemon" var:address="{{active_party_address}}" var:nicknameAddress="{{active_party_nickname_address}}" />
             <team>
                 <macro name="0" type="party_pokemon" var:address="0xDA2A" var:nicknameAddress="0xDB8C" />
