@@ -15,21 +15,21 @@
 
 	<macros>
 		<party_pokemon>
-			<property name="species"    type="int"    address="8"   memoryContainer="{memoryContainer}" length="2" reference="species" />
-			<property name="dex_number" type="int"    address="8"   memoryContainer="{memoryContainer}" length="2" />
+			<property name="species"    type="uint"    address="8"   memoryContainer="{memoryContainer}" length="2" reference="species" />
+			<property name="dex_number" type="uint"    address="8"   memoryContainer="{memoryContainer}" length="2" />
 			<property name="nickname"   type="string" address="72"  memoryContainer="{memoryContainer}" length="22" />
-			<property name="level"      type="int"    address="140" memoryContainer="{memoryContainer}"  />
-			<property name="exp"        type="int"    address="16"  memoryContainer="{memoryContainer}" length="4" />
+			<property name="level"      type="uint"    address="140" memoryContainer="{memoryContainer}"  />
+			<property name="exp"        type="uint"    address="16"  memoryContainer="{memoryContainer}" length="4" />
 			<property name="ot_name"    type="string" address="104" memoryContainer="{memoryContainer}" length="16" />
-			<property name="ot_id"      type="int"    address="12"  memoryContainer="{memoryContainer}" length="2" />
-			<property name="ability"    type="int"    address="21"  memoryContainer="{memoryContainer}" reference="abilities" />
+			<property name="ot_id"      type="uint"    address="12"  memoryContainer="{memoryContainer}" length="2" />
+			<property name="ability"    type="uint"    address="21"  memoryContainer="{memoryContainer}" reference="abilities" />
 			<property name="nature"     type="uint"   address="0"   memoryContainer="{memoryContainer}" length="4" reference="natures" after-read-value-expression="x % 25" />
-			<property name="held_item"  type="int"    address="10"  memoryContainer="{memoryContainer}" length="2" reference="items" />
-			<property name="friendship" type="int"    address="20"  memoryContainer="{memoryContainer}"  />
-			<property name="pokerus"    type="int"    address="130" memoryContainer="{memoryContainer}"  />
-			<property name="status_condition" type="int" address="136" memoryContainer="{memoryContainer}" reference="status_conditions" />
+			<property name="held_item"  type="uint"    address="10"  memoryContainer="{memoryContainer}" length="2" reference="items" />
+			<property name="friendship" type="uint"    address="20"  memoryContainer="{memoryContainer}"  />
+			<property name="pokerus"    type="uint"    address="130" memoryContainer="{memoryContainer}"  />
+			<property name="status_condition" type="uint" address="136" memoryContainer="{memoryContainer}" reference="status_conditions" />
 			<hidden_power>
-				<property name="power" type="int" />
+				<property name="power" type="uint" />
 				<property name="type"  type="string" />
 			</hidden_power>
 			<moves>
@@ -39,29 +39,29 @@
 				<macro name="3" type="pokemon_moves" var:moveNumberOffset="46" var:ppOffset="51" var:ppUpOffset="55" />
 			</moves>
 			<stats>
-				<property name="hp"              type="int" address="142" length="2" memoryContainer="{memoryContainer}" />
-				<property name="hp_max"          type="int" address="144" length="2" memoryContainer="{memoryContainer}" />
-				<property name="attack"          type="int" address="146" length="2" memoryContainer="{memoryContainer}" />
-				<property name="defense"         type="int" address="148" length="2" memoryContainer="{memoryContainer}" />
-				<property name="speed"           type="int" address="150" length="2" memoryContainer="{memoryContainer}" />
-				<property name="special_attack"  type="int" address="152" length="2" memoryContainer="{memoryContainer}" />
-				<property name="special_defense" type="int" address="154" length="2" memoryContainer="{memoryContainer}" />
+				<property name="hp"              type="uint" address="142" length="2" memoryContainer="{memoryContainer}" />
+				<property name="hp_max"          type="uint" address="144" length="2" memoryContainer="{memoryContainer}" />
+				<property name="attack"          type="uint" address="146" length="2" memoryContainer="{memoryContainer}" />
+				<property name="defense"         type="uint" address="148" length="2" memoryContainer="{memoryContainer}" />
+				<property name="speed"           type="uint" address="150" length="2" memoryContainer="{memoryContainer}" />
+				<property name="special_attack"  type="uint" address="152" length="2" memoryContainer="{memoryContainer}" />
+				<property name="special_defense" type="uint" address="154" length="2" memoryContainer="{memoryContainer}" />
 			</stats>
 			<ivs>
-				<property name="hp"              type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="0-4"   />
-				<property name="attack"          type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="5-9"   />
-				<property name="defense"         type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="10-14" />
-				<property name="speed"           type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="15-19" />
-				<property name="special_attack"  type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="20-24" />
-				<property name="special_defense" type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="25-29" />
+				<property name="hp"              type="uint" address="56" length="4" memoryContainer="{memoryContainer}" bits="0-4"   />
+				<property name="attack"          type="uint" address="56" length="4" memoryContainer="{memoryContainer}" bits="5-9"   />
+				<property name="defense"         type="uint" address="56" length="4" memoryContainer="{memoryContainer}" bits="10-14" />
+				<property name="speed"           type="uint" address="56" length="4" memoryContainer="{memoryContainer}" bits="15-19" />
+				<property name="special_attack"  type="uint" address="56" length="4" memoryContainer="{memoryContainer}" bits="20-24" />
+				<property name="special_defense" type="uint" address="56" length="4" memoryContainer="{memoryContainer}" bits="25-29" />
 			</ivs>
 			<evs>
-				<property name="hp"              type="int" address="24" memoryContainer="{memoryContainer}" />
-				<property name="attack"          type="int" address="25" memoryContainer="{memoryContainer}" />
-				<property name="defense"         type="int" address="26" memoryContainer="{memoryContainer}" />
-				<property name="speed"           type="int" address="27" memoryContainer="{memoryContainer}" />
-				<property name="special_attack"  type="int" address="28" memoryContainer="{memoryContainer}" />
-				<property name="special_defense" type="int" address="29" memoryContainer="{memoryContainer}" />
+				<property name="hp"              type="uint" address="24" memoryContainer="{memoryContainer}" />
+				<property name="attack"          type="uint" address="25" memoryContainer="{memoryContainer}" />
+				<property name="defense"         type="uint" address="26" memoryContainer="{memoryContainer}" />
+				<property name="speed"           type="uint" address="27" memoryContainer="{memoryContainer}" />
+				<property name="special_attack"  type="uint" address="28" memoryContainer="{memoryContainer}" />
+				<property name="special_defense" type="uint" address="29" memoryContainer="{memoryContainer}" />
 			</evs>
 			<flags>
 				<property name="is_egg"          address="56" type="bool" memoryContainer="{memoryContainer}" length="4" bits="30"/>
@@ -73,52 +73,52 @@
 			<internals>
 				<property name="personality_value" address="0"  type="uint" memoryContainer="{memoryContainer}" length="4" />
 				<property name="checksum"          address="6"  type="uint" memoryContainer="{memoryContainer}" length="2" />
-				<property name="secret_id"         address="14" type="int"  memoryContainer="{memoryContainer}" length="2" />
-				<property name="language"          address="23" type="int"  memoryContainer="{memoryContainer}" reference="language" />
+				<property name="secret_id"         address="14" type="uint"  memoryContainer="{memoryContainer}" length="2" />
+				<property name="language"          address="23" type="uint"  memoryContainer="{memoryContainer}" reference="language" />
 			</internals>
 			<misc>
-				<property name="markings"    type="int" address="22"  memoryContainer="{memoryContainer}" />
-				<property name="sheen"       type="int" address="35"  memoryContainer="{memoryContainer}" />
-				<property name="hgss_ball"   type="int" address="134" memoryContainer="{memoryContainer}" />
-				<property name="performance" type="int" address="135" memoryContainer="{memoryContainer}" />
+				<property name="markings"    type="uint" address="22"  memoryContainer="{memoryContainer}" />
+				<property name="sheen"       type="uint" address="35"  memoryContainer="{memoryContainer}" />
+				<property name="hgss_ball"   type="uint" address="134" memoryContainer="{memoryContainer}" />
+				<property name="performance" type="uint" address="135" memoryContainer="{memoryContainer}" />
 				<met_info>
-					<property name="date_egg_received" type="int"  address="120" memoryContainer="{memoryContainer}" length="3" />
-					<property name="date_met"          type="int"  address="123" memoryContainer="{memoryContainer}" length="3" />
-					<property name="egg_location"      type="int"  address="126" memoryContainer="{memoryContainer}" length="2" />
-					<property name="met_location"      type="int"  address="128" memoryContainer="{memoryContainer}" length="2" />
-					<property name="pokeball"          type="int"  address="131" memoryContainer="{memoryContainer}" />
-					<property name="met_level"         type="int"  address="132" memoryContainer="{memoryContainer}" bits="0-6" />
+					<property name="date_egg_received" type="uint"  address="120" memoryContainer="{memoryContainer}" length="3" />
+					<property name="date_met"          type="uint"  address="123" memoryContainer="{memoryContainer}" length="3" />
+					<property name="egg_location"      type="uint"  address="126" memoryContainer="{memoryContainer}" length="2" />
+					<property name="met_location"      type="uint"  address="128" memoryContainer="{memoryContainer}" length="2" />
+					<property name="pokeball"          type="uint"  address="131" memoryContainer="{memoryContainer}" />
+					<property name="met_level"         type="uint"  address="132" memoryContainer="{memoryContainer}" bits="0-6" />
 					<property name="female_ot_gender"  type="bool" address="132" memoryContainer="{memoryContainer}" bits="7" />
-					<property name="encounter_type"    type="int"  address="133" memoryContainer="{memoryContainer}" />
+					<property name="encounter_type"    type="uint"  address="133" memoryContainer="{memoryContainer}" />
 				</met_info>
 				<contest>
-					<property name="contest_cool"   type="int" address="30" memoryContainer="{memoryContainer}" />
-					<property name="contest_beauty" type="int" address="31" memoryContainer="{memoryContainer}" />
-					<property name="contest_cute"   type="int" address="32" memoryContainer="{memoryContainer}" />
-					<property name="contest_smart"  type="int" address="33" memoryContainer="{memoryContainer}" />
-					<property name="contest_tough"  type="int" address="34" memoryContainer="{memoryContainer}" />
+					<property name="contest_cool"   type="uint" address="30" memoryContainer="{memoryContainer}" />
+					<property name="contest_beauty" type="uint" address="31" memoryContainer="{memoryContainer}" />
+					<property name="contest_cute"   type="uint" address="32" memoryContainer="{memoryContainer}" />
+					<property name="contest_smart"  type="uint" address="33" memoryContainer="{memoryContainer}" />
+					<property name="contest_tough"  type="uint" address="34" memoryContainer="{memoryContainer}" />
 				</contest>
 				<ribbons>
-					<property name="ribbons_sinnoh_set_1" type="int" address="36" length="4" memoryContainer="{memoryContainer}" />
+					<property name="ribbons_sinnoh_set_1" type="uint" address="36" length="4" memoryContainer="{memoryContainer}" />
 				</ribbons>
 			</misc>
 		</party_pokemon>
 		<player_active_pokemon>
-			<property name="species"    type="int" />
-			<property name="dex_number" type="int" />
+			<property name="species"    type="uint" />
+			<property name="dex_number" type="uint" />
 			<property name="nickname"   type="string" />
-			<property name="level"      type="int" />
+			<property name="level"      type="uint" />
 			<property name="type_1"     type="string" />
 			<property name="type_2"     type="string" />
-			<property name="exp"        type="int" />
+			<property name="exp"        type="uint" />
 			<property name="ot_name"    type="string" />
-			<property name="ot_id"      type="int" />
-			<property name="ability"    type="int" />
+			<property name="ot_id"      type="uint" />
+			<property name="ability"    type="uint" />
 			<property name="nature"     type="uint" />
-			<property name="held_item"  type="int" />
-			<property name="friendship" type="int" />
-			<property name="pokerus"    type="int" />
-			<property name="status_condition" type="int" />
+			<property name="held_item"  type="uint" />
+			<property name="friendship" type="uint" />
+			<property name="pokerus"    type="uint" />
+			<property name="status_condition" type="uint" />
 			<moves>
 				<macro name="0" type="pokemon_moves" />
 				<macro name="1" type="pokemon_moves" />
@@ -126,111 +126,111 @@
 				<macro name="3" type="pokemon_moves" />
 			</moves>
 			<stats>
-				<property name="hp"              type="int" />
-				<property name="hp_max"          type="int" />
-				<property name="attack"          type="int" />
-				<property name="defense"         type="int" />
-				<property name="speed"           type="int" />
-				<property name="special_attack"  type="int" />
-				<property name="special_defense" type="int" />
+				<property name="hp"              type="uint" />
+				<property name="hp_max"          type="uint" />
+				<property name="attack"          type="uint" />
+				<property name="defense"         type="uint" />
+				<property name="speed"           type="uint" />
+				<property name="special_attack"  type="uint" />
+				<property name="special_defense" type="uint" />
 			</stats>
 			<modifiers>
-				<property name="attack"          type="int" />
-				<property name="defense"         type="int" />
-				<property name="speed"           type="int" />
-				<property name="special_attack"  type="int" />
-				<property name="special_defense" type="int" />
-				<property name="accuracy"        type="int" />
-				<property name="evasion"         type="int" />
+				<property name="attack"          type="uint" />
+				<property name="defense"         type="uint" />
+				<property name="speed"           type="uint" />
+				<property name="special_attack"  type="uint" />
+				<property name="special_defense" type="uint" />
+				<property name="accuracy"        type="uint" />
+				<property name="evasion"         type="uint" />
 			</modifiers>
 			<ivs>
-				<property name="hp"              type="int" />
-				<property name="attack"          type="int" />
-				<property name="defense"         type="int" />
-				<property name="speed"           type="int" />
-				<property name="special_attack"  type="int" />
-				<property name="special_defense" type="int" />
+				<property name="hp"              type="uint" />
+				<property name="attack"          type="uint" />
+				<property name="defense"         type="uint" />
+				<property name="speed"           type="uint" />
+				<property name="special_attack"  type="uint" />
+				<property name="special_defense" type="uint" />
 			</ivs>
 			<evs>
-				<property name="hp"              type="int" />
-				<property name="attack"          type="int" />
-				<property name="defense"         type="int" />
-				<property name="speed"           type="int" />
-				<property name="special_attack"  type="int" />
-				<property name="special_defense" type="int" />
+				<property name="hp"              type="uint" />
+				<property name="attack"          type="uint" />
+				<property name="defense"         type="uint" />
+				<property name="speed"           type="uint" />
+				<property name="special_attack"  type="uint" />
+				<property name="special_defense" type="uint" />
 			</evs>
 			<flags>
-				<property name="is_egg"          type="int" />
-				<property name="is_nicknamed"    type="int" />
-				<property name="skip_checksum_1" type="int" />
-				<property name="skip_checksum_2" type="int" />
-				<property name="is_bad_egg"      type="int" />
+				<property name="is_egg"          type="uint" />
+				<property name="is_nicknamed"    type="uint" />
+				<property name="skip_checksum_1" type="uint" />
+				<property name="skip_checksum_2" type="uint" />
+				<property name="is_bad_egg"      type="uint" />
 			</flags>
 			<internals>
 				<property name="personality_value" type="uint" />
 				<property name="checksum"          type="uint" />
-				<property name="secret_id"         type="int"  />
-				<property name="language"          type="int"  />
+				<property name="secret_id"         type="uint"  />
+				<property name="language"          type="uint"  />
 			</internals>
 			<misc>
-				<property name="markings"    type="int" />
-				<property name="sheen"       type="int" />
-				<property name="hgss_ball"   type="int" />
-				<property name="performance" type="int" />
+				<property name="markings"    type="uint" />
+				<property name="sheen"       type="uint" />
+				<property name="hgss_ball"   type="uint" />
+				<property name="performance" type="uint" />
 				<met_info>
-					<property name="date_egg_received" type="int" />
-					<property name="date_met"          type="int" />
-					<property name="egg_location"      type="int" />
-					<property name="met_location"      type="int" />
-					<property name="pokeball"          type="int" />
-					<property name="met_level"         type="int" />
-					<property name="female_ot_gender"  type="int" />
-					<property name="encounter_type"    type="int" />
+					<property name="date_egg_received" type="uint" />
+					<property name="date_met"          type="uint" />
+					<property name="egg_location"      type="uint" />
+					<property name="met_location"      type="uint" />
+					<property name="pokeball"          type="uint" />
+					<property name="met_level"         type="uint" />
+					<property name="female_ot_gender"  type="uint" />
+					<property name="encounter_type"    type="uint" />
 				</met_info>
 				<contest>
-					<property name="contest_cool"   type="int" />
-					<property name="contest_beauty" type="int" />
-					<property name="contest_cute"   type="int" />
-					<property name="contest_smart"  type="int" />
-					<property name="contest_tough"  type="int" />
+					<property name="contest_cool"   type="uint" />
+					<property name="contest_beauty" type="uint" />
+					<property name="contest_cute"   type="uint" />
+					<property name="contest_smart"  type="uint" />
+					<property name="contest_tough"  type="uint" />
 				</contest>
 				<ribbons>
-					<property name="ribbons_sinnoh_set_1" type="int" />
+					<property name="ribbons_sinnoh_set_1" type="uint" />
 				</ribbons>
 			</misc>
 		</player_active_pokemon>
 
 		<active_pokemon_move>
-            <property name="move"  type="int" />
-            <property name="pp"    type="int" />
-            <property name="pp_up" type="int" />
+            <property name="move"  type="uint" />
+            <property name="pp"    type="uint" />
+            <property name="pp_up" type="uint" />
         </active_pokemon_move>
 
 		<pokemon_moves>
-			<property name="move"  type="int" address="{moveNumberOffset}"  memoryContainer="{memoryContainer}" reference="moves" length="2" />
-			<property name="pp"    type="int" address="{ppOffset}" memoryContainer="{memoryContainer}" after-read-value-expression="x % 64" />
-			<property name="pp_up" type="int" address="{ppUpOffset}" memoryContainer="{memoryContainer}" after-read-value-expression="Math.floor(x / 64)" />
+			<property name="move"  type="uint" address="{moveNumberOffset}"  memoryContainer="{memoryContainer}" reference="moves" length="2" />
+			<property name="pp"    type="uint" address="{ppOffset}" memoryContainer="{memoryContainer}" after-read-value-expression="x % 64" />
+			<property name="pp_up" type="uint" address="{ppUpOffset}" memoryContainer="{memoryContainer}" after-read-value-expression="Math.floor(x / 64)" />
 		</pokemon_moves>
 
 		<battle_move>
-			<property name="move"  type="int" address="{address} + {moveNumberOffset}"  reference="moves" length="2" />
-			<property name="pp"    type="int" address="{address} + {ppOffset}" after-read-value-expression="x % 64" />
-			<property name="pp_up" type="int" value="null" />
+			<property name="move"  type="uint" address="{address} + {moveNumberOffset}"  reference="moves" length="2" />
+			<property name="pp"    type="uint" address="{address} + {ppOffset}" after-read-value-expression="x % 64" />
+			<property name="pp_up" type="uint" value="null" />
 		</battle_move>
 
 		<battle_structure>
-			<property name="species"          address="{address} + 0"    type="int"    length="2"  reference="species" />
+			<property name="species"          address="{address} + 0"    type="uint"    length="2"  reference="species" />
 			<property name="nickname"         address="{address} + 54"   type="string" length="22" characterMap="defaultCharacterMap" />
-			<property name="level"            address="{address} + 52"   type="int" />
+			<property name="level"            address="{address} + 52"   type="uint" />
 			<property name="exp"              address="{address} + 100"  type="uint"   length="4"/>
 			<property name="nature"           address="{address} + 104"  type="uint"   length="4" after-read-value-expression="x % 25" reference="natures" />
-			<property name="friendship"       address="{address} + 53"   type="int" />
-			<property name="ability"          address="{address} + 39"   type="int" reference="abilities" />
-			<property name="type_1"           address="{address} + 36"   type="int" reference="pokemon_types" />
-			<property name="type_2"           address="{address} + 37"   type="int" reference="pokemon_types" />
+			<property name="friendship"       address="{address} + 53"   type="uint" />
+			<property name="ability"          address="{address} + 39"   type="uint" reference="abilities" />
+			<property name="type_1"           address="{address} + 36"   type="uint" reference="pokemon_types" />
+			<property name="type_2"           address="{address} + 37"   type="uint" reference="pokemon_types" />
 			<property name="ot_name"          address="{address} + 84"   type="string" length="8" characterMap="defaultCharacterMap" />
-            <property name="held_item"        address="{address} + 120"  type="int" length="2" reference="items" />
-			<property name="status_condition" address="{address} + 108"  type="int" reference="status_conditions" />
+            <property name="held_item"        address="{address} + 120"  type="uint" length="2" reference="items" />
+			<property name="status_condition" address="{address} + 108"  type="uint" reference="status_conditions" />
 			<moves>
 				<macro name="0" type="battle_move" var:moveNumberOffset="12" var:ppOffset="44" />
 				<macro name="1" type="battle_move" var:moveNumberOffset="14" var:ppOffset="45" />
@@ -238,30 +238,30 @@
 				<macro name="3" type="battle_move" var:moveNumberOffset="18" var:ppOffset="47" />
 			</moves>
 			<stats>
-				<property name="hp"              address="{address} + 76" type="int" length="2" />
-				<property name="hp_max"          address="{address} + 80" type="int" length="2" />
-				<property name="attack"          address="{address} + 2"  type="int" length="2" />
-				<property name="defense"         address="{address} + 4"  type="int" length="2" />
-				<property name="speed"           address="{address} + 6"  type="int" length="2" />
-				<property name="special_attack"  address="{address} + 8"  type="int" length="2" />
-				<property name="special_defense" address="{address} + 10" type="int" length="2" />
+				<property name="hp"              address="{address} + 76" type="uint" length="2" />
+				<property name="hp_max"          address="{address} + 80" type="uint" length="2" />
+				<property name="attack"          address="{address} + 2"  type="uint" length="2" />
+				<property name="defense"         address="{address} + 4"  type="uint" length="2" />
+				<property name="speed"           address="{address} + 6"  type="uint" length="2" />
+				<property name="special_attack"  address="{address} + 8"  type="uint" length="2" />
+				<property name="special_defense" address="{address} + 10" type="uint" length="2" />
 			</stats>
 			<modifiers>
-				<property name="attack"          address="{address} + 25" type="int" reference="stage_modifiers" />
-				<property name="defense"         address="{address} + 26" type="int" reference="stage_modifiers" />
-				<property name="speed"           address="{address} + 27" type="int" reference="stage_modifiers" />
-				<property name="special_attack"  address="{address} + 28" type="int" reference="stage_modifiers" />
-				<property name="special_defense" address="{address} + 29" type="int" reference="stage_modifiers" />
-				<property name="accuracy"        address="{address} + 30" type="int" reference="stage_modifiers" />
-				<property name="evasion"         address="{address} + 31" type="int" reference="stage_modifiers" />
+				<property name="attack"          address="{address} + 25" type="uint" reference="stage_modifiers" />
+				<property name="defense"         address="{address} + 26" type="uint" reference="stage_modifiers" />
+				<property name="speed"           address="{address} + 27" type="uint" reference="stage_modifiers" />
+				<property name="special_attack"  address="{address} + 28" type="uint" reference="stage_modifiers" />
+				<property name="special_defense" address="{address} + 29" type="uint" reference="stage_modifiers" />
+				<property name="accuracy"        address="{address} + 30" type="uint" reference="stage_modifiers" />
+				<property name="evasion"         address="{address} + 31" type="uint" reference="stage_modifiers" />
 			</modifiers>
 			<ivs>
-				<property name="hp"              address="{address} + 20" type="int"  length="4" bits="0-4"   />
-				<property name="attack"          address="{address} + 20" type="int"  length="4" bits="5-9"   />
-				<property name="defense"         address="{address} + 20" type="int"  length="4" bits="10-14" />
-				<property name="speed"           address="{address} + 20" type="int"  length="4" bits="15-19" />
-				<property name="special_attack"  address="{address} + 20" type="int"  length="4" bits="20-24" />
-				<property name="special_defense" address="{address} + 20" type="int"  length="4" bits="25-29" />
+				<property name="hp"              address="{address} + 20" type="uint"  length="4" bits="0-4"   />
+				<property name="attack"          address="{address} + 20" type="uint"  length="4" bits="5-9"   />
+				<property name="defense"         address="{address} + 20" type="uint"  length="4" bits="10-14" />
+				<property name="speed"           address="{address} + 20" type="uint"  length="4" bits="15-19" />
+				<property name="special_attack"  address="{address} + 20" type="uint"  length="4" bits="20-24" />
+				<property name="special_defense" address="{address} + 20" type="uint"  length="4" bits="25-29" />
 			</ivs>
 			<internals>
 				<property name="personality_value" address="{address} + 104" type="uint" length="4"/>
@@ -269,29 +269,29 @@
 		</battle_structure>
 
 		<player_item>
-            <property name="item"     address="{address}" type="int" length="2" reference="items" />
-            <property name="quantity" address="{address} + 2" type="int" length="2" />
+            <property name="item"     address="{address}" type="uint" length="2" reference="items" />
+            <property name="quantity" address="{address} + 2" type="uint" length="2" />
         </player_item>
 
 		<wild_encounter>
-		    <property name="level"   type="int" address="{address}" />
-		    <property name="level_low"   type="int" address="{address}"/> <!-- this is the lowest/only level it can be -->
-		    <property name="level_high"   type="int" address="{address} + 1"/> <!-- This is the highest level it can be. pokemon by fishing or surfing are a range and the game uses rng to decide it -->
-            <property name="species" type="int" address="{address} + 4" length="4" reference="species" />
-            <!-- <property name="dex_number" type="int" address="{address} + 4" length="4" reference="dex_numbers" /> -->
+		    <property name="level"   type="uint" address="{address}" />
+		    <property name="level_low"   type="uint" address="{address}"/> <!-- this is the lowest/only level it can be -->
+		    <property name="level_high"   type="uint" address="{address} + 1"/> <!-- This is the highest level it can be. pokemon by fishing or surfing are a range and the game uses rng to decide it -->
+            <property name="species" type="uint" address="{address} + 4" length="4" reference="species" />
+            <!-- <property name="dex_number" type="uint" address="{address} + 4" length="4" reference="dex_numbers" /> -->
 		</wild_encounter>
 	</macros>
 
 	<properties>
 		<player>
 			<property name="name" type="string" address="{{global_pointer}} + 0xD278" length="14" />
-			<property name="gender" type="int" address="{{global_pointer}} + 0xD290" />
-			<property name="player_id" type="int" address="{{global_pointer}} + 0xD288" length="2" />
-			<property name="secret_id" type="int" address="{{global_pointer}} + 0xD28A" length="2" />
-			<property name="team_count" type="int" address="{{global_pointer}} + 0xD2A8" />
+			<property name="gender" type="uint" address="{{global_pointer}} + 0xD290" />
+			<property name="player_id" type="uint" address="{{global_pointer}} + 0xD288" length="2" />
+			<property name="secret_id" type="uint" address="{{global_pointer}} + 0xD28A" length="2" />
+			<property name="team_count" type="uint" address="{{global_pointer}} + 0xD2A8" />
 			<!-- TODO: find address in platinum, offset provided here is for Diamond, it is likely further into the RAM by approx. 0x0200-->
-			<!-- <property name="starter" type="int" address="{{global_pointer}} + 0xDE34" length="2" reference="species" />  -->
-			<property name="party_position" type="int" />
+			<!-- <property name="starter" type="uint" address="{{global_pointer}} + 0xDE34" length="2" reference="species" />  -->
+			<property name="party_position" type="uint" />
             <!-- <macro name="active_pokemon" type="player_active_pokemon" /> -->
 			<team>
 				<macro name="0" type="party_pokemon" var:memoryContainer="player_party_structure_0" />
@@ -313,8 +313,8 @@
 			</badges>
 		</player>
 		<bag>
-            <property name="money" type="int" address="{{global_pointer}} + 0xD28C" length="4" />
-            <property name="coins" type="int" address="{{global_pointer}} + 0xD298" />
+            <property name="money" type="uint" address="{{global_pointer}} + 0xD28C" length="4" />
+            <property name="coins" type="uint" address="{{global_pointer}} + 0xD298" />
 			<items>
 				<macro name="0" type="player_item" var:address="{{global_pointer}} + 0xD838 + 0" />
 				<macro name="1" type="player_item" var:address="{{global_pointer}} + 0xD838 + 4" />
@@ -598,21 +598,21 @@
 			</mail>
 		</bag>
 		<overworld>
-            <property name="map_name"  type="int" length="2" address="{{global_pointer}} + 0xE44C" reference="maps" />
-            <property name="map_index" type="int" length="2" address="{{global_pointer}} + 0xE44C" />
-			<property name="x" type="int" length="4" address="{{global_pointer}} + 0xE44C + 8" /> 
-            <property name="y" type="int" length="4" address="{{global_pointer}} + 0xE44C + 12" />
+            <property name="map_name"  type="uint" length="2" address="{{global_pointer}} + 0xE44C" reference="maps" />
+            <property name="map_index" type="uint" length="2" address="{{global_pointer}} + 0xE44C" />
+			<property name="x" type="uint" length="4" address="{{global_pointer}} + 0xE44C + 8" /> 
+            <property name="y" type="uint" length="4" address="{{global_pointer}} + 0xE44C + 12" />
             <!-- REQUIRE ADDITIONAL PROPERTIES AND A FUNCTION TO CALCULATE THE CURRENT RATE 
 				Need to know the state of the player (Walking, surfing, fishing, etc.) and then
 				dynamically assign the encounter rate based on this
 			-->
-			<property name="encounter_rate" type="int" />
+			<property name="encounter_rate" type="uint" />
             <encounter_rates>
-				<property name="walking"   type="int" length="4" address="{{global_pointer}} + 0x315C0" />
-				<property name="surfing"   type="int" length="4" address="{{global_pointer}} + 0x3168C" />
-				<property name="old_rod"   type="int" length="4" address="{{global_pointer}} + 0x316E4" />
-				<property name="good_rod"  type="int" length="4" address="{{global_pointer}} + 0x31710" />
-				<property name="super_rod" type="int" length="4" address="{{global_pointer}} + 0x3173C" />
+				<property name="walking"   type="uint" length="4" address="{{global_pointer}} + 0x315C0" />
+				<property name="surfing"   type="uint" length="4" address="{{global_pointer}} + 0x3168C" />
+				<property name="old_rod"   type="uint" length="4" address="{{global_pointer}} + 0x316E4" />
+				<property name="good_rod"  type="uint" length="4" address="{{global_pointer}} + 0x31710" />
+				<property name="super_rod" type="uint" length="4" address="{{global_pointer}} + 0x3173C" />
 			</encounter_rates>
 			<encounter_table>
 				<walking>
@@ -679,9 +679,9 @@
             <property name="mode"    type="string" />
             <property name="outcome" type="string" />
 			<player>
-				<property name="party_position"   type="int" address="{{current_party_indexes}} + 0"/>
-				<property name="party_position_2" type="int" address="{{current_party_indexes}} + 12"/>
-				<property name="team_count"       type="int" address="{{dynamic_player}} - 4" />
+				<property name="party_position"   type="uint" address="{{current_party_indexes}} + 0"/>
+				<property name="party_position_2" type="uint" address="{{current_party_indexes}} + 12"/>
+				<property name="team_count"       type="uint" address="{{dynamic_player}} - 4" />
 				<macro name="active_pokemon" type="battle_structure" var:address="{{global_pointer}} + 0x55580" />
 				<macro name="active_pokemon_2" type="battle_structure" var:address="{{global_pointer}} + 0x55580 + 384" />
 				<team>
@@ -698,12 +698,12 @@
 				<macro name="1" type="party_pokemon" var:memoryContainer="dynamic_opponent_party_structure_1" /> <!-- TODO: Haven't located the static wild structure yet -->
 			</wild>
 			<ally>
-				<property name="name"    type="int" address="{{global_pointer}} + 0x4FA7E + 2" length="2" reference="trainers" /> <!-- TODO: References -->
-				<property name="trainer" type="int" address="{{global_pointer}} + 0x4FA7E + 2" length="2" reference="trainers" /> <!-- TODO: References -->
-				<property name="id"      type="int" address="{{global_pointer}} + 0x4FA7E + 2" length="2" />
-				<property name="enemy_bar_synced_hp" type="int" address="{{global_pointer}} + 0x5574C" length="2" />
-				<property name="party_position" type="int" address="{{current_party_indexes}} + 12"/>
-				<property name="team_count"       type="int" address="{{dynamic_ally}} - 4" />
+				<property name="name"    type="uint" address="{{global_pointer}} + 0x4FA7E + 2" length="2" reference="trainers" /> <!-- TODO: References -->
+				<property name="trainer" type="uint" address="{{global_pointer}} + 0x4FA7E + 2" length="2" reference="trainers" /> <!-- TODO: References -->
+				<property name="id"      type="uint" address="{{global_pointer}} + 0x4FA7E + 2" length="2" />
+				<property name="enemy_bar_synced_hp" type="uint" address="{{global_pointer}} + 0x5574C" length="2" />
+				<property name="party_position" type="uint" address="{{current_party_indexes}} + 12"/>
+				<property name="team_count"       type="uint" address="{{dynamic_ally}} - 4" />
 				<macro name="active_pokemon" type="battle_structure" var:address="{{global_pointer}} + 0x55700" />
 				<team>
 					<macro name="0" type="party_pokemon" var:memoryContainer="dynamic_ally_party_structure_0" />
@@ -715,12 +715,12 @@
 				</team>
 			</ally>
 			<opponent>
-				<property name="name"    type="int" address="{{global_pointer}} + 0x4FA7E + 0" length="2" reference="trainers" /> <!-- TODO: References -->
-				<property name="trainer" type="int" address="{{global_pointer}} + 0x4FA7E + 0" length="2" reference="trainers" /> <!-- TODO: References -->
-				<property name="id"      type="int" address="{{global_pointer}} + 0x4FA7E + 0" length="2" />
-				<property name="enemy_bar_synced_hp" type="int" address="{{global_pointer}} + 0x5568C" length="2" />
-				<property name="team_count"          type="int" address="{{dynamic_opponent}} - 4" />
-				<property name="party_position"      type="int" address="{{current_party_indexes}} + 6"/>
+				<property name="name"    type="uint" address="{{global_pointer}} + 0x4FA7E + 0" length="2" reference="trainers" /> <!-- TODO: References -->
+				<property name="trainer" type="uint" address="{{global_pointer}} + 0x4FA7E + 0" length="2" reference="trainers" /> <!-- TODO: References -->
+				<property name="id"      type="uint" address="{{global_pointer}} + 0x4FA7E + 0" length="2" />
+				<property name="enemy_bar_synced_hp" type="uint" address="{{global_pointer}} + 0x5568C" length="2" />
+				<property name="team_count"          type="uint" address="{{dynamic_opponent}} - 4" />
+				<property name="party_position"      type="uint" address="{{current_party_indexes}} + 6"/>
 				<macro name="active_pokemon" type="battle_structure" var:address="{{global_pointer}} + 0x55640" />
 				<team>
 					<macro name="0" type="party_pokemon" var:memoryContainer="dynamic_opponent_party_structure_0" />
@@ -732,12 +732,12 @@
 				</team>
 			</opponent>
 			<opponent_2>
-				<property name="name"    type="int" address="{{global_pointer}} + 0x4FA7E + 4" length="2" reference="trainers" /> <!-- TODO: Diamond and Pearl address required -->
-				<property name="trainer" type="int" address="{{global_pointer}} + 0x4FA7E + 4" length="2" reference="trainers" /> <!-- TODO: Diamond and Pearl address required -->
-				<property name="id"      type="int" address="{{global_pointer}} + 0x4FA7E + 4" length="2" />
-				<property name="party_position" type="int" address="{{current_party_indexes}} + 18"/>
-				<property name="enemy_bar_synced_hp" type="int" address="{{global_pointer}} + 0x5580C" length="2" />
-				<property name="team_count" type="int" address="{{dynamic_opponent_2}} - 4" />
+				<property name="name"    type="uint" address="{{global_pointer}} + 0x4FA7E + 4" length="2" reference="trainers" /> <!-- TODO: Diamond and Pearl address required -->
+				<property name="trainer" type="uint" address="{{global_pointer}} + 0x4FA7E + 4" length="2" reference="trainers" /> <!-- TODO: Diamond and Pearl address required -->
+				<property name="id"      type="uint" address="{{global_pointer}} + 0x4FA7E + 4" length="2" />
+				<property name="party_position" type="uint" address="{{current_party_indexes}} + 18"/>
+				<property name="enemy_bar_synced_hp" type="uint" address="{{global_pointer}} + 0x5580C" length="2" />
+				<property name="team_count" type="uint" address="{{dynamic_opponent_2}} - 4" />
 				<macro name="active_pokemon" type="battle_structure" var:address="{{global_pointer}} + 0x557C0" />
 				<team>
 					<macro name="0" type="party_pokemon" var:memoryContainer="dynamic_opponent_2_party_structure_0" />
@@ -749,11 +749,11 @@
 				</team>
 			</opponent_2>
             <field>
-                <property name="weather" type="int" address="{{global_pointer}} + 0x529C0" length="2" reference="weather" />
-                <property name="weather_count" type="int" address="{{global_pointer}} + 0x529C0 + 4" />
+                <property name="weather" type="uint" address="{{global_pointer}} + 0x529C0" length="2" reference="weather" />
+                <property name="weather_count" type="uint" address="{{global_pointer}} + 0x529C0 + 4" />
             </field>
 			<other>
-            	<property name="outcome_flags" type="int" address="{{global_pointer}} + 0x5595F" />
+            	<property name="outcome_flags" type="uint" address="{{global_pointer}} + 0x5595F" />
 			</other>
 		</battle>
 		<rival>
@@ -779,27 +779,27 @@
 					scene       0x62cbf   0x6326f
 				-->
 				<!-- TODO: We need to locate variables to determine if the player has opened the bag, or Pokemon summary screen to dynamically assign the address-->
-				<property name="scene"   type="int" address="{{global_pointer}} + 0x63A3F" />
+				<property name="scene"   type="uint" address="{{global_pointer}} + 0x63A3F" />
 				<cursor>
-					<property name="flag" type="int" address="{{global_pointer}} + 0x63A90" />
-					<property name="x"    type="int" address="{{global_pointer}} + 0x63A92" />
-					<property name="y"    type="int" address="{{global_pointer}} + 0x63A91" />
+					<property name="flag" type="uint" address="{{global_pointer}} + 0x63A90" />
+					<property name="x"    type="uint" address="{{global_pointer}} + 0x63A92" />
+					<property name="y"    type="uint" address="{{global_pointer}} + 0x63A91" />
 				</cursor>
 			</menu>
 		</screen>
 		<game_time>
-			<property name="hours"   type="int" address="{{global_pointer}} + 0xD29A" length="2" />
-			<property name="minutes" type="int" address="{{global_pointer}} + 0xD29C" />
-			<property name="seconds" type="int" address="{{global_pointer}} + 0xD29D" />
+			<property name="hours"   type="uint" address="{{global_pointer}} + 0xD29A" length="2" />
+			<property name="minutes" type="uint" address="{{global_pointer}} + 0xD29C" />
+			<property name="seconds" type="uint" address="{{global_pointer}} + 0xD29D" />
 		</game_time>
 		<meta>
-			<property name="generation"     type="int" value="4" />
+			<property name="generation"     type="uint" value="4" />
 			<property name="game_name"      type="string" value="Diamond and Pearl" />
 			<property name="game_type"      type="string" value="Originals" />
 			<property name="state"          type="string" />
 			<property name="state_enemy"    type="string" />
-			<property name="global_pointer" type="int" address="0x2106FAC" length="4"/>
-			<property name="enemy_pointer"  type="int" address="{{global_pointer}} + 0x364C8" length="4"/>
+			<property name="global_pointer" type="uint" address="0x2106FAC" length="4"/>
+			<property name="enemy_pointer"  type="uint" address="{{global_pointer}} + 0x364C8" length="4"/>
 		</meta>
 	</properties>
 

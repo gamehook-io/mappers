@@ -17,75 +17,75 @@
 		<opponent>
 			<property name="unlocked" type="bool" address="{unlock_address}" bits="{unlock_bit}" />
 
-			<property name="wins" type="int" address="{win_loss_address}" length="4" bits="0-11" />
-			<property name="losses" type="int" address="{win_loss_address}" length="4" bits="12-23" />
+			<property name="wins" type="uint" address="{win_loss_address}" length="4" bits="0-11" />
+			<property name="losses" type="uint" address="{win_loss_address}" length="4" bits="12-23" />
 		</opponent>
 
 		<deck>
 			<property name="deck_name" address="{address}" type="string" length="28" />
-			<property name="deck_size" address="{address}+24" type="int" length="1" />
+			<property name="deck_size" address="{address}+24" type="uint" length="1" />
 
 			<cards>
-				<property name="0" type="int" address = "{address} + 28" length="2" reference="card_index" />
-				<property name="1" type="int" address = "{address} + 30" length="2" reference="card_index" />
-				<property name="2" type="int" address = "{address} + 32" length="2" reference="card_index" />
-				<property name="3" type="int" address = "{address} + 34" length="2" reference="card_index" />
-				<property name="4" type="int" address = "{address} + 36" length="2" reference="card_index" />
-				<property name="5" type="int" address = "{address} + 38" length="2" reference="card_index" />
-				<property name="6" type="int" address = "{address} + 40" length="2" reference="card_index" />
-				<property name="7" type="int" address = "{address} + 42" length="2" reference="card_index" />
-				<property name="8" type="int" address = "{address} + 44" length="2" reference="card_index" />
-				<property name="9" type="int" address = "{address} + 46" length="2" reference="card_index" />
-				<property name="10" type="int" address = "{address} + 48" length="2" reference="card_index" />
-				<property name="11" type="int" address = "{address} + 50" length="2" reference="card_index" />
-				<property name="12" type="int" address = "{address} + 52" length="2" reference="card_index" />
-				<property name="13" type="int" address = "{address} + 54" length="2" reference="card_index" />
-				<property name="14" type="int" address = "{address} + 56" length="2" reference="card_index" />
-				<property name="15" type="int" address = "{address} + 58" length="2" reference="card_index" />
-				<property name="16" type="int" address = "{address} + 60" length="2" reference="card_index" />
-				<property name="17" type="int" address = "{address} + 62" length="2" reference="card_index" />
-				<property name="18" type="int" address = "{address} + 64" length="2" reference="card_index" />
-				<property name="19" type="int" address = "{address} + 66" length="2" reference="card_index" />
-				<property name="20" type="int" address = "{address} + 68" length="2" reference="card_index" />
-				<property name="21" type="int" address = "{address} + 70" length="2" reference="card_index" />
-				<property name="22" type="int" address = "{address} + 72" length="2" reference="card_index" />
-				<property name="23" type="int" address = "{address} + 74" length="2" reference="card_index" />
-				<property name="24" type="int" address = "{address} + 76" length="2" reference="card_index" />
-				<property name="25" type="int" address = "{address} + 78" length="2" reference="card_index" />
-				<property name="26" type="int" address = "{address} + 80" length="2" reference="card_index" />
-				<property name="27" type="int" address = "{address} + 82" length="2" reference="card_index" />
-				<property name="28" type="int" address = "{address} + 84" length="2" reference="card_index" />
-				<property name="29" type="int" address = "{address} + 86" length="2" reference="card_index" />
-				<property name="30" type="int" address = "{address} + 88" length="2" reference="card_index" />
-				<property name="31" type="int" address = "{address} + 90" length="2" reference="card_index" />
-				<property name="32" type="int" address = "{address} + 92" length="2" reference="card_index" />
-				<property name="33" type="int" address = "{address} + 94" length="2" reference="card_index" />
-				<property name="34" type="int" address = "{address} + 96" length="2" reference="card_index" />
-				<property name="35" type="int" address = "{address} + 98" length="2" reference="card_index" />
-				<property name="36" type="int" address = "{address} + 100" length="2" reference="card_index" />
-				<property name="37" type="int" address = "{address} + 102" length="2" reference="card_index" />
-				<property name="38" type="int" address = "{address} + 104" length="2" reference="card_index" />
-				<property name="39" type="int" address = "{address} + 106" length="2" reference="card_index" />
-				<property name="40" type="int" address = "{address} + 108" length="2" reference="card_index" />
-				<property name="41" type="int" address = "{address} + 110" length="2" reference="card_index" />
-				<property name="42" type="int" address = "{address} + 112" length="2" reference="card_index" />
-				<property name="43" type="int" address = "{address} + 114" length="2" reference="card_index" />
-				<property name="44" type="int" address = "{address} + 116" length="2" reference="card_index" />
-				<property name="45" type="int" address = "{address} + 118" length="2" reference="card_index" />
-				<property name="46" type="int" address = "{address} + 120" length="2" reference="card_index" />
-				<property name="47" type="int" address = "{address} + 122" length="2" reference="card_index" />
-				<property name="48" type="int" address = "{address} + 124" length="2" reference="card_index" />
-				<property name="49" type="int" address = "{address} + 126" length="2" reference="card_index" />
-				<property name="50" type="int" address = "{address} + 128" length="2" reference="card_index" />
-				<property name="51" type="int" address = "{address} + 130" length="2" reference="card_index" />
-				<property name="52" type="int" address = "{address} + 132" length="2" reference="card_index" />
-				<property name="53" type="int" address = "{address} + 134" length="2" reference="card_index" />
-				<property name="54" type="int" address = "{address} + 136" length="2" reference="card_index" />
-				<property name="55" type="int" address = "{address} + 138" length="2" reference="card_index" />
-				<property name="56" type="int" address = "{address} + 140" length="2" reference="card_index" />
-				<property name="57" type="int" address = "{address} + 142" length="2" reference="card_index" />
-				<property name="58" type="int" address = "{address} + 144" length="2" reference="card_index" />
-				<property name="59" type="int" address = "{address} + 146" length="2" reference="card_index" />
+				<property name="0" type="uint" address = "{address} + 28" length="2" reference="card_index" />
+				<property name="1" type="uint" address = "{address} + 30" length="2" reference="card_index" />
+				<property name="2" type="uint" address = "{address} + 32" length="2" reference="card_index" />
+				<property name="3" type="uint" address = "{address} + 34" length="2" reference="card_index" />
+				<property name="4" type="uint" address = "{address} + 36" length="2" reference="card_index" />
+				<property name="5" type="uint" address = "{address} + 38" length="2" reference="card_index" />
+				<property name="6" type="uint" address = "{address} + 40" length="2" reference="card_index" />
+				<property name="7" type="uint" address = "{address} + 42" length="2" reference="card_index" />
+				<property name="8" type="uint" address = "{address} + 44" length="2" reference="card_index" />
+				<property name="9" type="uint" address = "{address} + 46" length="2" reference="card_index" />
+				<property name="10" type="uint" address = "{address} + 48" length="2" reference="card_index" />
+				<property name="11" type="uint" address = "{address} + 50" length="2" reference="card_index" />
+				<property name="12" type="uint" address = "{address} + 52" length="2" reference="card_index" />
+				<property name="13" type="uint" address = "{address} + 54" length="2" reference="card_index" />
+				<property name="14" type="uint" address = "{address} + 56" length="2" reference="card_index" />
+				<property name="15" type="uint" address = "{address} + 58" length="2" reference="card_index" />
+				<property name="16" type="uint" address = "{address} + 60" length="2" reference="card_index" />
+				<property name="17" type="uint" address = "{address} + 62" length="2" reference="card_index" />
+				<property name="18" type="uint" address = "{address} + 64" length="2" reference="card_index" />
+				<property name="19" type="uint" address = "{address} + 66" length="2" reference="card_index" />
+				<property name="20" type="uint" address = "{address} + 68" length="2" reference="card_index" />
+				<property name="21" type="uint" address = "{address} + 70" length="2" reference="card_index" />
+				<property name="22" type="uint" address = "{address} + 72" length="2" reference="card_index" />
+				<property name="23" type="uint" address = "{address} + 74" length="2" reference="card_index" />
+				<property name="24" type="uint" address = "{address} + 76" length="2" reference="card_index" />
+				<property name="25" type="uint" address = "{address} + 78" length="2" reference="card_index" />
+				<property name="26" type="uint" address = "{address} + 80" length="2" reference="card_index" />
+				<property name="27" type="uint" address = "{address} + 82" length="2" reference="card_index" />
+				<property name="28" type="uint" address = "{address} + 84" length="2" reference="card_index" />
+				<property name="29" type="uint" address = "{address} + 86" length="2" reference="card_index" />
+				<property name="30" type="uint" address = "{address} + 88" length="2" reference="card_index" />
+				<property name="31" type="uint" address = "{address} + 90" length="2" reference="card_index" />
+				<property name="32" type="uint" address = "{address} + 92" length="2" reference="card_index" />
+				<property name="33" type="uint" address = "{address} + 94" length="2" reference="card_index" />
+				<property name="34" type="uint" address = "{address} + 96" length="2" reference="card_index" />
+				<property name="35" type="uint" address = "{address} + 98" length="2" reference="card_index" />
+				<property name="36" type="uint" address = "{address} + 100" length="2" reference="card_index" />
+				<property name="37" type="uint" address = "{address} + 102" length="2" reference="card_index" />
+				<property name="38" type="uint" address = "{address} + 104" length="2" reference="card_index" />
+				<property name="39" type="uint" address = "{address} + 106" length="2" reference="card_index" />
+				<property name="40" type="uint" address = "{address} + 108" length="2" reference="card_index" />
+				<property name="41" type="uint" address = "{address} + 110" length="2" reference="card_index" />
+				<property name="42" type="uint" address = "{address} + 112" length="2" reference="card_index" />
+				<property name="43" type="uint" address = "{address} + 114" length="2" reference="card_index" />
+				<property name="44" type="uint" address = "{address} + 116" length="2" reference="card_index" />
+				<property name="45" type="uint" address = "{address} + 118" length="2" reference="card_index" />
+				<property name="46" type="uint" address = "{address} + 120" length="2" reference="card_index" />
+				<property name="47" type="uint" address = "{address} + 122" length="2" reference="card_index" />
+				<property name="48" type="uint" address = "{address} + 124" length="2" reference="card_index" />
+				<property name="49" type="uint" address = "{address} + 126" length="2" reference="card_index" />
+				<property name="50" type="uint" address = "{address} + 128" length="2" reference="card_index" />
+				<property name="51" type="uint" address = "{address} + 130" length="2" reference="card_index" />
+				<property name="52" type="uint" address = "{address} + 132" length="2" reference="card_index" />
+				<property name="53" type="uint" address = "{address} + 134" length="2" reference="card_index" />
+				<property name="54" type="uint" address = "{address} + 136" length="2" reference="card_index" />
+				<property name="55" type="uint" address = "{address} + 138" length="2" reference="card_index" />
+				<property name="56" type="uint" address = "{address} + 140" length="2" reference="card_index" />
+				<property name="57" type="uint" address = "{address} + 142" length="2" reference="card_index" />
+				<property name="58" type="uint" address = "{address} + 144" length="2" reference="card_index" />
+				<property name="59" type="uint" address = "{address} + 146" length="2" reference="card_index" />
 			</cards>
 		</deck>
 	</macros>
@@ -93,7 +93,7 @@
 	<properties>
 		<player>
 			<property name="player_name" type="string" address="0x02006E48" length="16" />
-			<property name="dp" type="int" address="0x02006C38" length="4" />
+			<property name="dp" type="uint" address="0x02006C38" length="4" />
 
 			<macro name="active_deck" type="deck" var:address="0x02001138" />
 		</player>
@@ -129,18 +129,18 @@
 		</opponents>
 
 		<duel>
-			<property name="current_turn" address="0x0201E1CC" type="int" length="1" />
+			<property name="current_turn" address="0x0201E1CC" type="uint" length="1" />
 
 			<player>
-				<property name="lp" type="int" address="0x0201C4E0" length="4" />
-				<property name="handsize" type="int" address="0x0201C4E0 + 12" />
-				<property name="decksize" type="int" address="0x0201C4E0 + 16" />
+				<property name="lp" type="uint" address="0x0201C4E0" length="4" />
+				<property name="handsize" type="uint" address="0x0201C4E0 + 12" />
+				<property name="decksize" type="uint" address="0x0201C4E0 + 16" />
 			</player>
 
 			<opponent>
-				<property name="lp" type="int" address="0x0201CD48" length="4" />
-				<property name="handsize" type="int" address="0x0201CD48 + 12" />
-				<property name="decksize" type="int" address="0x0201CD48 + 16" />
+				<property name="lp" type="uint" address="0x0201CD48" length="4" />
+				<property name="handsize" type="uint" address="0x0201CD48 + 12" />
+				<property name="decksize" type="uint" address="0x0201CD48 + 16" />
 			</opponent>
 		</duel>
 	</properties>

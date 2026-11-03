@@ -16,9 +16,13 @@ interface GamehookMemoryNamespace {
 }
 
 interface GamehookProperties {
-    /** Read current decoded value for a dot-separated mapper property path. */
+    /**
+     * Read current decoded value for a dot-separated mapper property path. `uint` properties are
+     * never negative and `int` properties are two's complement. JavaScript numbers are exact only up
+     * to 2^53, so 8-byte values can lose precision.
+     */
     getValue(path: string): any;
-    /** Override one property's displayed value for this read. */
+    /** Override one property's displayed value for this read. Throws if a number is outside the property's `int`/`uint` range. */
     setValue(path: string, value: unknown): void;
     /** Read several property values in supplied path order. */
     getValues(paths: string[]): any[];

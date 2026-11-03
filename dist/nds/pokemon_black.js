@@ -96,7 +96,7 @@ function postprocessor() {
     properties.setValues({
         'meta.state': readGameState(),
         'battle.opponent.party_position': opponentIndirect == null ? null
-            : (opponentIndirect - (variables.battle_ram_opponent_0 + OPPONENT_INDIRECT_OFFSET)) / BATTLE_POKEMON_SIZE,
+            : Math.max(0, Math.trunc((opponentIndirect - (variables.battle_ram_opponent_0 + OPPONENT_INDIRECT_OFFSET)) / BATTLE_POKEMON_SIZE)),
     });
     deriveHiddenPower();
 }

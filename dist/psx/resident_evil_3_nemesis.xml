@@ -8,7 +8,7 @@
     <properties>
         <player>
             <items>
-                <property name="0" type="int" address="0x80165F5E" reference="items" />
+                <property name="0" type="uint" address="0x80165F5E" reference="items" />
             </items>
         </player>
     </properties>

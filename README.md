@@ -57,7 +57,7 @@ XML does not support `<if>`, `<elif>`, or `<else>`.
 | Attribute | Description |
 | --- | --- |
 | `name` | Last segment of the property path. Required. |
-| `type` | Decoder type, such as `int`, `bool`, or `string`. |
+| `type` | Decoder type: `uint`, `int`, `binaryCodedDecimal`, `bool`, `bitArray` or `string`. Defaults to `uint`. |
 | `address` | RAM address or address expression. |
 | `length` | Byte count for multi-byte numbers and strings. |
 | `bits` | A bit number or range, such as `3` or `0-3`. Always use plural `bits`. |
@@ -70,6 +70,24 @@ XML does not support `<if>`, `<elif>`, or `<else>`.
 | --- | --- |
 | `{name}` | Compile-time macro variable. |
 | `{{name}}` | Runtime variable set by `preprocessor`. |
+
+### Number types
+
+| Type | Meaning | Script value |
+| --- | --- | --- |
+| `uint` | Unsigned: `0` up to 2^N-1. | `0xFF` reads 255, a 4-byte `0xFFFFFFFF` reads 4294967295. |
+| `int` | Signed two's complement: -2^(N-1) up to 2^(N-1)-1. | `0xFF` reads -1, a 4-byte `0xFFFFFFFF` reads -1. |
+| `binaryCodedDecimal` | Non-negative decimal digits, one per nibble. | |
+
+N is the field width: the width of `bits` when it is set, otherwise `length` x 8. Use `uint` unless the game
+really stores a signed value. Values are never rejected on read.
+
+- Writes are strict. A value outside the type's range, or a fraction, is an error; nothing is wrapped or truncated.
+  The same applies to a script setting `properties.setValue`, `setValues` or `.value`.
+- `after-read-value-expression` results that fall outside the range wrap modulo 2^N and log a warning on every
+  poll. Fix the expression rather than relying on the wrap.
+- Scripts see numbers as JavaScript doubles, which are exact only up to 2^53. That only matters for 8-byte fields.
+
 
 ## Script reference
 

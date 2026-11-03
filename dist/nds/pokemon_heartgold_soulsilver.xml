@@ -16,21 +16,21 @@
 
 	<macros>
 		<party_pokemon>
-			<property name="species"    type="int"    address="8"   memoryContainer="{memoryContainer}" length="2" reference="species" />
-			<property name="dex_number" type="int"    address="8"   memoryContainer="{memoryContainer}" length="2" />
+			<property name="species"    type="uint"    address="8"   memoryContainer="{memoryContainer}" length="2" reference="species" />
+			<property name="dex_number" type="uint"    address="8"   memoryContainer="{memoryContainer}" length="2" />
 			<property name="nickname"   type="string" address="72"  memoryContainer="{memoryContainer}" length="22" />
-			<property name="level"      type="int"    address="140" memoryContainer="{memoryContainer}"  />
-			<property name="exp"        type="int"    address="16"  memoryContainer="{memoryContainer}" length="4" />
+			<property name="level"      type="uint"    address="140" memoryContainer="{memoryContainer}"  />
+			<property name="exp"        type="uint"    address="16"  memoryContainer="{memoryContainer}" length="4" />
 			<property name="ot_name"    type="string" address="104" memoryContainer="{memoryContainer}" length="16" />
-			<property name="ot_id"      type="int"    address="12"  memoryContainer="{memoryContainer}" length="2" />
-			<property name="ability"    type="int"    address="21"  memoryContainer="{memoryContainer}" reference="abilities" />
+			<property name="ot_id"      type="uint"    address="12"  memoryContainer="{memoryContainer}" length="2" />
+			<property name="ability"    type="uint"    address="21"  memoryContainer="{memoryContainer}" reference="abilities" />
 			<property name="nature"     type="uint"   address="0"   memoryContainer="{memoryContainer}" length="4" reference="natures" after-read-value-expression="x % 25" />
-			<property name="held_item"  type="int"    address="10"  memoryContainer="{memoryContainer}" length="2" reference="items" />
-			<property name="friendship" type="int"    address="20"  memoryContainer="{memoryContainer}"  />
-			<property name="pokerus"    type="int"    address="130" memoryContainer="{memoryContainer}"  />
-			<property name="status_condition" type="int" address="136" memoryContainer="{memoryContainer}" reference="status_conditions" />
+			<property name="held_item"  type="uint"    address="10"  memoryContainer="{memoryContainer}" length="2" reference="items" />
+			<property name="friendship" type="uint"    address="20"  memoryContainer="{memoryContainer}"  />
+			<property name="pokerus"    type="uint"    address="130" memoryContainer="{memoryContainer}"  />
+			<property name="status_condition" type="uint" address="136" memoryContainer="{memoryContainer}" reference="status_conditions" />
 			<hidden_power>
-				<property name="power" type="int" />
+				<property name="power" type="uint" />
 				<property name="type"  type="string" />
 			</hidden_power>
 			<moves>
@@ -40,29 +40,29 @@
 				<macro name="3" type="pokemon_moves" var:moveNumberOffset="46" var:ppOffset="51" var:ppUpOffset="55" />
 			</moves>
 			<stats>
-				<property name="hp"              type="int" address="142" length="2" memoryContainer="{memoryContainer}" />
-				<property name="hp_max"          type="int" address="144" length="2" memoryContainer="{memoryContainer}" />
-				<property name="attack"          type="int" address="146" length="2" memoryContainer="{memoryContainer}" />
-				<property name="defense"         type="int" address="148" length="2" memoryContainer="{memoryContainer}" />
-				<property name="speed"           type="int" address="150" length="2" memoryContainer="{memoryContainer}" />
-				<property name="special_attack"  type="int" address="152" length="2" memoryContainer="{memoryContainer}" />
-				<property name="special_defense" type="int" address="154" length="2" memoryContainer="{memoryContainer}" />
+				<property name="hp"              type="uint" address="142" length="2" memoryContainer="{memoryContainer}" />
+				<property name="hp_max"          type="uint" address="144" length="2" memoryContainer="{memoryContainer}" />
+				<property name="attack"          type="uint" address="146" length="2" memoryContainer="{memoryContainer}" />
+				<property name="defense"         type="uint" address="148" length="2" memoryContainer="{memoryContainer}" />
+				<property name="speed"           type="uint" address="150" length="2" memoryContainer="{memoryContainer}" />
+				<property name="special_attack"  type="uint" address="152" length="2" memoryContainer="{memoryContainer}" />
+				<property name="special_defense" type="uint" address="154" length="2" memoryContainer="{memoryContainer}" />
 			</stats>
 			<ivs>
-				<property name="hp"              type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="0-4"   />
-				<property name="attack"          type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="5-9"   />
-				<property name="defense"         type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="10-14" />
-				<property name="speed"           type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="15-19" />
-				<property name="special_attack"  type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="20-24" />
-				<property name="special_defense" type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="25-29" />
+				<property name="hp"              type="uint" address="56" length="4" memoryContainer="{memoryContainer}" bits="0-4"   />
+				<property name="attack"          type="uint" address="56" length="4" memoryContainer="{memoryContainer}" bits="5-9"   />
+				<property name="defense"         type="uint" address="56" length="4" memoryContainer="{memoryContainer}" bits="10-14" />
+				<property name="speed"           type="uint" address="56" length="4" memoryContainer="{memoryContainer}" bits="15-19" />
+				<property name="special_attack"  type="uint" address="56" length="4" memoryContainer="{memoryContainer}" bits="20-24" />
+				<property name="special_defense" type="uint" address="56" length="4" memoryContainer="{memoryContainer}" bits="25-29" />
 			</ivs>
 			<evs>
-				<property name="hp"              type="int" address="24" memoryContainer="{memoryContainer}" />
-				<property name="attack"          type="int" address="25" memoryContainer="{memoryContainer}" />
-				<property name="defense"         type="int" address="26" memoryContainer="{memoryContainer}" />
-				<property name="speed"           type="int" address="27" memoryContainer="{memoryContainer}" />
-				<property name="special_attack"  type="int" address="28" memoryContainer="{memoryContainer}" />
-				<property name="special_defense" type="int" address="29" memoryContainer="{memoryContainer}" />
+				<property name="hp"              type="uint" address="24" memoryContainer="{memoryContainer}" />
+				<property name="attack"          type="uint" address="25" memoryContainer="{memoryContainer}" />
+				<property name="defense"         type="uint" address="26" memoryContainer="{memoryContainer}" />
+				<property name="speed"           type="uint" address="27" memoryContainer="{memoryContainer}" />
+				<property name="special_attack"  type="uint" address="28" memoryContainer="{memoryContainer}" />
+				<property name="special_defense" type="uint" address="29" memoryContainer="{memoryContainer}" />
 			</evs>
 			<flags>
 				<property name="is_egg"          address="56" type="bool" memoryContainer="{memoryContainer}" length="4" bits="30"/>
@@ -74,52 +74,52 @@
 			<internals>
 				<property name="personality_value" address="0"  type="uint" memoryContainer="{memoryContainer}" length="4" />
 				<property name="checksum"          address="6"  type="uint" memoryContainer="{memoryContainer}" length="2" />
-				<property name="secret_id"         address="14" type="int"  memoryContainer="{memoryContainer}" length="2" />
-				<property name="language"          address="23" type="int"  memoryContainer="{memoryContainer}" reference="language" />
+				<property name="secret_id"         address="14" type="uint"  memoryContainer="{memoryContainer}" length="2" />
+				<property name="language"          address="23" type="uint"  memoryContainer="{memoryContainer}" reference="language" />
 			</internals>
 			<misc>
-				<property name="markings"    type="int" address="22"  memoryContainer="{memoryContainer}" />
-				<property name="sheen"       type="int" address="35"  memoryContainer="{memoryContainer}" />
-				<property name="hgss_ball"   type="int" address="134" memoryContainer="{memoryContainer}" />
-				<property name="performance" type="int" address="135" memoryContainer="{memoryContainer}" />
+				<property name="markings"    type="uint" address="22"  memoryContainer="{memoryContainer}" />
+				<property name="sheen"       type="uint" address="35"  memoryContainer="{memoryContainer}" />
+				<property name="hgss_ball"   type="uint" address="134" memoryContainer="{memoryContainer}" />
+				<property name="performance" type="uint" address="135" memoryContainer="{memoryContainer}" />
 				<met_info>
-					<property name="date_egg_received" type="int" address="120" memoryContainer="{memoryContainer}" length="3" />
-					<property name="date_met"          type="int" address="123" memoryContainer="{memoryContainer}" length="3" />
-					<property name="egg_location"      type="int" address="126" memoryContainer="{memoryContainer}" length="2" />
-					<property name="met_location"      type="int" address="128" memoryContainer="{memoryContainer}" length="2" />
-					<property name="pokeball"          type="int" address="131" memoryContainer="{memoryContainer}" />
-					<property name="met_level"         type="int" address="132" memoryContainer="{memoryContainer}" bits="0-6" />
+					<property name="date_egg_received" type="uint" address="120" memoryContainer="{memoryContainer}" length="3" />
+					<property name="date_met"          type="uint" address="123" memoryContainer="{memoryContainer}" length="3" />
+					<property name="egg_location"      type="uint" address="126" memoryContainer="{memoryContainer}" length="2" />
+					<property name="met_location"      type="uint" address="128" memoryContainer="{memoryContainer}" length="2" />
+					<property name="pokeball"          type="uint" address="131" memoryContainer="{memoryContainer}" />
+					<property name="met_level"         type="uint" address="132" memoryContainer="{memoryContainer}" bits="0-6" />
 					<property name="female_ot_gender"  type="bool" address="132" memoryContainer="{memoryContainer}" bits="7" />
-					<property name="encounter_type"    type="int" address="133" memoryContainer="{memoryContainer}" />
+					<property name="encounter_type"    type="uint" address="133" memoryContainer="{memoryContainer}" />
 				</met_info>
 				<contest>
-					<property name="contest_cool"   type="int" address="30" memoryContainer="{memoryContainer}" />
-					<property name="contest_beauty" type="int" address="31" memoryContainer="{memoryContainer}" />
-					<property name="contest_cute"   type="int" address="32" memoryContainer="{memoryContainer}" />
-					<property name="contest_smart"  type="int" address="33" memoryContainer="{memoryContainer}" />
-					<property name="contest_tough"  type="int" address="34" memoryContainer="{memoryContainer}" />
+					<property name="contest_cool"   type="uint" address="30" memoryContainer="{memoryContainer}" />
+					<property name="contest_beauty" type="uint" address="31" memoryContainer="{memoryContainer}" />
+					<property name="contest_cute"   type="uint" address="32" memoryContainer="{memoryContainer}" />
+					<property name="contest_smart"  type="uint" address="33" memoryContainer="{memoryContainer}" />
+					<property name="contest_tough"  type="uint" address="34" memoryContainer="{memoryContainer}" />
 				</contest>
 				<ribbons>
-					<property name="ribbons_sinnoh_set_1" type="int" address="36" length="4" memoryContainer="{memoryContainer}" />
+					<property name="ribbons_sinnoh_set_1" type="uint" address="36" length="4" memoryContainer="{memoryContainer}" />
 				</ribbons>
 			</misc>
 		</party_pokemon>
 		<player_active_pokemon>
-			<property name="species"    type="int" />
-			<property name="dex_number" type="int" />
+			<property name="species"    type="uint" />
+			<property name="dex_number" type="uint" />
 			<property name="nickname"   type="string" />
-			<property name="level"      type="int" />
+			<property name="level"      type="uint" />
 			<property name="type_1"     type="string" />
 			<property name="type_2"     type="string" />
-			<property name="exp"        type="int" />
+			<property name="exp"        type="uint" />
 			<property name="ot_name"    type="string" />
-			<property name="ot_id"      type="int" />
-			<property name="ability"    type="int" />
+			<property name="ot_id"      type="uint" />
+			<property name="ability"    type="uint" />
 			<property name="nature"     type="uint" />
-			<property name="held_item"  type="int" />
-			<property name="friendship" type="int" />
-			<property name="pokerus"    type="int" />
-			<property name="status_condition" type="int" />
+			<property name="held_item"  type="uint" />
+			<property name="friendship" type="uint" />
+			<property name="pokerus"    type="uint" />
+			<property name="status_condition" type="uint" />
 			<moves>
 				<macro name="0" type="pokemon_moves" />
 				<macro name="1" type="pokemon_moves" />
@@ -127,111 +127,111 @@
 				<macro name="3" type="pokemon_moves" />
 			</moves>
 			<stats>
-				<property name="hp"              type="int" />
-				<property name="hp_max"          type="int" />
-				<property name="attack"          type="int" />
-				<property name="defense"         type="int" />
-				<property name="speed"           type="int" />
-				<property name="special_attack"  type="int" />
-				<property name="special_defense" type="int" />
+				<property name="hp"              type="uint" />
+				<property name="hp_max"          type="uint" />
+				<property name="attack"          type="uint" />
+				<property name="defense"         type="uint" />
+				<property name="speed"           type="uint" />
+				<property name="special_attack"  type="uint" />
+				<property name="special_defense" type="uint" />
 			</stats>
 			<modifiers>
-				<property name="attack"          type="int" />
-				<property name="defense"         type="int" />
-				<property name="speed"           type="int" />
-				<property name="special_attack"  type="int" />
-				<property name="special_defense" type="int" />
-				<property name="accuracy"        type="int" />
-				<property name="evasion"         type="int" />
+				<property name="attack"          type="uint" />
+				<property name="defense"         type="uint" />
+				<property name="speed"           type="uint" />
+				<property name="special_attack"  type="uint" />
+				<property name="special_defense" type="uint" />
+				<property name="accuracy"        type="uint" />
+				<property name="evasion"         type="uint" />
 			</modifiers>
 			<ivs>
-				<property name="hp"              type="int" />
-				<property name="attack"          type="int" />
-				<property name="defense"         type="int" />
-				<property name="speed"           type="int" />
-				<property name="special_attack"  type="int" />
-				<property name="special_defense" type="int" />
+				<property name="hp"              type="uint" />
+				<property name="attack"          type="uint" />
+				<property name="defense"         type="uint" />
+				<property name="speed"           type="uint" />
+				<property name="special_attack"  type="uint" />
+				<property name="special_defense" type="uint" />
 			</ivs>
 			<evs>
-				<property name="hp"              type="int" />
-				<property name="attack"          type="int" />
-				<property name="defense"         type="int" />
-				<property name="speed"           type="int" />
-				<property name="special_attack"  type="int" />
-				<property name="special_defense" type="int" />
+				<property name="hp"              type="uint" />
+				<property name="attack"          type="uint" />
+				<property name="defense"         type="uint" />
+				<property name="speed"           type="uint" />
+				<property name="special_attack"  type="uint" />
+				<property name="special_defense" type="uint" />
 			</evs>
 			<flags>
-				<property name="is_egg"          type="int" />
-				<property name="is_nicknamed"    type="int" />
-				<property name="skip_checksum_1" type="int" />
-				<property name="skip_checksum_2" type="int" />
-				<property name="is_bad_egg"      type="int" />
+				<property name="is_egg"          type="uint" />
+				<property name="is_nicknamed"    type="uint" />
+				<property name="skip_checksum_1" type="uint" />
+				<property name="skip_checksum_2" type="uint" />
+				<property name="is_bad_egg"      type="uint" />
 			</flags>
 			<internals>
 				<property name="personality_value" type="uint" />
 				<property name="checksum"          type="uint" />
-				<property name="secret_id"         type="int"  />
-				<property name="language"          type="int"  />
+				<property name="secret_id"         type="uint"  />
+				<property name="language"          type="uint"  />
 			</internals>
 			<misc>
-				<property name="markings"    type="int" />
-				<property name="sheen"       type="int" />
-				<property name="hgss_ball"   type="int" />
-				<property name="performance" type="int" />
+				<property name="markings"    type="uint" />
+				<property name="sheen"       type="uint" />
+				<property name="hgss_ball"   type="uint" />
+				<property name="performance" type="uint" />
 				<met_info>
-					<property name="date_egg_received" type="int" />
-					<property name="date_met"          type="int" />
-					<property name="egg_location"      type="int" />
-					<property name="met_location"      type="int" />
-					<property name="pokeball"          type="int" />
-					<property name="met_level"         type="int" />
-					<property name="female_ot_gender"  type="int" />
-					<property name="encounter_type"    type="int" />
+					<property name="date_egg_received" type="uint" />
+					<property name="date_met"          type="uint" />
+					<property name="egg_location"      type="uint" />
+					<property name="met_location"      type="uint" />
+					<property name="pokeball"          type="uint" />
+					<property name="met_level"         type="uint" />
+					<property name="female_ot_gender"  type="uint" />
+					<property name="encounter_type"    type="uint" />
 				</met_info>
 				<contest>
-					<property name="contest_cool"   type="int" />
-					<property name="contest_beauty" type="int" />
-					<property name="contest_cute"   type="int" />
-					<property name="contest_smart"  type="int" />
-					<property name="contest_tough"  type="int" />
+					<property name="contest_cool"   type="uint" />
+					<property name="contest_beauty" type="uint" />
+					<property name="contest_cute"   type="uint" />
+					<property name="contest_smart"  type="uint" />
+					<property name="contest_tough"  type="uint" />
 				</contest>
 				<ribbons>
-					<property name="ribbons_sinnoh_set_1" type="int" />
+					<property name="ribbons_sinnoh_set_1" type="uint" />
 				</ribbons>
 			</misc>
 		</player_active_pokemon>
 
 		<active_pokemon_move>
-            <property name="move"  type="int" />
-            <property name="pp"    type="int" />
-            <property name="pp_up" type="int" />
+            <property name="move"  type="uint" />
+            <property name="pp"    type="uint" />
+            <property name="pp_up" type="uint" />
         </active_pokemon_move>
 
 		<pokemon_moves>
-			<property name="move"  type="int" address="{moveNumberOffset}"  memoryContainer="{memoryContainer}" reference="moves" length="2" />
-			<property name="pp"    type="int" address="{ppOffset}" memoryContainer="{memoryContainer}" after-read-value-expression="x % 64" />
-			<property name="pp_up" type="int" address="{ppUpOffset}" memoryContainer="{memoryContainer}" after-read-value-expression="Math.floor(x / 64)" />
+			<property name="move"  type="uint" address="{moveNumberOffset}"  memoryContainer="{memoryContainer}" reference="moves" length="2" />
+			<property name="pp"    type="uint" address="{ppOffset}" memoryContainer="{memoryContainer}" after-read-value-expression="x % 64" />
+			<property name="pp_up" type="uint" address="{ppUpOffset}" memoryContainer="{memoryContainer}" after-read-value-expression="Math.floor(x / 64)" />
 		</pokemon_moves>
 
 		<battle_move>
-			<property name="move"  type="int" address="{address} + {moveNumberOffset}"  reference="moves" length="2" />
-			<property name="pp"    type="int" address="{address} + {ppOffset}" after-read-value-expression="x % 64" />
-			<property name="pp_up" type="int" value="null" />
+			<property name="move"  type="uint" address="{address} + {moveNumberOffset}"  reference="moves" length="2" />
+			<property name="pp"    type="uint" address="{address} + {ppOffset}" after-read-value-expression="x % 64" />
+			<property name="pp_up" type="uint" value="null" />
 		</battle_move>
 
 		<battle_structure>
-			<property name="species"          address="{address} + 0"    type="int"    length="2"  reference="species" />
+			<property name="species"          address="{address} + 0"    type="uint"    length="2"  reference="species" />
 			<property name="nickname"         address="{address} + 54"   type="string" length="22" characterMap="defaultCharacterMap" />
-			<property name="level"            address="{address} + 52"   type="int" />
+			<property name="level"            address="{address} + 52"   type="uint" />
 			<property name="exp"              address="{address} + 100"  type="uint"   length="4"/>
 			<property name="nature"           address="{address} + 104"  type="uint"   length="4" after-read-value-expression="x % 25" reference="natures" />
-			<property name="friendship"       address="{address} + 53"   type="int" />
-			<property name="ability"          address="{address} + 39"   type="int" reference="abilities" />
-			<property name="type_1"           address="{address} + 36"   type="int" reference="pokemon_types" />
-			<property name="type_2"           address="{address} + 37"   type="int" reference="pokemon_types" />
+			<property name="friendship"       address="{address} + 53"   type="uint" />
+			<property name="ability"          address="{address} + 39"   type="uint" reference="abilities" />
+			<property name="type_1"           address="{address} + 36"   type="uint" reference="pokemon_types" />
+			<property name="type_2"           address="{address} + 37"   type="uint" reference="pokemon_types" />
 			<property name="ot_name"          address="{address} + 84"   type="string" length="8" characterMap="defaultCharacterMap" />
-            <property name="held_item"        address="{address} + 120"  type="int" length="2" reference="items" />
-			<property name="status_condition" address="{address} + 108"  type="int" reference="status_conditions" />
+            <property name="held_item"        address="{address} + 120"  type="uint" length="2" reference="items" />
+			<property name="status_condition" address="{address} + 108"  type="uint" reference="status_conditions" />
 			<moves>
 				<macro name="0" type="battle_move" var:moveNumberOffset="12" var:ppOffset="44" />
 				<macro name="1" type="battle_move" var:moveNumberOffset="14" var:ppOffset="45" />
@@ -239,30 +239,30 @@
 				<macro name="3" type="battle_move" var:moveNumberOffset="18" var:ppOffset="47" />
 			</moves>
 			<stats>
-				<property name="hp"              address="{address} + 76" type="int" length="2" />
-				<property name="hp_max"          address="{address} + 80" type="int" length="2" />
-				<property name="attack"          address="{address} + 2"  type="int" length="2" />
-				<property name="defense"         address="{address} + 4"  type="int" length="2" />
-				<property name="speed"           address="{address} + 6"  type="int" length="2" />
-				<property name="special_attack"  address="{address} + 8"  type="int" length="2" />
-				<property name="special_defense" address="{address} + 10" type="int" length="2" />
+				<property name="hp"              address="{address} + 76" type="uint" length="2" />
+				<property name="hp_max"          address="{address} + 80" type="uint" length="2" />
+				<property name="attack"          address="{address} + 2"  type="uint" length="2" />
+				<property name="defense"         address="{address} + 4"  type="uint" length="2" />
+				<property name="speed"           address="{address} + 6"  type="uint" length="2" />
+				<property name="special_attack"  address="{address} + 8"  type="uint" length="2" />
+				<property name="special_defense" address="{address} + 10" type="uint" length="2" />
 			</stats>
 			<modifiers>
-				<property name="attack"          address="{address} + 25" type="int" reference="stage_modifiers" />
-				<property name="defense"         address="{address} + 26" type="int" reference="stage_modifiers" />
-				<property name="speed"           address="{address} + 27" type="int" reference="stage_modifiers" />
-				<property name="special_attack"  address="{address} + 28" type="int" reference="stage_modifiers" />
-				<property name="special_defense" address="{address} + 29" type="int" reference="stage_modifiers" />
-				<property name="accuracy"        address="{address} + 30" type="int" reference="stage_modifiers" />
-				<property name="evasion"         address="{address} + 31" type="int" reference="stage_modifiers" />
+				<property name="attack"          address="{address} + 25" type="uint" reference="stage_modifiers" />
+				<property name="defense"         address="{address} + 26" type="uint" reference="stage_modifiers" />
+				<property name="speed"           address="{address} + 27" type="uint" reference="stage_modifiers" />
+				<property name="special_attack"  address="{address} + 28" type="uint" reference="stage_modifiers" />
+				<property name="special_defense" address="{address} + 29" type="uint" reference="stage_modifiers" />
+				<property name="accuracy"        address="{address} + 30" type="uint" reference="stage_modifiers" />
+				<property name="evasion"         address="{address} + 31" type="uint" reference="stage_modifiers" />
 			</modifiers>
 			<ivs>
-				<property name="hp"              address="{address} + 20" type="int"  length="4" bits="0-4"   />
-				<property name="attack"          address="{address} + 20" type="int"  length="4" bits="5-9"   />
-				<property name="defense"         address="{address} + 20" type="int"  length="4" bits="10-14" />
-				<property name="speed"           address="{address} + 20" type="int"  length="4" bits="15-19" />
-				<property name="special_attack"  address="{address} + 20" type="int"  length="4" bits="20-24" />
-				<property name="special_defense" address="{address} + 20" type="int"  length="4" bits="25-29" />
+				<property name="hp"              address="{address} + 20" type="uint"  length="4" bits="0-4"   />
+				<property name="attack"          address="{address} + 20" type="uint"  length="4" bits="5-9"   />
+				<property name="defense"         address="{address} + 20" type="uint"  length="4" bits="10-14" />
+				<property name="speed"           address="{address} + 20" type="uint"  length="4" bits="15-19" />
+				<property name="special_attack"  address="{address} + 20" type="uint"  length="4" bits="20-24" />
+				<property name="special_defense" address="{address} + 20" type="uint"  length="4" bits="25-29" />
 			</ivs>
 			<internals>
 				<property name="personality_value" address="{address} + 104" type="uint" length="4"/>
@@ -270,26 +270,26 @@
 		</battle_structure>
 
 		<player_item>
-            <property name="item"     address="{address}" type="int" length="2" reference="items" />
-            <property name="quantity" address="{address} + 2" type="int" length="2" />
+            <property name="item"     address="{address}" type="uint" length="2" reference="items" />
+            <property name="quantity" address="{address} + 2" type="uint" length="2" />
         </player_item>
 
 		<wild_encounter>
-		    <property name="level"   type="int" address="{address}" />
-            <property name="species" type="int" address="{address} + 4" reference="species" />
-            <property name="dex_number" type="int" address="{address} + 4" reference="dex_numbers" />
+		    <property name="level"   type="uint" address="{address}" />
+            <property name="species" type="uint" address="{address} + 4" reference="species" />
+            <property name="dex_number" type="uint" address="{address} + 4" reference="dex_numbers" />
 		</wild_encounter>
 	</macros>
 
 	<properties>
 		<player>
 			<property name="name" type="string" address="{{global_pointer}} + 0xD054" length="14" />
-			<property name="gender" type="int" address="{{global_pointer}} + 0xD06C" />
-			<property name="player_id" type="int" address="{{global_pointer}} + 0xD064" length="2" />
-			<property name="secret_id" type="int" address="{{global_pointer}} + 0xD066" length="2" />
-			<property name="team_count" type="int" address="{{global_pointer}} + 0xD084" />
-			<property name="starter" type="int" address="{{global_pointer}} + 0xDE34" length="2" reference="species" /> 
-			<property name="party_position" type="int" />
+			<property name="gender" type="uint" address="{{global_pointer}} + 0xD06C" />
+			<property name="player_id" type="uint" address="{{global_pointer}} + 0xD064" length="2" />
+			<property name="secret_id" type="uint" address="{{global_pointer}} + 0xD066" length="2" />
+			<property name="team_count" type="uint" address="{{global_pointer}} + 0xD084" />
+			<property name="starter" type="uint" address="{{global_pointer}} + 0xDE34" length="2" reference="species" /> 
+			<property name="party_position" type="uint" />
             <!-- <macro name="active_pokemon" type="player_active_pokemon" /> -->
 			<team>
 				<macro name="0" type="party_pokemon" var:memoryContainer="player_party_structure_0" />
@@ -319,8 +319,8 @@
 			</badges>
 		</player>
 		<bag>
-            <property name="money" type="int" address="{{global_pointer}} + 0xD068" length="4" />
-            <property name="coins" type="int" address="{{global_pointer}} + 0xD074" length="4" />
+            <property name="money" type="uint" address="{{global_pointer}} + 0xD068" length="4" />
+            <property name="coins" type="uint" address="{{global_pointer}} + 0xD074" length="4" />
 			<items>
 				<macro name="0" type="player_item" var:address="{{global_pointer}} + 0xD634" />
 				<macro name="1" type="player_item" var:address="{{global_pointer}} + 0xD634 + 4" />
@@ -604,48 +604,48 @@
 			</mail>
 		</bag>
 		<overworld>
-            <property name="map_name"  type="int" length="2" address="{{global_pointer}} + 0xE22C - 8" reference="maps" />
-            <property name="map_index" type="int" length="2" address="{{global_pointer}} + 0xE22C - 8" />
-            <property name="x" type="int" length="4" address="{{global_pointer}} + 0xE22C" />
-            <property name="y" type="int" length="4" address="{{global_pointer}} + 0xE230" />
+            <property name="map_name"  type="uint" length="2" address="{{global_pointer}} + 0xE22C - 8" reference="maps" />
+            <property name="map_index" type="uint" length="2" address="{{global_pointer}} + 0xE22C - 8" />
+            <property name="x" type="uint" length="4" address="{{global_pointer}} + 0xE22C" />
+            <property name="y" type="uint" length="4" address="{{global_pointer}} + 0xE230" />
 			<!-- REQUIRE ADDITIONAL PROPERTIES AND A FUNCTION TO CALCULATE THE CURRENT RATE 
 				Need to know the state of the player (Walking, surfing, fishing, etc.) and then
 				dynamically assign the encounter rate based on this
 			-->
-			<property name="encounter_rate" type="int" />
+			<property name="encounter_rate" type="uint" />
             <encounter_rates>
-				<property name="walking"   type="int" address="{{global_pointer}} + 0x32A34 + 0" />
-				<property name="surfing"   type="int" address="{{global_pointer}} + 0x32A34 + 1" />
-				<!-- <property name="headbutt"  type="int" address="{{global_pointer}} + 0x32A34 + 2" /> -->
-				<property name="old_rod"   type="int" address="{{global_pointer}} + 0x32A34 + 3" />
-				<property name="good_rod"  type="int" address="{{global_pointer}} + 0x32A34 + 4" />
-				<property name="super_rod" type="int" address="{{global_pointer}} + 0x32A34 + 5" />
+				<property name="walking"   type="uint" address="{{global_pointer}} + 0x32A34 + 0" />
+				<property name="surfing"   type="uint" address="{{global_pointer}} + 0x32A34 + 1" />
+				<!-- <property name="headbutt"  type="uint" address="{{global_pointer}} + 0x32A34 + 2" /> -->
+				<property name="old_rod"   type="uint" address="{{global_pointer}} + 0x32A34 + 3" />
+				<property name="good_rod"  type="uint" address="{{global_pointer}} + 0x32A34 + 4" />
+				<property name="super_rod" type="uint" address="{{global_pointer}} + 0x32A34 + 5" />
 			</encounter_rates>
 			<encounters>
-				<property name="0"  type="int" address="{{global_pointer}} + 0x32A48 + 0"  reference="species" />
-				<property name="1"  type="int" address="{{global_pointer}} + 0x32A48 + 2"  reference="species" />
-				<property name="2"  type="int" address="{{global_pointer}} + 0x32A48 + 4"  reference="species" />
-				<property name="3"  type="int" address="{{global_pointer}} + 0x32A48 + 6"  reference="species" />
-				<property name="4"  type="int" address="{{global_pointer}} + 0x32A48 + 8"  reference="species" />
-				<property name="5"  type="int" address="{{global_pointer}} + 0x32A48 + 10" reference="species" />
-				<property name="6"  type="int" address="{{global_pointer}} + 0x32A48 + 12" reference="species" />
-				<property name="7"  type="int" address="{{global_pointer}} + 0x32A48 + 14" reference="species" />
-				<property name="8"  type="int" address="{{global_pointer}} + 0x32A48 + 16" reference="species" />
-				<property name="9"  type="int" address="{{global_pointer}} + 0x32A48 + 18" reference="species" />
-				<property name="10" type="int" address="{{global_pointer}} + 0x32A48 + 20" reference="species" />
-				<property name="11" type="int" address="{{global_pointer}} + 0x32A48 + 22" reference="species" />
-				<property name="12" type="int" address="{{global_pointer}} + 0x32A48 + 24" reference="species" />
-				<property name="13" type="int" address="{{global_pointer}} + 0x32A48 + 26" reference="species" />
-				<property name="14" type="int" address="{{global_pointer}} + 0x32A48 + 28" reference="species" />
-				<property name="15" type="int" address="{{global_pointer}} + 0x32A48 + 30" reference="species" />
-				<property name="16" type="int" address="{{global_pointer}} + 0x32A48 + 32" reference="species" />
-				<property name="17" type="int" address="{{global_pointer}} + 0x32A48 + 34" reference="species" />
-				<property name="18" type="int" address="{{global_pointer}} + 0x32A48 + 36" reference="species" />
-				<property name="19" type="int" address="{{global_pointer}} + 0x32A48 + 38" reference="species" />
-				<property name="20" type="int" address="{{global_pointer}} + 0x32A48 + 40" reference="species" />
-				<property name="21" type="int" address="{{global_pointer}} + 0x32A48 + 42" reference="species" />
-				<property name="22" type="int" address="{{global_pointer}} + 0x32A48 + 44" reference="species" />
-				<property name="23" type="int" address="{{global_pointer}} + 0x32A48 + 46" reference="species" />
+				<property name="0"  type="uint" address="{{global_pointer}} + 0x32A48 + 0"  reference="species" />
+				<property name="1"  type="uint" address="{{global_pointer}} + 0x32A48 + 2"  reference="species" />
+				<property name="2"  type="uint" address="{{global_pointer}} + 0x32A48 + 4"  reference="species" />
+				<property name="3"  type="uint" address="{{global_pointer}} + 0x32A48 + 6"  reference="species" />
+				<property name="4"  type="uint" address="{{global_pointer}} + 0x32A48 + 8"  reference="species" />
+				<property name="5"  type="uint" address="{{global_pointer}} + 0x32A48 + 10" reference="species" />
+				<property name="6"  type="uint" address="{{global_pointer}} + 0x32A48 + 12" reference="species" />
+				<property name="7"  type="uint" address="{{global_pointer}} + 0x32A48 + 14" reference="species" />
+				<property name="8"  type="uint" address="{{global_pointer}} + 0x32A48 + 16" reference="species" />
+				<property name="9"  type="uint" address="{{global_pointer}} + 0x32A48 + 18" reference="species" />
+				<property name="10" type="uint" address="{{global_pointer}} + 0x32A48 + 20" reference="species" />
+				<property name="11" type="uint" address="{{global_pointer}} + 0x32A48 + 22" reference="species" />
+				<property name="12" type="uint" address="{{global_pointer}} + 0x32A48 + 24" reference="species" />
+				<property name="13" type="uint" address="{{global_pointer}} + 0x32A48 + 26" reference="species" />
+				<property name="14" type="uint" address="{{global_pointer}} + 0x32A48 + 28" reference="species" />
+				<property name="15" type="uint" address="{{global_pointer}} + 0x32A48 + 30" reference="species" />
+				<property name="16" type="uint" address="{{global_pointer}} + 0x32A48 + 32" reference="species" />
+				<property name="17" type="uint" address="{{global_pointer}} + 0x32A48 + 34" reference="species" />
+				<property name="18" type="uint" address="{{global_pointer}} + 0x32A48 + 36" reference="species" />
+				<property name="19" type="uint" address="{{global_pointer}} + 0x32A48 + 38" reference="species" />
+				<property name="20" type="uint" address="{{global_pointer}} + 0x32A48 + 40" reference="species" />
+				<property name="21" type="uint" address="{{global_pointer}} + 0x32A48 + 42" reference="species" />
+				<property name="22" type="uint" address="{{global_pointer}} + 0x32A48 + 44" reference="species" />
+				<property name="23" type="uint" address="{{global_pointer}} + 0x32A48 + 46" reference="species" />
 			</encounters>
 			<!-- <encounter_table>
 				<surfing>
@@ -679,19 +679,19 @@
 			</encounter_table> -->
         </overworld>
 		<variables>
-			<property name="game_started" type="int" address="{{global_pointer}} + 0xDE3E" length="2" /> <!-- 227D0FA -->
+			<property name="game_started" type="uint" address="{{global_pointer}} + 0xDE3E" length="2" /> <!-- 227D0FA -->
 		</variables>
 		<flag>
 			<property name="farfetchd_guy" type="bool" address="{{global_pointer}} + 0xDE3E + 0x17A" />
-			<property name="fartfetchd_noticed_you" type="int" address="{{global_pointer}} + 0xDE3E + 0xC8" /> <!-- 1 = not noticed, 0 = noticed -->
+			<property name="fartfetchd_noticed_you" type="uint" address="{{global_pointer}} + 0xDE3E + 0xC8" /> <!-- 1 = not noticed, 0 = noticed -->
 		</flag>
 		<battle>
             <property name="mode"    type="string" />
             <property name="outcome" type="string" />
 			<player>
-				<property name="party_position"   type="int" address="{{current_party_indexes}} + 0"/>
-				<property name="party_position_2" type="int" address="{{current_party_indexes}} + 12"/> <!-- TODO: test address -->
-				<property name="team_count"       type="int" address="{{dynamic_player}} - 4" />
+				<property name="party_position"   type="uint" address="{{current_party_indexes}} + 0"/>
+				<property name="party_position_2" type="uint" address="{{current_party_indexes}} + 12"/> <!-- TODO: test address -->
+				<property name="team_count"       type="uint" address="{{dynamic_player}} - 4" />
 				<macro name="active_pokemon" type="battle_structure" var:address="{{global_pointer}} + 0x56DF4" />
 				<macro name="active_pokemon_2" type="battle_structure" var:address="{{global_pointer}} + 0x56DF4 + 384" /> <!-- TODO: test -->
 				<team>
@@ -708,12 +708,12 @@
 				<macro name="1" type="party_pokemon" var:memoryContainer="static_wild_party_structure_1" />
 			</wild>
 			<ally> 
-				<property name="name"    type="int" address="{{global_pointer}} + 0x5108A + 2" length="2" reference="trainers" />
-				<property name="trainer" type="int" address="{{global_pointer}} + 0x5108A + 2" length="2" reference="trainers" />
-				<property name="id"      type="int" address="{{global_pointer}} + 0x5108A + 2" length="2" />
-				<property name="enemy_bar_synced_hp" type="int" address="{{global_pointer}} + 0x56FC0" length="2" />
-				<property name="team_count"          type="int" address="{{dynamic_ally}} - 4" />
-				<property name="party_position" type="int" address="{{current_party_indexes}} + 12"/>
+				<property name="name"    type="uint" address="{{global_pointer}} + 0x5108A + 2" length="2" reference="trainers" />
+				<property name="trainer" type="uint" address="{{global_pointer}} + 0x5108A + 2" length="2" reference="trainers" />
+				<property name="id"      type="uint" address="{{global_pointer}} + 0x5108A + 2" length="2" />
+				<property name="enemy_bar_synced_hp" type="uint" address="{{global_pointer}} + 0x56FC0" length="2" />
+				<property name="team_count"          type="uint" address="{{dynamic_ally}} - 4" />
+				<property name="party_position" type="uint" address="{{current_party_indexes}} + 12"/>
 				<macro name="active_pokemon" type="battle_structure" var:address="{{global_pointer}} + 0x56DF4 + 384" /> <!-- TODO: verify contents -->
 				<!-- TODO: test that this is in fact the ally's team structure -->
 				<team> 
@@ -726,12 +726,12 @@
 				</team>
 			</ally>
 			<opponent>
-				<property name="name"    type="int" address="{{global_pointer}} + 0x5108A" length="2" reference="trainers" />
-				<property name="trainer" type="int" address="{{global_pointer}} + 0x5108A" length="2" reference="trainers" />
-				<property name="id"      type="int" address="{{global_pointer}} + 0x5108A" length="2" />
-				<property name="enemy_bar_synced_hp" type="int" address="{{global_pointer}} + 0x56F00" length="2" />
-				<property name="team_count"          type="int" address="{{dynamic_opponent}} - 4" />
-				<property name="party_position"      type="int" address="{{current_party_indexes}} + 6"/>
+				<property name="name"    type="uint" address="{{global_pointer}} + 0x5108A" length="2" reference="trainers" />
+				<property name="trainer" type="uint" address="{{global_pointer}} + 0x5108A" length="2" reference="trainers" />
+				<property name="id"      type="uint" address="{{global_pointer}} + 0x5108A" length="2" />
+				<property name="enemy_bar_synced_hp" type="uint" address="{{global_pointer}} + 0x56F00" length="2" />
+				<property name="team_count"          type="uint" address="{{dynamic_opponent}} - 4" />
+				<property name="party_position"      type="uint" address="{{current_party_indexes}} + 6"/>
 				<macro name="active_pokemon" type="battle_structure" var:address="{{global_pointer}} + 0x56DF4 + 192" />
 				<team>
 					<macro name="0" type="party_pokemon" var:memoryContainer="dynamic_opponent_party_structure_0" />
@@ -743,12 +743,12 @@
 				</team>
 			</opponent>
 			<opponent_2>
-				<property name="name"    type="int" address="{{global_pointer}} + 0x5108A + 4" length="2" reference="trainers" />
-				<property name="trainer" type="int" address="{{global_pointer}} + 0x5108A + 4" length="2" reference="trainers" />
-				<property name="id"      type="int" address="{{global_pointer}} + 0x5108A + 4" length="2" />
-				<property name="party_position" type="int" address="{{current_party_indexes}} + 18"/>
-				<property name="enemy_bar_synced_hp" type="int" address="{{global_pointer}} + 0x57080" length="2" />
-				<property name="team_count" type="int" address="{{dynamic_opponent_2}} - 4" />
+				<property name="name"    type="uint" address="{{global_pointer}} + 0x5108A + 4" length="2" reference="trainers" />
+				<property name="trainer" type="uint" address="{{global_pointer}} + 0x5108A + 4" length="2" reference="trainers" />
+				<property name="id"      type="uint" address="{{global_pointer}} + 0x5108A + 4" length="2" />
+				<property name="party_position" type="uint" address="{{current_party_indexes}} + 18"/>
+				<property name="enemy_bar_synced_hp" type="uint" address="{{global_pointer}} + 0x57080" length="2" />
+				<property name="team_count" type="uint" address="{{dynamic_opponent_2}} - 4" />
 				<macro name="active_pokemon" type="battle_structure" var:address="{{global_pointer}} + 0x54598 + 576" /> <!-- TODO: verify contents -->
 				<!-- TODO: test that this is in fact the second opponent's team structure -->
 				<team> 
@@ -771,49 +771,49 @@
 					<property name="sun_permanent"       type="bool" address="{{global_pointer}} + 0x54234" length="4" bits="5"  />
 					<property name="hail"                type="bool" address="{{global_pointer}} + 0x54234" length="4" bits="6"  />
 					<property name="hail_permanent"      type="bool" address="{{global_pointer}} + 0x54234" length="4" bits="7"  />
-					<property name="uproar"              type="int"  address="{{global_pointer}} + 0x54234" length="4" bits="8-11" />
-					<property name="gravity"             type="int"  address="{{global_pointer}} + 0x54234" length="4" bits="12-14" />
+					<property name="uproar"              type="uint"  address="{{global_pointer}} + 0x54234" length="4" bits="8-11" />
+					<property name="gravity"             type="uint"  address="{{global_pointer}} + 0x54234" length="4" bits="12-14" />
 					<property name="fog"                 type="bool" address="{{global_pointer}} + 0x54234" length="4" bits="15" />
-					<property name="trick_room"          type="int"  address="{{global_pointer}} + 0x54234" length="4" bits="16-18" />
+					<property name="trick_room"          type="uint"  address="{{global_pointer}} + 0x54234" length="4" bits="16-18" />
 
 					<!-- fieldConditionData @ 0x54238 -->
-					<property name="weather_turns"       type="int"  address="{{global_pointer}} + 0x54238" length="4" />
+					<property name="weather_turns"       type="uint"  address="{{global_pointer}} + 0x54238" length="4" />
 
 					<!-- futureSightTurns[battler] (u8 each) @ 0x5423C -->
-					<property name="future_sight_turns_player"  type="int"  address="{{global_pointer}} + 0x5423C" length="1" />
-					<property name="future_sight_turns_enemy"   type="int"  address="{{global_pointer}} + 0x5423D" length="1" />
-					<property name="future_sight_turns_ally"    type="int"  address="{{global_pointer}} + 0x5423E" length="1" />
-					<property name="future_sight_turns_enemy_2" type="int"  address="{{global_pointer}} + 0x5423F" length="1" />
+					<property name="future_sight_turns_player"  type="uint"  address="{{global_pointer}} + 0x5423C" length="1" />
+					<property name="future_sight_turns_enemy"   type="uint"  address="{{global_pointer}} + 0x5423D" length="1" />
+					<property name="future_sight_turns_ally"    type="uint"  address="{{global_pointer}} + 0x5423E" length="1" />
+					<property name="future_sight_turns_enemy_2" type="uint"  address="{{global_pointer}} + 0x5423F" length="1" />
 
 					<!-- wishTurns[battler] (u8 each) @ 0x54240 -->
-					<property name="wish_turns_player"   type="int"  address="{{global_pointer}} + 0x54240" length="1" />
-					<property name="wish_turns_enemy"    type="int"  address="{{global_pointer}} + 0x54241" length="1" />
-					<property name="wish_turns_ally"     type="int"  address="{{global_pointer}} + 0x54242" length="1" />
-					<property name="wish_turns_enemy_2"  type="int"  address="{{global_pointer}} + 0x54243" length="1" />
+					<property name="wish_turns_player"   type="uint"  address="{{global_pointer}} + 0x54240" length="1" />
+					<property name="wish_turns_enemy"    type="uint"  address="{{global_pointer}} + 0x54241" length="1" />
+					<property name="wish_turns_ally"     type="uint"  address="{{global_pointer}} + 0x54242" length="1" />
+					<property name="wish_turns_enemy_2"  type="uint"  address="{{global_pointer}} + 0x54243" length="1" />
 
 					<!-- futureSightMoveNo[battler] (u16 each) @ 0x54244 -->
-					<property name="future_sight_move_player"  type="int" address="{{global_pointer}} + 0x54244" length="2" reference="moves" />
-					<property name="future_sight_move_enemy"   type="int" address="{{global_pointer}} + 0x54246" length="2" reference="moves" />
-					<property name="future_sight_move_ally"    type="int" address="{{global_pointer}} + 0x54248" length="2" reference="moves" />
-					<property name="future_sight_move_enemy_2" type="int" address="{{global_pointer}} + 0x5424A" length="2" reference="moves" />
+					<property name="future_sight_move_player"  type="uint" address="{{global_pointer}} + 0x54244" length="2" reference="moves" />
+					<property name="future_sight_move_enemy"   type="uint" address="{{global_pointer}} + 0x54246" length="2" reference="moves" />
+					<property name="future_sight_move_ally"    type="uint" address="{{global_pointer}} + 0x54248" length="2" reference="moves" />
+					<property name="future_sight_move_enemy_2" type="uint" address="{{global_pointer}} + 0x5424A" length="2" reference="moves" />
 
 					<!-- battlerIdFutureSight[battler] (i32 each) @ 0x5424C -->
-					<property name="future_sight_attacker_player"  type="int" address="{{global_pointer}} + 0x5424C" length="4" />
-					<property name="future_sight_attacker_enemy"   type="int" address="{{global_pointer}} + 0x54250" length="4" />
-					<property name="future_sight_attacker_ally"    type="int" address="{{global_pointer}} + 0x54254" length="4" />
-					<property name="future_sight_attacker_enemy_2" type="int" address="{{global_pointer}} + 0x54258" length="4" />
+					<property name="future_sight_attacker_player"  type="uint" address="{{global_pointer}} + 0x5424C" length="4" />
+					<property name="future_sight_attacker_enemy"   type="uint" address="{{global_pointer}} + 0x54250" length="4" />
+					<property name="future_sight_attacker_ally"    type="uint" address="{{global_pointer}} + 0x54254" length="4" />
+					<property name="future_sight_attacker_enemy_2" type="uint" address="{{global_pointer}} + 0x54258" length="4" />
 
 					<!-- futureSightDamage[battler] (i32 each) @ 0x5425C -->
-					<property name="future_sight_damage_player"  type="int" address="{{global_pointer}} + 0x5425C" length="4" />
-					<property name="future_sight_damage_enemy"   type="int" address="{{global_pointer}} + 0x54260" length="4" />
-					<property name="future_sight_damage_ally"    type="int" address="{{global_pointer}} + 0x54264" length="4" />
-					<property name="future_sight_damage_enemy_2" type="int" address="{{global_pointer}} + 0x54268" length="4" />
+					<property name="future_sight_damage_player"  type="uint" address="{{global_pointer}} + 0x5425C" length="4" />
+					<property name="future_sight_damage_enemy"   type="uint" address="{{global_pointer}} + 0x54260" length="4" />
+					<property name="future_sight_damage_ally"    type="uint" address="{{global_pointer}} + 0x54264" length="4" />
+					<property name="future_sight_damage_enemy_2" type="uint" address="{{global_pointer}} + 0x54268" length="4" />
 
 					<!-- wishTarget[battler] (u8 each) @ 0x5426C -->
-					<property name="wish_target_player"  type="int" address="{{global_pointer}} + 0x5426C" length="1" />
-					<property name="wish_target_enemy"   type="int" address="{{global_pointer}} + 0x5426D" length="1" />
-					<property name="wish_target_ally"    type="int" address="{{global_pointer}} + 0x5426E" length="1" />
-					<property name="wish_target_enemy_2" type="int" address="{{global_pointer}} + 0x5426F" length="1" />
+					<property name="wish_target_player"  type="uint" address="{{global_pointer}} + 0x5426C" length="1" />
+					<property name="wish_target_enemy"   type="uint" address="{{global_pointer}} + 0x5426D" length="1" />
+					<property name="wish_target_ally"    type="uint" address="{{global_pointer}} + 0x5426E" length="1" />
+					<property name="wish_target_enemy_2" type="uint" address="{{global_pointer}} + 0x5426F" length="1" />
 				</field>
 
 				<!-- ============================================================ -->
@@ -831,24 +831,24 @@
 					<property name="wish"                type="bool" address="{{global_pointer}} + 0x54270" length="4" bits="5"  />
 					<property name="mist"                type="bool" address="{{global_pointer}} + 0x54270" length="4" bits="6"  />
 					<property name="stealth_rock"        type="bool" address="{{global_pointer}} + 0x54270" length="4" bits="7"  />
-					<property name="tailwind"            type="int"  address="{{global_pointer}} + 0x54270" length="4" bits="8-9" />
+					<property name="tailwind"            type="uint"  address="{{global_pointer}} + 0x54270" length="4" bits="8-9" />
 					<property name="toxic_spikes"        type="bool" address="{{global_pointer}} + 0x54270" length="4" bits="10" />
-					<property name="lucky_chant"         type="int"  address="{{global_pointer}} + 0x54270" length="4" bits="12-14" />
+					<property name="lucky_chant"         type="uint"  address="{{global_pointer}} + 0x54270" length="4" bits="12-14" />
 
 					<!-- fieldSideConditionData[0] @ 0x54278 (8 bytes) -->
-					<property name="reflect_user"        type="int"  address="{{global_pointer}} + 0x54278" length="4" bits="0-1"   />
-					<property name="reflect_turns"       type="int"  address="{{global_pointer}} + 0x54278" length="4" bits="2-4"   />
-					<property name="light_screen_user"   type="int"  address="{{global_pointer}} + 0x54278" length="4" bits="5-6"   />
-					<property name="light_screen_turns"  type="int"  address="{{global_pointer}} + 0x54278" length="4" bits="7-9"   />
-					<property name="mist_user"           type="int"  address="{{global_pointer}} + 0x54278" length="4" bits="10-11" />
-					<property name="mist_turns"          type="int"  address="{{global_pointer}} + 0x54278" length="4" bits="12-14" />
-					<property name="safeguard_user"      type="int"  address="{{global_pointer}} + 0x54278" length="4" bits="15-16" />
-					<property name="safeguard_turns"     type="int"  address="{{global_pointer}} + 0x54278" length="4" bits="17-19" />
+					<property name="reflect_user"        type="uint"  address="{{global_pointer}} + 0x54278" length="4" bits="0-1"   />
+					<property name="reflect_turns"       type="uint"  address="{{global_pointer}} + 0x54278" length="4" bits="2-4"   />
+					<property name="light_screen_user"   type="uint"  address="{{global_pointer}} + 0x54278" length="4" bits="5-6"   />
+					<property name="light_screen_turns"  type="uint"  address="{{global_pointer}} + 0x54278" length="4" bits="7-9"   />
+					<property name="mist_user"           type="uint"  address="{{global_pointer}} + 0x54278" length="4" bits="10-11" />
+					<property name="mist_turns"          type="uint"  address="{{global_pointer}} + 0x54278" length="4" bits="12-14" />
+					<property name="safeguard_user"      type="uint"  address="{{global_pointer}} + 0x54278" length="4" bits="15-16" />
+					<property name="safeguard_turns"     type="uint"  address="{{global_pointer}} + 0x54278" length="4" bits="17-19" />
 					<property name="follow_me"           type="bool" address="{{global_pointer}} + 0x54278" length="4" bits="20"    />
-					<property name="follow_me_user"      type="int"  address="{{global_pointer}} + 0x54278" length="4" bits="21-22" />
-					<property name="knocked_off_mask"    type="int"  address="{{global_pointer}} + 0x54278" length="4" bits="23-28" />
-					<property name="spikes_layers"       type="int"  address="{{global_pointer}} + 0x5427C" length="4" bits="0-1"   />
-					<property name="toxic_spikes_layers" type="int"  address="{{global_pointer}} + 0x5427C" length="4" bits="2-3"   />
+					<property name="follow_me_user"      type="uint"  address="{{global_pointer}} + 0x54278" length="4" bits="21-22" />
+					<property name="knocked_off_mask"    type="uint"  address="{{global_pointer}} + 0x54278" length="4" bits="23-28" />
+					<property name="spikes_layers"       type="uint"  address="{{global_pointer}} + 0x5427C" length="4" bits="0-1"   />
+					<property name="toxic_spikes_layers" type="uint"  address="{{global_pointer}} + 0x5427C" length="4" bits="2-3"   />
 				</player_side>
 
 				<enemy_side>
@@ -861,24 +861,24 @@
 					<property name="wish"                type="bool" address="{{global_pointer}} + 0x54274" length="4" bits="5"  />
 					<property name="mist"                type="bool" address="{{global_pointer}} + 0x54274" length="4" bits="6"  />
 					<property name="stealth_rock"        type="bool" address="{{global_pointer}} + 0x54274" length="4" bits="7"  />
-					<property name="tailwind"            type="int"  address="{{global_pointer}} + 0x54274" length="4" bits="8-9" />
+					<property name="tailwind"            type="uint"  address="{{global_pointer}} + 0x54274" length="4" bits="8-9" />
 					<property name="toxic_spikes"        type="bool" address="{{global_pointer}} + 0x54274" length="4" bits="10" />
-					<property name="lucky_chant"         type="int"  address="{{global_pointer}} + 0x54274" length="4" bits="12-14" />
+					<property name="lucky_chant"         type="uint"  address="{{global_pointer}} + 0x54274" length="4" bits="12-14" />
 
 					<!-- fieldSideConditionData[1] @ 0x54280 -->
-					<property name="reflect_user"        type="int"  address="{{global_pointer}} + 0x54280" length="4" bits="0-1"   />
-					<property name="reflect_turns"       type="int"  address="{{global_pointer}} + 0x54280" length="4" bits="2-4"   />
-					<property name="light_screen_user"   type="int"  address="{{global_pointer}} + 0x54280" length="4" bits="5-6"   />
-					<property name="light_screen_turns"  type="int"  address="{{global_pointer}} + 0x54280" length="4" bits="7-9"   />
-					<property name="mist_user"           type="int"  address="{{global_pointer}} + 0x54280" length="4" bits="10-11" />
-					<property name="mist_turns"          type="int"  address="{{global_pointer}} + 0x54280" length="4" bits="12-14" />
-					<property name="safeguard_user"      type="int"  address="{{global_pointer}} + 0x54280" length="4" bits="15-16" />
-					<property name="safeguard_turns"     type="int"  address="{{global_pointer}} + 0x54280" length="4" bits="17-19" />
+					<property name="reflect_user"        type="uint"  address="{{global_pointer}} + 0x54280" length="4" bits="0-1"   />
+					<property name="reflect_turns"       type="uint"  address="{{global_pointer}} + 0x54280" length="4" bits="2-4"   />
+					<property name="light_screen_user"   type="uint"  address="{{global_pointer}} + 0x54280" length="4" bits="5-6"   />
+					<property name="light_screen_turns"  type="uint"  address="{{global_pointer}} + 0x54280" length="4" bits="7-9"   />
+					<property name="mist_user"           type="uint"  address="{{global_pointer}} + 0x54280" length="4" bits="10-11" />
+					<property name="mist_turns"          type="uint"  address="{{global_pointer}} + 0x54280" length="4" bits="12-14" />
+					<property name="safeguard_user"      type="uint"  address="{{global_pointer}} + 0x54280" length="4" bits="15-16" />
+					<property name="safeguard_turns"     type="uint"  address="{{global_pointer}} + 0x54280" length="4" bits="17-19" />
 					<property name="follow_me"           type="bool" address="{{global_pointer}} + 0x54280" length="4" bits="20"    />
-					<property name="follow_me_user"      type="int"  address="{{global_pointer}} + 0x54280" length="4" bits="21-22" />
-					<property name="knocked_off_mask"    type="int"  address="{{global_pointer}} + 0x54280" length="4" bits="23-28" />
-					<property name="spikes_layers"       type="int"  address="{{global_pointer}} + 0x54284" length="4" bits="0-1"   />
-					<property name="toxic_spikes_layers" type="int"  address="{{global_pointer}} + 0x54284" length="4" bits="2-3"   />
+					<property name="follow_me_user"      type="uint"  address="{{global_pointer}} + 0x54280" length="4" bits="21-22" />
+					<property name="knocked_off_mask"    type="uint"  address="{{global_pointer}} + 0x54280" length="4" bits="23-28" />
+					<property name="spikes_layers"       type="uint"  address="{{global_pointer}} + 0x54284" length="4" bits="0-1"   />
+					<property name="toxic_spikes_layers" type="uint"  address="{{global_pointer}} + 0x54284" length="4" bits="2-3"   />
 				</enemy_side>
 
 				<!-- ============================================================ -->
@@ -905,13 +905,13 @@
 					<property name="pressure_announced"   type="bool" address="{{global_pointer}} + 0x56E1C" length="4" bits="10" />
 
 					<!-- BattleMon.status2 @ +0x70 = 0x56E64 -->
-					<property name="confusion_turns"      type="int"  address="{{global_pointer}} + 0x56E64" length="4" bits="0-2" />
+					<property name="confusion_turns"      type="uint"  address="{{global_pointer}} + 0x56E64" length="4" bits="0-2" />
 					<property name="flinch"               type="bool" address="{{global_pointer}} + 0x56E64" length="4" bits="3"  />
-					<property name="uproar_turns"         type="int"  address="{{global_pointer}} + 0x56E64" length="4" bits="4-6" />
-					<property name="bide_turns"           type="int"  address="{{global_pointer}} + 0x56E64" length="4" bits="8-9" />
-					<property name="rampage_turns"        type="int"  address="{{global_pointer}} + 0x56E64" length="4" bits="10-11" />
+					<property name="uproar_turns"         type="uint"  address="{{global_pointer}} + 0x56E64" length="4" bits="4-6" />
+					<property name="bide_turns"           type="uint"  address="{{global_pointer}} + 0x56E64" length="4" bits="8-9" />
+					<property name="rampage_turns"        type="uint"  address="{{global_pointer}} + 0x56E64" length="4" bits="10-11" />
 					<property name="locked_into_move"     type="bool" address="{{global_pointer}} + 0x56E64" length="4" bits="12" />
-					<property name="bind_turns"           type="int"  address="{{global_pointer}} + 0x56E64" length="4" bits="13-15" />
+					<property name="bind_turns"           type="uint"  address="{{global_pointer}} + 0x56E64" length="4" bits="13-15" />
 					<property name="focus_energy"         type="bool" address="{{global_pointer}} + 0x56E64" length="4" bits="20" />
 					<property name="transform"            type="bool" address="{{global_pointer}} + 0x56E64" length="4" bits="21" />
 					<property name="recharging"           type="bool" address="{{global_pointer}} + 0x56E64" length="4" bits="22" />
@@ -933,7 +933,7 @@
 					<property name="minimize"             type="bool" address="{{global_pointer}} + 0x56E74" length="4" bits="8"  />
 					<property name="charge"               type="bool" address="{{global_pointer}} + 0x56E74" length="4" bits="9"  />
 					<property name="ingrain"              type="bool" address="{{global_pointer}} + 0x56E74" length="4" bits="10" />
-					<property name="yawn"                 type="int"  address="{{global_pointer}} + 0x56E74" length="4" bits="11-12" />
+					<property name="yawn"                 type="uint"  address="{{global_pointer}} + 0x56E74" length="4" bits="11-12" />
 					<property name="imprison"             type="bool" address="{{global_pointer}} + 0x56E74" length="4" bits="13" />
 					<property name="grudge"               type="bool" address="{{global_pointer}} + 0x56E74" length="4" bits="14" />
 					<property name="mud_sport"            type="bool" address="{{global_pointer}} + 0x56E74" length="4" bits="16" />
@@ -949,53 +949,53 @@
 					<property name="shadow_force_invuln"  type="bool" address="{{global_pointer}} + 0x56E74" length="4" bits="29" />
 
 					<!-- BattleMon.unk88 word 0 @ +0x88 = 0x56E7C -->
-					<property name="disable_turns"        type="int"  address="{{global_pointer}} + 0x56E7C" length="4" bits="0-2"  />
-					<property name="encore_turns"         type="int"  address="{{global_pointer}} + 0x56E7C" length="4" bits="3-5"  />
-					<property name="charged_turns"        type="int"  address="{{global_pointer}} + 0x56E7C" length="4" bits="6-7"  />
-					<property name="taunt_turns"          type="int"  address="{{global_pointer}} + 0x56E7C" length="4" bits="8-10" />
-					<property name="protect_uses"         type="int"  address="{{global_pointer}} + 0x56E7C" length="4" bits="11-12" />
-					<property name="perish_song_turns"    type="int"  address="{{global_pointer}} + 0x56E7C" length="4" bits="13-14" />
-					<property name="rollout_count"        type="int"  address="{{global_pointer}} + 0x56E7C" length="4" bits="15-17" />
-					<property name="fury_cutter_count"    type="int"  address="{{global_pointer}} + 0x56E7C" length="4" bits="18-20" />
-					<property name="stockpile"            type="int"  address="{{global_pointer}} + 0x56E7C" length="4" bits="21-23" />
-					<property name="stockpile_def_boosts"   type="int" address="{{global_pointer}} + 0x56E7C" length="4" bits="24-26" />
-					<property name="stockpile_spdef_boosts" type="int" address="{{global_pointer}} + 0x56E7C" length="4" bits="27-29" />
+					<property name="disable_turns"        type="uint"  address="{{global_pointer}} + 0x56E7C" length="4" bits="0-2"  />
+					<property name="encore_turns"         type="uint"  address="{{global_pointer}} + 0x56E7C" length="4" bits="3-5"  />
+					<property name="charged_turns"        type="uint"  address="{{global_pointer}} + 0x56E7C" length="4" bits="6-7"  />
+					<property name="taunt_turns"          type="uint"  address="{{global_pointer}} + 0x56E7C" length="4" bits="8-10" />
+					<property name="protect_uses"         type="uint"  address="{{global_pointer}} + 0x56E7C" length="4" bits="11-12" />
+					<property name="perish_song_turns"    type="uint"  address="{{global_pointer}} + 0x56E7C" length="4" bits="13-14" />
+					<property name="rollout_count"        type="uint"  address="{{global_pointer}} + 0x56E7C" length="4" bits="15-17" />
+					<property name="fury_cutter_count"    type="uint"  address="{{global_pointer}} + 0x56E7C" length="4" bits="18-20" />
+					<property name="stockpile"            type="uint"  address="{{global_pointer}} + 0x56E7C" length="4" bits="21-23" />
+					<property name="stockpile_def_boosts"   type="uint" address="{{global_pointer}} + 0x56E7C" length="4" bits="24-26" />
+					<property name="stockpile_spdef_boosts" type="uint" address="{{global_pointer}} + 0x56E7C" length="4" bits="27-29" />
 					<property name="truant"               type="bool" address="{{global_pointer}} + 0x56E7C" length="4" bits="30" />
 					<property name="flash_fire"           type="bool" address="{{global_pointer}} + 0x56E7C" length="4" bits="31" />
 
 					<!-- BattleMon.unk88 word 1 @ +0x8C = 0x56E80 -->
-					<property name="lock_on_target"       type="int"  address="{{global_pointer}} + 0x56E80" length="4" bits="0-1" />
-					<property name="mimic_move_slot"      type="int"  address="{{global_pointer}} + 0x56E80" length="4" bits="2-5" />
-					<property name="bind_target"          type="int"  address="{{global_pointer}} + 0x56E80" length="4" bits="6-7" />
-					<property name="mean_look_target"     type="int"  address="{{global_pointer}} + 0x56E80" length="4" bits="8-9" />
-					<property name="last_resort_count"    type="int"  address="{{global_pointer}} + 0x56E80" length="4" bits="10-12" />
-					<property name="magnet_rise_turns"    type="int"  address="{{global_pointer}} + 0x56E80" length="4" bits="13-15" />
-					<property name="heal_block_turns"     type="int"  address="{{global_pointer}} + 0x56E80" length="4" bits="16-18" />
-					<property name="embargo_turns"        type="int"  address="{{global_pointer}} + 0x56E80" length="4" bits="19-21" />
+					<property name="lock_on_target"       type="uint"  address="{{global_pointer}} + 0x56E80" length="4" bits="0-1" />
+					<property name="mimic_move_slot"      type="uint"  address="{{global_pointer}} + 0x56E80" length="4" bits="2-5" />
+					<property name="bind_target"          type="uint"  address="{{global_pointer}} + 0x56E80" length="4" bits="6-7" />
+					<property name="mean_look_target"     type="uint"  address="{{global_pointer}} + 0x56E80" length="4" bits="8-9" />
+					<property name="last_resort_count"    type="uint"  address="{{global_pointer}} + 0x56E80" length="4" bits="10-12" />
+					<property name="magnet_rise_turns"    type="uint"  address="{{global_pointer}} + 0x56E80" length="4" bits="13-15" />
+					<property name="heal_block_turns"     type="uint"  address="{{global_pointer}} + 0x56E80" length="4" bits="16-18" />
+					<property name="embargo_turns"        type="uint"  address="{{global_pointer}} + 0x56E80" length="4" bits="19-21" />
 					<property name="knock_off_flag"       type="bool" address="{{global_pointer}} + 0x56E80" length="4" bits="22" />
-					<property name="metronome_item_turns" type="int"  address="{{global_pointer}} + 0x56E80" length="4" bits="23-26" />
+					<property name="metronome_item_turns" type="uint"  address="{{global_pointer}} + 0x56E80" length="4" bits="23-26" />
 					<property name="micle_berry"          type="bool" address="{{global_pointer}} + 0x56E80" length="4" bits="27" />
 					<property name="custap_berry"         type="bool" address="{{global_pointer}} + 0x56E80" length="4" bits="28" />
 					<property name="quick_claw_fired"     type="bool" address="{{global_pointer}} + 0x56E80" length="4" bits="29" />
 					<property name="me_first_armed"       type="bool" address="{{global_pointer}} + 0x56E80" length="4" bits="30" />
 
 					<!-- BattleMon.unk88 ints/halfs @ +0x90.. -->
-					<property name="recharge_count"       type="int"  address="{{global_pointer}} + 0x56E84" length="4" />
-					<property name="fake_out_count"       type="int"  address="{{global_pointer}} + 0x56E88" length="4" />
-					<property name="slow_start_turns"     type="int"  address="{{global_pointer}} + 0x56E8C" length="4" />
-					<property name="me_first_count"       type="int"  address="{{global_pointer}} + 0x56E90" length="4" />
-					<property name="substitute_hp"        type="int"  address="{{global_pointer}} + 0x56E94" length="4" />
+					<property name="recharge_count"       type="uint"  address="{{global_pointer}} + 0x56E84" length="4" />
+					<property name="fake_out_count"       type="uint"  address="{{global_pointer}} + 0x56E88" length="4" />
+					<property name="slow_start_turns"     type="uint"  address="{{global_pointer}} + 0x56E8C" length="4" />
+					<property name="me_first_count"       type="uint"  address="{{global_pointer}} + 0x56E90" length="4" />
+					<property name="substitute_hp"        type="uint"  address="{{global_pointer}} + 0x56E94" length="4" />
 					<property name="transform_personality" type="uint" address="{{global_pointer}} + 0x56E98" length="4" />
-					<property name="disabled_move"        type="int"  address="{{global_pointer}} + 0x56E9C" length="2" reference="moves" />
-					<property name="binding_move"         type="int"  address="{{global_pointer}} + 0x56E9E" length="2" reference="moves" />
-					<property name="encored_move"         type="int"  address="{{global_pointer}} + 0x56EA0" length="2" reference="moves" />
-					<property name="encored_move_slot"    type="int"  address="{{global_pointer}} + 0x56EA2" length="2" />
-					<property name="last_resort_move_0"   type="int"  address="{{global_pointer}} + 0x56EA4" length="2" reference="moves" />
-					<property name="last_resort_move_1"   type="int"  address="{{global_pointer}} + 0x56EA6" length="2" reference="moves" />
-					<property name="last_resort_move_2"   type="int"  address="{{global_pointer}} + 0x56EA8" length="2" reference="moves" />
-					<property name="last_resort_move_3"   type="int"  address="{{global_pointer}} + 0x56EAA" length="2" reference="moves" />
-					<property name="choice_locked_move"   type="int"  address="{{global_pointer}} + 0x56EAC" length="2" reference="moves" />
-					<property name="transform_gender"     type="int"  address="{{global_pointer}} + 0x56EAE" length="2" />
+					<property name="disabled_move"        type="uint"  address="{{global_pointer}} + 0x56E9C" length="2" reference="moves" />
+					<property name="binding_move"         type="uint"  address="{{global_pointer}} + 0x56E9E" length="2" reference="moves" />
+					<property name="encored_move"         type="uint"  address="{{global_pointer}} + 0x56EA0" length="2" reference="moves" />
+					<property name="encored_move_slot"    type="uint"  address="{{global_pointer}} + 0x56EA2" length="2" />
+					<property name="last_resort_move_0"   type="uint"  address="{{global_pointer}} + 0x56EA4" length="2" reference="moves" />
+					<property name="last_resort_move_1"   type="uint"  address="{{global_pointer}} + 0x56EA6" length="2" reference="moves" />
+					<property name="last_resort_move_2"   type="uint"  address="{{global_pointer}} + 0x56EA8" length="2" reference="moves" />
+					<property name="last_resort_move_3"   type="uint"  address="{{global_pointer}} + 0x56EAA" length="2" reference="moves" />
+					<property name="choice_locked_move"   type="uint"  address="{{global_pointer}} + 0x56EAC" length="2" reference="moves" />
+					<property name="transform_gender"     type="uint"  address="{{global_pointer}} + 0x56EAE" length="2" />
 
 					<!-- turnData[0] @ 0x54288 -->
 					<property name="struggling"           type="bool" address="{{global_pointer}} + 0x54288" length="4" bits="0"  />
@@ -1005,22 +1005,22 @@
 					<property name="magic_coat"           type="bool" address="{{global_pointer}} + 0x54288" length="4" bits="4"  />
 					<property name="snatching"            type="bool" address="{{global_pointer}} + 0x54288" length="4" bits="5"  />
 					<property name="roosting"             type="bool" address="{{global_pointer}} + 0x54288" length="4" bits="6"  />
-					<property name="fleeing"              type="int"  address="{{global_pointer}} + 0x54288" length="4" bits="7-8" />
+					<property name="fleeing"              type="uint"  address="{{global_pointer}} + 0x54288" length="4" bits="7-8" />
 					<property name="enduring"             type="bool" address="{{global_pointer}} + 0x54288" length="4" bits="9"  />
 
 					<!-- turnData[0] damage bookkeeping (for Counter / Mirror Coat / Bide / Assurance) -->
-					<property name="physical_dmg_from_player"  type="int" address="{{global_pointer}} + 0x5428C" length="4" />
-					<property name="physical_dmg_from_enemy"   type="int" address="{{global_pointer}} + 0x54290" length="4" />
-					<property name="physical_dmg_from_ally"    type="int" address="{{global_pointer}} + 0x54294" length="4" />
-					<property name="physical_dmg_from_enemy_2" type="int" address="{{global_pointer}} + 0x54298" length="4" />
-					<property name="physical_dmg_last_attacker" type="int" address="{{global_pointer}} + 0x5429C" length="4" />
-					<property name="physical_dmg_attacker_mask" type="int" address="{{global_pointer}} + 0x542A0" length="4" />
-					<property name="special_dmg_from_player"   type="int" address="{{global_pointer}} + 0x542A4" length="4" />
-					<property name="special_dmg_from_enemy"    type="int" address="{{global_pointer}} + 0x542A8" length="4" />
-					<property name="special_dmg_from_ally"     type="int" address="{{global_pointer}} + 0x542AC" length="4" />
-					<property name="special_dmg_from_enemy_2"  type="int" address="{{global_pointer}} + 0x542B0" length="4" />
-					<property name="special_dmg_last_attacker" type="int" address="{{global_pointer}} + 0x542B4" length="4" />
-					<property name="special_dmg_attacker_mask" type="int" address="{{global_pointer}} + 0x542B8" length="4" />
+					<property name="physical_dmg_from_player"  type="uint" address="{{global_pointer}} + 0x5428C" length="4" />
+					<property name="physical_dmg_from_enemy"   type="uint" address="{{global_pointer}} + 0x54290" length="4" />
+					<property name="physical_dmg_from_ally"    type="uint" address="{{global_pointer}} + 0x54294" length="4" />
+					<property name="physical_dmg_from_enemy_2" type="uint" address="{{global_pointer}} + 0x54298" length="4" />
+					<property name="physical_dmg_last_attacker" type="uint" address="{{global_pointer}} + 0x5429C" length="4" />
+					<property name="physical_dmg_attacker_mask" type="uint" address="{{global_pointer}} + 0x542A0" length="4" />
+					<property name="special_dmg_from_player"   type="uint" address="{{global_pointer}} + 0x542A4" length="4" />
+					<property name="special_dmg_from_enemy"    type="uint" address="{{global_pointer}} + 0x542A8" length="4" />
+					<property name="special_dmg_from_ally"     type="uint" address="{{global_pointer}} + 0x542AC" length="4" />
+					<property name="special_dmg_from_enemy_2"  type="uint" address="{{global_pointer}} + 0x542B0" length="4" />
+					<property name="special_dmg_last_attacker" type="uint" address="{{global_pointer}} + 0x542B4" length="4" />
+					<property name="special_dmg_attacker_mask" type="uint" address="{{global_pointer}} + 0x542B8" length="4" />
 
 					<!-- selfTurnData[0] @ 0x54388 -->
 					<property name="skip_pressure_check"  type="bool" address="{{global_pointer}} + 0x54388" length="4" bits="0" />
@@ -1029,18 +1029,18 @@
 					<property name="mold_breaker_active"  type="bool" address="{{global_pointer}} + 0x54388" length="4" bits="3" />
 					<property name="trick_room_applied"   type="bool" address="{{global_pointer}} + 0x54388" length="4" bits="4" />
 					<property name="focus_item_saved"     type="bool" address="{{global_pointer}} + 0x54388" length="4" bits="5" />
-					<property name="repeated_move_count"  type="int"  address="{{global_pointer}} + 0x54388" length="4" bits="6-8" />
+					<property name="repeated_move_count"  type="uint"  address="{{global_pointer}} + 0x54388" length="4" bits="6-8" />
 
 					<!-- selfTurnData[0] damage bookkeeping + status flags -->
-					<property name="self_physical_dmg"            type="int" address="{{global_pointer}} + 0x5438C" length="4" />
-					<property name="self_physical_attacker"       type="int" address="{{global_pointer}} + 0x54390" length="4" />
-					<property name="self_special_dmg"             type="int" address="{{global_pointer}} + 0x54394" length="4" />
-					<property name="self_special_attacker"        type="int" address="{{global_pointer}} + 0x54398" length="4" />
-					<property name="self_turn_status_flags"       type="int" address="{{global_pointer}} + 0x5439C" length="4" />
+					<property name="self_physical_dmg"            type="uint" address="{{global_pointer}} + 0x5438C" length="4" />
+					<property name="self_physical_attacker"       type="uint" address="{{global_pointer}} + 0x54390" length="4" />
+					<property name="self_special_dmg"             type="uint" address="{{global_pointer}} + 0x54394" length="4" />
+					<property name="self_special_attacker"        type="uint" address="{{global_pointer}} + 0x54398" length="4" />
+					<property name="self_turn_status_flags"       type="uint" address="{{global_pointer}} + 0x5439C" length="4" />
 					<property name="self_pluck_berry"             type="bool" address="{{global_pointer}} + 0x5439C" length="4" bits="1" />
 					<property name="self_infatuated_triggered"    type="bool" address="{{global_pointer}} + 0x5439C" length="4" bits="2" />
 					<property name="self_substitute_hit"          type="bool" address="{{global_pointer}} + 0x5439C" length="4" bits="3" />
-					<property name="shell_bell_damage"            type="int" address="{{global_pointer}} + 0x543A0" length="4" />
+					<property name="shell_bell_damage"            type="uint" address="{{global_pointer}} + 0x543A0" length="4" />
 
 					<!-- moveFail[0] @ 0x543F8 -->
 					<property name="failed_paralyzed"     type="bool" address="{{global_pointer}} + 0x543F8" length="4" bits="0" />
@@ -1072,13 +1072,13 @@
 					<property name="pressure_announced"   type="bool" address="{{global_pointer}} + 0x56EDC" length="4" bits="10" />
 
 					<!-- status2 @ 0x56F24 -->
-					<property name="confusion_turns"      type="int"  address="{{global_pointer}} + 0x56F24" length="4" bits="0-2" />
+					<property name="confusion_turns"      type="uint"  address="{{global_pointer}} + 0x56F24" length="4" bits="0-2" />
 					<property name="flinch"               type="bool" address="{{global_pointer}} + 0x56F24" length="4" bits="3"  />
-					<property name="uproar_turns"         type="int"  address="{{global_pointer}} + 0x56F24" length="4" bits="4-6" />
-					<property name="bide_turns"           type="int"  address="{{global_pointer}} + 0x56F24" length="4" bits="8-9" />
-					<property name="rampage_turns"        type="int"  address="{{global_pointer}} + 0x56F24" length="4" bits="10-11" />
+					<property name="uproar_turns"         type="uint"  address="{{global_pointer}} + 0x56F24" length="4" bits="4-6" />
+					<property name="bide_turns"           type="uint"  address="{{global_pointer}} + 0x56F24" length="4" bits="8-9" />
+					<property name="rampage_turns"        type="uint"  address="{{global_pointer}} + 0x56F24" length="4" bits="10-11" />
 					<property name="locked_into_move"     type="bool" address="{{global_pointer}} + 0x56F24" length="4" bits="12" />
-					<property name="bind_turns"           type="int"  address="{{global_pointer}} + 0x56F24" length="4" bits="13-15" />
+					<property name="bind_turns"           type="uint"  address="{{global_pointer}} + 0x56F24" length="4" bits="13-15" />
 					<property name="focus_energy"         type="bool" address="{{global_pointer}} + 0x56F24" length="4" bits="20" />
 					<property name="transform"            type="bool" address="{{global_pointer}} + 0x56F24" length="4" bits="21" />
 					<property name="recharging"           type="bool" address="{{global_pointer}} + 0x56F24" length="4" bits="22" />
@@ -1100,7 +1100,7 @@
 					<property name="minimize"             type="bool" address="{{global_pointer}} + 0x56F34" length="4" bits="8"  />
 					<property name="charge"               type="bool" address="{{global_pointer}} + 0x56F34" length="4" bits="9"  />
 					<property name="ingrain"              type="bool" address="{{global_pointer}} + 0x56F34" length="4" bits="10" />
-					<property name="yawn"                 type="int"  address="{{global_pointer}} + 0x56F34" length="4" bits="11-12" />
+					<property name="yawn"                 type="uint"  address="{{global_pointer}} + 0x56F34" length="4" bits="11-12" />
 					<property name="imprison"             type="bool" address="{{global_pointer}} + 0x56F34" length="4" bits="13" />
 					<property name="grudge"               type="bool" address="{{global_pointer}} + 0x56F34" length="4" bits="14" />
 					<property name="mud_sport"            type="bool" address="{{global_pointer}} + 0x56F34" length="4" bits="16" />
@@ -1116,53 +1116,53 @@
 					<property name="shadow_force_invuln"  type="bool" address="{{global_pointer}} + 0x56F34" length="4" bits="29" />
 
 					<!-- unk88 word 0 @ 0x56F3C -->
-					<property name="disable_turns"        type="int"  address="{{global_pointer}} + 0x56F3C" length="4" bits="0-2"  />
-					<property name="encore_turns"         type="int"  address="{{global_pointer}} + 0x56F3C" length="4" bits="3-5"  />
-					<property name="charged_turns"        type="int"  address="{{global_pointer}} + 0x56F3C" length="4" bits="6-7"  />
-					<property name="taunt_turns"          type="int"  address="{{global_pointer}} + 0x56F3C" length="4" bits="8-10" />
-					<property name="protect_uses"         type="int"  address="{{global_pointer}} + 0x56F3C" length="4" bits="11-12" />
-					<property name="perish_song_turns"    type="int"  address="{{global_pointer}} + 0x56F3C" length="4" bits="13-14" />
-					<property name="rollout_count"        type="int"  address="{{global_pointer}} + 0x56F3C" length="4" bits="15-17" />
-					<property name="fury_cutter_count"    type="int"  address="{{global_pointer}} + 0x56F3C" length="4" bits="18-20" />
-					<property name="stockpile"            type="int"  address="{{global_pointer}} + 0x56F3C" length="4" bits="21-23" />
-					<property name="stockpile_def_boosts"   type="int" address="{{global_pointer}} + 0x56F3C" length="4" bits="24-26" />
-					<property name="stockpile_spdef_boosts" type="int" address="{{global_pointer}} + 0x56F3C" length="4" bits="27-29" />
+					<property name="disable_turns"        type="uint"  address="{{global_pointer}} + 0x56F3C" length="4" bits="0-2"  />
+					<property name="encore_turns"         type="uint"  address="{{global_pointer}} + 0x56F3C" length="4" bits="3-5"  />
+					<property name="charged_turns"        type="uint"  address="{{global_pointer}} + 0x56F3C" length="4" bits="6-7"  />
+					<property name="taunt_turns"          type="uint"  address="{{global_pointer}} + 0x56F3C" length="4" bits="8-10" />
+					<property name="protect_uses"         type="uint"  address="{{global_pointer}} + 0x56F3C" length="4" bits="11-12" />
+					<property name="perish_song_turns"    type="uint"  address="{{global_pointer}} + 0x56F3C" length="4" bits="13-14" />
+					<property name="rollout_count"        type="uint"  address="{{global_pointer}} + 0x56F3C" length="4" bits="15-17" />
+					<property name="fury_cutter_count"    type="uint"  address="{{global_pointer}} + 0x56F3C" length="4" bits="18-20" />
+					<property name="stockpile"            type="uint"  address="{{global_pointer}} + 0x56F3C" length="4" bits="21-23" />
+					<property name="stockpile_def_boosts"   type="uint" address="{{global_pointer}} + 0x56F3C" length="4" bits="24-26" />
+					<property name="stockpile_spdef_boosts" type="uint" address="{{global_pointer}} + 0x56F3C" length="4" bits="27-29" />
 					<property name="truant"               type="bool" address="{{global_pointer}} + 0x56F3C" length="4" bits="30" />
 					<property name="flash_fire"           type="bool" address="{{global_pointer}} + 0x56F3C" length="4" bits="31" />
 
 					<!-- unk88 word 1 @ 0x56F40 -->
-					<property name="lock_on_target"       type="int"  address="{{global_pointer}} + 0x56F40" length="4" bits="0-1" />
-					<property name="mimic_move_slot"      type="int"  address="{{global_pointer}} + 0x56F40" length="4" bits="2-5" />
-					<property name="bind_target"          type="int"  address="{{global_pointer}} + 0x56F40" length="4" bits="6-7" />
-					<property name="mean_look_target"     type="int"  address="{{global_pointer}} + 0x56F40" length="4" bits="8-9" />
-					<property name="last_resort_count"    type="int"  address="{{global_pointer}} + 0x56F40" length="4" bits="10-12" />
-					<property name="magnet_rise_turns"    type="int"  address="{{global_pointer}} + 0x56F40" length="4" bits="13-15" />
-					<property name="heal_block_turns"     type="int"  address="{{global_pointer}} + 0x56F40" length="4" bits="16-18" />
-					<property name="embargo_turns"        type="int"  address="{{global_pointer}} + 0x56F40" length="4" bits="19-21" />
+					<property name="lock_on_target"       type="uint"  address="{{global_pointer}} + 0x56F40" length="4" bits="0-1" />
+					<property name="mimic_move_slot"      type="uint"  address="{{global_pointer}} + 0x56F40" length="4" bits="2-5" />
+					<property name="bind_target"          type="uint"  address="{{global_pointer}} + 0x56F40" length="4" bits="6-7" />
+					<property name="mean_look_target"     type="uint"  address="{{global_pointer}} + 0x56F40" length="4" bits="8-9" />
+					<property name="last_resort_count"    type="uint"  address="{{global_pointer}} + 0x56F40" length="4" bits="10-12" />
+					<property name="magnet_rise_turns"    type="uint"  address="{{global_pointer}} + 0x56F40" length="4" bits="13-15" />
+					<property name="heal_block_turns"     type="uint"  address="{{global_pointer}} + 0x56F40" length="4" bits="16-18" />
+					<property name="embargo_turns"        type="uint"  address="{{global_pointer}} + 0x56F40" length="4" bits="19-21" />
 					<property name="knock_off_flag"       type="bool" address="{{global_pointer}} + 0x56F40" length="4" bits="22" />
-					<property name="metronome_item_turns" type="int"  address="{{global_pointer}} + 0x56F40" length="4" bits="23-26" />
+					<property name="metronome_item_turns" type="uint"  address="{{global_pointer}} + 0x56F40" length="4" bits="23-26" />
 					<property name="micle_berry"          type="bool" address="{{global_pointer}} + 0x56F40" length="4" bits="27" />
 					<property name="custap_berry"         type="bool" address="{{global_pointer}} + 0x56F40" length="4" bits="28" />
 					<property name="quick_claw_fired"     type="bool" address="{{global_pointer}} + 0x56F40" length="4" bits="29" />
 					<property name="me_first_armed"       type="bool" address="{{global_pointer}} + 0x56F40" length="4" bits="30" />
 
 					<!-- unk88 ints/halfs @ 0x56F44.. -->
-					<property name="recharge_count"       type="int"  address="{{global_pointer}} + 0x56F44" length="4" />
-					<property name="fake_out_count"       type="int"  address="{{global_pointer}} + 0x56F48" length="4" />
-					<property name="slow_start_turns"     type="int"  address="{{global_pointer}} + 0x56F4C" length="4" />
-					<property name="me_first_count"       type="int"  address="{{global_pointer}} + 0x56F50" length="4" />
-					<property name="substitute_hp"        type="int"  address="{{global_pointer}} + 0x56F54" length="4" />
+					<property name="recharge_count"       type="uint"  address="{{global_pointer}} + 0x56F44" length="4" />
+					<property name="fake_out_count"       type="uint"  address="{{global_pointer}} + 0x56F48" length="4" />
+					<property name="slow_start_turns"     type="uint"  address="{{global_pointer}} + 0x56F4C" length="4" />
+					<property name="me_first_count"       type="uint"  address="{{global_pointer}} + 0x56F50" length="4" />
+					<property name="substitute_hp"        type="uint"  address="{{global_pointer}} + 0x56F54" length="4" />
 					<property name="transform_personality" type="uint" address="{{global_pointer}} + 0x56F58" length="4" />
-					<property name="disabled_move"        type="int"  address="{{global_pointer}} + 0x56F5C" length="2" reference="moves" />
-					<property name="binding_move"         type="int"  address="{{global_pointer}} + 0x56F5E" length="2" reference="moves" />
-					<property name="encored_move"         type="int"  address="{{global_pointer}} + 0x56F60" length="2" reference="moves" />
-					<property name="encored_move_slot"    type="int"  address="{{global_pointer}} + 0x56F62" length="2" />
-					<property name="last_resort_move_0"   type="int"  address="{{global_pointer}} + 0x56F64" length="2" reference="moves" />
-					<property name="last_resort_move_1"   type="int"  address="{{global_pointer}} + 0x56F66" length="2" reference="moves" />
-					<property name="last_resort_move_2"   type="int"  address="{{global_pointer}} + 0x56F68" length="2" reference="moves" />
-					<property name="last_resort_move_3"   type="int"  address="{{global_pointer}} + 0x56F6A" length="2" reference="moves" />
-					<property name="choice_locked_move"   type="int"  address="{{global_pointer}} + 0x56F6C" length="2" reference="moves" />
-					<property name="transform_gender"     type="int"  address="{{global_pointer}} + 0x56F6E" length="2" />
+					<property name="disabled_move"        type="uint"  address="{{global_pointer}} + 0x56F5C" length="2" reference="moves" />
+					<property name="binding_move"         type="uint"  address="{{global_pointer}} + 0x56F5E" length="2" reference="moves" />
+					<property name="encored_move"         type="uint"  address="{{global_pointer}} + 0x56F60" length="2" reference="moves" />
+					<property name="encored_move_slot"    type="uint"  address="{{global_pointer}} + 0x56F62" length="2" />
+					<property name="last_resort_move_0"   type="uint"  address="{{global_pointer}} + 0x56F64" length="2" reference="moves" />
+					<property name="last_resort_move_1"   type="uint"  address="{{global_pointer}} + 0x56F66" length="2" reference="moves" />
+					<property name="last_resort_move_2"   type="uint"  address="{{global_pointer}} + 0x56F68" length="2" reference="moves" />
+					<property name="last_resort_move_3"   type="uint"  address="{{global_pointer}} + 0x56F6A" length="2" reference="moves" />
+					<property name="choice_locked_move"   type="uint"  address="{{global_pointer}} + 0x56F6C" length="2" reference="moves" />
+					<property name="transform_gender"     type="uint"  address="{{global_pointer}} + 0x56F6E" length="2" />
 
 					<!-- turnData[1] @ 0x542C8 -->
 					<property name="struggling"           type="bool" address="{{global_pointer}} + 0x542C8" length="4" bits="0"  />
@@ -1172,21 +1172,21 @@
 					<property name="magic_coat"           type="bool" address="{{global_pointer}} + 0x542C8" length="4" bits="4"  />
 					<property name="snatching"            type="bool" address="{{global_pointer}} + 0x542C8" length="4" bits="5"  />
 					<property name="roosting"             type="bool" address="{{global_pointer}} + 0x542C8" length="4" bits="6"  />
-					<property name="fleeing"              type="int"  address="{{global_pointer}} + 0x542C8" length="4" bits="7-8" />
+					<property name="fleeing"              type="uint"  address="{{global_pointer}} + 0x542C8" length="4" bits="7-8" />
 					<property name="enduring"             type="bool" address="{{global_pointer}} + 0x542C8" length="4" bits="9"  />
 
-					<property name="physical_dmg_from_player"  type="int" address="{{global_pointer}} + 0x542CC" length="4" />
-					<property name="physical_dmg_from_enemy"   type="int" address="{{global_pointer}} + 0x542D0" length="4" />
-					<property name="physical_dmg_from_ally"    type="int" address="{{global_pointer}} + 0x542D4" length="4" />
-					<property name="physical_dmg_from_enemy_2" type="int" address="{{global_pointer}} + 0x542D8" length="4" />
-					<property name="physical_dmg_last_attacker" type="int" address="{{global_pointer}} + 0x542DC" length="4" />
-					<property name="physical_dmg_attacker_mask" type="int" address="{{global_pointer}} + 0x542E0" length="4" />
-					<property name="special_dmg_from_player"   type="int" address="{{global_pointer}} + 0x542E4" length="4" />
-					<property name="special_dmg_from_enemy"    type="int" address="{{global_pointer}} + 0x542E8" length="4" />
-					<property name="special_dmg_from_ally"     type="int" address="{{global_pointer}} + 0x542EC" length="4" />
-					<property name="special_dmg_from_enemy_2"  type="int" address="{{global_pointer}} + 0x542F0" length="4" />
-					<property name="special_dmg_last_attacker" type="int" address="{{global_pointer}} + 0x542F4" length="4" />
-					<property name="special_dmg_attacker_mask" type="int" address="{{global_pointer}} + 0x542F8" length="4" />
+					<property name="physical_dmg_from_player"  type="uint" address="{{global_pointer}} + 0x542CC" length="4" />
+					<property name="physical_dmg_from_enemy"   type="uint" address="{{global_pointer}} + 0x542D0" length="4" />
+					<property name="physical_dmg_from_ally"    type="uint" address="{{global_pointer}} + 0x542D4" length="4" />
+					<property name="physical_dmg_from_enemy_2" type="uint" address="{{global_pointer}} + 0x542D8" length="4" />
+					<property name="physical_dmg_last_attacker" type="uint" address="{{global_pointer}} + 0x542DC" length="4" />
+					<property name="physical_dmg_attacker_mask" type="uint" address="{{global_pointer}} + 0x542E0" length="4" />
+					<property name="special_dmg_from_player"   type="uint" address="{{global_pointer}} + 0x542E4" length="4" />
+					<property name="special_dmg_from_enemy"    type="uint" address="{{global_pointer}} + 0x542E8" length="4" />
+					<property name="special_dmg_from_ally"     type="uint" address="{{global_pointer}} + 0x542EC" length="4" />
+					<property name="special_dmg_from_enemy_2"  type="uint" address="{{global_pointer}} + 0x542F0" length="4" />
+					<property name="special_dmg_last_attacker" type="uint" address="{{global_pointer}} + 0x542F4" length="4" />
+					<property name="special_dmg_attacker_mask" type="uint" address="{{global_pointer}} + 0x542F8" length="4" />
 
 					<!-- selfTurnData[1] @ 0x543A4 -->
 					<property name="skip_pressure_check"  type="bool" address="{{global_pointer}} + 0x543A4" length="4" bits="0" />
@@ -1195,17 +1195,17 @@
 					<property name="mold_breaker_active"  type="bool" address="{{global_pointer}} + 0x543A4" length="4" bits="3" />
 					<property name="trick_room_applied"   type="bool" address="{{global_pointer}} + 0x543A4" length="4" bits="4" />
 					<property name="focus_item_saved"     type="bool" address="{{global_pointer}} + 0x543A4" length="4" bits="5" />
-					<property name="repeated_move_count"  type="int"  address="{{global_pointer}} + 0x543A4" length="4" bits="6-8" />
+					<property name="repeated_move_count"  type="uint"  address="{{global_pointer}} + 0x543A4" length="4" bits="6-8" />
 
-					<property name="self_physical_dmg"            type="int" address="{{global_pointer}} + 0x543A8" length="4" />
-					<property name="self_physical_attacker"       type="int" address="{{global_pointer}} + 0x543AC" length="4" />
-					<property name="self_special_dmg"             type="int" address="{{global_pointer}} + 0x543B0" length="4" />
-					<property name="self_special_attacker"        type="int" address="{{global_pointer}} + 0x543B4" length="4" />
-					<property name="self_turn_status_flags"       type="int" address="{{global_pointer}} + 0x543B8" length="4" />
+					<property name="self_physical_dmg"            type="uint" address="{{global_pointer}} + 0x543A8" length="4" />
+					<property name="self_physical_attacker"       type="uint" address="{{global_pointer}} + 0x543AC" length="4" />
+					<property name="self_special_dmg"             type="uint" address="{{global_pointer}} + 0x543B0" length="4" />
+					<property name="self_special_attacker"        type="uint" address="{{global_pointer}} + 0x543B4" length="4" />
+					<property name="self_turn_status_flags"       type="uint" address="{{global_pointer}} + 0x543B8" length="4" />
 					<property name="self_pluck_berry"             type="bool" address="{{global_pointer}} + 0x543B8" length="4" bits="1" />
 					<property name="self_infatuated_triggered"    type="bool" address="{{global_pointer}} + 0x543B8" length="4" bits="2" />
 					<property name="self_substitute_hit"          type="bool" address="{{global_pointer}} + 0x543B8" length="4" bits="3" />
-					<property name="shell_bell_damage"            type="int" address="{{global_pointer}} + 0x543BC" length="4" />
+					<property name="shell_bell_damage"            type="uint" address="{{global_pointer}} + 0x543BC" length="4" />
 
 					<!-- moveFail[1] @ 0x543FC -->
 					<property name="failed_paralyzed"     type="bool" address="{{global_pointer}} + 0x543FC" length="4" bits="0" />
@@ -1230,11 +1230,11 @@
 					<property name="mold_breaker_announced" type="bool" address="{{global_pointer}} + 0x56F9C" length="4" bits="9" />
 
 					<!-- status2 @ 0x56FE4 -->
-					<property name="confusion_turns"      type="int"  address="{{global_pointer}} + 0x56FE4" length="4" bits="0-2" />
+					<property name="confusion_turns"      type="uint"  address="{{global_pointer}} + 0x56FE4" length="4" bits="0-2" />
 					<property name="flinch"               type="bool" address="{{global_pointer}} + 0x56FE4" length="4" bits="3"  />
-					<property name="bide_turns"           type="int"  address="{{global_pointer}} + 0x56FE4" length="4" bits="8-9" />
-					<property name="rampage_turns"        type="int"  address="{{global_pointer}} + 0x56FE4" length="4" bits="10-11" />
-					<property name="bind_turns"           type="int"  address="{{global_pointer}} + 0x56FE4" length="4" bits="13-15" />
+					<property name="bide_turns"           type="uint"  address="{{global_pointer}} + 0x56FE4" length="4" bits="8-9" />
+					<property name="rampage_turns"        type="uint"  address="{{global_pointer}} + 0x56FE4" length="4" bits="10-11" />
+					<property name="bind_turns"           type="uint"  address="{{global_pointer}} + 0x56FE4" length="4" bits="13-15" />
 					<property name="recharging"           type="bool" address="{{global_pointer}} + 0x56FE4" length="4" bits="22" />
 					<property name="substitute"           type="bool" address="{{global_pointer}} + 0x56FE4" length="4" bits="24" />
 					<property name="curse"                type="bool" address="{{global_pointer}} + 0x56FE4" length="4" bits="28" />
@@ -1251,22 +1251,22 @@
 					<property name="magnet_rise"          type="bool" address="{{global_pointer}} + 0x56FF4" length="4" bits="27" />
 
 					<!-- unk88 word 0 @ 0x56FFC -->
-					<property name="disable_turns"        type="int"  address="{{global_pointer}} + 0x56FFC" length="4" bits="0-2"  />
-					<property name="encore_turns"         type="int"  address="{{global_pointer}} + 0x56FFC" length="4" bits="3-5"  />
-					<property name="taunt_turns"          type="int"  address="{{global_pointer}} + 0x56FFC" length="4" bits="8-10" />
-					<property name="rollout_count"        type="int"  address="{{global_pointer}} + 0x56FFC" length="4" bits="15-17" />
-					<property name="stockpile"            type="int"  address="{{global_pointer}} + 0x56FFC" length="4" bits="21-23" />
+					<property name="disable_turns"        type="uint"  address="{{global_pointer}} + 0x56FFC" length="4" bits="0-2"  />
+					<property name="encore_turns"         type="uint"  address="{{global_pointer}} + 0x56FFC" length="4" bits="3-5"  />
+					<property name="taunt_turns"          type="uint"  address="{{global_pointer}} + 0x56FFC" length="4" bits="8-10" />
+					<property name="rollout_count"        type="uint"  address="{{global_pointer}} + 0x56FFC" length="4" bits="15-17" />
+					<property name="stockpile"            type="uint"  address="{{global_pointer}} + 0x56FFC" length="4" bits="21-23" />
 
 					<!-- unk88 word 1 @ 0x57000 -->
-					<property name="metronome_item_turns" type="int"  address="{{global_pointer}} + 0x57000" length="4" bits="23-26" />
+					<property name="metronome_item_turns" type="uint"  address="{{global_pointer}} + 0x57000" length="4" bits="23-26" />
 					<property name="quick_claw_fired"     type="bool" address="{{global_pointer}} + 0x57000" length="4" bits="29" />
 
 					<!-- unk88 ints/halfs @ 0x57004.. -->
-					<property name="substitute_hp"        type="int"  address="{{global_pointer}} + 0x57014" length="4" />
-					<property name="disabled_move"        type="int"  address="{{global_pointer}} + 0x5701C" length="2" reference="moves" />
-					<property name="binding_move"         type="int"  address="{{global_pointer}} + 0x5701E" length="2" reference="moves" />
-					<property name="encored_move"         type="int"  address="{{global_pointer}} + 0x57020" length="2" reference="moves" />
-					<property name="choice_locked_move"   type="int"  address="{{global_pointer}} + 0x5702C" length="2" reference="moves" />
+					<property name="substitute_hp"        type="uint"  address="{{global_pointer}} + 0x57014" length="4" />
+					<property name="disabled_move"        type="uint"  address="{{global_pointer}} + 0x5701C" length="2" reference="moves" />
+					<property name="binding_move"         type="uint"  address="{{global_pointer}} + 0x5701E" length="2" reference="moves" />
+					<property name="encored_move"         type="uint"  address="{{global_pointer}} + 0x57020" length="2" reference="moves" />
+					<property name="choice_locked_move"   type="uint"  address="{{global_pointer}} + 0x5702C" length="2" reference="moves" />
 
 					<!-- turnData[2] @ 0x54308 -->
 					<property name="protecting"           type="bool" address="{{global_pointer}} + 0x54308" length="4" bits="2"  />
@@ -1277,9 +1277,9 @@
 
 					<!-- selfTurnData[2] @ 0x543C0 -->
 					<property name="trick_room_applied"   type="bool" address="{{global_pointer}} + 0x543C0" length="4" bits="4" />
-					<property name="repeated_move_count"  type="int"  address="{{global_pointer}} + 0x543C0" length="4" bits="6-8" />
+					<property name="repeated_move_count"  type="uint"  address="{{global_pointer}} + 0x543C0" length="4" bits="6-8" />
 					<property name="self_substitute_hit"  type="bool" address="{{global_pointer}} + 0x543D4" length="4" bits="3" />
-					<property name="shell_bell_damage"    type="int"  address="{{global_pointer}} + 0x543D8" length="4" />
+					<property name="shell_bell_damage"    type="uint"  address="{{global_pointer}} + 0x543D8" length="4" />
 
 					<!-- moveFail[2] @ 0x54400 -->
 					<property name="failed_gravity"       type="bool" address="{{global_pointer}} + 0x54400" length="4" bits="8" />
@@ -1296,11 +1296,11 @@
 					<property name="mold_breaker_announced" type="bool" address="{{global_pointer}} + 0x5705C" length="4" bits="9" />
 
 					<!-- status2 @ 0x570A4 -->
-					<property name="confusion_turns"      type="int"  address="{{global_pointer}} + 0x570A4" length="4" bits="0-2" />
+					<property name="confusion_turns"      type="uint"  address="{{global_pointer}} + 0x570A4" length="4" bits="0-2" />
 					<property name="flinch"               type="bool" address="{{global_pointer}} + 0x570A4" length="4" bits="3"  />
-					<property name="bide_turns"           type="int"  address="{{global_pointer}} + 0x570A4" length="4" bits="8-9" />
-					<property name="rampage_turns"        type="int"  address="{{global_pointer}} + 0x570A4" length="4" bits="10-11" />
-					<property name="bind_turns"           type="int"  address="{{global_pointer}} + 0x570A4" length="4" bits="13-15" />
+					<property name="bide_turns"           type="uint"  address="{{global_pointer}} + 0x570A4" length="4" bits="8-9" />
+					<property name="rampage_turns"        type="uint"  address="{{global_pointer}} + 0x570A4" length="4" bits="10-11" />
+					<property name="bind_turns"           type="uint"  address="{{global_pointer}} + 0x570A4" length="4" bits="13-15" />
 					<property name="recharging"           type="bool" address="{{global_pointer}} + 0x570A4" length="4" bits="22" />
 					<property name="substitute"           type="bool" address="{{global_pointer}} + 0x570A4" length="4" bits="24" />
 					<property name="curse"                type="bool" address="{{global_pointer}} + 0x570A4" length="4" bits="28" />
@@ -1317,22 +1317,22 @@
 					<property name="magnet_rise"          type="bool" address="{{global_pointer}} + 0x570B4" length="4" bits="27" />
 
 					<!-- unk88 word 0 @ 0x570BC -->
-					<property name="disable_turns"        type="int"  address="{{global_pointer}} + 0x570BC" length="4" bits="0-2"  />
-					<property name="encore_turns"         type="int"  address="{{global_pointer}} + 0x570BC" length="4" bits="3-5"  />
-					<property name="taunt_turns"          type="int"  address="{{global_pointer}} + 0x570BC" length="4" bits="8-10" />
-					<property name="rollout_count"        type="int"  address="{{global_pointer}} + 0x570BC" length="4" bits="15-17" />
-					<property name="stockpile"            type="int"  address="{{global_pointer}} + 0x570BC" length="4" bits="21-23" />
+					<property name="disable_turns"        type="uint"  address="{{global_pointer}} + 0x570BC" length="4" bits="0-2"  />
+					<property name="encore_turns"         type="uint"  address="{{global_pointer}} + 0x570BC" length="4" bits="3-5"  />
+					<property name="taunt_turns"          type="uint"  address="{{global_pointer}} + 0x570BC" length="4" bits="8-10" />
+					<property name="rollout_count"        type="uint"  address="{{global_pointer}} + 0x570BC" length="4" bits="15-17" />
+					<property name="stockpile"            type="uint"  address="{{global_pointer}} + 0x570BC" length="4" bits="21-23" />
 
 					<!-- unk88 word 1 @ 0x570C0 -->
-					<property name="metronome_item_turns" type="int"  address="{{global_pointer}} + 0x570C0" length="4" bits="23-26" />
+					<property name="metronome_item_turns" type="uint"  address="{{global_pointer}} + 0x570C0" length="4" bits="23-26" />
 					<property name="quick_claw_fired"     type="bool" address="{{global_pointer}} + 0x570C0" length="4" bits="29" />
 
 					<!-- unk88 ints/halfs @ 0x570C4.. -->
-					<property name="substitute_hp"        type="int"  address="{{global_pointer}} + 0x570D4" length="4" />
-					<property name="disabled_move"        type="int"  address="{{global_pointer}} + 0x570DC" length="2" reference="moves" />
-					<property name="binding_move"         type="int"  address="{{global_pointer}} + 0x570DE" length="2" reference="moves" />
-					<property name="encored_move"         type="int"  address="{{global_pointer}} + 0x570E0" length="2" reference="moves" />
-					<property name="choice_locked_move"   type="int"  address="{{global_pointer}} + 0x570EC" length="2" reference="moves" />
+					<property name="substitute_hp"        type="uint"  address="{{global_pointer}} + 0x570D4" length="4" />
+					<property name="disabled_move"        type="uint"  address="{{global_pointer}} + 0x570DC" length="2" reference="moves" />
+					<property name="binding_move"         type="uint"  address="{{global_pointer}} + 0x570DE" length="2" reference="moves" />
+					<property name="encored_move"         type="uint"  address="{{global_pointer}} + 0x570E0" length="2" reference="moves" />
+					<property name="choice_locked_move"   type="uint"  address="{{global_pointer}} + 0x570EC" length="2" reference="moves" />
 
 					<!-- turnData[3] @ 0x54348 -->
 					<property name="protecting"           type="bool" address="{{global_pointer}} + 0x54348" length="4" bits="2"  />
@@ -1343,9 +1343,9 @@
 
 					<!-- selfTurnData[3] @ 0x543DC -->
 					<property name="trick_room_applied"   type="bool" address="{{global_pointer}} + 0x543DC" length="4" bits="4" />
-					<property name="repeated_move_count"  type="int"  address="{{global_pointer}} + 0x543DC" length="4" bits="6-8" />
+					<property name="repeated_move_count"  type="uint"  address="{{global_pointer}} + 0x543DC" length="4" bits="6-8" />
 					<property name="self_substitute_hit"  type="bool" address="{{global_pointer}} + 0x543F0" length="4" bits="3" />
-					<property name="shell_bell_damage"    type="int"  address="{{global_pointer}} + 0x543F4" length="4" />
+					<property name="shell_bell_damage"    type="uint"  address="{{global_pointer}} + 0x543F4" length="4" />
 
 					<!-- moveFail[3] @ 0x54404 -->
 					<property name="failed_gravity"       type="bool" address="{{global_pointer}} + 0x54404" length="4" bits="8" />
@@ -1380,8 +1380,8 @@
 					<property name="messages_off"            type="bool" address="{{global_pointer}} + 0x561F0" length="4" bits="21" />
 					<property name="secondary_effect"        type="bool" address="{{global_pointer}} + 0x561F0" length="4" bits="22" />
 					<property name="mold_breaker"            type="bool" address="{{global_pointer}} + 0x561F0" length="4" bits="23" />
-					<property name="fainted_mask"            type="int"  address="{{global_pointer}} + 0x561F0" length="4" bits="24-27" />
-					<property name="selfdestructed_mask"     type="int"  address="{{global_pointer}} + 0x561F0" length="4" bits="28-31" />
+					<property name="fainted_mask"            type="uint"  address="{{global_pointer}} + 0x561F0" length="4" bits="24-27" />
+					<property name="selfdestructed_mask"     type="uint"  address="{{global_pointer}} + 0x561F0" length="4" bits="28-31" />
 
 					<!-- battleStatus2 @ 0x561F4 -->
 					<property name="no_exp_gained"           type="bool" address="{{global_pointer}} + 0x561F4" length="4" bits="0" />
@@ -1395,7 +1395,7 @@
 					<property name="recover_hp_visual"       type="bool" address="{{global_pointer}} + 0x561F4" length="4" bits="8" />
 					<property name="form_change"             type="bool" address="{{global_pointer}} + 0x561F4" length="4" bits="26" />
 					<property name="recalc_mon_stats"        type="bool" address="{{global_pointer}} + 0x561F4" length="4" bits="27" />
-					<property name="exp_gain_mask"           type="int"  address="{{global_pointer}} + 0x561F4" length="4" bits="28-31" />
+					<property name="exp_gain_mask"           type="uint"  address="{{global_pointer}} + 0x561F4" length="4" bits="28-31" />
 
 					<!-- moveStatusFlag @ 0x56220 -->
 					<property name="missed"                  type="bool" address="{{global_pointer}} + 0x56220" length="4" bits="0"  />
@@ -1423,12 +1423,12 @@
 				</system>
 			</flags>
             <field>
-                <property name="weather" type="int" address="{{global_pointer}} + 0x54234" length="2" reference="weather" />
-                <property name="weather_count" type="int" address="{{global_pointer}} + 0x54234 + 4" />
+                <property name="weather" type="uint" address="{{global_pointer}} + 0x54234" length="2" reference="weather" />
+                <property name="weather_count" type="uint" address="{{global_pointer}} + 0x54234 + 4" />
             </field>
 			<other>
-            	<property name="outcome_flags" type="int" address="{{global_pointer}} + 0x571D3" />
-            	<!-- <property name="to_battle_flag" type="int" address="{{global_pointer}} + 0x50bda" /> --> <!-- TODO: Need HGSS address -->
+            	<property name="outcome_flags" type="uint" address="{{global_pointer}} + 0x571D3" />
+            	<!-- <property name="to_battle_flag" type="uint" address="{{global_pointer}} + 0x50bda" /> --> <!-- TODO: Need HGSS address -->
 			</other>
 		</battle>
 		<rival>
@@ -1454,27 +1454,27 @@
 					scene       0x62cbf   0x6326f
 				-->
 				<!-- TODO: We need to locate variables to determine if the player has opened the bag, or Pokemon summary screen to dynamically assign the address-->
-				<property name="scene"   type="int" address="{{global_pointer}} + 0x664FF" />
+				<property name="scene"   type="uint" address="{{global_pointer}} + 0x664FF" />
 				<cursor>
-					<property name="flag" type="int" address="{{global_pointer}} + 0x66550" />
-					<property name="x"    type="int" address="{{global_pointer}} + 0x66552" />
-					<property name="y"    type="int" address="{{global_pointer}} + 0x66551" />
+					<property name="flag" type="uint" address="{{global_pointer}} + 0x66550" />
+					<property name="x"    type="uint" address="{{global_pointer}} + 0x66552" />
+					<property name="y"    type="uint" address="{{global_pointer}} + 0x66551" />
 				</cursor>
 			</menu>
 		</screen>
 		<game_time>
-			<property name="hours"   type="int" address="{{global_pointer}} + 0xD076" length="2" />
-			<property name="minutes" type="int" address="{{global_pointer}} + 0xD078" />
-			<property name="seconds" type="int" address="{{global_pointer}} + 0xD079" />
+			<property name="hours"   type="uint" address="{{global_pointer}} + 0xD076" length="2" />
+			<property name="minutes" type="uint" address="{{global_pointer}} + 0xD078" />
+			<property name="seconds" type="uint" address="{{global_pointer}} + 0xD079" />
 		</game_time>
 		<meta>
-			<property name="generation"     type="int" value="4" />
+			<property name="generation"     type="uint" value="4" />
 			<property name="game_name"      type="string" value="HeartGold and SoulSilver" />
 			<property name="game_type"      type="string" value="Remakes" />
 			<property name="state"          type="string" />
 			<property name="state_enemy"    type="string" />
-			<property name="global_pointer" type="int" address="0x211186C" length="4"/>
-			<property name="enemy_pointer"  type="int" address="{{global_pointer}} + 0x37970" length="4"/>
+			<property name="global_pointer" type="uint" address="0x211186C" length="4"/>
+			<property name="enemy_pointer"  type="uint" address="{{global_pointer}} + 0x37970" length="4"/>
 		</meta>
 	</properties>
 

@@ -7,23 +7,23 @@
     
     <properties>
         <player>
-            <property name="health" type="int" address="0x7E6DDC" />
-            <property name="rupees" type="int" address="0x7E7436" length="2" />
-            <property name="keys" type="int" address="0x7E7438" />
-            <property name="sword" type="int" address="0x7E743A" reference="swords" />
+            <property name="health" type="uint" address="0x7E6DDC" />
+            <property name="rupees" type="uint" address="0x7E7436" length="2" />
+            <property name="keys" type="uint" address="0x7E7438" />
+            <property name="sword" type="uint" address="0x7E743A" reference="swords" />
             <items>
                 <property name="bow" type="bool" address="0x7E743C" />
-                <property name="boomerang" type="int" address="0x7E7421" reference="boomerangs" />
-                <property name="bombs" type="int" address="0x7E7422" />
-                <property name="arrow" type="int" address="0x7E7421" reference="arrows" />
-                <property name="candle" type="int" address="0x7E7421" reference="candles" />
+                <property name="boomerang" type="uint" address="0x7E7421" reference="boomerangs" />
+                <property name="bombs" type="uint" address="0x7E7422" />
+                <property name="arrow" type="uint" address="0x7E7421" reference="arrows" />
+                <property name="candle" type="uint" address="0x7E7421" reference="candles" />
                 <property name="whistle" type="bool" address="0x7E7425" />
                 <property name="food" type="bool" address="0x7E7426" />
-                <property name="medicine" type="int" address="0x7E7427" reference="medicines" />
+                <property name="medicine" type="uint" address="0x7E7427" reference="medicines" />
                 <property name="magic_rod" type="bool" address="0x7E7428" />
                 <property name="raft" type="bool" address="0x7E7429" />
                 <property name="book_of_magic" type="bool" address="0x7E742A" />
-                <property name="ring" type="int" address="0x7E742B" reference="rings" />
+                <property name="ring" type="uint" address="0x7E742B" reference="rings" />
                 <property name="ladder" type="bool" address="0x7E742C" />
                 <property name="power_bracelet" type="bool" address="0x7E742E" />
                 <property name="old_lady_letter" type="bool" address="0x7E742F" />

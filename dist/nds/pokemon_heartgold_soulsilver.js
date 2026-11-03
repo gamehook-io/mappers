@@ -10,8 +10,8 @@ const HIDDEN_POWER_POKEMON = [
     'player.team', 'battle.player.team', 'battle.ally.team', 'battle.opponent.team', 'battle.opponent_2.team',
 ].flatMap(team => [0, 1, 2, 3, 4, 5].map(slot => `${team}.${slot}`));
 
-// 0xE51C1008 read as a signed int; the legacy mapper treated it as "no game loaded".
-const NO_GAME_POINTER = -451145720;
+// The legacy mapper treated this pointer value as "no game loaded".
+const NO_GAME_POINTER = 0xE51C1008;
 
 function getGameState(teamCount, globalPointer, activePokemonPv, teamPokemonPv, outcomeFlags, teamNickname, battleNickname) {
     if (teamCount === 0 || globalPointer === 0 || globalPointer === NO_GAME_POINTER) return 'No Pokemon';

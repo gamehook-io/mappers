@@ -7,32 +7,32 @@
 
     <macros>
         <stats>
-            <property name="mortal_status" type="int" address="{address}" />
-            <property name="character_byte" type="int" address="{address} + 1" />
-            <property name="level" type="int" address="{address} + 16" />
-            <property name="current_hp" type="int" address="{address} + 17" />
-            <property name="max_hp" type="int" address="{address} + 19" />
-            <property name="speed" type="int" address="{address} + 21" />
-            <property name="attack" type="int" address="{address} + 22" />
-            <property name="defense" type="int" address="{address} + 23" />
-            <property name="magic_attack" type="int" address="{address} + 24" />
-            <property name="magic_defense" type="int" address="{address} + 25" />
-            <property name="current_xp" type="int" address="{address} + 26" />
+            <property name="mortal_status" type="uint" address="{address}" />
+            <property name="character_byte" type="uint" address="{address} + 1" />
+            <property name="level" type="uint" address="{address} + 16" />
+            <property name="current_hp" type="uint" address="{address} + 17" />
+            <property name="max_hp" type="uint" address="{address} + 19" />
+            <property name="speed" type="uint" address="{address} + 21" />
+            <property name="attack" type="uint" address="{address} + 22" />
+            <property name="defense" type="uint" address="{address} + 23" />
+            <property name="magic_attack" type="uint" address="{address} + 24" />
+            <property name="magic_defense" type="uint" address="{address} + 25" />
+            <property name="current_xp" type="uint" address="{address} + 26" />
         </stats>
     </macros>
 
 	<properties>
 		<money>
-			<property name="coins" type="int" address="0x7FF8AF" />
-			<property name="frog_coins" type="int" address="0x7FF8B3" />
+			<property name="coins" type="uint" address="0x7FF8AF" />
+			<property name="frog_coins" type="uint" address="0x7FF8B3" />
 		</money>
 		<flowers>
-			<property name="current_fp" type="int" address="0x7FF8B1" />
-			<property name="max_fp" type="int" address="0x7FF8B2" />
+			<property name="current_fp" type="uint" address="0x7FF8B1" />
+			<property name="max_fp" type="uint" address="0x7FF8B2" />
 		</flowers>
 		<jump>
-			<property name="jump_increment_power" type="int" address="0x7FF8BD" />
-			<property name="super_jump_record" type="int" address="0x7FF8C0" />
+			<property name="jump_increment_power" type="uint" address="0x7FF8BD" />
+			<property name="super_jump_record" type="uint" address="0x7FF8C0" />
 		</jump>
 		<battle>
 			<party>

@@ -7,7 +7,7 @@
     <properties>
         <race>
             <player>
-                <property name="item" type="int" address="0x80165F5E" reference="items" />
+                <property name="item" type="uint" address="0x80165F5E" reference="items" />
             </player>
         </race>
     </properties>

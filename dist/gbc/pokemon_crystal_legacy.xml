@@ -6,20 +6,20 @@
     xmlns:var="https://schema.gamehook.io/attributes/var">
     <macros>
         <pokemon>
-            <property name="species"    type="int" address="{address}" reference="species" />
-            <property name="dex_number" type="int" address="{address}" reference="dex_numbers" />
+            <property name="species"    type="uint" address="{address}" reference="species" />
+            <property name="dex_number" type="uint" address="{address}" reference="dex_numbers" />
         </pokemon>
         <party_pokemon>
             <macro type="pokemon" />
             <property name="nickname"   type="string" address="{nicknameAddress}" length="11" />
-            <property name="level"      type="int" address="{address} + 31" />
-            <property name="exp"        type="int" address="{address} + 8" length="3" />
-            <property name="ot_id"      type="int" address="{address} + 6" length="2" />
-            <property name="held_item"  type="int" address="{address} + 1" reference="items" />
-            <property name="friendship" type="int" address="{address} + 27" />
+            <property name="level"      type="uint" address="{address} + 31" />
+            <property name="exp"        type="uint" address="{address} + 8" length="3" />
+            <property name="ot_id"      type="uint" address="{address} + 6" length="2" />
+            <property name="held_item"  type="uint" address="{address} + 1" reference="items" />
+            <property name="friendship" type="uint" address="{address} + 27" />
             <property name="shiny"      type="bool" description="Calculated from the IVs; not actually stored in memory" />
-            <property name="pokerus"    type="int" address="{address} + 28" />
-            <property name="status_condition" type="int" address="{address} + 32" reference="status_conditions" />
+            <property name="pokerus"    type="uint" address="{address} + 28" />
+            <property name="status_condition" type="uint" address="{address} + 32" reference="status_conditions" />
             <moves>
                 <macro name="0" type="party_move" var:moveAddress="{address} + 2" />
                 <macro name="1" type="party_move" var:moveAddress="{address} + 3" />
@@ -27,43 +27,43 @@
                 <macro name="3" type="party_move" var:moveAddress="{address} + 5" />
             </moves>
             <stats>
-                <property name="hp"              type="int" address="{address} + 34" length="2" />
-                <property name="hp_max"          type="int" address="{address} + 36" length="2" />
-                <property name="attack"          type="int" address="{address} + 38" length="2" />
-                <property name="defense"         type="int" address="{address} + 40" length="2" />
-                <property name="speed"           type="int" address="{address} + 42" length="2" />
-                <property name="special_attack"  type="int" address="{address} + 44" length="2" />
-                <property name="special_defense" type="int" address="{address} + 46" length="2" />
+                <property name="hp"              type="uint" address="{address} + 34" length="2" />
+                <property name="hp_max"          type="uint" address="{address} + 36" length="2" />
+                <property name="attack"          type="uint" address="{address} + 38" length="2" />
+                <property name="defense"         type="uint" address="{address} + 40" length="2" />
+                <property name="speed"           type="uint" address="{address} + 42" length="2" />
+                <property name="special_attack"  type="uint" address="{address} + 44" length="2" />
+                <property name="special_defense" type="uint" address="{address} + 46" length="2" />
             </stats>
             <ivs>
-                <property name="hp"      type="int"    description="Calculated from the IVs; not actually stored in memory" />
-                <property name="attack"  type="int" address="{address} + 21" bits="4-7" />
-                <property name="defense" type="int" address="{address} + 21" bits="0-3" />
-                <property name="speed"   type="int" address="{address} + 22" bits="4-7" />
-                <property name="special" type="int" address="{address} + 22" bits="0-3" />
+                <property name="hp"      type="uint"    description="Calculated from the IVs; not actually stored in memory" />
+                <property name="attack"  type="uint" address="{address} + 21" bits="4-7" />
+                <property name="defense" type="uint" address="{address} + 21" bits="0-3" />
+                <property name="speed"   type="uint" address="{address} + 22" bits="4-7" />
+                <property name="special" type="uint" address="{address} + 22" bits="0-3" />
             </ivs>
             <evs>
-                <property name="hp"      type="int" address="{address} + 11" length="2" />
-                <property name="attack"  type="int" address="{address} + 13" length="2" />
-                <property name="defense" type="int" address="{address} + 15" length="2" />
-                <property name="speed"   type="int" address="{address} + 17" length="2" />
-                <property name="special" type="int" address="{address} + 19" length="2" />
+                <property name="hp"      type="uint" address="{address} + 11" length="2" />
+                <property name="attack"  type="uint" address="{address} + 13" length="2" />
+                <property name="defense" type="uint" address="{address} + 15" length="2" />
+                <property name="speed"   type="uint" address="{address} + 17" length="2" />
+                <property name="special" type="uint" address="{address} + 19" length="2" />
             </evs>
             <hidden_power>
-                <property name="type"  type="int" reference="types" description="Calculated from the IVs; not actually stored in memory" />
-                <property name="power" type="int" description="Calculated from the IVs; not actually stored in memory" />
+                <property name="type"  type="uint" reference="types" description="Calculated from the IVs; not actually stored in memory" />
+                <property name="power" type="uint" description="Calculated from the IVs; not actually stored in memory" />
             </hidden_power>
         </party_pokemon>
         <player_active_pokemon>
             <property name="species"    type="string" />
-            <property name="dex_number" type="int" />
+            <property name="dex_number" type="uint" />
             <property name="nickname"   type="string" />
-            <property name="level"      type="int" />
-            <property name="exp"        type="int" />
+            <property name="level"      type="uint" />
+            <property name="exp"        type="uint" />
             <property name="type_1"     type="string"  />
             <property name="type_2"     type="string"  />
-            <property name="ot_id"      type="int" />
-            <property name="catch_rate" type="int" />
+            <property name="ot_id"      type="uint" />
+            <property name="catch_rate" type="uint" />
             <property name="status_condition" type="string" />
             <moves>
                 <macro name="0" type="active_pokemon_move" />
@@ -72,118 +72,118 @@
                 <macro name="3" type="active_pokemon_move" />
             </moves>
             <stats>
-                <property name="hp"              type="int" />
-                <property name="hp_max"          type="int" />
-                <property name="attack"          type="int" />
-                <property name="defense"         type="int" />
-                <property name="speed"           type="int" />
-                <property name="special_attack"  type="int" />
-                <property name="special_defense" type="int" />
+                <property name="hp"              type="uint" />
+                <property name="hp_max"          type="uint" />
+                <property name="attack"          type="uint" />
+                <property name="defense"         type="uint" />
+                <property name="speed"           type="uint" />
+                <property name="special_attack"  type="uint" />
+                <property name="special_defense" type="uint" />
             </stats>
             <ivs>
-                <property name="hp"      type="int" />
-                <property name="attack"  type="int" />
-                <property name="defense" type="int" />
-                <property name="speed"   type="int" />
-                <property name="special" type="int" />
+                <property name="hp"      type="uint" />
+                <property name="attack"  type="uint" />
+                <property name="defense" type="uint" />
+                <property name="speed"   type="uint" />
+                <property name="special" type="uint" />
             </ivs>
             <evs>
-                <property name="hp"      type="int" />
-                <property name="attack"  type="int" />
-                <property name="defense" type="int" />
-                <property name="speed"   type="int" />
-                <property name="special" type="int" />
+                <property name="hp"      type="uint" />
+                <property name="attack"  type="uint" />
+                <property name="defense" type="uint" />
+                <property name="speed"   type="uint" />
+                <property name="special" type="uint" />
             </evs>
             <modifiers>
-                <property name="attack"          type="int" /> 
-                <property name="defense"         type="int" /> 
-                <property name="speed"           type="int" /> 
-                <property name="special_attack"  type="int" />
-                <property name="special_defense" type="int" />
-                <property name="accuracy"        type="int" /> 
-                <property name="evasion"         type="int" /> 
+                <property name="attack"          type="uint" /> 
+                <property name="defense"         type="uint" /> 
+                <property name="speed"           type="uint" /> 
+                <property name="special_attack"  type="uint" />
+                <property name="special_defense" type="uint" />
+                <property name="accuracy"        type="uint" /> 
+                <property name="evasion"         type="uint" /> 
             </modifiers>
             <volatile_status_conditions>
-                <property name="confused"   type="int" />
-                <property name="toxic"      type="int" />
-                <property name="leech_seed" type="int" />
-                <property name="curse"      type="int" />
-                <property name="in_love"    type="int" />
-                <property name="nightmare"  type="int" />
+                <property name="confused"   type="uint" />
+                <property name="toxic"      type="uint" />
+                <property name="leech_seed" type="uint" />
+                <property name="curse"      type="uint" />
+                <property name="in_love"    type="uint" />
+                <property name="nightmare"  type="uint" />
             </volatile_status_conditions>
             <effects>
-                <property name="protect"         type="int" />
-                <property name="identified"      type="int" />
-                <property name="perish"          type="int" />
-                <property name="endure"          type="int" />
-                <property name="rollout"         type="int" />
-                <property name="curled"          type="int" />
-                <property name="bide"            type="int" />
-                <property name="rampage"         type="int" />
-                <property name="in_loop"         type="int" />
-                <property name="flinched"        type="int" />
-                <property name="charged"         type="int" />
-                <property name="underground"     type="int" />
-                <property name="flying"          type="int" />
-                <property name="bypass_accuracy" type="int" />
-                <property name="mist"            type="int" />
-                <property name="focus_energy"    type="int" />
-                <property name="substitute"      type="int" />
-                <property name="recharge"        type="int" />
-                <property name="rage"            type="int" />
-                <property name="transformed"     type="int" />
-                <property name="encored"         type="int" />
-                <property name="lock_on"         type="int" />
-                <property name="destiny_bond"    type="int" />
-                <property name="cant_run"        type="int" />
+                <property name="protect"         type="uint" />
+                <property name="identified"      type="uint" />
+                <property name="perish"          type="uint" />
+                <property name="endure"          type="uint" />
+                <property name="rollout"         type="uint" />
+                <property name="curled"          type="uint" />
+                <property name="bide"            type="uint" />
+                <property name="rampage"         type="uint" />
+                <property name="in_loop"         type="uint" />
+                <property name="flinched"        type="uint" />
+                <property name="charged"         type="uint" />
+                <property name="underground"     type="uint" />
+                <property name="flying"          type="uint" />
+                <property name="bypass_accuracy" type="uint" />
+                <property name="mist"            type="uint" />
+                <property name="focus_energy"    type="uint" />
+                <property name="substitute"      type="uint" />
+                <property name="recharge"        type="uint" />
+                <property name="rage"            type="uint" />
+                <property name="transformed"     type="uint" />
+                <property name="encored"         type="uint" />
+                <property name="lock_on"         type="uint" />
+                <property name="destiny_bond"    type="uint" />
+                <property name="cant_run"        type="uint" />
             </effects>
             <counters>
-                <property name="rollout"     type="int" />
-                <property name="confuse"     type="int" />
-                <property name="toxic"       type="int" />
-                <property name="disable"     type="int" />
-                <property name="encore"      type="int" />
-                <property name="perish"      type="int" />
-                <property name="fury_cutter" type="int" />
-                <property name="protect"     type="int" />
+                <property name="rollout"     type="uint" />
+                <property name="confuse"     type="uint" />
+                <property name="toxic"       type="uint" />
+                <property name="disable"     type="uint" />
+                <property name="encore"      type="uint" />
+                <property name="perish"      type="uint" />
+                <property name="fury_cutter" type="uint" />
+                <property name="protect"     type="uint" />
             </counters>
         </player_active_pokemon>
 
         <active_pokemon_move>
-            <property name="move"  type="int" />
-            <property name="pp"    type="int" />
-            <property name="pp_up" type="int" />
+            <property name="move"  type="uint" />
+            <property name="pp"    type="uint" />
+            <property name="pp_up" type="uint" />
         </active_pokemon_move>
 
         <party_move>
-            <property name="move"  type="int" address="{moveAddress}" reference="moves" />
-            <property name="pp"    type="int" address="{moveAddress} + 21" after-read-value-expression="x % 64" />
-            <property name="pp_up" type="int" address="{moveAddress} + 21" after-read-value-expression="Math.floor(x / 64)" />
+            <property name="move"  type="uint" address="{moveAddress}" reference="moves" />
+            <property name="pp"    type="uint" address="{moveAddress} + 21" after-read-value-expression="x % 64" />
+            <property name="pp_up" type="uint" address="{moveAddress} + 21" after-read-value-expression="Math.floor(x / 64)" />
         </party_move>
 
         <battle_moves>
-            <property name="move"  type="int" address="{moveAddress}" reference="moves" />
-            <property name="pp"    type="int" address="{moveAddress} + 6" after-read-value-expression="x % 64" />
-            <property name="pp_up" type="int" address="{moveAddress} + 6" after-read-value-expression="Math.floor(x / 64)" before-write-value-expression="x + 64"/>
+            <property name="move"  type="uint" address="{moveAddress}" reference="moves" />
+            <property name="pp"    type="uint" address="{moveAddress} + 6" after-read-value-expression="x % 64" />
+            <property name="pp_up" type="uint" address="{moveAddress} + 6" after-read-value-expression="Math.floor(x / 64)" before-write-value-expression="x + 64"/>
         </battle_moves>
 
         <player_item>
-            <property name="item"     type="int" address="{address}" reference="items" />
-            <property name="quantity" type="int" address="{address} + 1"  />
+            <property name="item"     type="uint" address="{address}" reference="items" />
+            <property name="quantity" type="uint" address="{address} + 1"  />
         </player_item>
 
         <roamer>
             <macro type="pokemon" />
-            <property name="level"     type="int" address="{address} + 1" length="1" />
-            <property name="map_name"  type="int" address="{address} + 2" length="2" reference="maps" />
-            <property name="map_group" type="int" address="{address} + 2" length="1" reference="map_groups" />
-            <property name="map_index" type="int" address="{address} + 3" length="1" />
-            <property name="hp"        type="int" address="{address} + 4" length="1" />
+            <property name="level"     type="uint" address="{address} + 1" length="1" />
+            <property name="map_name"  type="uint" address="{address} + 2" length="2" reference="maps" />
+            <property name="map_group" type="uint" address="{address} + 2" length="1" reference="map_groups" />
+            <property name="map_index" type="uint" address="{address} + 3" length="1" />
+            <property name="hp"        type="uint" address="{address} + 4" length="1" />
             <ivs>
-                <property name="attack"  type="int" address="{address} + 5" bits="4-7" />
-                <property name="defense" type="int" address="{address} + 5" bits="0-3" />
-                <property name="speed"   type="int" address="{address} + 6" bits="4-7" />
-                <property name="special" type="int" address="{address} + 6" bits="0-3" />
+                <property name="attack"  type="uint" address="{address} + 5" bits="4-7" />
+                <property name="defense" type="uint" address="{address} + 5" bits="0-3" />
+                <property name="speed"   type="uint" address="{address} + 6" bits="4-7" />
+                <property name="special" type="uint" address="{address} + 6" bits="0-3" />
             </ivs>
         </roamer>
     </macros>
@@ -191,11 +191,11 @@
     <properties>
         <player>
             <property name="name"   type="string" address="0xd488" length="11" />
-            <property name="gender" type="int" address="0xd47d" reference="gender" />
-            <property name="player_id"  type="int" address="0xd486 " length="2" description="The active player ID" />
-            <property name="hall_of_fame_count" type="int" address="0xd969" />
-            <property name="team_count" type="int" address="0xdce2" />
-            <property name="party_position" type="int" />
+            <property name="gender" type="uint" address="0xd47d" reference="gender" />
+            <property name="player_id"  type="uint" address="0xd486 " length="2" description="The active player ID" />
+            <property name="hall_of_fame_count" type="uint" address="0xd969" />
+            <property name="team_count" type="uint" address="0xdce2" />
+            <property name="party_position" type="uint" />
             <macro name="active_pokemon" type="player_active_pokemon" />
             <team>
                 <macro name="0" type="party_pokemon" var:address="0xdcea" var:nicknameAddress="0xde4c" />
@@ -233,11 +233,11 @@
         </player>
 
         <bag>
-            <property name="money"      type="int" address="0xd859" length="3" />
-            <property name="mom_money"  type="int" address="0xd85c" length="3" />
+            <property name="money"      type="uint" address="0xd859" length="3" />
+            <property name="mom_money"  type="uint" address="0xd85c" length="3" />
             <property name="mom_saving" type="bool" address="0xd85f" bits="0" /> 
-            <property name="coins"      type="int" address="0xd860" length="2" />
-            <property name="item_count" type="int" address="0xd89d" />
+            <property name="coins"      type="uint" address="0xd860" length="2" />
+            <property name="item_count" type="uint" address="0xd89d" />
             <items>
                 <macro name="0"  type="player_item" var:address="0xd89e + 0" />
                 <macro name="1"  type="player_item" var:address="0xd89e + 2" />
@@ -261,7 +261,7 @@
                 <macro name="19" type="player_item" var:address="0xd89e + 38" />
                 <macro name="20" type="player_item" var:address="0xd89e + 40" />
             </items>
-            <property name="ball_count" type="int" address="0xd9cc" />
+            <property name="ball_count" type="uint" address="0xd9cc" />
             <balls>
                 <macro name="0"  type="player_item" var:address="0xd9cd + 0" />
                 <macro name="1"  type="player_item" var:address="0xd9cd + 2" />
@@ -276,86 +276,86 @@
                 <macro name="10" type="player_item" var:address="0xd9cd + 20" />
                 <macro name="11" type="player_item" var:address="0xd9cd + 22" />
             </balls>
-            <property name="key_count" type="int" address="0xd947" />
+            <property name="key_count" type="uint" address="0xd947" />
             <key_items>
-                <property name="0"  type="int" address="0xd948 + 0" reference="items" />
-                <property name="1"  type="int" address="0xd948 + 1" reference="items" />
-                <property name="2"  type="int" address="0xd948 + 2" reference="items" />
-                <property name="3"  type="int" address="0xd948 + 3" reference="items" />
-                <property name="4"  type="int" address="0xd948 + 4" reference="items" />
-                <property name="5"  type="int" address="0xd948 + 5" reference="items" />
-                <property name="6"  type="int" address="0xd948 + 6" reference="items" />
-                <property name="7"  type="int" address="0xd948 + 7" reference="items" />
-                <property name="8"  type="int" address="0xd948 + 8" reference="items" />
-                <property name="9"  type="int" address="0xd948 + 9" reference="items" />
-                <property name="10" type="int" address="0xd948 + 10" reference="items" />
-                <property name="11" type="int" address="0xd948 + 11" reference="items" />
-                <property name="12" type="int" address="0xd948 + 12" reference="items" />
-                <property name="13" type="int" address="0xd948 + 13" reference="items" />
-                <property name="14" type="int" address="0xd948 + 14" reference="items" />
-                <property name="15" type="int" address="0xd948 + 15" reference="items" />
-                <property name="16" type="int" address="0xd948 + 16" reference="items" />
-                <property name="17" type="int" address="0xd948 + 17" reference="items" />
-                <property name="18" type="int" address="0xd948 + 18" reference="items" />
-                <property name="19" type="int" address="0xd948 + 19" reference="items" />
-                <property name="20" type="int" address="0xd948 + 20" reference="items" />
-                <property name="21" type="int" address="0xd948 + 21" reference="items" />
-                <property name="22" type="int" address="0xd948 + 22" reference="items" />
-                <property name="23" type="int" address="0xd948 + 23" reference="items" />
-                <property name="24" type="int" address="0xd948 + 24" reference="items" />
-                <property name="25" type="int" address="0xd948 + 25" reference="items" />
+                <property name="0"  type="uint" address="0xd948 + 0" reference="items" />
+                <property name="1"  type="uint" address="0xd948 + 1" reference="items" />
+                <property name="2"  type="uint" address="0xd948 + 2" reference="items" />
+                <property name="3"  type="uint" address="0xd948 + 3" reference="items" />
+                <property name="4"  type="uint" address="0xd948 + 4" reference="items" />
+                <property name="5"  type="uint" address="0xd948 + 5" reference="items" />
+                <property name="6"  type="uint" address="0xd948 + 6" reference="items" />
+                <property name="7"  type="uint" address="0xd948 + 7" reference="items" />
+                <property name="8"  type="uint" address="0xd948 + 8" reference="items" />
+                <property name="9"  type="uint" address="0xd948 + 9" reference="items" />
+                <property name="10" type="uint" address="0xd948 + 10" reference="items" />
+                <property name="11" type="uint" address="0xd948 + 11" reference="items" />
+                <property name="12" type="uint" address="0xd948 + 12" reference="items" />
+                <property name="13" type="uint" address="0xd948 + 13" reference="items" />
+                <property name="14" type="uint" address="0xd948 + 14" reference="items" />
+                <property name="15" type="uint" address="0xd948 + 15" reference="items" />
+                <property name="16" type="uint" address="0xd948 + 16" reference="items" />
+                <property name="17" type="uint" address="0xd948 + 17" reference="items" />
+                <property name="18" type="uint" address="0xd948 + 18" reference="items" />
+                <property name="19" type="uint" address="0xd948 + 19" reference="items" />
+                <property name="20" type="uint" address="0xd948 + 20" reference="items" />
+                <property name="21" type="uint" address="0xd948 + 21" reference="items" />
+                <property name="22" type="uint" address="0xd948 + 22" reference="items" />
+                <property name="23" type="uint" address="0xd948 + 23" reference="items" />
+                <property name="24" type="uint" address="0xd948 + 24" reference="items" />
+                <property name="25" type="uint" address="0xd948 + 25" reference="items" />
             </key_items>
             <tms>
-                <property name="TM01-DynamicPunch" type="int" address="0xd859 + 0" />
-                <property name="TM02-Headbutt"     type="int" address="0xd859 + 1" />
-                <property name="TM03-Curse"        type="int" address="0xd859 + 2" />
-                <property name="TM04-Rollout"      type="int" address="0xd859 + 3" />
-                <property name="TM05-Roar"         type="int" address="0xd859 + 4" />
-                <property name="TM06-Toxic"        type="int" address="0xd859 + 5" />
-                <property name="TM07-Zap Cannon"   type="int" address="0xd859 + 6" />
-                <property name="TM08-Rock Smash"   type="int" address="0xd859 + 7" />
-                <property name="TM09-Psych Up"     type="int" address="0xd859 + 8" />
-                <property name="TM10-Hidden Power" type="int" address="0xd859 + 9" />
-                <property name="TM11-Sunny Day"    type="int" address="0xd859 + 10" />
-                <property name="TM12-Sweet Scent"  type="int" address="0xd859 + 11" />
-                <property name="TM13-Snore"        type="int" address="0xd859 + 12" />
-                <property name="TM14-Blizzard"     type="int" address="0xd859 + 13" />
-                <property name="TM15-Hyperbeam"    type="int" address="0xd859 + 14" />
-                <property name="TM16-Icy Wind"     type="int" address="0xd859 + 15" />
-                <property name="TM17-Protect"      type="int" address="0xd859 + 16" />
-                <property name="TM18-Rain Dance"   type="int" address="0xd859 + 17" />
-                <property name="TM19-Giga Drain"   type="int" address="0xd859 + 18" />
-                <property name="TM20-Endure"       type="int" address="0xd859 + 19" />
-                <property name="TM21-Frustration"  type="int" address="0xd859 + 20" />
-                <property name="TM22-SolarBeam"    type="int" address="0xd859 + 21" />
-                <property name="TM23-Iron Tail"    type="int" address="0xd859 + 22" />
-                <property name="TM24-DragonBreath" type="int" address="0xd859 + 23" />
-                <property name="TM25-Thunder"      type="int" address="0xd859 + 24" />
-                <property name="TM26-Earthquake"   type="int" address="0xd859 + 25" />
-                <property name="TM27-Return"       type="int" address="0xd859 + 26" />
-                <property name="TM28-Dig"          type="int" address="0xd859 + 27" />
-                <property name="TM29-Psychic"      type="int" address="0xd859 + 28" />
-                <property name="TM30-Shadow Ball"  type="int" address="0xd859 + 29" />
-                <property name="TM31-Mud-Slap"     type="int" address="0xd859 + 30" />
-                <property name="TM32-Double Team"  type="int" address="0xd859 + 31" />
-                <property name="TM33-Ice Punch"    type="int" address="0xd859 + 32" />
-                <property name="TM34-Swagger"      type="int" address="0xd859 + 33" />
-                <property name="TM35-Sleep Talk"   type="int" address="0xd859 + 34" />
-                <property name="TM36-Sludge Bomb"  type="int" address="0xd859 + 35" />
-                <property name="TM37-Sandstorm"    type="int" address="0xd859 + 36" />
-                <property name="TM38-Fireblast"    type="int" address="0xd859 + 37" />
-                <property name="TM39-Swift"        type="int" address="0xd859 + 38" />
-                <property name="TM40-Defense Curl" type="int" address="0xd859 + 39" />
-                <property name="TM41-ThunderPunch" type="int" address="0xd859 + 40" />
-                <property name="TM42-Dream Eater"  type="int" address="0xd859 + 41" />
-                <property name="TM43-Detect"       type="int" address="0xd859 + 42" />
-                <property name="TM44-Rest"         type="int" address="0xd859 + 43" />
-                <property name="TM45-Attract"      type="int" address="0xd859 + 44" />
-                <property name="TM46-Thief"        type="int" address="0xd859 + 45" />
-                <property name="TM47-Steel Wing"   type="int" address="0xd859 + 46" />
-                <property name="TM48-Fire Punch"   type="int" address="0xd859 + 47" />
-                <property name="TM49-Fury Cutter"  type="int" address="0xd859 + 48" />
-                <property name="TM50-Nightmare"    type="int" address="0xd859 + 49" />
+                <property name="TM01-DynamicPunch" type="uint" address="0xd859 + 0" />
+                <property name="TM02-Headbutt"     type="uint" address="0xd859 + 1" />
+                <property name="TM03-Curse"        type="uint" address="0xd859 + 2" />
+                <property name="TM04-Rollout"      type="uint" address="0xd859 + 3" />
+                <property name="TM05-Roar"         type="uint" address="0xd859 + 4" />
+                <property name="TM06-Toxic"        type="uint" address="0xd859 + 5" />
+                <property name="TM07-Zap Cannon"   type="uint" address="0xd859 + 6" />
+                <property name="TM08-Rock Smash"   type="uint" address="0xd859 + 7" />
+                <property name="TM09-Psych Up"     type="uint" address="0xd859 + 8" />
+                <property name="TM10-Hidden Power" type="uint" address="0xd859 + 9" />
+                <property name="TM11-Sunny Day"    type="uint" address="0xd859 + 10" />
+                <property name="TM12-Sweet Scent"  type="uint" address="0xd859 + 11" />
+                <property name="TM13-Snore"        type="uint" address="0xd859 + 12" />
+                <property name="TM14-Blizzard"     type="uint" address="0xd859 + 13" />
+                <property name="TM15-Hyperbeam"    type="uint" address="0xd859 + 14" />
+                <property name="TM16-Icy Wind"     type="uint" address="0xd859 + 15" />
+                <property name="TM17-Protect"      type="uint" address="0xd859 + 16" />
+                <property name="TM18-Rain Dance"   type="uint" address="0xd859 + 17" />
+                <property name="TM19-Giga Drain"   type="uint" address="0xd859 + 18" />
+                <property name="TM20-Endure"       type="uint" address="0xd859 + 19" />
+                <property name="TM21-Frustration"  type="uint" address="0xd859 + 20" />
+                <property name="TM22-SolarBeam"    type="uint" address="0xd859 + 21" />
+                <property name="TM23-Iron Tail"    type="uint" address="0xd859 + 22" />
+                <property name="TM24-DragonBreath" type="uint" address="0xd859 + 23" />
+                <property name="TM25-Thunder"      type="uint" address="0xd859 + 24" />
+                <property name="TM26-Earthquake"   type="uint" address="0xd859 + 25" />
+                <property name="TM27-Return"       type="uint" address="0xd859 + 26" />
+                <property name="TM28-Dig"          type="uint" address="0xd859 + 27" />
+                <property name="TM29-Psychic"      type="uint" address="0xd859 + 28" />
+                <property name="TM30-Shadow Ball"  type="uint" address="0xd859 + 29" />
+                <property name="TM31-Mud-Slap"     type="uint" address="0xd859 + 30" />
+                <property name="TM32-Double Team"  type="uint" address="0xd859 + 31" />
+                <property name="TM33-Ice Punch"    type="uint" address="0xd859 + 32" />
+                <property name="TM34-Swagger"      type="uint" address="0xd859 + 33" />
+                <property name="TM35-Sleep Talk"   type="uint" address="0xd859 + 34" />
+                <property name="TM36-Sludge Bomb"  type="uint" address="0xd859 + 35" />
+                <property name="TM37-Sandstorm"    type="uint" address="0xd859 + 36" />
+                <property name="TM38-Fireblast"    type="uint" address="0xd859 + 37" />
+                <property name="TM39-Swift"        type="uint" address="0xd859 + 38" />
+                <property name="TM40-Defense Curl" type="uint" address="0xd859 + 39" />
+                <property name="TM41-ThunderPunch" type="uint" address="0xd859 + 40" />
+                <property name="TM42-Dream Eater"  type="uint" address="0xd859 + 41" />
+                <property name="TM43-Detect"       type="uint" address="0xd859 + 42" />
+                <property name="TM44-Rest"         type="uint" address="0xd859 + 43" />
+                <property name="TM45-Attract"      type="uint" address="0xd859 + 44" />
+                <property name="TM46-Thief"        type="uint" address="0xd859 + 45" />
+                <property name="TM47-Steel Wing"   type="uint" address="0xd859 + 46" />
+                <property name="TM48-Fire Punch"   type="uint" address="0xd859 + 47" />
+                <property name="TM49-Fury Cutter"  type="uint" address="0xd859 + 48" />
+                <property name="TM50-Nightmare"    type="uint" address="0xd859 + 49" />
             </tms>
             <hms>
                 <property name="HM01" type="bool" address="0xd859 + 50" bits="1" />
@@ -369,21 +369,21 @@
         </bag>
 
         <overworld>
-            <property name="map_name"  type="int" address="0xdcc0" length="2" reference="maps" />
-            <property name="map_group" type="int" address="0xdcc0" reference="map_groups" />
-            <property name="map_index" type="int" address="0xdcc1" />
-            <property name="y" type="int" address="0xdcc2" />
-            <property name="x" type="int" address="0xdcc3" />
-            <property name="movement_state" type="int" address="0xd968" reference="movement_states" />
+            <property name="map_name"  type="uint" address="0xdcc0" length="2" reference="maps" />
+            <property name="map_group" type="uint" address="0xdcc0" reference="map_groups" />
+            <property name="map_index" type="uint" address="0xdcc1" />
+            <property name="y" type="uint" address="0xdcc2" />
+            <property name="x" type="uint" address="0xdcc3" />
+            <property name="movement_state" type="uint" address="0xd968" reference="movement_states" />
             <!-- REQUIRE ADDITIONAL PROPERTIES AND A FUNCTION TO CALCULATE THE CURRENT RATE 
 				Need to know the state of the player (Walking vs surfing) to make this fully dynamic
 			-->
-			<property name="encounter_rate" type="int" />
+			<property name="encounter_rate" type="uint" />
             <encounter_rates>
-                <property name="morning" type="int" address="0xd265" />
-                <property name="day"     type="int" address="0xd266" />
-                <property name="night"   type="int" address="0xd267" />
-                <property name="water"   type="int" address="0xd268" />
+                <property name="morning" type="uint" address="0xd265" />
+                <property name="day"     type="uint" address="0xd266" />
+                <property name="night"   type="uint" address="0xd267" />
+                <property name="water"   type="uint" address="0xd268" />
             </encounter_rates>
         </overworld>
 
@@ -1789,45 +1789,45 @@
         </event_flags>
 
         <roamers>
-            <property name="roamers_current_map_index" type="int" address="0xdfef" />
-            <property name="roamers_currnet_map_group" type="int" address="0xdff0" reference="map_groups" />
-            <property name="roamers_last_map_number"   type="int" address="0xdff1" />
-            <property name="roamers_last_map_group"    type="int" address="0xdff2" reference="map_groups" />
+            <property name="roamers_current_map_index" type="uint" address="0xdfef" />
+            <property name="roamers_currnet_map_group" type="uint" address="0xdff0" reference="map_groups" />
+            <property name="roamers_last_map_number"   type="uint" address="0xdff1" />
+            <property name="roamers_last_map_group"    type="uint" address="0xdff2" reference="map_groups" />
             <macro name="0" type="roamer" var:address="0xdfda" />
             <macro name="1" type="roamer" var:address="0xdfd6" />
             <macro name="2" type="roamer" var:address="0xdfdd" />
         </roamers>
 
         <battle>
-            <property name="mode"        type="int"    address="0xd238" reference="battle_modes" />
-            <property name="outcome"     type="int" />
-            <property name="type"        type="int"    address="0xd23b" reference="battle_types" />
+            <property name="mode"        type="uint"    address="0xd238" reference="battle_modes" />
+            <property name="outcome"     type="uint" />
+            <property name="type"        type="uint"    address="0xd23b" reference="battle_types" />
             <player>
-                <property name="party_position" type="int" address="0xd0df" />
+                <property name="party_position" type="uint" address="0xd0df" />
                 <active_pokemon>
-                    <property name="held_item"      type="int" address="0xC62D" reference="items" />
-                    <property name="species"        type="int" address="0xC62C" reference="species"  />
-                    <property name="dex_number"     type="int" address="0xC62C" reference="dex_numbers"  />
-                    <property name="type_1"         type="int" address="0xC64A" reference="types"  />
-                    <property name="type_2"         type="int" address="0xC64B" reference="types"  />
-                    <property name="level"          type="int" address="0xC639" />
+                    <property name="held_item"      type="uint" address="0xC62D" reference="items" />
+                    <property name="species"        type="uint" address="0xC62C" reference="species"  />
+                    <property name="dex_number"     type="uint" address="0xC62C" reference="dex_numbers"  />
+                    <property name="type_1"         type="uint" address="0xC64A" reference="types"  />
+                    <property name="type_2"         type="uint" address="0xC64B" reference="types"  />
+                    <property name="level"          type="uint" address="0xC639" />
                     <stats>
-                        <property name="hp"              type="int" address="0xC63C" length="2" />
-                        <property name="hp_max"          type="int" address="0xC63E" length="2" />
-                        <property name="attack"          type="int" address="0xC640" length="2" description="The Player's active Pokemon's Attack stat as calculated in battle (badge boosts and stat modifications included" />
-                        <property name="defense"         type="int" address="0xC642" length="2" description="The Player's active Pokemon's Defense stat as calculated in battle (badge boosts and stat modifications included" />
-                        <property name="speed"           type="int" address="0xC644" length="2" description="The Player's active Pokemon's Speed stat as calculated in battle (badge boosts and stat modifications included" />
-                        <property name="special_attack"  type="int" address="0xC646" length="2" description="The Player's active Pokemon's Special Attack stat as calculated in battle (badge boosts and stat modifications included" />
-                        <property name="special_defense" type="int" address="0xC648" length="2" description="The Player's active Pokemon's Special Defense stat as calculated in battle (badge boosts and stat modifications included" />
+                        <property name="hp"              type="uint" address="0xC63C" length="2" />
+                        <property name="hp_max"          type="uint" address="0xC63E" length="2" />
+                        <property name="attack"          type="uint" address="0xC640" length="2" description="The Player's active Pokemon's Attack stat as calculated in battle (badge boosts and stat modifications included" />
+                        <property name="defense"         type="uint" address="0xC642" length="2" description="The Player's active Pokemon's Defense stat as calculated in battle (badge boosts and stat modifications included" />
+                        <property name="speed"           type="uint" address="0xC644" length="2" description="The Player's active Pokemon's Speed stat as calculated in battle (badge boosts and stat modifications included" />
+                        <property name="special_attack"  type="uint" address="0xC646" length="2" description="The Player's active Pokemon's Special Attack stat as calculated in battle (badge boosts and stat modifications included" />
+                        <property name="special_defense" type="uint" address="0xC648" length="2" description="The Player's active Pokemon's Special Defense stat as calculated in battle (badge boosts and stat modifications included" />
                     </stats>
                     <modifiers>
-                        <property name="attack"          type="int" address="0xC6CC" reference="stage_modifiers" />
-                        <property name="defense"         type="int" address="0xC6CD" reference="stage_modifiers" />
-                        <property name="speed"           type="int" address="0xC6CE" reference="stage_modifiers" />
-                        <property name="special_attack"  type="int" address="0xC6CF" reference="stage_modifiers" />
-                        <property name="special_defense" type="int" address="0xC6D0" reference="stage_modifiers" />
-                        <property name="accuracy"        type="int" address="0xC6D1" reference="stage_modifiers" />
-                        <property name="evasion"         type="int" address="0xC6D2" reference="stage_modifiers" />
+                        <property name="attack"          type="uint" address="0xC6CC" reference="stage_modifiers" />
+                        <property name="defense"         type="uint" address="0xC6CD" reference="stage_modifiers" />
+                        <property name="speed"           type="uint" address="0xC6CE" reference="stage_modifiers" />
+                        <property name="special_attack"  type="uint" address="0xC6CF" reference="stage_modifiers" />
+                        <property name="special_defense" type="uint" address="0xC6D0" reference="stage_modifiers" />
+                        <property name="accuracy"        type="uint" address="0xC6D1" reference="stage_modifiers" />
+                        <property name="evasion"         type="uint" address="0xC6D2" reference="stage_modifiers" />
                     </modifiers>
                     <moves>
                         <macro name="0" type="battle_moves" var:moveAddress="0xC62E" />
@@ -1870,31 +1870,31 @@
                         <property name="cant_run"        type="bool" address="0xC66C" bits="7" />
                     </effects>
                     <counters>
-                        <property name="rollout"     type="int" address="0xC672" />
-                        <property name="confuse"     type="int" address="0xC673" />
-                        <property name="toxic"       type="int" address="0xC674" />
-                        <property name="disable"     type="int" address="0xC675" />
-                        <property name="encore"      type="int" address="0xC676" />
-                        <property name="perish"      type="int" address="0xC677" />
-                        <property name="fury_cutter" type="int" address="0xC678" />
-                        <property name="protect"     type="int" address="0xC679" />
+                        <property name="rollout"     type="uint" address="0xC672" />
+                        <property name="confuse"     type="uint" address="0xC673" />
+                        <property name="toxic"       type="uint" address="0xC674" />
+                        <property name="disable"     type="uint" address="0xC675" />
+                        <property name="encore"      type="uint" address="0xC676" />
+                        <property name="perish"      type="uint" address="0xC677" />
+                        <property name="fury_cutter" type="uint" address="0xC678" />
+                        <property name="protect"     type="uint" address="0xC679" />
                     </counters>
                 </active_pokemon>
             </player>
             <opponent>
                 <property name="name"    type="string" address="0xd22f" length="11" />
-                <property name="trainer" type="int"    address="0xd22f" reference="trainer_classes" />
-                <property name="id"      type="int"    address="0xD231" />
-                <property name="team_count" type="int" address="0xD280" />
-                <property name="party_position" type="int" address="0xC663" />
+                <property name="trainer" type="uint"    address="0xd22f" reference="trainer_classes" />
+                <property name="id"      type="uint"    address="0xD231" />
+                <property name="team_count" type="uint" address="0xD280" />
+                <property name="party_position" type="uint" address="0xC663" />
                 <active_pokemon>
-                    <property name="species"    type="int" address="0xd206" reference="species" />
-                    <property name="dex_number" type="int" address="0xd206" reference="dex_numbers" />
-                    <property name="type_1"     type="int" address="0xD224" reference="types" />
-                    <property name="type_2"     type="int" address="0xD225" reference="types" />
-                    <property name="held_item"  type="int" address="0xd207" reference="items" />
-                    <property name="level"      type="int" address="0xD12D" />
-                    <property name="status_condition" type="int" address="0xd214" reference="status_conditions" />
+                    <property name="species"    type="uint" address="0xd206" reference="species" />
+                    <property name="dex_number" type="uint" address="0xd206" reference="dex_numbers" />
+                    <property name="type_1"     type="uint" address="0xD224" reference="types" />
+                    <property name="type_2"     type="uint" address="0xD225" reference="types" />
+                    <property name="held_item"  type="uint" address="0xd207" reference="items" />
+                    <property name="level"      type="uint" address="0xD12D" />
+                    <property name="status_condition" type="uint" address="0xd214" reference="status_conditions" />
                     <moves>
                         <macro name="0" type="battle_moves" var:moveAddress="0xD208" />
                         <macro name="1" type="battle_moves" var:moveAddress="0xD209" />
@@ -1902,37 +1902,37 @@
                         <macro name="3" type="battle_moves" var:moveAddress="0xD20B" />
                     </moves>
                     <stats>
-                        <property name="hp"      type="int" address="0xD216" length="2" />
-                        <property name="hp_max"  type="int" address="0xD218" length="2" />
-                        <property name="attack"  type="int" address="0xD21a" length="2" />
-                        <property name="defense" type="int" address="0xD21c" length="2" />
-                        <property name="special_attack"  type="int" address="0xD220" length="2" />
-                        <property name="special_defense" type="int" address="0xD222" length="2" />
-                        <property name="speed" type="int" address="0xD21E" length="2" />
+                        <property name="hp"      type="uint" address="0xD216" length="2" />
+                        <property name="hp_max"  type="uint" address="0xD218" length="2" />
+                        <property name="attack"  type="uint" address="0xD21a" length="2" />
+                        <property name="defense" type="uint" address="0xD21c" length="2" />
+                        <property name="special_attack"  type="uint" address="0xD220" length="2" />
+                        <property name="special_defense" type="uint" address="0xD222" length="2" />
+                        <property name="speed" type="uint" address="0xD21E" length="2" />
                     </stats>
                     <modifiers>
-                        <property name="attack"  type="int" address="0xC6D4" reference="stage_modifiers" />
-                        <property name="defense" type="int" address="0xC6D5" reference="stage_modifiers" />
-                        <property name="speed"   type="int" address="0xC6D6" reference="stage_modifiers" />
-                        <property name="special_attack"  type="int" address="0xC6D7" reference="stage_modifiers" />
-                        <property name="special_defense" type="int" address="0xC6D8" reference="stage_modifiers" />
-                        <property name="accuracy" type="int" address="0xC6D9" reference="stage_modifiers" />
-                        <property name="evasion"  type="int" address="0xC6DA" reference="stage_modifiers" />
+                        <property name="attack"  type="uint" address="0xC6D4" reference="stage_modifiers" />
+                        <property name="defense" type="uint" address="0xC6D5" reference="stage_modifiers" />
+                        <property name="speed"   type="uint" address="0xC6D6" reference="stage_modifiers" />
+                        <property name="special_attack"  type="uint" address="0xC6D7" reference="stage_modifiers" />
+                        <property name="special_defense" type="uint" address="0xC6D8" reference="stage_modifiers" />
+                        <property name="accuracy" type="uint" address="0xC6D9" reference="stage_modifiers" />
+                        <property name="evasion"  type="uint" address="0xC6DA" reference="stage_modifiers" />
                     </modifiers>
-                    <property name="enemy_mon_end" type="int" address="0xD22D" />
+                    <property name="enemy_mon_end" type="uint" address="0xD22D" />
                     <base_stats>
-                        <property name="hp"              type="int" address="0xd231" length="2" />
-                        <property name="attack"          type="int" address="0xd231 + 2" length="2" />
-                        <property name="defense"         type="int" address="0xd231 + 4" length="2" />
-                        <property name="speed"           type="int" address="0xd231 + 6" length="2" />
-                        <property name="special_attack"  type="int" address="0xd231 + 8" length="2" />
-                        <property name="special_defense" type="int" address="0xd231 + 10" length="2" />
+                        <property name="hp"              type="uint" address="0xd231" length="2" />
+                        <property name="attack"          type="uint" address="0xd231 + 2" length="2" />
+                        <property name="defense"         type="uint" address="0xd231 + 4" length="2" />
+                        <property name="speed"           type="uint" address="0xd231 + 6" length="2" />
+                        <property name="special_attack"  type="uint" address="0xd231 + 8" length="2" />
+                        <property name="special_defense" type="uint" address="0xd231 + 10" length="2" />
                     </base_stats>
                     <ivs>
-                        <property name="attack"  type="int" address="0xD20C" bits="4-7" />
-                        <property name="defense" type="int" address="0xD20C" bits="0-3" />
-                        <property name="speed"   type="int" address="0xD20D" bits="4-7" />
-                        <property name="special" type="int" address="0xD20D" bits="0-3" />
+                        <property name="attack"  type="uint" address="0xD20C" bits="4-7" />
+                        <property name="defense" type="uint" address="0xD20C" bits="0-3" />
+                        <property name="speed"   type="uint" address="0xD20D" bits="4-7" />
+                        <property name="special" type="uint" address="0xD20D" bits="0-3" />
                     </ivs>
                     <volatile_status_conditions>
                         <property name="confused"        type="bool" address="0xC66F" bits="7" />
@@ -1969,14 +1969,14 @@
                         <property name="cant_run"        type="bool" address="0xC671" bits="7" />
                     </effects>
                     <counters>
-                        <property name="rollout"     type="int" address="0xC67A" />
-                        <property name="confuse"     type="int" address="0xC67B" />
-                        <property name="toxic"       type="int" address="0xC67C" />
-                        <property name="disable"     type="int" address="0xC67D" />
-                        <property name="encore"      type="int" address="0xC67E" />
-                        <property name="perish"      type="int" address="0xC67F" />
-                        <property name="fury_cutter" type="int" address="0xC680" />
-                        <property name="protect"     type="int" address="0xC681" />
+                        <property name="rollout"     type="uint" address="0xC67A" />
+                        <property name="confuse"     type="uint" address="0xC67B" />
+                        <property name="toxic"       type="uint" address="0xC67C" />
+                        <property name="disable"     type="uint" address="0xC67D" />
+                        <property name="encore"      type="uint" address="0xC67E" />
+                        <property name="perish"      type="uint" address="0xC67F" />
+                        <property name="fury_cutter" type="uint" address="0xC680" />
+                        <property name="protect"     type="uint" address="0xC681" />
                     </counters>
                 </active_pokemon>
                 <team>
@@ -1993,29 +1993,29 @@
                     <property name="safeguard"   type="bool" address="0xC6FF" bits="2" />
                     <property name="reflect"     type="bool" address="0xC6FF" bits="4" />
                     <property name="lightscreen" type="bool" address="0xC6FF" bits="3" />
-                    <property name="safeguard_count"   type="int" address="0xC701" />
-                    <property name="lightscreen_count" type="int" address="0xC702" />
-                    <property name="reflect_count"     type="int" address="0xC703" />
+                    <property name="safeguard_count"   type="uint" address="0xC701" />
+                    <property name="lightscreen_count" type="uint" address="0xC702" />
+                    <property name="reflect_count"     type="uint" address="0xC703" />
                 </player>
                 <opponent>
                     <property name="safeguard"   type="bool" address="0xC700" bits="2" />
                     <property name="reflect"     type="bool" address="0xC700" bits="4" />
                     <property name="lightscreen" type="bool" address="0xC700" bits="3" />
-                    <property name="safeguard_count"   type="int" address="0xCBE3" />
-                    <property name="lightscreen_count" type="int" address="0xCBE4" />
-                    <property name="reflect_count"     type="int" address="0xCBE5" />
+                    <property name="safeguard_count"   type="uint" address="0xCBE3" />
+                    <property name="lightscreen_count" type="uint" address="0xCBE4" />
+                    <property name="reflect_count"     type="uint" address="0xCBE5" />
                 </opponent>
-                <property name="weather"       type="int" address="0xC70a" reference="weather" />
-                <property name="weather_count" type="int" address="0xC70b" />
+                <property name="weather"       type="uint" address="0xC70a" reference="weather" />
+                <property name="weather_count" type="uint" address="0xC70b" />
             </field>
             <other>
-                <property name="current_damage"    type="int" address="0xD256" length="2" />
-                <property name="low_health_alarm"  type="int" address="0xC6FD" reference="low_health_alarm" />
-                <property name="miss"              type="int" address="0xc667" length="1" />
-                <property name="turn_ended"        type="int" address="0xc6b4" length="1" />
-                <property name="player_turn_taken" type="int" address="0xc6dd" length="1" />
-                <property name="enemy_turn_taken"  type="int" address="0xc6dc" length="1" />
-                <property name="battle_start"      type="int" address="0xD264" />
+                <property name="current_damage"    type="uint" address="0xD256" length="2" />
+                <property name="low_health_alarm"  type="uint" address="0xC6FD" reference="low_health_alarm" />
+                <property name="miss"              type="uint" address="0xc667" length="1" />
+                <property name="turn_ended"        type="uint" address="0xc6b4" length="1" />
+                <property name="player_turn_taken" type="uint" address="0xc6dd" length="1" />
+                <property name="enemy_turn_taken"  type="uint" address="0xc6dc" length="1" />
+                <property name="battle_start"      type="uint" address="0xD264" />
                 <!--
                     ; Bit array.  Bits 0 - 5 correspond to party members 1 - 6.
                     ; Bit set if the mon appears in battle.
@@ -2029,7 +2029,7 @@
                 <property name="battle_participants_not_fainted_slot_3" type="bool" address="0xC664" bits="3"/>
                 <property name="battle_participants_not_fainted_slot_4" type="bool" address="0xC664" bits="4"/>
                 <property name="battle_participants_not_fainted_slot_5" type="bool" address="0xC664" bits="5"/>
-                <property name="outcome_flags" type="int" address="0xD0EE" />
+                <property name="outcome_flags" type="uint" address="0xD0EE" />
                 <property name="text_buffer" type="string" address="0xD073" length="11" />
             </other>
         </battle>
@@ -2039,19 +2039,19 @@
         </rival>
 
         <audio>
-            <property name="map_music"     type="int" address="0xC2C0" />
-            <property name="current_sound" type="int" address="0xC2BF" />
-            <property name="music_id"      type="int" address="0xC29D" length="2" />
-            <property name="music_bank"    type="int" address="0xC29F" />
+            <property name="map_music"     type="uint" address="0xC2C0" />
+            <property name="current_sound" type="uint" address="0xC2BF" />
+            <property name="music_id"      type="uint" address="0xC29D" length="2" />
+            <property name="music_bank"    type="uint" address="0xC29F" />
             <channels>
-                <property name="0" type="int" address="0xC101" length="2" />
-                <property name="1" type="int" address="0xC133" length="2" />
-                <property name="2" type="int" address="0xC165" length="2" />
-                <property name="3" type="int" address="0xC197" length="2" />
-                <property name="4" type="int" address="0xC1C9" length="2" />
-                <property name="5" type="int" address="0xC1FB" length="2" />
-                <property name="6" type="int" address="0xC22D" length="2" />
-                <property name="7" type="int" address="0xC25F" length="2" />
+                <property name="0" type="uint" address="0xC101" length="2" />
+                <property name="1" type="uint" address="0xC133" length="2" />
+                <property name="2" type="uint" address="0xC165" length="2" />
+                <property name="3" type="uint" address="0xC197" length="2" />
+                <property name="4" type="uint" address="0xC1C9" length="2" />
+                <property name="5" type="uint" address="0xC1FB" length="2" />
+                <property name="6" type="uint" address="0xC22D" length="2" />
+                <property name="7" type="uint" address="0xC25F" length="2" />
             </channels>
         </audio>
 
@@ -2060,36 +2060,36 @@
                 <property name="prompt" type="string" address="0xC606" reference="text_prompt" />
             </text>
             <menu>
-                <property name="current_item"                     type="int" address="0xCC26" />
-                <property name="menu_flags"                       type="int" address="0xCF81" />
-                <property name="menu_cursor_position"             type="int" address="0xCF88" />
-                <property name="party_menu_cursor"                type="int" address="0xD0D8" />
-                <property name="items_pocket_cursor"              type="int" address="0xD0D9" />
-                <property name="key_items_pocket_cursor"          type="int" address="0xD0Da" />
-                <property name="balls_pocket_cursor"              type="int" address="0xD0Db" />
-                <property name="tmhm_pocket_cursor"               type="int" address="0xD0Dc" />
-                <property name="items_pocket_scroll_position"     type="int" address="0xD0Df" />
-                <property name="key_items_pocket_scroll_position" type="int" address="0xD0E0" />
-                <property name="balls_pocket_scroll_position"     type="int" address="0xD0E1" />
-                <property name="tmhm_pocket_scroll_position"      type="int" address="0xD0E2" />
-                <property name="pc_items_cursor"                  type="int" address="0xD0D7" />
-                <property name="pc_items_scroll_position"         type="int" address="0xD0Dd" />
+                <property name="current_item"                     type="uint" address="0xCC26" />
+                <property name="menu_flags"                       type="uint" address="0xCF81" />
+                <property name="menu_cursor_position"             type="uint" address="0xCF88" />
+                <property name="party_menu_cursor"                type="uint" address="0xD0D8" />
+                <property name="items_pocket_cursor"              type="uint" address="0xD0D9" />
+                <property name="key_items_pocket_cursor"          type="uint" address="0xD0Da" />
+                <property name="balls_pocket_cursor"              type="uint" address="0xD0Db" />
+                <property name="tmhm_pocket_cursor"               type="uint" address="0xD0Dc" />
+                <property name="items_pocket_scroll_position"     type="uint" address="0xD0Df" />
+                <property name="key_items_pocket_scroll_position" type="uint" address="0xD0E0" />
+                <property name="balls_pocket_scroll_position"     type="uint" address="0xD0E1" />
+                <property name="tmhm_pocket_scroll_position"      type="uint" address="0xD0E2" />
+                <property name="pc_items_cursor"                  type="uint" address="0xD0D7" />
+                <property name="pc_items_scroll_position"         type="uint" address="0xD0Dd" />
             </menu>
             <column_1>
                 <tiles>
-                    <property name="0" type="int" address="0x980C" />
-                    <property name="1" type="int" address="0x982C" />
-                    <property name="2" type="int" address="0x984C" />
-                    <property name="3" type="int" address="0x986C" />
-                    <property name="4" type="int" address="0x988C" />
-                    <property name="5" type="int" address="0x98AC" />
-                    <property name="6" type="int" address="0x98CC" />
+                    <property name="0" type="uint" address="0x980C" />
+                    <property name="1" type="uint" address="0x982C" />
+                    <property name="2" type="uint" address="0x984C" />
+                    <property name="3" type="uint" address="0x986C" />
+                    <property name="4" type="uint" address="0x988C" />
+                    <property name="5" type="uint" address="0x98AC" />
+                    <property name="6" type="uint" address="0x98CC" />
                 </tiles>
             </column_1>
         </screen>
 
         <options>
-            <property name="text_speed"        type="int" address="0xCFCC" after-read-value-expression="getBits(x, 0, 3)" reference="text_speeds" />
+            <property name="text_speed"        type="uint" address="0xCFCC" after-read-value-expression="getBits(x, 0, 3)" reference="text_speeds" />
             <property name="no_text_scroll"    type="bool" address="0xCFCC" bits="4" />
             <property name="sound"             type="bool" address="0xCFCC" bits="5" description="Mono = False, Stereo = True" />
             <property name="battle_style"      type="bool" address="0xCFCC" bits="6" description="Shift = False, Set = True" />
@@ -2097,37 +2097,37 @@
         </options>
 
         <game_time>
-            <property name="hours"   type="int" address="0xd4cf" length="2" />
-            <property name="minutes" type="int" address="0xd4d1" />
-            <property name="seconds" type="int" address="0xd4d2" />
-            <property name="frames"  type="int" address="0xd4d3" />
+            <property name="hours"   type="uint" address="0xd4cf" length="2" />
+            <property name="minutes" type="uint" address="0xd4d1" />
+            <property name="seconds" type="uint" address="0xd4d2" />
+            <property name="frames"  type="uint" address="0xd4d3" />
         </game_time>
 
         <time>
             <current>
-                <property name="day"         type="int" address="0xd4cb" reference="day_names" after-read-value-expression="x % 7" />
-                <property name="hour"        type="int" address="0xff94" />
-                <property name="minute"      type="int" address="0xff96" />
-                <property name="second"      type="int" address="0xff98" />
+                <property name="day"         type="uint" address="0xd4cb" reference="day_names" after-read-value-expression="x % 7" />
+                <property name="hour"        type="uint" address="0xff94" />
+                <property name="minute"      type="uint" address="0xff96" />
+                <property name="second"      type="uint" address="0xff98" />
                 <property name="dst"         type="bool" address="0xd4cd" bits="7" />
-                <property name="time_of_day" type="int" address="0xd274" reference="time_of_day" />
+                <property name="time_of_day" type="uint" address="0xd274" reference="time_of_day" />
             </current>
             <start>
-                <property name="day"    type="int" address="0xd4c1" reference="day_names" />
-                <property name="hour"   type="int" address="0xd4c2" />
-                <property name="minute" type="int" address="0xd4c3" />
-                <property name="second" type="int" address="0xd4c4" />
+                <property name="day"    type="uint" address="0xd4c1" reference="day_names" />
+                <property name="hour"   type="uint" address="0xd4c2" />
+                <property name="minute" type="uint" address="0xd4c3" />
+                <property name="second" type="uint" address="0xd4c4" />
             </start>
             <rtc>
-                <property name="day"    type="int" address="0xff8d" length="2" after-read-value-expression="(x % 512) % 7" />
-                <property name="hour"   type="int" address="0xff8f" />
-                <property name="minute" type="int" address="0xff90" />
-                <property name="second" type="int" address="0xff91" />
-                <property name="day_hi" type="int" address="0xff8d" />
-                <property name="day_lo" type="int" address="0xff8e" />
+                <property name="day"    type="uint" address="0xff8d" length="2" after-read-value-expression="(x % 512) % 7" />
+                <property name="hour"   type="uint" address="0xff8f" />
+                <property name="minute" type="uint" address="0xff90" />
+                <property name="second" type="uint" address="0xff91" />
+                <property name="day_hi" type="uint" address="0xff8d" />
+                <property name="day_lo" type="uint" address="0xff8e" />
             </rtc>
             <game_clock>
-                <property name="day" type="int" address="0xd4c1" reference="day_names" />
+                <property name="day" type="uint" address="0xd4c1" reference="day_names" />
             </game_clock>
         </time>
         <input>
@@ -2141,7 +2141,7 @@
             <property name="down" type="bool" address="0xffa4" bits="7"/>
         </input>
         <meta>
-            <property name="generation" type="int" value="2" />
+            <property name="generation" type="uint" value="2" />
 			<property name="game_name"  type="string" value="Crystal Legacy" />
             <property name="game_type"  type="string" value="ROM Hack" />
 			<property name="state"      type="string" />
